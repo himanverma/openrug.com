@@ -123,7 +123,7 @@ class BannersController extends AppController {
 			throw new NotFoundException(__('Invalid banner'));
 		}
 		$this->request->allowMethod('post', 'delete');
-		if ($this->Banner->delete()) {
+		if ($this->Banner->delete($id=NULL)) {
 			$this->Session->setFlash(__('The banner has been deleted.'));
 		} else {
 			$this->Session->setFlash(__('The banner could not be deleted. Please, try again.'));
