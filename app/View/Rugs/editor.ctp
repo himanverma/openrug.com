@@ -35,29 +35,30 @@
                         <span class="swatch-picker">
                             <img src="<?php echo $this->Html->url("/images/shap-1.png"); ?>" alt="">
                             <div class="swatch-pick">
-                                <table cellpadding="5">
+                                <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
+                                <table id="shape-pick" cellpadding="5">
                                     <tr>
                                         <td align="center">
-                                            <img src="<?php echo $this->Html->url("/images/oval.png"); ?>" alt=""><br>
+                                            <img data-shp="oval" src="<?php echo $this->Html->url("/images/oval.png"); ?>" alt=""><br>
                                             <strong>Oval</strong>
                                         </td>
                                         <td align="center">
-                                            <img src="<?php echo $this->Html->url("/images/square.png"); ?>" alt=""><br>
+                                            <img data-shp="square" src="<?php echo $this->Html->url("/images/square.png"); ?>" alt=""><br>
                                             <strong>Square</strong>
                                         </td>
                                         <td align="center">
-                                            <img src="<?php echo $this->Html->url("/images/round_1.png"); ?>" alt=""><br>
+                                            <img data-shp="round" src="<?php echo $this->Html->url("/images/round_1.png"); ?>" alt=""><br>
                                             <strong>Round</strong>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="center">
-                                            <img src="<?php echo $this->Html->url("/images/rectangular.png"); ?>" alt=""><br>
+                                            <img data-shp="rect" src="<?php echo $this->Html->url("/images/rectangular.png"); ?>" alt=""><br>
                                             <strong>Rectangular</strong>
                                         </td>
                                         <td></td>
                                         <td align="center">
-                                            <img src="<?php echo $this->Html->url("/images/runners.png"); ?>" alt=""><br>
+                                            <img data-shp="runner" src="<?php echo $this->Html->url("/images/runners.png"); ?>" alt=""><br>
                                             <strong>Runners</strong>
                                         </td>
                                     </tr>
@@ -74,19 +75,19 @@
             <div class="col-sm-12">
                 
                 <div id="rug-preview">
-                    <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims."gen.png"); ?>"/>
+                    <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims.$defaultShp.".png"); ?>"/>
                     <div class="col-sm-12 sm-p-trig">
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims."gen.png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp.".png"); ?>" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims."gen1.png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."1.png"); ?>" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims."gen2.png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."2.png"); ?>" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims."gen3.png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."3.png"); ?>" alt="" width="100%">
                         </div>
                         <div class="im col-sm-4">
                             
@@ -656,6 +657,12 @@
             var clr = $(this).data().clr ; 
             console.log($(this).parent().parent().parent().parent().parent());
             $(this).parent().parent().parent().parent().parent().parent().find('input').val(clr);
+            $(this).parents('form').submit();
+        });
+        $('#shape-pick img').on("click",function(){
+            var shp = $(this).data().shp;
+            console.log(shp);
+            $(this).parent().parent().parent().parent().parent().find('input').val(shp);
             $(this).parents('form').submit();
         });
     });
