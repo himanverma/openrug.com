@@ -272,7 +272,8 @@ class RugsController extends AppController {
         $shapeCounts = $this->countDir($s[0] . "/" . $s[1] . "/" . $s[2] . "/");
         if ($this->request->is(array('post'))) {
             $colorstamp = implode("-", $this->request->data['clr_sb']);
-            $ims = $this->genImg($rug['Rugpng'], $this->request->data['clr_sb'], $this->createDirGen($rug['Rug']['id'], $colorstamp));
+            $ims = $this->genImgRound($rug['Rugpng'], $this->request->data['clr_sb'], $dir =  $this->createDirGen($rug['Rug']['id'], $colorstamp));
+            //$this->genImgRect($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp));
             $defaultClr = array();
             foreach ($this->request->data['clr_sb'] as $clrs) {
                 $defaultClr[] = array(
