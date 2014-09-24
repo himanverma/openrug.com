@@ -144,7 +144,7 @@ class RugsController extends AppController {
 
     
     private function genImgRect($rugpngs, $colors = array(), $location = "files/temp/") {
-        if (is_file($location . "gen.png")) {
+        if (is_file($location . "rect.png")) {
             return $location;
         }
         ini_set("max_execution_time", -1);
@@ -189,45 +189,45 @@ class RugsController extends AppController {
         );
         $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
 
-        $rnd = new Imagick("files/templates/round2.png");
+        $rnd = new Imagick("files/templates/ptrn-1.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/round2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/ptrn-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen.png");
+        $rnd->setImageFileName($location . "rect.png");
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/round3.png");
+        $rnd = new Imagick("files/templates/ptrn-2.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/round3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/ptrn-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen1.png");
+        $rnd->setImageFileName($location . "rect1.png");
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/round4.png");
+        $rnd = new Imagick("files/templates/ptrn-3.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/round4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/ptrn-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen2.png");
+        $rnd->setImageFileName($location . "rect2.png");
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/roundroom.png");
+        $rnd = new Imagick("files/templates/ptrn-4.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/roundroom.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/ptrn-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $rnd->compositeimage(new Imagick("files/templates/roundroom-bg.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/ptrn-5.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen3.png");
+        $rnd->setImageFileName($location . "rect3.png");
         $rnd->writeimage();
         $rnd->destroy();
 
@@ -273,7 +273,7 @@ class RugsController extends AppController {
         if ($this->request->is(array('post'))) {
             $colorstamp = implode("-", $this->request->data['clr_sb']);
             $ims = $this->genImgRound($rug['Rugpng'], $this->request->data['clr_sb'], $dir =  $this->createDirGen($rug['Rug']['id'], $colorstamp));
-            //$this->genImgRect($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp));
+            $this->genImgRect($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
             $defaultClr = array();
             foreach ($this->request->data['clr_sb'] as $clrs) {
                 $defaultClr[] = array(
