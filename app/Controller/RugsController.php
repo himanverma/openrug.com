@@ -189,21 +189,21 @@ class RugsController extends AppController {
         );
         $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
 
-        $rnd = new Imagick("files/templates/ptrn-1.png");
+        $rnd = new Imagick("files/templates/rect/ptrn-1.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/ptrn-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect.png");
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/ptrn-2.png");
+        $rnd = new Imagick("files/templates/rect/ptrn-2.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/ptrn-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect1.png");
         $rnd->writeimage();
@@ -213,7 +213,7 @@ class RugsController extends AppController {
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/ptrn-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect2.png");
         $rnd->writeimage();
@@ -223,9 +223,9 @@ class RugsController extends AppController {
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/ptrn-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $rnd->compositeimage(new Imagick("files/templates/ptrn-5.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-5.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect3.png");
         $rnd->writeimage();
