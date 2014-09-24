@@ -237,7 +237,7 @@ class RugsController extends AppController {
     
     public function editor($id = null, $shape = "Rectangle") {
         if ($id == null) {
-            $id = 4;
+            $id = 5;
         }
         $rug = $this->Rug->find("first", array(
             'conditions' => array(
@@ -283,6 +283,29 @@ class RugsController extends AppController {
             }
             //debug($this->request->data);
             //exit;
+        }else{
+            $clrTemp = $this->Rug->Rugpng->find("list", array(
+                'fields' => array('Rugpng.color'),
+                'conditions' => array(
+                    'Rugpng.type' => "LAYER",
+                    'Rugpng.shape' => $shape,
+                    'Rugpng.rug_id' => $rug['Rug']['id']
+                )
+            ));
+            $clr = array();
+            foreach($clrTemp as $v){
+                $clr[] = '#'.$v;
+            }            
+            $colorstamp = implode("-", $clr);
+            $ims = $this->genImgRound($rug['Rugpng'], $clr, $dir =  $this->createDirGen($rug['Rug']['id'], $colorstamp));
+            $this->genImgRect($rug['Rugpng'], $clr, $dir, $colorstamp);
+            $defaultClr = array();
+            foreach ($clr as $clrs) {
+                $defaultClr[] = array(
+                    "png" => ltrim($clrs, "#") . ".png",
+                    "clr" => $clrs
+                );
+            }
         }
         $this->set("ims", "/" . $ims);
         $this->set("defaultClr", $defaultClr);
