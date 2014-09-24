@@ -8,7 +8,7 @@
 		</dd>
 		<dt><?php echo __('Image'); ?></dt>
 		<dd>
-			<?php echo $this->Html->image('../files/banner_image/'.$banner['Banner']['image'],array('style'=>'width:100%')); ?>
+			<?php echo $this->Html->image('../files/banner_image/'.$banner['Banner']['image'],array('style'=>'width:50%')); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Title'); ?></dt>
