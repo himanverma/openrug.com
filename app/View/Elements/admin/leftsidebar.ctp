@@ -41,6 +41,20 @@
             </li>
             
             
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-circle"></i>
+                    <span>Banner Template</span>
+                    <!--<small class="badge pull-right bg-green">new</small>-->
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo $this->Html->url('/admin/Banners/');?>"><i class="fa fa-angle-double-right"></i> List All</a></li>
+                    <li><a href="<?php echo $this->Html->url('/admin/Banners/add');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
+                </ul>
+            </li>
+            
+            
             
             
 <!--            <li class="active">
