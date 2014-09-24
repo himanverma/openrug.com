@@ -59,7 +59,7 @@ class BannersController extends AppController {
 			if ($this->Banner->save($this->request->data)) {
                             if($one['error']==0){
                                 $destination="files".DS."banner_image".DS.$image_name;
-                                move_uploaded_file($this->data[$this->alias]['tmp_name'],$destination);
+                                move_uploaded_file($one['tmp_name'],$destination);
                             }
 				$this->Session->setFlash(__('The banner has been saved.'));
 				return $this->redirect(array('action' => 'index'));
@@ -77,6 +77,7 @@ class BannersController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
+                Configure::write('debug',0);
                 $this->Banner->id = $id;	
 		if (!$this->Banner->exists()) {
 			throw new NotFoundException(__('Invalid banner'));
