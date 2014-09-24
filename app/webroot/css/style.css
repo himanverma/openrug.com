@@ -1,0 +1,1446 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*=================================================================================*/
+/*===================================Header========================================*/
+/*=================================================================================*/
+
+
+.social {
+    color: #ff0000;
+    position: absolute;
+    right: 8%;
+    top: 7%;
+    width: 100px;
+    z-index: 999;
+}
+
+.social span{
+	float:left;
+	margin-right:2px;
+}
+
+.social a{
+	width:100%;
+	color: #919191;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 12px;
+	background:none;
+	}
+
+
+
+.dropdown-menu li:hover .sub-menu {
+    visibility: visible;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.navbar-default{
+color: #fff;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#fff;
+}
+.navbar-default .navbar-nav > .dropdown > a .caret{
+	border-top-color: #000;
+    border-bottom-color: #000;
+}
+.navbar-default .navbar-brand{
+	color:#fff;
+}
+.menu-large {
+  position: static !important;
+}
+.megamenu{
+  padding: 20px 0px;
+  width:100%;
+}
+.megamenu> li > ul {
+  padding: 0;
+  margin: 0;
+}
+.megamenu> li > ul > li {
+  list-style: none;
+}
+.megamenu> li > ul > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  color: #333333;
+  white-space: normal;
+}
+.megamenu> li ul > li > a:hover,
+.megamenu> li ul > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.megamenu.disabled > a,
+.megamenu.disabled > a:hover,
+.megamenu.disabled > a:focus {
+  color: #999999;
+}
+.megamenu.disabled > a:hover,
+.megamenu.disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.megamenu.dropdown-header {
+  color: #428bca;
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .megamenu{
+    margin-left: 0 ;
+    margin-right: 0 ;
+  }
+  .megamenu> li {
+    margin-bottom: 30px;
+  }
+  .megamenu> li:last-child {
+    margin-bottom: 0;
+  }
+  .megamenu.dropdown-header {
+    padding: 3px 15px !important;
+
+  }
+  .navbar-nav .open .dropdown-menu .dropdown-header{
+	color: #000;
+    font-size: 18px;
+    margin: 0;
+    padding: 0 0 0 5%;
+  }
+}
+
+
+.top_text{
+	width:100%;
+	float:left;
+	background:#252525;
+	padding: 5px 3%;
+	}
+.left_top {
+    float: left;
+    width: auto;
+}
+.left_top p{
+    float: left;
+    width: auto;
+	font-family: 'avenir_45_bookregular';
+	font-size:12px;
+	color:#afafaf;
+	margin:0px;
+	padding:0px;
+}
+.right-nav{
+	margin:0px;
+	padding:0px;
+	width:100%;
+	float:left;
+	}
+.right-nav ul{
+	margin:0px;
+	padding:0px;
+	float:right;
+	width:100%;
+	}
+.right-nav ul li{
+	display:inline;
+	}
+.right-nav ul li a{
+	margin:0px;
+	padding: 0 1%;
+	float:left;
+	text-align:left;
+	font-family: 'avenir_45_bookregular';
+	font-size:12px;
+	color:#afafaf;
+	width:auto;
+	text-decoration:none;
+	list-style:none;
+	}
+.right-nav ul li a:hover{
+	color:#fff;
+	}
+	
+header{
+	width:100%;
+	float:left;
+	margin:0px;
+	border-bottom:3px double #ccc;
+	padding: 0.2% 0;
+	background:#fff;
+	}
+.logo{
+	width:100%;
+	float:left;
+	text-align:center;
+	}
+.top_nav{
+	width:100%;
+	float:left;
+	margin:0px;
+	padding:0px;
+	}
+
+.top_nav ul{
+	margin:0px;
+	padding:0px;
+	float:left;
+	width:100%;
+	}
+.top_nav ul li{
+	display:inline;
+	}
+.top_nav ul li a{
+	margin:0px;
+	padding: 0 1%;
+	float:left;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:11px;
+	color:#afafaf;
+	text-transform:uppercase;
+	letter-spacing:1.5px;
+	}
+.top_nav ul li a:hover{
+	color:#000;
+	}
+.active{
+	color:#000 !important;
+	}
+.search {
+    margin:0px auto;
+    padding: 14% 0 9%;
+    width: 192px;
+}
+.search input{
+	width:auto;
+	float:left;
+	background:#f2f2f2;
+	border:none;
+	height:27px;
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	color:#afafaf;
+	padding:0 3%;
+	}
+.search input[type=submit]{
+	width:auto;
+	float:left;
+	background:#000;
+	color:#fff;
+	height:27px;
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	}
+	
+
+/*=================================================================================*/
+/*===================================main container================================*/
+/*=================================================================================*/
+
+
+
+.main_con{
+	width:100%;
+	float:left;
+	}
+.con_inn{
+	width:100%;
+	float:left;
+	background:#fff;
+	box-shadow:0 0 10px #ccc;
+	padding-bottom: 10px;
+	margin-bottom:30px;
+	}
+.banner{
+	width:100%;
+	float:left;
+	}
+.carousel-caption h3 {
+    background:url(../images/banner_bg.png) repeat;
+    float: left;
+    width: 100%;
+	margin:0px;
+	padding:0px;
+	color:#fff;
+	font-size:19px;
+	font-family: 'avenir_45_bookregular';
+	padding: 17px;
+	text-transform:uppercase;
+	
+}
+
+.top_cat{
+	width:100%;
+	float:left;
+	padding:1% 0;
+	}
+.cat_img{
+	width:100%;
+	text-align:center;
+	}
+.cat_img img{
+	width:117px;
+	}
+.top_cat h1{
+	width:100%;
+	float:left;
+	font-size:14px;
+	font-family: 'avenir_45_bookregular';
+	text-transform:uppercase;
+	color:#262626;
+	}
+.top_cat p{
+	width:100%;
+	float:left;
+	font-size:13px;
+	font-family: 'avenir_45_bookregular';
+	color:#7a7a7a;
+	}
+.top_cat a{
+	width:100%;
+	float:left;
+	font-size:14px;
+	font-family: 'avenir_45_bookregular';
+	color:#484848;
+	text-align:right;
+	}
+	
+.welcome_text{
+	width:100%;
+	float:left;
+	}
+	
+.welcome_text h1{
+	width:100%;
+	float:left;
+	font-size:19px;
+	font-family: 'avenir_45_bookregular';
+	text-transform:uppercase;
+	color:#2b2727;
+	text-align:center;
+	border-top:1px dashed #777777;
+	padding: 2% 0 1% 0;
+	margin:0px;
+	}
+.welcome_text p{
+	width:100%;
+	float:left;
+	font-size:14px;
+	font-family: 'avenir_45_bookregular';
+	color:#777777;
+	text-align:center;
+	text-transform:uppercase;
+	}
+.welcome_box{
+	width:100%;
+	float:left;
+	border:1px solid #e7e7e7;
+	padding:1%;
+	}
+.welcome_box_inn{
+	width:100%;
+	float:left;
+	padding:5%;
+	background:#e7e7e7;
+	font-size:14px;
+	font-family: 'avenir_45_bookregular';
+	color:#70706f;
+	text-transform:uppercase;
+	border-bottom:1px solid #fff;
+	}
+	
+
+.popular_rug{
+	width:100%;
+	float:left;
+	}
+	
+.popular_rug h1{
+	width:100%;
+	float:left;
+	font-size:19px;
+	font-family: 'avenir_45_bookregular';
+	text-transform:uppercase;
+	color:#2b2727;
+	text-align:left;
+	padding: 2% 0 ;
+	margin:0px;
+	font-weight:bold;
+	}
+.pro{
+	width:100%;
+	float:left;
+	background:#f2f2f2;
+	box-shadow:0 0 5px #ababab;
+	margin-bottom:15px;
+	}
+.pro img{
+	width:90%;
+	margin:5%;
+	}
+.pro p{
+	width:100%;
+	float:left;
+	font-size:12px;
+	font-family: 'avenir_45_bookregular';
+	color:#676766;
+	text-align:left;
+	padding:5% 5% 3% ;
+	line-height:18px;
+	margin:0px;
+	}
+.add_cart{
+	width:100%;
+	float:left;
+	}
+.add_cart span {
+    background: none repeat scroll 0 0 #fff;
+    color: #000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 10px;
+    line-height: 18px;
+    padding: 5% 5% 3%;
+    text-align: left;
+    width: 100%;
+}
+.add_cart span a {
+    color: #000;
+}
+.add_cart span i {
+    color: #9a9a9a;
+    float: left;
+    font-size: 15px;
+    padding: 3px;
+}
+.view {
+    background: none repeat scroll 0 0 #e1e1e1;
+    float: left;
+    width: 100%;
+}
+.view i {
+    color: #9a9a9a;
+    float: left;
+    font-size: 15px;
+    padding: 7px 6px;
+}
+
+
+.facebook_user{
+	width:100%;
+	float:left;
+	}
+.facebook_user h1{
+	width:100%;
+	float:left;
+	font-size:27px;
+	font-family: 'avenir_45_bookregular';
+	color:#005cba;
+	text-align:left;
+	padding: 1% 0;
+	margin:0px;
+	font-weight:normal;
+	border-bottom:1px solid #dfdfdf;
+	border-top:1px solid #dfdfdf;
+	margin: 0 0 10px;
+	}
+.facebook_user h1 span{
+	width:auto;
+	font-size:12px;
+	font-family: 'avenir_45_bookregular';
+	color:#8e8e8e;
+	text-align:left;
+	padding:0 0 0 5px;
+	margin:0px;
+	font-weight:normal;
+	}
+.user{
+	width:100%;
+	float:left;
+	}
+.user img{
+	width:100%;
+	float:left;
+	}
+
+/*=================================================================================*/
+/*======================================Footer=====================================*/
+/*=================================================================================*/
+
+footer{
+	width:100%;
+	float:left;
+	background:#fff;
+	border-top:1px solid #ccc;
+	padding:0.5%;
+	}
+.footer_logo{
+	width:100%;
+	float:left;
+	margin-bottom: 3%;
+	}
+.down_arrow{
+	text-align:right;
+	float:right;
+	cursor:pointer;
+	}
+.down_arrow span {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #989898;
+    padding: 1px 5px;
+}
+
+.footer_menu{
+	display:none;
+	width:100%;
+	float:left;
+	}
+.menu_new {
+    float: left;
+    padding: 2% 0;
+    width: 100%;
+}
+
+.f_menu{
+	width:100%;
+	float:left;
+	margin:0px;
+	padding:0px;
+	}
+
+.f_menu ul {
+    float: left;
+    margin: 0;
+    padding: 0 12.5%;
+    width: 100%;
+}
+.f_menu ul li{
+	display:inline
+	}
+.f_menu ul li a{
+	margin:0px;
+	padding:5px 1% 8px;
+	float:left;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:12px;
+	color:#c0c0c0;
+	width:auto;
+	}
+.f_menu ul li a:hover{
+	color:#000;
+	}
+.f_menu ul li:last-child{
+	border-right:none;
+	}
+.boot_menu{
+	width:100%;
+	float:left;
+	}
+.boot_menu p{
+	margin:0px;
+	padding: 1% 0;
+	float:left;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:12px;
+	color:#c0c0c0;
+	width:100%;
+	text-align:center;
+	}
+.boot_menu p a{
+	color:#c0c0c0;
+	padding: 0 1%;
+	}
+	
+.footer_logo2 {
+    border-left: 1px solid #ccc;
+    float: left;
+    padding: 0 18%;
+    text-align: center;
+	width:100%;
+}
+
+
+
+/*=================================================================================*/
+/*===================================Product Page==================================*/
+/*=================================================================================*/
+
+
+.category{
+	width:100%;
+	float:left;
+	}
+.category_box{
+	width:100%;
+	float:left;
+	background:#f2f2f2;
+	border-radius:5px;
+	margin-top:10px;
+	margin-bottom: 13px;
+	}
+.category_box h1 {
+    background: none repeat scroll 0 0 #dfdfdf;
+    border-bottom: 1px solid #fff;
+    border-radius: 5px 5px 0 0;
+    color: #0d0d0d;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 14px;
+    margin: 0;
+    padding: 4%;
+    text-align: left;
+    width: 100%;
+	text-transform:uppercase;
+}
+.category_box ul{
+	margin:0px;
+	padding:0px;
+	}
+.category_box ul h2 {
+    color: #0d0d0d;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 15px;
+    margin: 0;
+    padding: 4%;
+    text-align: left;
+    width: 100%;
+	text-transform:uppercase;
+}
+.category_box ul li {
+    border-bottom: 1px solid #dbdbdb;
+    border-top: 1px solid #fff;
+    display: inline;
+    float: left;
+    list-style: outside none none;
+    margin: 0;
+    padding: 2px 9px;
+    text-decoration: none;
+    width: 100%;
+}
+.category_box ul li a{
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	text-decoration:none;
+	display:inline;
+	float:left;
+	font-family: "avenir_45_bookregular";
+    font-size: 13px;
+	color:#4e4e4e;
+	width: 100%;
+	}
+.category_box ul li:hover{
+	background:#f6f6f6;
+	}
+.category_box ul li:first-child{
+	border-top:none;
+	}
+.category_box ul li:last-child{
+	border-bottom:none;
+	}
+.category_box p {
+    border-top: 1px dashed #c0c0c0;
+    color: #919191;
+    display: inline;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 5%;
+    padding: 14px 0 0;
+    text-decoration: none;
+    width: 90%;
+}
+.category_box p span{
+	color:#000;
+	}
+.category select {
+    border: 1px solid #dfdfdf;
+    border-radius: 3px;
+    float: left;
+    height: 27px;
+    margin: 3% 3%;
+    width: 94%;
+	color:#8b8b8b;
+	font-family: "avenir_45_bookregular";
+    font-size: 13px;
+}
+
+.category input[type="submit"] {
+    background: none repeat scroll 0 0 #949494;
+    border: medium none;
+    border-radius: 3px;
+    color: #fff;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 16px;
+    height: 38px;
+    margin: 0;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.clearence{
+	width:100%;
+	float:left;
+	}
+.clearence h1 {
+    color: #000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 19px;
+    list-style: outside none none;
+    margin:2% 0;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+	text-transform:uppercase;
+}
+
+.clearence p {
+    color: #919191;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 0 0 13px;
+    padding: 0;
+    text-decoration: none;
+    width: 100%;
+}
+
+.clearence a {
+    color: #000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+	width: 100%;
+	text-align:right;
+}
+
+.pro_right{
+	float:left;
+	width:100%;
+	margin-top:2%;
+	}
+
+	
+	
+	
+.product_main {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 0 5px #ababab;
+    float: left;
+    margin-bottom: 15px;
+    width: 100%;
+	position:relative;
+}
+
+.offer {
+    background: none repeat scroll 0 0 #d70000;
+    color: #fff;
+    font-family: "avenir_45_bookregular";
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 16px;
+    padding: 1px 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.product_main img{
+	width:100%;
+	}
+.product_main p{
+	width:100%;
+	float:left;
+	font-size:12px;
+	font-family: 'avenir_45_bookregular';
+	color:#676766;
+	text-align:center;
+	padding:5% 5% 3% ;
+	line-height:18px;
+	margin:0px;
+	}
+.add_cart2{
+	width:100%;
+	float:left;
+	}
+.add_cart2 span {
+    background: none repeat scroll 0 0 #f2f2f2;
+    color: #000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 10px;
+    line-height: 18px;
+    padding: 5% 5% 3%;
+    text-align: center;
+    width: 100%;
+}
+.add_cart2 span a {
+    color: #000;
+}
+.add_cart2 span i {
+    color: #9a9a9a;
+    font-size: 15px;
+    padding: 3px;
+}
+.rupee {
+    background: none repeat scroll 0 0 #e3e3e3;
+    border-top: 1px solid #fff;
+    color: #d70000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    padding: 4% 0;
+    width: 100%;
+}
+.rupee p{
+	width:auto;
+	color: #d70000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+	width:100%;
+	padding:0px;
+	}
+.rupee p span{
+	width:auto;
+	color: #919191;
+    float: none;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+	text-decoration: line-through;
+	background:none;
+	}
+
+	
+.footer_new{
+	width:100%;
+	float:left;
+	background: #f9f9f9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f9f9f9 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f9f9f9 0%,#f2f2f2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+	border-top: 1px solid #ebebeb;
+	}
+	
+.footer_new_nav {
+	margin:0px;
+	padding:0px;
+	}
+
+
+/*Strip the ul of padding and list styling*/
+.footer_new_nav ul {
+    left: 9px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 13px;
+    width: 100%;
+}
+
+/*Create a horizontal list with spacing*/
+.footer_new_nav li {
+	display:inline-block;
+	float: left;
+	padding:0px 7px;
+}
+
+/*Style for menu links*/
+.footer_new_nav li a {
+    color: #000;
+    display: block;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    height: 22px;
+    padding: 0%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.footer_new_nav li ul{
+	border:1px solid #ccc;
+	background:#fff;
+	width:98%;
+	float:left;
+	margin-top:9px;
+	}
+.footer_new_nav li ul li a{
+	padding:2px 0;
+	height:0px;
+	line-height:0px;
+	margin:0px;
+	padding:0px;
+	font-family: "avenir_45_bookregular";
+	color:#888;
+	font-size:13px;
+	}
+
+
+/*Hover state for top level links*/
+.footer_new_nav li:hover a {
+	border-bottom: 2px solid #000;
+}
+
+/*Style for dropdown links*/
+.footer_new_nav li:hover ul a {
+	color: #2f3036;
+	height: 20px;
+	line-height: 20px;
+	border-bottom:none;
+}
+
+/*Hover state for dropdown links*/
+.footer_new_nav li:hover ul a:hover {
+	color: #ccc;
+}
+
+/*Hide dropdown links until they are needed*/
+.footer_new_nav li ul {
+	display: none;
+}
+
+/*Make dropdown links vertical*/
+.footer_new_nav li ul li {
+	display: block;
+	float: left;
+}
+
+/*Prevent text wrapping*/
+.footer_new_nav li ul li a {
+    padding: 0 12px;
+    width: auto;
+}
+
+/*Display the dropdown on hover*/
+.footer_new_nav ul li a:hover + .hidden, .hidden:hover {
+	display: block;
+}
+
+/*Style 'show menu' label button and hide it by default*/
+.show-menu {
+	text-decoration: none;
+	color: #fff;
+	background: #19c589;
+	text-align: center;
+	padding: 10px 0;
+	display: none;
+}
+
+/*Hide checkbox*/ input[type=checkbox]{
+    display: none;
+    -webkit-appearance: none;
+}
+
+/*Show menu when invisible checkbox is checked*/
+input[type=checkbox]:checked ~ #menu{
+    display: block;
+}
+
+
+/*Responsive Styles*/
+
+@media screen and (max-width : 760px){
+	/*Make dropdown links appear inline*/
+	.footer_new_nav ul {
+		position: static;
+		display: none;
+	}
+	/*Create vertical spacing*/
+	.footer_new_nav li {
+		margin-bottom: 1px;
+	}
+	/*Make all menu links full width*/
+	.footer_new_nav ul li, li a {
+		width:auto;
+	}
+
+	/*Display 'show menu' link*/
+	.show-menu {
+		display:block;
+	}
+	.footer_new{
+		height:auto;
+		}
+	.footer_new_nav li ul{
+		margin-top:0px;
+		}
+}
+
+
+.contact_no{
+	width:100%;
+	float:left;
+	border-left:1px solid #e3e3e3;
+	}
+.contact_no h1 {
+    color: #1b98b6;
+    font-family: "avenir_45_bookregular";
+    font-size: 33px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+}
+.contact_no p{
+	font-family: "avenir_45_bookregular";
+	color:#888;
+	font-size:13px;
+	width:100%;
+	text-align:center;
+	}
+.contact_no p span{
+	color:#ff0000;
+	}
+	
+
+/*=================================================================================*/
+/*==============================Single product page================================*/
+/*=================================================================================*/
+
+.single_pro{
+	width:100%;
+	float:left;
+	}
+.color_editor{
+	width:100%;
+	float:left;
+	}
+.single_pro_menu{
+	width:100%;
+	float:left;
+	color:#888;
+	}
+.single_pro_menu a{
+	margin:0px;
+	padding: 1% 0;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:10.5px;
+	color:#888;
+	width:auto;
+	text-align:center;
+	text-transform:uppercase;
+	}
+.single_pro_menu p{
+	margin:0px;
+	padding: 1% 0;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:14px;
+	color:#0e0e0e;
+	text-align:left;
+	text-transform:uppercase;
+	float:left;
+	width:100%;
+	}
+.single_pro_menu p span{
+	margin:0px;
+	padding: 1% 0;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:12px;
+	color:#9e9e9e;
+	width:auto;
+	}
+.btn_click{
+	width:100%;
+	float:left;
+	}
+.edit_color{
+	float:left;
+	width:100%;
+	padding:2% 0;
+	border-bottom:1px solid #ccc;
+	}
+.edit_color p{
+	margin:0px;
+	padding: 1% 0 0 0;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:14px;
+	color:#0dd0d;
+	width:100%;
+	float:left;
+	text-transform:uppercase;
+	}
+.edit_color p img{
+	width:auto;
+	margin:0 1%;
+	}
+.edit_color p a i{
+	float:right;
+	color:#999;
+	margin:3px 0 0 0;
+	}
+
+
+.edit_shape{
+	float:left;
+	width:100%;
+	padding:2% 0;
+	border-bottom:1px solid #ccc;
+	}
+.edit_shape p{
+	margin:0px;
+	padding: 1% 0 0 0;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:14px;
+	color:#0dd0d;
+	width:100%;
+	float:left;
+	text-transform:uppercase;
+	}
+.edit_shape p img{
+	width:auto;
+	margin:0 1%;
+	}
+.edit_shape p a i{
+	float:right;
+	color:#999;
+	margin:3px 0 0 0;
+	}
+.single_page_pro{
+	width:100%;
+	float:left;
+	margin:1% 0;
+	}
+.single_page_pro img{	
+	width:100%;
+	}
+	
+	
+.calculate_price{
+	width:100%;
+	float:left;
+	}
+.calculate_price h1{
+	margin:0px;
+	padding: 1% 0 0 0;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:20px;
+	color:#353535;
+	width:100%;
+	float:left;
+	text-transform:uppercase;
+	}	
+.calculate_price h1 span{
+	margin:0px;
+	padding: 1% 0 0 0;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	color:#898989;
+	}	
+.select_cm{
+	width:100%;
+	float:left;
+	}
+.select_cm label{
+	font-family: 'avenir_45_bookregular';
+	font-size:14px;
+	color:#585858;
+	}
+
+.calculate_price_box{
+	width:100%;
+	float:left;
+	background: #f9f9f9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f9f9f9 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f9f9f9 0%,#f2f2f2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+	border-bottom: 1px solid #dedede;
+    border-top: 1px solid #ebebeb;
+	margin:1% 0 0 0;
+	padding: 2% 0 0 0;
+	}
+	
+.select_cm_all{
+	width:100%;
+	float:left;
+	}
+.select_cm_all label{
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	color:#585858;
+	padding-right: 15px;
+	font-weight:normal;
+	}
+.calculate_price_box span{
+	width:auto;
+	padding-right:5px;
+	color:#717171;
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	}
+	
+
+	
+	
+	
+.select_cm_all1{
+	width:100%;
+	float:left;
+	}
+.select_cm_all1 p{
+	width:100%;
+	float:left;
+	padding-bottom:15px;
+	}
+.select_cm_all1 label{
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	color:#585858;
+	padding-right: 15px;
+	font-weight:normal;
+	}
+
+.select_cm_all1 p strong{
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	color:#585858;
+	padding-right: 13px;
+	padding-left: 13px;
+	font-weight:normal;
+	}
+.select_cm_all1 p strong small{
+	font-family: 'avenir_45_bookregular';
+	font-size:15px;
+	color:#585858;
+	font-weight: bold;
+	}
+.select_cm_all1 input {
+    width: 22%;
+}
+
+.select_cm_all1 select {
+    height: 27px;
+    width: 18.5%;
+}
+
+.addtocart {
+    width: auto;
+}
+
+.poplular_custom_sizes{
+	width:100%;
+	float:left;
+	background:#f9f9f9;
+	padding:1% 0;
+	}
+.poplular_custom_sizes h1 {
+    color: #353535;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 20px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0 0 4px 15px;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+.custom_sizes_box{
+	width:100%;
+	float:left;
+	border-right:1px solid #ccc;
+	}
+
+.custom_sizes_box span{
+	font-family: 'avenir_45_bookregular';
+	font-size:14px;
+	color:#717171;
+	font-weight:normal;
+	float:left;
+	width:100%;
+	}
+.custom_sizes_box p{
+	font-family: 'avenir_45_bookregular';
+	font-size:14px;
+	color:#353535;
+	font-weight:normal;
+	float:left;
+	width:100%;
+	}
+
+.candy_rug{
+	width:100%;
+	float:left;
+	}
+.candy_rug h1 {
+    border-bottom: 1px solid #dedddd;
+    color: #353535;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 20px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 1% 0 10px;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+.candy_rug h1 span {
+    color: #898989;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 1% 0 0;
+    text-align: left;
+    text-decoration: none;
+}
+
+.candy_rug_right{
+	width:100%;
+	float:left;
+	}
+.candy_rug_right h1 {
+    border-bottom: 1px solid #dedddd;
+    color: #353535;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 16px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 2.5% 0 10px;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+
+.candy_rug p {
+    color: #858585;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 11px 0 0;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+
+.candy_rug_right span {
+    color: #898989;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 1% 5px 0 0;
+    text-align: left;
+    text-decoration: none;
+	float:left;
+}
+
+.candy_rug_right p {
+    color: #858585;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 11px 0 0;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+
+.poplular_rug {
+    float: left;
+    width: 100%;
+}
+
+
+.top_rug h1{
+	width:100%;
+	float:left;
+	font-size:19px;
+	font-family: 'avenir_45_bookregular';
+	text-transform:uppercase;
+	color:#2b2727;
+	text-align:left;
+	padding: 2% 0;
+	margin:0px;
+	}
+
+
+/*=================================================================================*/
+/*===================================Extra css=====================================*/
+/*=================================================================================*/
+
+.padding{
+	padding:0px;
+	}
+.padding_right{
+	padding:0px 1px 0 0;
+	}
+.padding_right1{
+	padding:0px 1px 1px 0;
+	}
+.padding_right2{
+	padding-right:0;
+	padding-left:5px;
+	}
+.padding_left{
+	padding-left:0;
+	}
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
