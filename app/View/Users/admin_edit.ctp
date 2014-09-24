@@ -1,25 +1,24 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Edit User'); ?></legend>
-	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('full_name');
-		echo $this->Form->input('email');
-		echo $this->Form->input('timestamp');
-		echo $this->Form->input('type');
-		echo $this->Form->input('status');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('User.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('User.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-	</ul>
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Update User</h3>
+    </div>
+    <?php echo $this->Form->create('User', array('type' => 'file')); ?>
+    <div class="box-body">
+        <?php
+        echo $this->Form->input('username');
+        echo $this->Form->input('full_name');
+        echo $this->Form->input('email');
+        echo '<div class="select type required"><lable for="UserRole">Role &nbsp</lable>';
+        echo $this->Form->select('type', array('admin' => 'Admin', 'user' => 'User'));
+        echo "</div>";
+        echo '<div class="select role required"><lable for="UserStatus">Status &nbsp</lable>';
+        echo $this->Form->select('status', array('1' => 'Active', '0' => 'Deactive'));
+        echo "</div>";
+        ?>
+        </fieldset>
+        <div class="box-footer">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        <?php echo $this->Form->end(); ?>
+    </div>
 </div>

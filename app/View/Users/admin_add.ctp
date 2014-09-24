@@ -7,9 +7,10 @@
 		echo $this->Form->input('password');
 		echo $this->Form->input('full_name');
 		echo $this->Form->input('email');
-		echo $this->Form->input('timestamp');
-		echo $this->Form->input('type');
-		echo $this->Form->input('status');
+		echo '<div class="select type required"><lable for="UserRole">Role &nbsp</lable>';
+                    echo $this->Form->select('type', array('admin' => 'Admin', 'user' => 'User'));
+                echo "</div>";
+
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
