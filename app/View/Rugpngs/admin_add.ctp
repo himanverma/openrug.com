@@ -1,22 +1,28 @@
-<div class="rugpngs form">
-<?php echo $this->Form->create('Rugpng'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Add Rugpng'); ?></legend>
-	<?php
-		echo $this->Form->input('rug_id');
-		echo $this->Form->input('path');
-		echo $this->Form->input('type');
-		echo $this->Form->input('shape');
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Rugpngs'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Rugs'), array('controller' => 'rugs', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Rug'), array('controller' => 'rugs', 'action' => 'add')); ?> </li>
-	</ul>
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Add new Rugpng Template</h3>
+    </div>
+    <?php echo $this->Form->create('Rugpng', array('type' => 'file')); ?>
+    <div class="box-body">
+        <?php
+        echo $this->Form->input('rug_id');
+        echo $this->Form->input('path', array('type' => 'file'));
+        echo $this->Form->input('type');
+        echo $this->Form->input('shape',array(
+                    'class'=>"form-control",
+                    'type'=>'select',
+                    'options' => array(
+                        'Rectangle' => 'Rectangle',
+                        'Circle' => 'Circle',
+                        'Oval' => 'Oval',
+                        'Square' => 'Square',
+                        'Runners' => 'Runners'
+                    )
+                ));
+        echo $this->Form->input('timestamp',array('type'=>'hidden','value'=>date('D, d M Y H:i:s T')));?> 
+    </div>
+    <div class="box-footer">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    <?php echo $this->Form->end(); ?>
 </div>
