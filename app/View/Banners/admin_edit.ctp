@@ -1,22 +1,22 @@
-<div class="banners form">
-<?php echo $this->Form->create('Banner'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Edit Banner'); ?></legend>
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Add new Banner Template</h3>
+    </div><!-- /.box-header -->
+    <!-- form start -->
+    <?php echo $this->Form->create('Banner',array('type'=>'file')); ?>
+        <div class="box-body">
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('image');
+		echo $this->Form->input('image',array('type'=>'file'));
 		echo $this->Form->input('title');
 		echo $this->Form->input('description');
-		echo $this->Form->input('status');
+                echo '<div class="select role required"><lable for="UserStatus">Status &nbsp</lable>';
+                    echo $this->Form->select('status', array('1' => 'Active', '0' => 'Deactive'));
+                echo "</div>";
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+        </div><!-- /.box-body -->
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Banner.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Banner.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Banners'), array('action' => 'index')); ?></li>
-	</ul>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    <?php echo $this->Form->end(); ?>
 </div>

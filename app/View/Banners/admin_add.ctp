@@ -1,20 +1,19 @@
-<div class="banners form">
-<?php echo $this->Form->create('Banner'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Add Banner'); ?></legend>
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Add new Banner Template</h3>
+    </div><!-- /.box-header -->
+    <!-- form start -->
+    <?php echo $this->Form->create('Banner',array('type'=>'file')); ?>
+        <div class="box-body">
 	<?php
-		echo $this->Form->input('image');
+		echo $this->Form->input('image',array('type'=>'file'));
 		echo $this->Form->input('title');
 		echo $this->Form->input('description');
-		echo $this->Form->input('status');
 	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
+        </div><!-- /.box-body -->
 
-		<li><?php echo $this->Html->link(__('List Banners'), array('action' => 'index')); ?></li>
-	</ul>
+        <div class="box-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    <?php echo $this->Form->end(); ?>
 </div>
