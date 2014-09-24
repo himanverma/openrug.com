@@ -73,9 +73,4 @@
 	</table>
 <?php endif; ?>
 
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Rugpng'), array('controller' => 'rugpngs', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>
