@@ -16,7 +16,7 @@
 	<?php foreach ($banners as $banner): ?>
 	<tr>
 		<td><?php echo h($banner['Banner']['id']); ?>&nbsp;</td>
-		<td><?php echo h($banner['Banner']['image']); ?>&nbsp;</td>
+		<td><?php echo $this->Html->image('../files/banner_image/'.$banner['Banner']['image'],array('style'=>'width:100%')); ?>&nbsp;</td>
 		<td><?php echo h($banner['Banner']['title']); ?>&nbsp;</td>
 		<td><?php echo h($banner['Banner']['description']); ?>&nbsp;</td>
 		<td><?php echo h($banner['Banner']['status']); ?>&nbsp;</td>
