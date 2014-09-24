@@ -52,7 +52,7 @@ class RugsController extends AppController {
     }
 
     private function genImgRound($rugpngs, $colors = array(), $location = "files/temp/") {
-        if (is_file($location . "gen.png")) {
+        if (is_file($location . "round.png")) {
             return $location;
         }
         ini_set("max_execution_time", -1);
@@ -103,7 +103,7 @@ class RugsController extends AppController {
 
         $rnd->compositeimage(new Imagick("files/templates/round2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen.png");
+        $rnd->setImageFileName($location . "round.png");
         $rnd->writeimage();
         $rnd->destroy();
 
@@ -113,7 +113,7 @@ class RugsController extends AppController {
 
         $rnd->compositeimage(new Imagick("files/templates/round3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen1.png");
+        $rnd->setImageFileName($location . "round1.png");
         $rnd->writeimage();
         $rnd->destroy();
 
@@ -123,7 +123,7 @@ class RugsController extends AppController {
 
         $rnd->compositeimage(new Imagick("files/templates/round4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen2.png");
+        $rnd->setImageFileName($location . "round2.png");
         $rnd->writeimage();
         $rnd->destroy();
 
@@ -135,7 +135,7 @@ class RugsController extends AppController {
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
         $rnd->compositeimage(new Imagick("files/templates/roundroom-bg.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "gen3.png");
+        $rnd->setImageFileName($location . "round3.png");
         $rnd->writeimage();
         $rnd->destroy();
 
@@ -256,6 +256,7 @@ class RugsController extends AppController {
         if ($this->Session->check("rug-" . $rug['Rug']['id'])) {
             
         }
+        $defaultShp = "round";
         $defaultClr = array();
 
         //debug($rug);
@@ -281,6 +282,7 @@ class RugsController extends AppController {
                     "clr" => $clrs
                 );
             }
+            $defaultShp = $this->request->data['shp_sb'];
             //debug($this->request->data);
             //exit;
         }else{
@@ -309,6 +311,7 @@ class RugsController extends AppController {
         }
         $this->set("ims", "/" . $ims);
         $this->set("defaultClr", $defaultClr);
+        $this->set("defaultShp", $defaultShp);
     }
 
     /**
