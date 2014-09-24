@@ -209,7 +209,7 @@ class RugsController extends AppController {
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/ptrn-3.png");
+        $rnd = new Imagick("files/templates/rect/ptrn-3.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
@@ -219,7 +219,7 @@ class RugsController extends AppController {
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/ptrn-4.png");
+        $rnd = new Imagick("files/templates/rect/ptrn-4.png");
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
