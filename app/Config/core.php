@@ -357,7 +357,7 @@ $duration = '+999 days';
 if (Configure::read('debug') > 0) {
 	$duration = '+10 seconds';
 }
-$duration = '+10 days';
+//$duration = '+10 days';
 
 // Prefix each application on the same server with a different string, to avoid Memcache and APC conflicts.
 $prefix = 'myapp_';
