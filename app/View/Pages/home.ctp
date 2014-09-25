@@ -2,31 +2,19 @@
     <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
 
         <div class="carousel-inner">
-            <div class="item">
-                <img src="images/banner-3.jpg">
-                <div class="carousel-caption">
-                    <h3>your design - your size - your search ends here! </h3>
+            <?php //debug($banners);exit;
+            $count=1;
+            foreach($banners as $banner){ ?>
+                <div class="item <?php if($count==1){ echo "active";}?>">
+                    <img src="<?php echo $this->Html->url('/files/banner_image/'.$banner['Banner']['image']);?>">
+                    <div class="carousel-caption">
+                        <h3><?php  echo $banner['Banner']['description']; $count++;?> </h3>
+                    </div>
                 </div>
-            </div>
-            <div class="item active">
-                <img src="images/banner-2.jpg">
-                <div class="carousel-caption">
-                    <h3>your design - your size - your search ends here! </h3>
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/banner-1.jpg">
-                <div class="carousel-caption">
-                    <h3>your design - your size - your search ends here! </h3>
-                </div>
-            </div>
+            <?php }?>
         </div>
-
     </div>
 </div>
-
-
-
 
 
 <div class="top_cat">
