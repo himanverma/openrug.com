@@ -24,7 +24,7 @@ App::uses('AppController', 'Controller');
  * Static content controller
  *
  * Override this controller by placing a copy in controllers directory of an application
- *
+ * @property  Banner $Banner
  * @package       app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
@@ -39,6 +39,13 @@ class PagesController extends AppController {
         public function beforeFilter() {
             parent::beforeFilter();
             $this->Auth->allow('display');
+            $this->loadModel('Banner');
+            $banners=$this->Banner->find('all',array('conditions'=>array(
+                "AND"=>array(
+                    'Banner.status'=>'1'
+                    ,'Banner.position'=>'banner'
+                ))));
+            $this->set('banners',$banners);
         }
 
         /**
