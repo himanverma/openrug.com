@@ -233,6 +233,188 @@ class RugsController extends AppController {
 
         return $location;
     }
+    
+    private function genImgOval($rugpngs, $colors = array(), $location = "files/temp/") {
+        if (is_file($location . "oval.png")) {
+            return $location;
+        }
+        ini_set("max_execution_time", -1);
+        $layers = array();
+        $bg = null;
+
+        foreach ($rugpngs as $rp) {
+            if ($rp['type'] == "LAYER") {
+                $layers[] = new Imagick($rp['path']);
+            } else {
+                $bg = new Imagick($rp['path']);
+            }
+        }
+        if ($bg == NULL) {
+            $bg = new Imagick();
+            $bg->newImage(910, 475, new ImagickPixel('none'));
+            $bg->setimageformat('png');
+        }
+        foreach ($layers as $layer) {
+            //$layer->resizeImage(910, 475, Imagick::FILTER_LANCZOS, 1, TRUE);
+            $layer->setimageformat("png");
+        }
+
+        $bg->resizeImage($layer->getimagewidth(), $layer->getimageheight(), Imagick::FILTER_LANCZOS, 1, TRUE);
+        $bg->setimageformat("png");
+        $cnt_a = 0;
+        foreach ($layers as $layer) {
+            $layer->paintopaqueimage(new ImagickPixel('#000'), $colors[$cnt_a], 900000);
+            $bg->compositeimage($layer, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+            $cnt_a++;
+            $layer->destroy();
+        }
+        $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+
+        $presp = 100;
+        $controlPoints = array(
+            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
+            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
+            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
+            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
+        );
+        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
+
+        $rnd = new Imagick("files/templates/oval/oval-1.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/oval/oval-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "oval.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        $rnd = new Imagick("files/templates/oval/oval-2.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/oval/oval-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "oval1.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        $rnd = new Imagick("files/templates/oval/oval-3.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/oval/oval-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "oval2.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+        /*
+        $rnd = new Imagick("files/templates/oval/ptrn-4.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/oval/ptrn-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/oval/ptrn-5.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "oval3.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+        */
+        return $location;
+    }
+    
+    private function genImgSquare($rugpngs, $colors = array(), $location = "files/temp/") {
+        if (is_file($location . "square.png")) {
+            return $location;
+        }
+        ini_set("max_execution_time", -1);
+        $layers = array();
+        $bg = null;
+
+        foreach ($rugpngs as $rp) {
+            if ($rp['type'] == "LAYER") {
+                $layers[] = new Imagick($rp['path']);
+            } else {
+                $bg = new Imagick($rp['path']);
+            }
+        }
+        if ($bg == NULL) {
+            $bg = new Imagick();
+            $bg->newImage(910, 475, new ImagickPixel('none'));
+            $bg->setimageformat('png');
+        }
+        foreach ($layers as $layer) {
+            //$layer->resizeImage(910, 475, Imagick::FILTER_LANCZOS, 1, TRUE);
+            $layer->setimageformat("png");
+        }
+
+        $bg->resizeImage($layer->getimagewidth(), $layer->getimageheight(), Imagick::FILTER_LANCZOS, 1, TRUE);
+        $bg->setimageformat("png");
+        $cnt_a = 0;
+        foreach ($layers as $layer) {
+            $layer->paintopaqueimage(new ImagickPixel('#000'), $colors[$cnt_a], 900000);
+            $bg->compositeimage($layer, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+            $cnt_a++;
+            $layer->destroy();
+        }
+        $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+
+        $presp = 100;
+        $controlPoints = array(
+            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
+            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
+            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
+            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
+        );
+        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
+
+        $rnd = new Imagick("files/templates/square/square-1.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/square/square-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "square.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        $rnd = new Imagick("files/templates/square/square-2.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/square/square-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "square1.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        $rnd = new Imagick("files/templates/square/square-4.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/square/square-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "square2.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        $rnd = new Imagick("files/templates/square/square-3.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/square/square-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/rect/square-3-1.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "rect3.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        return $location;
+    }
 
     
     public function editor($id = null, $shape = "Rectangle") {
