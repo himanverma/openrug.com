@@ -250,362 +250,52 @@
 
                         <div class="col-sm-6 padding">
                             <div class="pro_right">
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
+                                
+                                
+                                <?php foreach($rugDiscounts as $rug){
+                                        foreach($rug['Genrug'] as $genrug){?>
+                                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                                <div class="product_main">
+                                                    <img alt="" src="<?php echo $this->Html->url('../'.$genrug['path']."pre.png"); ?>">
+                                                    <p><?php echo $rug['Rug']['description']; ?></p>
+                                                    <div class="add_cart2">
+                                                        <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
+                                                        <div class="rupee">
+                                                            <?php $aa=($genrug['price']*$rug['Rug']['discount'])/100; 
+                                                                $bb = $genrug['price']-$aa;
+                                                            ?>
+                                                            <p>$<?php echo $bb;?>   <span>$<?php echo $genrug['price']; ?></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-
-                        <div class="col-sm-6 padding">
-                            <div class="pro_right">
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-
-                        <div class="col-sm-6 padding">
-                            <div class="pro_right">
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-
-
-                        <div class="col-sm-6 padding">
-                            <div class="pro_right">
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-3 col-sm-4 col-xs-6">
-                                    <div class="product_main">
-
-                                        <img src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>" alt="">
-                                        <p>Adrift Hand Knotted </p>
-                                        <div class="add_cart2">
-                                            <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                            <div class="rupee">
-                                                <p>$2099   <span>$4880</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php }}?>
                             </div>    
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="top_rug">
                     <div class="row">
                         <div class="col-sm-12">
                             <h1>Top rug designs</h1>
                             <div class="row">
-                                <div class="col-sm-2 col-xs-6">
-                                    <div class="pro">
-                                        <img alt="" src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>">
-                                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                                        <div class="add_cart">
-                                            <div class="col-xs-9 padding">
-                                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                            <div class="col-xs-3 padding">
-                                                <div class="view">
-                                                    <a href="#"><i class="fa fa-eye"></i></a>
+                                <?php foreach($popularGenrugs as $popularGenrug){?>
+                                    <div class="col-sm-2 col-xs-6">
+                                        <div class="pro">
+                                            <img src="/<?php echo $popularGenrug['Genrug']['path']."pre.png";?>" alt="">
+                                            <p><?php echo $popularGenrug['Rug']['description'];?></p>
+                                            <div class="add_cart">
+                                                <div class="col-xs-9 padding">
+                                                    <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
+                                                <div class="col-xs-3 padding">
+                                                    <div class="view">
+                                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-
-                                <div class="col-sm-2 col-xs-6">
-                                    <div class="pro">
-                                        <img alt="" src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>">
-                                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                                        <div class="add_cart">
-                                            <div class="col-xs-9 padding">
-                                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                            <div class="col-xs-3 padding">
-                                                <div class="view">
-                                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-sm-2 col-xs-6">
-                                    <div class="pro">
-                                        <img alt="" src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>">
-                                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                                        <div class="add_cart">
-                                            <div class="col-xs-9 padding">
-                                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                            <div class="col-xs-3 padding">
-                                                <div class="view">
-                                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-sm-2 col-xs-6">
-                                    <div class="pro">
-                                        <img alt="" src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>">
-                                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                                        <div class="add_cart">
-                                            <div class="col-xs-9 padding">
-                                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                            <div class="col-xs-3 padding">
-                                                <div class="view">
-                                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-sm-2 col-xs-6">
-                                    <div class="pro">
-                                        <img alt="" src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>">
-                                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                                        <div class="add_cart">
-                                            <div class="col-xs-9 padding">
-                                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                            <div class="col-xs-3 padding">
-                                                <div class="view">
-                                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-2 col-xs-6">
-                                    <div class="pro">
-                                        <img alt="" src="<?php echo $this->Html->url("/images/pro-1.jpg"); ?>">
-                                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                                        <div class="add_cart">
-                                            <div class="col-xs-9 padding">
-                                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                            <div class="col-xs-3 padding">
-                                                <div class="view">
-                                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php }?>
                             </div>
                         </div>
                     </div>
