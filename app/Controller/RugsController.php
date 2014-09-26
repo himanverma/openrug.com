@@ -98,7 +98,7 @@ class RugsController extends AppController {
         $pre->destroy();
         /* Creates Preview Image Over */
         
-        $presp = 100;
+        $presp = 60;
         $controlPoints = array(
             -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
             $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
@@ -190,7 +190,7 @@ class RugsController extends AppController {
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
 
-        $presp = 100;
+        $presp = 60;
         $controlPoints = array(
             -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
             $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
@@ -281,7 +281,7 @@ class RugsController extends AppController {
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
 
-        $presp = 100;
+        $presp = 60;
         $controlPoints = array(
             -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
             $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
@@ -372,7 +372,7 @@ class RugsController extends AppController {
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
 
-        $presp = 100;
+        $presp = 60;
         $controlPoints = array(
             -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
             $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
@@ -463,7 +463,7 @@ class RugsController extends AppController {
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
 
-        $presp = 100;
+        $presp = 60;
         $controlPoints = array(
             -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
             $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
