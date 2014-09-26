@@ -37,6 +37,7 @@
                 echo $this->Form->input('price',array(
                     'class'=>"form-control"
                 ));
+                echo $this->Form->input('discount');
                 echo $this->Form->input("path.",array(
                     'label'=>'Select Rug Pattern Layers',
                     'type'=>'file',

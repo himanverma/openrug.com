@@ -8,6 +8,7 @@
 			<th><?php echo $this->Paginator->sort('description'); ?></th>
 			<th><?php echo $this->Paginator->sort('pattern'); ?></th>
 			<th><?php echo $this->Paginator->sort('price'); ?></th>
+                        <th><?php echo $this->Paginator->sort('discount'); ?></th>
 			<th><?php echo $this->Paginator->sort('timestamp'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
@@ -20,6 +21,7 @@
 		<td><?php echo h($rug['Rug']['description']); ?>&nbsp;</td>
 		<td><?php echo h($rug['Rug']['pattern']); ?>&nbsp;</td>
 		<td><?php echo h($rug['Rug']['price']); ?>&nbsp;</td>
+                <td><?php echo $rug['Rug']['discount']."%"; ?>&nbsp;</td>
 		<td><?php echo h($rug['Rug']['timestamp']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $rug['Rug']['id'])); ?>

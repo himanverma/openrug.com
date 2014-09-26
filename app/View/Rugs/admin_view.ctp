@@ -26,6 +26,11 @@
 			<?php echo h($rug['Rug']['price']); ?>
 			&nbsp;
 		</dd>
+		<dt><?php echo __('Discount'); ?></dt>
+		<dd>
+			<?php echo $rug['Rug']['discount']."%"; ?>
+			&nbsp;
+		</dd>
 		<dt><?php echo __('Timestamp'); ?></dt>
 		<dd>
 			<?php echo h($rug['Rug']['timestamp']); ?>

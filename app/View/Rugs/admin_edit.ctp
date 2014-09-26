@@ -8,6 +8,7 @@
 		echo $this->Form->input('description');
 		echo $this->Form->input('pattern');
 		echo $this->Form->input('price');
+                echo $this->Form->input('discount');
 		echo $this->Form->input('timestamp');
 	?>
 	</fieldset>
