@@ -83,13 +83,11 @@
                         Design your own Rug  with our Rug  Designer
                     </div>
                 </div>
-
                 <div class="col-sm-3 padding_right">
                     <div class="welcome_box_inn">
                         Choose your own Rug  to Customize.
                     </div>
                 </div>
-
                 <div class="col-sm-3 padding_right">
                     <div class="welcome_box_inn">
                         Create your own Rug  with Unique Designs.
@@ -101,330 +99,60 @@
     </div>
 </div>
 
-
-
-
 <div class="popular_rug">
     <div class="row">
-        <div class="col-sm-12">
-            <h1>popular rug designs</h1>
+        <div class="col-sm-12"><br/>
+            <h1>popular rug designs</h1><br/><br/>
             <div class="row">
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
+                <?php foreach($popularGenrugs as $popularGenrug){?>
+                    <div class="col-sm-2 col-xs-6" >
+                        <div class="pro">
+                            <img src="/<?php echo $popularGenrug['Genrug']['path']."pre.png";?>" alt="">
+                            <p><?php echo $popularGenrug['Rug']['description'];?></p>
+                            <div class="add_cart">
+                                <div class="col-xs-9 padding">
+                                    <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
+                                <div class="col-xs-3 padding">
+                                    <div class="view">
+                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <img src="images/pro-1.jpg" alt="">
-                        <p>Adrift Hand Knotted Tibetan Rug</p>
-                        <div class="add_cart">
-                            <div class="col-xs-9 padding">
-                                <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                            <div class="col-xs-3 padding">
-                                <div class="view">
-                                    <a href="#"><i class="fa fa-eye"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php }?>
             </div>
         </div>
     </div>
 </div>
 
 
-
+<div class="popular_rug">
+    <div class="row">
+        <div class="col-sm-12"><br/>
+            <h1>recent rug designs</h1><br/><br/>
+            <div class="row">
+                <?php foreach($recentGenrugs as $recentGenrug){?>
+                    <div class="col-sm-2 col-xs-6" >
+                        <div class="pro">
+                            <img src="/<?php echo $recentGenrug['Genrug']['path']."pre.png";?>" alt="">
+                            <p><?php echo $recentGenrug['Rug']['description'];?></p>
+                            <div class="add_cart">
+                                <div class="col-xs-9 padding">
+                                    <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
+                                <div class="col-xs-3 padding">
+                                    <div class="view">
+                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php }?>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="facebook_user">
