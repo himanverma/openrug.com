@@ -86,7 +86,10 @@ class RugsController extends AppController {
             $layer->destroy();
         }
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-
+        $bg->scaleimage(125, 119);
+        $bg->setimageformat("png");
+        $bg->setImageFileName($location . "pre.png");
+        $bg->writeimage();
 
         $presp = 100;
         $controlPoints = array(
@@ -407,12 +410,104 @@ class RugsController extends AppController {
 
         $rnd->compositeimage(new Imagick("files/templates/square/square-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $rnd->compositeimage(new Imagick("files/templates/rect/square-3-1.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/square/square-3-1.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "rect3.png");
+        $rnd->setImageFileName($location . "square3.png");
         $rnd->writeimage();
         $rnd->destroy();
 
+        return $location;
+    }
+    
+    private function genImgRunner($rugpngs, $colors = array(), $location = "files/temp/") {
+        if (is_file($location . "runner.png")) {
+            return $location;
+        }
+        ini_set("max_execution_time", -1);
+        $layers = array();
+        $bg = null;
+
+        foreach ($rugpngs as $rp) {
+            if ($rp['type'] == "LAYER") {
+                $layers[] = new Imagick($rp['path']);
+            } else {
+                $bg = new Imagick($rp['path']);
+            }
+        }
+        if ($bg == NULL) {
+            $bg = new Imagick();
+            $bg->newImage(910, 475, new ImagickPixel('none'));
+            $bg->setimageformat('png');
+        }
+        foreach ($layers as $layer) {
+            //$layer->resizeImage(910, 475, Imagick::FILTER_LANCZOS, 1, TRUE);
+            $layer->setimageformat("png");
+        }
+
+        $bg->resizeImage($layer->getimagewidth(), $layer->getimageheight(), Imagick::FILTER_LANCZOS, 1, TRUE);
+        $bg->setimageformat("png");
+        $cnt_a = 0;
+        foreach ($layers as $layer) {
+            $layer->paintopaqueimage(new ImagickPixel('#000'), $colors[$cnt_a], 900000);
+            $bg->compositeimage($layer, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+            $cnt_a++;
+            $layer->destroy();
+        }
+        $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+
+        $presp = 100;
+        $controlPoints = array(
+            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
+            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
+            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
+            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
+        );
+        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
+
+        $rnd = new Imagick("files/templates/runner/runners-1.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/runner/runners-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "runner.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        $rnd = new Imagick("files/templates/runner/runners-2.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/runner/runners-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "runner1.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        /*
+        $rnd = new Imagick("files/templates/runner/runners-3.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/runner/runners-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "runner2.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+
+        $rnd = new Imagick("files/templates/runner/runners-4.png");
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+
+        $rnd->compositeimage(new Imagick("files/templates/runner/runners-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/runner/runners-5.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "runner3.png");
+        $rnd->writeimage();
+        $rnd->destroy();
+        */
         return $location;
     }
 
@@ -457,6 +552,9 @@ class RugsController extends AppController {
             $colorstamp = implode("-", $this->request->data['clr_sb']);
             $ims = $this->genImgRound($rug['Rugpng'], $this->request->data['clr_sb'], $dir =  $this->createDirGen($rug['Rug']['id'], $colorstamp));
             $this->genImgRect($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
+            $this->genImgOval($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
+            $this->genImgRunner($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
+            $this->genImgSquare($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
             $defaultClr = array();
             foreach ($this->request->data['clr_sb'] as $clrs) {
                 $defaultClr[] = array(
@@ -483,6 +581,9 @@ class RugsController extends AppController {
             $colorstamp = implode("-", $clr);
             $ims = $this->genImgRound($rug['Rugpng'], $clr, $dir =  $this->createDirGen($rug['Rug']['id'], $colorstamp));
             $this->genImgRect($rug['Rugpng'], $clr, $dir, $colorstamp);
+            $this->genImgOval($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
+            $this->genImgRunner($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
+            $this->genImgSquare($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
             $defaultClr = array();
             foreach ($clr as $clrs) {
                 $defaultClr[] = array(
