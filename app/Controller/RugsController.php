@@ -577,7 +577,7 @@ class RugsController extends AppController {
                 );
             }
             $defaultShp = $this->request->data['shp_sb'];
-            $this->redirect("/rugs/editor/".$rug['Rug']['id']."/".$colorstamp);
+            $this->redirect("/rugs/editor/".$rug['Rug']['id']."/".str_replace("#", "", $colorstamp));
         }else{
             if(count($tmp_c) > 0){
                 $clr = array();
