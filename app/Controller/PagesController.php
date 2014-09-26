@@ -25,6 +25,8 @@ App::uses('AppController', 'Controller');
  *
  * Override this controller by placing a copy in controllers directory of an application
  * @property  Banner $Banner
+ * @property  Rug $Rug
+ * @property  Genrug $Genrug
  * @package       app.Controller
  * @link http://book.cakephp.org/2.0/en/controllers/pages-controller.html
  */
@@ -40,12 +42,23 @@ class PagesController extends AppController {
             parent::beforeFilter();
             $this->Auth->allow('display');
             $this->loadModel('Banner');
+            $this->loadModel('Genrug');
+            
             $banners=$this->Banner->find('all',array('conditions'=>array(
                 "AND"=>array(
                     'Banner.status'=>'1'
                     ,'Banner.position'=>'banner'
                 ))));
             $this->set('banners',$banners);
+            
+            $popularGenrugs = $this->Genrug->find('all',array(
+                'group'=>array('Genrug.rug_id'),
+                'order'=>array('Genrug.id desc'),"limit"=>18));
+            $this->set('popularGenrugs',$popularGenrugs);
+            
+            $recentGenrugs = $this->Genrug->find('all',array('order'=>array('Genrug.id desc'),"limit"=>18));
+            $this->set('recentGenrugs',$recentGenrugs);
+            
         }
 
         /**
