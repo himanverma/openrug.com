@@ -86,11 +86,18 @@ class RugsController extends AppController {
             $layer->destroy();
         }
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $bg->scaleimage(125, 119);
-        $bg->setimageformat("png");
-        $bg->setImageFileName($location . "pre.png");
-        $bg->writeimage();
-
+        
+        /* Creates Preview Image */
+        $pre = new Imagick();
+        $pre->newImage($bg->getimagewidth(), $bg->getimageheight(), new ImagickPixel('none'));
+        $pre->setimageformat('png');
+        $pre->compositeimage($bg, \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $pre->scaleimage(125, 119);
+        $pre->setImageFileName($location . "pre.png");
+        $pre->writeimage();
+        $pre->destroy();
+        /* Creates Preview Image Over */
+        
         $presp = 100;
         $controlPoints = array(
             -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
@@ -581,9 +588,9 @@ class RugsController extends AppController {
             $colorstamp = implode("-", $clr);
             $ims = $this->genImgRound($rug['Rugpng'], $clr, $dir =  $this->createDirGen($rug['Rug']['id'], $colorstamp));
             $this->genImgRect($rug['Rugpng'], $clr, $dir, $colorstamp);
-            $this->genImgOval($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
-            $this->genImgRunner($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
-            $this->genImgSquare($rug['Rugpng'], $this->request->data['clr_sb'], $dir, $colorstamp);
+            $this->genImgOval($rug['Rugpng'], $clr, $dir, $colorstamp);
+            $this->genImgRunner($rug['Rugpng'], $clr, $dir, $colorstamp);
+            $this->genImgSquare($rug['Rugpng'], $clr, $dir, $colorstamp);
             $defaultClr = array();
             foreach ($clr as $clrs) {
                 $defaultClr[] = array(
