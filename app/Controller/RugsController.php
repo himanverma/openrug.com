@@ -602,6 +602,27 @@ class RugsController extends AppController {
         $this->set("ims", "/" . $ims);
         $this->set("defaultClr", $defaultClr);
         $this->set("defaultShp", $defaultShp);
+        
+        
+        
+        
+        $rugDiscounts=$this->Rug->find('all',array('conditions'=>array(
+                                    "NOT"=>array(
+                                        "Rug.discount"=>'0'
+                                    )
+                                ),'contain'=>array('Genrug')));
+        $this->set('rugDiscounts',$rugDiscounts);
+        $this->loadModel('Genrug');
+        
+        $popularGenrugs = $this->Genrug->find('all',array(
+                'group'=>array('Genrug.rug_id'),
+                'order'=>array('Genrug.id desc'),"limit"=>18));
+            $this->set('popularGenrugs',$popularGenrugs);
+        
+        
+        
+        
+        
     }
 
     /**
