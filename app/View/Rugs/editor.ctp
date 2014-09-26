@@ -78,16 +78,16 @@
                     <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims.$defaultShp.".png"); ?>"/>
                     <div class="col-sm-12 sm-p-trig">
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp.".png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp.".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."1.png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."2.png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."3.png"); ?>" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-4">
                             
