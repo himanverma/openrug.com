@@ -519,8 +519,8 @@ class RugsController extends AppController {
     }
 
     
-    public function editor($id = null, $cstamp = null) {
-        $defaultShp = "round";
+    public function editor($id = null, $cstamp = null,$shape = "round") {
+        $defaultShp = $shape;
         $defaultClr = array();
         $tmp_c = array();
         if ($id == null) {
@@ -577,7 +577,7 @@ class RugsController extends AppController {
                 );
             }
             $defaultShp = $this->request->data['shp_sb'];
-            $this->redirect("/rugs/editor/".$rug['Rug']['id']."/".str_replace("#", "", $colorstamp));
+            $this->redirect("/rugs/editor/".$rug['Rug']['id']."/".str_replace("#", "", $colorstamp)."/".$defaultShp);
         }else{
             if(count($tmp_c) > 0){
                 $clr = array();
