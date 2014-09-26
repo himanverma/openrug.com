@@ -114,7 +114,7 @@
                                     <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
                                 <div class="col-xs-3 padding">
                                     <div class="view">
-                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo $this->Html->url('/rugs/editor/'.$popularGenrug['Rug']['id']); ?>"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -142,7 +142,7 @@
                                     <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
                                 <div class="col-xs-3 padding">
                                     <div class="view">
-                                        <a href="#"><i class="fa fa-eye"></i></a>
+                                        <a href="<?php echo $this->Html->url('/rugs/editor/'.$recentGenrug['Rug']['id']."/".$recentGenrug['Genrug']['colorstamp']); ?>"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
                             </div>

@@ -519,40 +519,47 @@ class RugsController extends AppController {
     }
 
     
-    public function editor($id = null, $shape = "Rectangle") {
+    public function editor($id = null, $cstamp = null) {
+        $defaultShp = "round";
+        $defaultClr = array();
+        $tmp_c = array();
         if ($id == null) {
             $id = 5;
         }
         $rug = $this->Rug->find("first", array(
-            'conditions' => array(
-                'Rug.id' => $id
-            )
-        ));
+                'conditions' => array(
+                    'Rug.id' => $id
+                )
+            ));
+        if($cstamp != null){
+            $tmp_c = explode("-", $cstamp);
+            foreach ($tmp_c as $rp) {
+                $defaultClr[] = array(
+                    "png" => $rp . ".png",
+                    "clr" => "#" . $rp
+                );
+            }
+        }else{
+            
+            foreach ($rug['Rugpng'] as $rp) {
+                if ($rp['type'] == "LAYER") {
+                    $defaultClr[] = array(
+                        "png" => $rp['color'] . ".png",
+                        "clr" => "#" . $rp['color']
+                    );
+                }
+            }
+        }
         //debug($rug);
         $colorCount = $this->Rug->Rugpng->find("count", array(
             'conditions' => array(
                 'Rugpng.type' => "LAYER",
-                'Rugpng.shape' => $shape,
                 'Rugpng.rug_id' => $rug['Rug']['id']
             )
         ));
         $this->set("colorCount", $colorCount);
-        if ($this->Session->check("rug-" . $rug['Rug']['id'])) {
-            
-        }
-        $defaultShp = "round";
-        $defaultClr = array();
-
-        //debug($rug);
-        //exit;
-        foreach ($rug['Rugpng'] as $rp) {
-            if ($rp['type'] == "LAYER") {
-                $defaultClr[] = array(
-                    "png" => $rp['color'] . ".png",
-                    "clr" => "#" . $rp['color']
-                );
-            }
-        }
+        
+        
         $s = explode("/", $rug['Rugpng'][0]['path']);
         $shapeCounts = $this->countDir($s[0] . "/" . $s[1] . "/" . $s[2] . "/");
         if ($this->request->is(array('post'))) {
@@ -573,18 +580,24 @@ class RugsController extends AppController {
             //debug($this->request->data);
             //exit;
         }else{
-            $clrTemp = $this->Rug->Rugpng->find("list", array(
-                'fields' => array('Rugpng.color'),
-                'conditions' => array(
-                    'Rugpng.type' => "LAYER",
-                    'Rugpng.shape' => $shape,
-                    'Rugpng.rug_id' => $rug['Rug']['id']
-                )
-            ));
-            $clr = array();
-            foreach($clrTemp as $v){
-                $clr[] = '#'.$v;
-            }            
+            if(count($tmp_c) > 0){
+                $clr = array();
+                foreach($tmp_c as $v){
+                    $clr[] = '#'.$v;
+                }
+            }else{
+                $clrTemp = $this->Rug->Rugpng->find("list", array(
+                    'fields' => array('Rugpng.color'),
+                    'conditions' => array(
+                        'Rugpng.type' => "LAYER",
+                        'Rugpng.rug_id' => $rug['Rug']['id']
+                    )
+                ));
+                foreach($clrTemp as $v){
+                    $clr[] = '#'.$v;
+                }
+            }
+                        
             $colorstamp = implode("-", $clr);
             $ims = $this->genImgRound($rug['Rugpng'], $clr, $dir =  $this->createDirGen($rug['Rug']['id'], $colorstamp));
             $this->genImgRect($rug['Rugpng'], $clr, $dir, $colorstamp);
