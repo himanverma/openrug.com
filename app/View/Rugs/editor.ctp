@@ -248,13 +248,13 @@
                     <h1>popular rug designs</h1>  
                     <div class="row">
 
-                        <div class="col-sm-6 padding">
+                        <div class="col-sm-12 padding">
                             <div class="pro_right">
                                 
                                 
                                 <?php foreach($rugDiscounts as $rug){
                                         foreach($rug['Genrug'] as $genrug){?>
-                                            <div class="col-md-3 col-sm-4 col-xs-6">
+                                            <div class="col-md-2 col-sm-4 col-xs-6">
                                                 <div class="product_main">
                                                     <img alt="" src="<?php echo $this->Html->url('../'.$genrug['path']."pre.png"); ?>">
                                                     <p><?php echo $rug['Rug']['description']; ?></p>
