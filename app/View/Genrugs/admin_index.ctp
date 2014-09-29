@@ -15,12 +15,14 @@
         <tbody>
             <?php foreach ($genrugs as $genrug): ?>
                 <tr>
-                    <td><?php echo h($genrug['Genrug']['id']); ?>&nbsp;</td>
+                    <td><?php echo h($genrug['Genrug']['id']); ?></td>
                     <td><?php echo h($genrug['Genrug']['name']); ?>&nbsp;</td>
-                    <td><?php echo h($genrug['Genrug']['description']); ?>&nbsp;</td>
+                    <td> 
+                        <img src="<?php echo $this->Html->url('/'.$genrug['Genrug']['path']."pre.png"); ?>"
+                        <?php echo h($genrug['Genrug']['description']); ?>&nbsp;</td>
                     <td><?php echo h($genrug['Genrug']['pattern']); ?>&nbsp;</td>
                     <td><?php echo h($genrug['Genrug']['price']); ?>&nbsp;</td>
-                    <td><?php echo h($genrug['Genrug']['timestamp']); ?>&nbsp;</td>
+                    <td><?php echo date("d-m-Y h:i A",$genrug['Genrug']['timestamp']); ?>&nbsp;</td>
                     <td class="actions">
                         <?php echo $this->Html->link(__('View'), array('action' => 'view', $genrug['Genrug']['id'])); ?>
                         <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $genrug['Genrug']['id'])); ?>
