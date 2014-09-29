@@ -50,7 +50,7 @@
 		<th><?php echo __('Type'); ?></th>
 		<th><?php echo __('Shape'); ?></th>
                 <th><?php echo __('Color'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th  style="text-align: center;" class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($rug['Rugpng'] as $rugpng): ?>
 		<tr>
@@ -59,7 +59,8 @@
 			<td><?php echo $this->Html->image('../'.$rugpng['path'],array('height'=>'50','width'=>'50')); ?></td>
 			<td><?php echo $rugpng['type']; ?></td>
 			<td><?php echo $rugpng['shape']; ?></td>
-			<td class="actions">
+                        <td style="text-align: center; background: <?php echo "#".$rugpng['color']?>"><?php echo "#".$rugpng['color']?></td>
+                        <td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'rugpngs', 'action' => 'view', $rugpng['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'rugpngs', 'action' => 'edit', $rugpng['id'])); ?>
 				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'rugpngs', 'action' => 'delete', $rugpng['id']), array(), __('Are you sure you want to delete # %s?', $rugpng['id'])); ?>

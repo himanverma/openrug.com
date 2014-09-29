@@ -21,6 +21,17 @@
                         'Runners' => 'Runners'
                     )
                 ));
+        ?>
+        
+        <div class="edit_color swatch-picker" style="width: 12%">
+            <label for="RugpngColor">Color</label>
+            <?php echo $this->Form->input('color',array('type'=>'hidden'));?>
+            <img class="input-im" src="<?php echo $this->Html->url("/swatch/".$this->request->data['Rugpng']['color'].".png"); ?>" alt="">
+            <div class="swatch-pick">
+                <?php echo $this->element("swatch"); ?>
+            </div>
+        </div>
+         <?php 
          echo $this->Form->input('timestamp',array('type'=>'hidden','value'=>date('D, d M Y H:i:s T')));?> 
     </div>
     <div class="box-footer">
@@ -28,3 +39,22 @@
     </div>
     <?php echo $this->Form->end(); ?>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.swatch-picker').hover(function(){
+            $(this).find('.swatch-pick').show();
+            $(this).css({'box-shadow':'0 0 4px rgba(55,55,55,0.6)'});
+        },function(){
+            $(this).find('.swatch-pick').hide();
+            $(this).css({'box-shadow':'none'});
+        });
+        
+        $('.trig-clr').on("click",function(){
+            var clr = $(this).data().clr ; 
+            clr = clr.replace("#","");
+            console.log($(this).parents('.edit_color'));
+            $(this).parents('.edit_color').find('input').val(clr);
+            $(this).parents('.edit_color').find('.input-im').attr({src: '<?php echo $this->Html->url('/swatch/');?>' + clr + '.png'});
+        });
+    });
+</script>        

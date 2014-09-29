@@ -29,6 +29,11 @@
                 <?php echo h($rugpng['Rugpng']['shape']); ?>
                 &nbsp;
             </dd>
+            <dt><?php echo __('Color'); ?></dt>
+            <dd style="background: #<?php echo $rugpng['Rugpng']['color']?>">
+                <?php echo (" &nbsp #".$rugpng['Rugpng']['color']); ?>
+                &nbsp;
+            </dd>
         </dl>
     </div>
 </div>
