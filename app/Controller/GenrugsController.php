@@ -97,11 +97,14 @@ class GenrugsController extends AppController {
         if (!$this->Genrug->exists()) {
             throw new NotFoundException(__('Invalid rug'));
         }
+        
         $this->request->allowMethod('post', 'delete');
         if ($this->Genrug->delete()) {
             $this->Session->setFlash(__('The rug has been deleted.'));
+            $this->redirect($this->referer());
         } else {
             $this->Session->setFlash(__('The rug could not be deleted. Please, try again.'));
+            $this->redirect($this->referer());
         }
     }
 
