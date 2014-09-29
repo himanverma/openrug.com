@@ -100,8 +100,7 @@ class RugpngsController extends AppController {
                             $pth = $file_name;
                             move_uploaded_file($one['tmp_name'], $pth);
                         }else {
-                            $x = $this->Upload->read('path', $id);
-                            $this->request->data['Rugpng']['path'] = $x['Rugpng']['path'];
+                            unset($this->request->data['Rugpng']['path']);
                         }
 			if ($this->Rugpng->save($this->request->data)) {
 				$this->Session->setFlash(__('The rugpng has been saved.'));

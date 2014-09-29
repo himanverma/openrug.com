@@ -30,7 +30,8 @@ class Rugpng extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'path' => array(
+		/*
+                'path' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
@@ -40,6 +41,8 @@ class Rugpng extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
+                 * 
+                 */
 		'type' => array(
 			'notEmpty' => array(
 				'rule' => array('notEmpty'),
