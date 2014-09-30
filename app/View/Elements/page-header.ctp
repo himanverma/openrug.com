@@ -18,9 +18,10 @@
 
         <div class="col-sm-12">
             <div class="logo">
-                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <a href="#"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt=""></a></div>
+                    <a href="#"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
+                </div>
+                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <div class="search">
                         <input name="" type="text" value="Search...">

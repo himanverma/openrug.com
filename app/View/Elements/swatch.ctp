@@ -12,7 +12,7 @@
                     ?>
     <td><img class="trig-clr" data-clr="#<?php echo $code; ?>" src="<?php echo $this->Html->url("/swatch/".$name); ?>" alt=""> </td>
     <?php
-           if($cnt == 15 ){
+           if($cnt == 25 ){
                 echo '</tr>';         
                 $cnt = 0;
            }
@@ -30,7 +30,7 @@
     .swatch-pick{
         display: none;
         z-index: 99999; padding: 4px; position: absolute; 
-        top: 30px; left: -20px; 
+        top: 30px; left: -150px; 
         background: #ffffff; 
         border-radius: 4px; 
         box-shadow: 0 0 4px rgba(50,50,50,0.6);
