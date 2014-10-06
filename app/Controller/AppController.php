@@ -46,6 +46,8 @@ class AppController extends Controller {
         $this->Auth->allow('admin_add');
         if($this->request->param("prefix")){
             $this->layout = "admin";
+            $authUser=$this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->User('id'))));
+            $this->set('authUser',$authUser);
         }
     }
 }

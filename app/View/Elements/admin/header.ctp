@@ -3,9 +3,9 @@
 
 
 <header class="header">
-    <a href="<?php echo $this->Html->url('/Manage/'); ?>" class="logo">
+    <a href="<?php echo $this->Html->webroot; ?>" target="_blank" class="logo">
         <!-- Add the class icon to your logo image or logo icon to add the margining -->
-        Bonkered
+        Rug-Builder
     </a>
 
     <style>
@@ -261,7 +261,7 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li style="margin-top: 12px;">
 
-                    <input type="text" onkeyup="searchuser(this.value)" placeholder="search by name or email"/>
+                    <!--<input type="text" onkeyup="searchuser(this.value)" placeholder="search by name or email"/>-->
                     <div style="size: auto; display:none;" id="users" >
 
 
@@ -276,15 +276,17 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
-                        <span>Administrator <i class="caret"></i></span>
+                        <span><?php echo $authUser['User']['full_name'];?> <i class="caret"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
                             <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
                             <p>
-                                Administrator
-                                <small>Member since August. 2014</small>
+                                <?php echo $authUser['User']['full_name'];?>
+                                <small>Member since
+                                    <?php echo date('M. Y',strtotime($authUser['User']['created']));?>
+                                </small>
                             </p>
                         </li>
                         <!-- Menu Body
@@ -305,7 +307,7 @@
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>-->
                             <div class="pull-right">
-                                <a href="<?php echo $this->Html->url('/Manage/logout'); ?> " class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?php echo $this->Html->url('/users/logout'); ?> " class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>

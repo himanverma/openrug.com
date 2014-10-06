@@ -10,8 +10,7 @@
                 <?php echo $this->Html->image('avatar3.png',array('class'=>"img-circle"));?>
             </div>
             <div class="pull-left info">
-                <p>Hello, Administrator</p>
-
+                <p>Hello, <?php echo $authUser['User']['full_name'];?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -112,16 +111,16 @@
             
             
             
-            <li  class="treeview">
+<!--            <li  class="treeview">
                 <a href="">
                     <i class="fa fa-th"></i> <span>Email Templates</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo $this->Html->url('/manage/emailtemplates');?>"><i class="fa fa-angle-double-right"></i> List All</a></li>
-                    <li><a href="<?php echo $this->Html->url('/manage/modemail');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
+                    <li><a href="<?php //echo $this->Html->url('/manage/emailtemplates');?>"><i class="fa fa-angle-double-right"></i> List All</a></li>
+                    <li><a href="<?php //echo $this->Html->url('/manage/modemail');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
                 </ul>
-            </li>
+            </li>-->
             
         </ul>
     </section>
