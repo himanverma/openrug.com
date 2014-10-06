@@ -107,4 +107,5 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
-CakePlugin::load('Combinator'); // Loads only the combinator plugin
+CakePlugin::load('Combinator');
+CakePlugin::load('PaypalIpn', array('bootstrap' => array('paypal_ipn_config'), 'routes' => true));

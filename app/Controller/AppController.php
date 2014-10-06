@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Application level Controller
  *
@@ -18,7 +19,6 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 App::uses('Controller', 'Controller');
 
 /**
@@ -30,24 +30,48 @@ App::uses('Controller', 'Controller');
  * @package		app.Controller
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
+
+App::uses('CakeEmail', 'Network/Email');
+$mailComp = new CakeEmail();
 class AppController extends Controller {
-    public $components = array('Auth','Session');
-    public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator');
+
+    public $components = array('Auth', 'Session');
+    public $helpers = array('Cache', 'Html', 'Session', 'Form', 'Combinator.Combinator','PaypalIpn.Paypal');
+    
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->authenticate = array( 
-            'all' => array( 
-                'userModel' => 'User', 
-                //'scope' => array('User.active' => 1) 
-                ), 
-            'Form', 
-            //'Basic' 
-            );
+        $this->Auth->authenticate = array(
+            'all' => array(
+                'userModel' => 'User',
+            //'scope' => array('User.active' => 1) 
+            ),
+            'Form',
+                //'Basic' 
+        );
         $this->Auth->allow('admin_add');
-        if($this->request->param("prefix")){
+        if ($this->request->param("prefix")) {
             $this->layout = "admin";
-            $authUser=$this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->User('id'))));
-            $this->set('authUser',$authUser);
+            $authUser = $this->User->find('first', array('conditions' => array('User.id' => $this->Auth->User('id'))));
+            $this->set('authUser', $authUser);
         }
     }
+
+    public function afterPaypalNotification($txnId) {
+        //Here is where you can implement code to apply the transaction to your app.
+        //for example, you could now mark an order as paid, a subscription, or give the user premium access.
+        //retrieve the transaction using the txnId passed and apply whatever logic your site needs.
+
+        $transaction = ClassRegistry::init('PaypalIpn.InstantPaymentNotification')->findById($txnId);
+        $this->log($transaction['InstantPaymentNotification']['id'], 'paypal');
+
+        //Tip: be sure to check the payment_status is complete because failure 
+        //     are also saved to your database for review.
+
+        if ($transaction['InstantPaymentNotification']['payment_status'] == 'Completed') {
+            //Yay!  We have monies!
+        } else {
+            //Oh no, better look at this transaction to determine what to do; like email a decline letter.
+        }
+    }
+
 }

@@ -48,12 +48,12 @@ class EmailConfig {
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
-		'host' => 'localhost',
+		'from' => array('noreply@rugbuilder.com' => 'Rugbuilder'),
+		'host' => 'mail.rugbuilder.com',
 		'port' => 25,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
+		'username' => 'noreply@rugbuilder.com',
+		'password' => 'noreply@123',
 		'client' => null,
 		'log' => false,
 		//'charset' => 'utf-8',

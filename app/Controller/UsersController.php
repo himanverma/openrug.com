@@ -18,9 +18,126 @@ class UsersController extends AppController {
         
         public function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow(array('admin_login'));
+            $this->Auth->allow(array('admin_login','add','login','forgetpwd','resetpass'));
         }
+/**
+ * admin_add method
+ *
+ * @return void
+ */
+	public function add() {
+		if ($this->request->is('post')) {
+                    if ($this->User->hasAny(array('User.username' => $this->request->data['User']['username']))) {
+                        $this->Session->setFlash(__('Username already exit. Please, try again.'));
+                    } else {
+                        if ($this->User->hasAny(array('User.email' => $this->request->data['User']['email']))) {
+                            $this->Session->setFlash(__('Email already exit. Please, try again.'));
+                        } else {
+                            $this->User->create();
+                            $this->request->data['User']['status']=1;
+                            $this->request->data['User']['type']='user';
+                            if ($this->User->save($this->request->data)) {
+                                $this->Session->setFlash(__('The user has been saved.'));
+                                return $this->redirect(array('action' => 'index'));
+                            } else {
+                                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                            }
+		        }
+                    }
+	       }
+	}
+        
+        
+        public function login(){
+            if($this->request->is('post')){
+                if($this->Auth->login()){
+                    $this->Session->setFlash('LoggedIn Successfully');
+                    $this->redirect(array('controller'=>'users','action'=>'index'));
+                }else{
+                    $this->Session->setFlash('Something went wrong...');
+                    $this->redirect(array('controller'=>'users','action'=>'login'));
+                }
+            }
+        }
+        public function logout(){
+            $this->Auth->logout();
+            $this->Session->setFlash("Thanks For visiting us!!!");
+            $this->redirect(array('controller'=>'users','action'=>'login'));
+        }
+        public function index(){
+            
+        }
+        
+        public function forgetpwd() {
+            $this->User->recursive = -1;
+            if (!empty($this->data)) {
+                if (empty($this->data['User']['email'])) {
+                    $this->Session->setFlash('Please Provide Your Email Address that You used to Register with Us');
+                } else {
+                    $email = $this->data['User']['email'];
+                    $fu = $this->User->find('first', array('conditions' => array('User.email' => $email)));
+                    if ($fu) {
+                        if ($fu['User']['status'] == "1") {
+                            $key = Security::hash(String::uuid(), 'sha512', true);
+                            $hash = sha1($fu['User']['username'] . rand(0, 100));
+                            $url = Router::url(array('controller' => 'users', 'action' => 'resetpass'), true) . '/' . $key . '#' . $hash;
+                            $ms = "<p>You are receiving this email as you have requested a change of password
+                                                        <br/> If you have not requested this change please ignore this email.
+                                                        Click the link below to reset your password...</p><p style='width:100%;'> 
+                                                        <a href=" . $url . " style='text-decoration:none'><b>Click me to reset your password.</b></a></p>";
+                            $fu['User']['tokenhash'] = $key;
+                            $this->User->id = $fu['User']['id'];
+                            if ($this->User->saveField('tokenhash', $fu['User']['tokenhash'])) {
+                                $l = new CakeEmail('smtp');
+                                $l->emailFormat('html')->template('default', 'default')->subject('Reset Your Password')->to($fu['User']['email'])->send($ms);
+                                $this->set('smtp_errors', "none");
+                                $this->Session->setFlash(__('Check Your Email To Reset your password', true));
+                                $this->redirect(array('controller' => 'users', 'action' => 'login'));
+                            } else {
+                                $this->Session->setFlash("Error Generating Reset link");
+                            }
+                        } else {
+                            $this->Session->setFlash('This Account is Blocked. Please Contact to Administrator...');
+                        }
+                    } else {
+                        $this->Session->setFlash('Email does Not Exist');
+                    }
+                }
+            }
+    }
 
+    public function resetpass($token = null) {
+        $this->User->recursive = -1;
+        if (!empty($token)) {
+            $u = $this->User->findBytokenhash($token);
+            if ($u) {
+                $this->User->id = $u['User']['id'];
+                if (!empty($this->data)) {
+                    if ($this->data['User']['password'] != $this->data['User']['password_confirm']) {
+                        $this->Session->setFlash("Both the passwords are not matching...");
+                        return;
+                    }
+                    $this->User->data = $this->data;
+                    $this->User->data['User']['username'] = $u['User']['username'];
+                    $new_hash = sha1($u['User']['username'] . rand(0, 100)); //created token
+                    $this->User->data['User']['tokenhash'] = $new_hash;
+                    if ($this->User->validates(array('fieldList' => array('password', 'password_confirm')))) {
+                        if ($this->User->save($this->User->data)) {
+                            $this->Session->setFlash('Password Has been Updated');
+                            $this->redirect("/");
+                        }
+                    } else {
+                        $this->set('errors', $this->User->invalidFields());
+                    }
+                }
+            } else {
+                $this->Session->setFlash('Token Corrupted, Please Retry.the reset link <a style="cursor: pointer; color: rgb(0, 102, 0); text-decoration: none; background: url("http://files.adbrite.com/mb/images/green-double-underline-006600.gif") repeat-x scroll center bottom transparent; margin-bottom: -2px; padding-bottom: 2px;" name="AdBriteInlineAd_work" id="AdBriteInlineAd_work" target="_top">work</a> only for once.');
+            }
+        } else {
+            $this->Session->setFlash('Pls try again...');
+            $this->redirect(array('/'));
+        }
+    }        
 /**
  * admin_index method
  *
@@ -53,15 +170,24 @@ class UsersController extends AppController {
  */
 	public function admin_add() {
 		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
-		}
-	}
+                    if ($this->User->hasAny(array('User.username' => $this->request->data['User']['username']))) {
+                        $this->Session->setFlash(__('Username already exit. Please, try again.'));
+                    } else {
+                        if ($this->User->hasAny(array('User.email' => $this->request->data['User']['email']))) {
+                            $this->Session->setFlash(__('Email already exit. Please, try again.'));
+                        } else {
+                            $this->User->create();
+                            $this->request->data['User']['status']=1;
+                            if ($this->User->save($this->request->data)) {
+                                $this->Session->setFlash(__('The user has been saved.'));
+                                return $this->redirect(array('action' => 'index'));
+                            } else {
+                                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+                            }
+		        }
+                    }
+	       }
+        }
 
 /**
  * admin_edit method
