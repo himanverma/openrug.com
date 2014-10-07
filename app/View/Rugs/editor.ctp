@@ -1,6 +1,6 @@
 <div class="row">
     <div class="single_pro">
-        <form method="post">
+        <form id="upd-clr-shp" method="post">
         <div class="color_editor">
             <div class="col-sm-4">
                 <div class="single_pro_menu">
@@ -333,6 +333,12 @@
         box-shadow: 0 0 4px rgba(55,55,55,0.6);
     }
 </style>    
+<?php 
+$this->start("script"); 
+echo $this->Html->css(array("waiting")); 
+echo $this->Html->script(array("jquery.form.min","jquery.waiting.min")); 
+$this->end(); 
+?>
 <script type="text/javascript">
     $(document).ready(function(){
         $('.swatch-picker').hover(function(){
@@ -355,5 +361,18 @@
             $(this).parent().parent().parent().parent().parent().find('input').val(shp);
             $(this).parents('form').submit();
         });
+        
+        $('#upd-clr-shp').ajaxForm({
+            beforeSubmit:  function(a){
+                $('body').waiting({ fixed: true });
+                return true;
+            },  
+            success: function(d){
+                window.location = d.url;
+                //$('body').waiting('done');
+                return false;
+            }
+        });
+        
     });
 </script>    
