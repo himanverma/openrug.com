@@ -105,6 +105,7 @@
             <h1>popular rug designs</h1><br/><br/>
             <div class="row">
                 <?php foreach($popularGenrugs as $popularGenrug){?>
+                    <a href="<?php echo $this->Html->url('/rugs/editor/'.$popularGenrug['Rug']['id']); ?>">
                     <div class="col-sm-2 col-xs-6" >
                         <div class="pro">
                             <img src="/<?php echo $popularGenrug['Genrug']['path']."pre.png";?>" alt="">
@@ -120,6 +121,7 @@
                             </div>
                         </div>
                     </div>
+                    </a>
                 <?php }?>
             </div>
         </div>
@@ -133,6 +135,7 @@
             <h1>recent rug designs</h1><br/><br/>
             <div class="row">
                 <?php foreach($recentGenrugs as $recentGenrug){?>
+                    <a href="<?php echo $this->Html->url('/rugs/editor/'.$recentGenrug['Rug']['id']."/".$recentGenrug['Genrug']['colorstamp']); ?>">
                     <div class="col-sm-2 col-xs-6" >
                         <div class="pro">
                             <img src="/<?php echo $recentGenrug['Genrug']['path']."pre.png";?>" alt="">
@@ -142,12 +145,13 @@
                                     <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
                                 <div class="col-xs-3 padding">
                                     <div class="view">
-                                        <a href="<?php echo $this->Html->url('/rugs/editor/'.$recentGenrug['Rug']['id']."/".$recentGenrug['Genrug']['colorstamp']); ?>"><i class="fa fa-eye"></i></a>
+                                        <a href="#"><i class="fa fa-eye"></i></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </a>
                 <?php }?>
             </div>
         </div>
