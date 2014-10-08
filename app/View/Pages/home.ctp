@@ -192,3 +192,18 @@
     </div>
 
 </div>
+<style>
+    
+    .col-xs-9.padding > a {
+float: left;
+    margin: 0 6% 0 0;
+    width: auto;
+}
+
+.addtocart {
+    color: #505050;
+    float: left;
+    font-size: 11px;
+    line-height: 23px;
+}
+    </style>
