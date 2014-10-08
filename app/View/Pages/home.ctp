@@ -1,3 +1,4 @@
+<?php echo $this->Html->script(array('addtocart.js'), array('inline' => false)); ?>
 <div class="banner">
     <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
 
@@ -112,7 +113,13 @@
                             <p><?php echo $popularGenrug['Rug']['description'];?></p>
                             <div class="add_cart">
                                 <div class="col-xs-9 padding">
-                                    <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
+                                    <span>
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <a href="javascript:void()" class="addtocart" id="<?php echo $popularGenrug['Genrug']['id'];?>">
+                                            Add to Cart
+                                        </a>
+                                    </span>
+                                </div>
                                 <div class="col-xs-3 padding">
                                     <div class="view">
                                         <a href="<?php echo $this->Html->url('/rugs/editor/'.$popularGenrug['Rug']['id']); ?>"><i class="fa fa-eye"></i></a>
@@ -142,7 +149,13 @@
                             <p><?php echo $recentGenrug['Rug']['description'];?></p>
                             <div class="add_cart">
                                 <div class="col-xs-9 padding">
-                                    <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
+                                    <span>
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <a href="javascript:void()" class="addtocart"  id="<?php echo $recentGenrug['Genrug']['id'];?>">
+                                            Add to Cart
+                                        </a>
+                                    </span>
+                                </div>
                                 <div class="col-xs-3 padding">
                                     <div class="view">
                                         <a href="#"><i class="fa fa-eye"></i></a>
