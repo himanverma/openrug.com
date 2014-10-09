@@ -113,10 +113,6 @@
                 height: 475px;
             }
         </style>
-        
-        
-        
-
         <div class="calculate_price">
             <div class="col-sm-6"><h1>calculate price - <span>specify measurements:</span></h1></div>
             <div class="col-sm-3"></div>
@@ -124,10 +120,10 @@
                 <div class="select_cm">
                     <form role="form">
                         <label class="radio-inline">
-                            <input type="radio" value="option1" id="inlineRadio1" name="inlineRadioOptions"> cm
+                            <input type="radio" value="cm" id="inlineRadio1" data-bind="checked: mUnits" name="inlineRadioOptions"> cm
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" value="option2" id="inlineRadio2" name="inlineRadioOptions"> feet and inches 
+                            <input type="radio" value="ft" id="inlineRadio2" data-bind="checked: mUnits" name="inlineRadioOptions"> feet and inches 
                         </label>
 
                     </form>          
@@ -141,9 +137,9 @@
                                 <p>
                                     <label>Width</label>
                                     <input name="" type="text">
-                                    <label> cm     x     Length </label>
+                                    <label> <!-- ko text: mUnits -->cm<!-- /ko -->     x     Length </label>
                                     <input name="" type="text">
-                                    <span>cm</span>
+                                    <span><!-- ko text: mUnits -->cm<!-- /ko --></span>
                                 </p>
                                 <p>
                                     <label>Quantity</label>
@@ -166,15 +162,15 @@
                             <form role="form">
                                 <span>Pile depth </span>
                                 <label class="radio-inline">
-                                    <input type="radio" value="option1" id="inlineRadio1" name="inlineRadioOptions"> 12-14 mm
+                                    <input type="radio" value="option1" id="inlineRadio1" name="inlineRadioOptions"> 12-14 <!-- ko text: mUnits -->cm<!-- /ko -->
                                 </label>
                                 <span><img src="<?php echo $this->Html->url("/images/icon1.png"); ?>" alt=""></span>
                                 <label class="radio-inline">
-                                    <input type="radio" value="option2" id="inlineRadio2" name="inlineRadioOptions"> 15-18 mm 
+                                    <input type="radio" value="option2" id="inlineRadio2" name="inlineRadioOptions"> 15-18 <!-- ko text: mUnits -->cm<!-- /ko --> 
                                 </label>
                                 <span><img src="<?php echo $this->Html->url("/images/icon1.png"); ?>" alt=""></span>
                                 <label class="radio-inline">
-                                    <input type="radio" value="option3" id="inlineRadio3" name="inlineRadioOptions"> 19-21 mm
+                                    <input type="radio" value="option3" id="inlineRadio3" name="inlineRadioOptions"> 19-21 <!-- ko text: mUnits -->cm<!-- /ko -->
                                 </label>
 
                             </form>          
@@ -336,7 +332,7 @@
 <?php 
 $this->start("script"); 
 echo $this->Html->css(array("waiting")); 
-echo $this->Html->script(array("jquery.form.min","jquery.waiting.min")); 
+echo $this->Html->script(array("http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js","jquery.form.min","jquery.waiting.min")); 
 $this->end(); 
 ?>
 <script type="text/javascript">
@@ -374,5 +370,30 @@ $this->end();
             }
         });
         
+        edt = new EditorVM();
+        ko.applyBindings(edt);
     });
+    
+var EditorVM = function(){
+    var me = this;
+    me.mUnits = ko.observable("cm");
+    me.mUnits.subscribe(function(newVal){
+        console.log(newVal);
+    },this);
+    me.add2cart = function(){
+        var data = {
+            rid: '<?php echo $r_id; ?>',
+            qty: '',
+            l: '',
+            b: '',
+            s: '',
+            shp: '<?php echo $defaultShp; ?>',
+            clr: '<?php echo str_replace("#", "", $colorstamp); ?>'
+        };
+        $.post("http://rugbuilder.com/Cart/add",data, function(d){
+            console.log(d);
+        });
+    }
+}
+
 </script>    

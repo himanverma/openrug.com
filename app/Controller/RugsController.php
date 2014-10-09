@@ -615,6 +615,8 @@ class RugsController extends AppController {
         $this->set("ims", "/" . $ims);
         $this->set("defaultClr", $defaultClr);
         $this->set("defaultShp", $defaultShp);
+        $this->set("colorstamp",$colorstamp);
+        $this->set("r_id",$id);
 
 
 
