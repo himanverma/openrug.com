@@ -11,9 +11,9 @@ class PaypalIpnConfig {
  * Each settings key coresponds to the Paypal API.  Review www.paypal.com for more.
  */
 	var $default = array(
-		'business'      => 'richard.wyche@gmail.com',         // 'live_email@paypal.com', //Your Paypal email account
+		'business'      => 'payments@modernrugs.com',         // 'live_email@paypal.com', //Your Paypal email account
 		'server'        => 'https://www.paypal.com',        // Main paypal server.
-		'notify_url'    => 'http://bonkered.com/paypal_ipn/process',
+		'notify_url'    => 'http://rugbuilder.com/paypal_ipn/process',
                                                             // 'http://yoursite.com/paypal_ipn/process',
                                                             // Notify_url... set this to the process path of your
                                                             // paypal_ipn::instant_payment_notification::process action

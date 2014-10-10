@@ -107,4 +107,6 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
-CakePlugin::load('Combinator'); // Loads only the combinator plugin
+CakePlugin::load(array('Combinator','Seo')); // Loads only the combinator plugin
+
+require_once(APP . 'Plugin' . DS . 'Seo' . DS . 'Lib' . DS . 'Error' . DS . 'SeoAppError.php');

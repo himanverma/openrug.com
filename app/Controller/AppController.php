@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     public $components = array('Auth','Session');
-    public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator');
+    public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator','Seo.Seo');
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->authenticate = array( 
@@ -47,5 +47,7 @@ class AppController extends Controller {
         if($this->request->param("prefix")){
             $this->layout = "admin";
         }
+        $this->loadModel('User');
+        $this->set('authUser',$this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->User('id')))));
     }
 }

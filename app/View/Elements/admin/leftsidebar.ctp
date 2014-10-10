@@ -56,12 +56,6 @@
             
             
             
-            
-<!--            <li class="active">
-                <a href="<?php echo $this->Html->url('/Manage/globalconfiguration'); ?>">
-                    <i class="fa fa-dashboard"></i> <span>Configuration</span>
-                </a>
-            </li>-->
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i>
@@ -120,6 +114,35 @@
                 <ul class="treeview-menu">
                     <li><a href="<?php echo $this->Html->url('/manage/emailtemplates');?>"><i class="fa fa-angle-double-right"></i> List All</a></li>
                     <li><a href="<?php echo $this->Html->url('/manage/modemail');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
+                </ul>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li  class="treeview">
+                <a href="">
+                    <i class="fa fa-dashboard"></i> <span>Seo-List</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo $this->Html->url('/seo/seo_a_b_tests');?>"><i class="fa fa-angle-double-right"></i> AB Tests</a></li>
+                    <li><a href="<?php echo $this->Html->url('/seo_blacklists');?>"><i class="fa fa-angle-double-right"></i> BlackLists</a></li>
+                    <li><a href="<?php echo $this->Html->url('/seo/seo_canonicals');?>"><i class="fa fa-angle-double-right"></i>Canonicals</a></li>
+                    <li><a href="<?php echo $this->Html->url('/seo/seo_meta_tags');?>"><i class="fa fa-angle-double-right"></i> Meta-Tags</a></li>
+                    <li><a href="<?php echo $this->Html->url('/seo/seo_redirects');?>"><i class="fa fa-angle-double-right"></i>Redirects</a></li>
+                    <li><a href="<?php echo $this->Html->url('/seo/seo_status_codes');?>"><i class="fa fa-angle-double-right"></i>Status Codes</a></li>
+                    <li><a href="<?php echo $this->Html->url('/seo/seo_titles');?>"><i class="fa fa-angle-double-right"></i>Title</a></li>
+                    <li><a href="<?php echo $this->Html->url('/seo/seo_uris');?>"><i class="fa fa-angle-double-right"></i>Uris</a></li>
                 </ul>
             </li>
             
