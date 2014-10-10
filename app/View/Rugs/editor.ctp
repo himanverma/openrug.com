@@ -1,37 +1,37 @@
 <div class="row">
     <div class="single_pro">
         <form id="upd-clr-shp" method="post">
-        <div class="color_editor">
-            <div class="col-sm-4">
-                <div class="single_pro_menu">
-                    <a href="#">home</a>  >  <a href="#">rugs</a>  >  <a href="#">natural</a>  >  <a href="#">tea time rug </a>
-                    <p>tea time rug   <span>product no: 1276034 </span></p>
-                    <div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>
+            <div class="color_editor">
+                <div class="col-sm-4">
+                    <div class="single_pro_menu">
+                        <a href="#">home</a>  >  <a href="#">rugs</a>  >  <a href="#">natural</a>  >  <a href="#">tea time rug </a>
+                        <p>tea time rug   <span>product no: 1276034 </span></p>
+                        <div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-1">
-            </div>
-            <div class="col-sm-3">
-                <div class="edit_color">
-                    Edit Colours:
-                    <?php for($i = 0 ; $i < $colorCount; $i++){ ?>    
-                    <span class="swatch-picker">
-                        <img src="<?php echo $this->Html->url("/swatch/".$defaultClr[$i]['png']); ?>" alt="">
-                        <div class="swatch-pick">
-                            <?php echo $this->element("swatch"); ?>
-                        </div>
-                        <input type="hidden" name="clr_sb[]" value="<?php echo $defaultClr[$i]['clr']; ?>" />
-                    </span>
-                    <?php } ?>
-                    </span> 
-                       <!-- <a href="#"><i class="fa fa-plus-square"></i></a> -->
-                    
+                <div class="col-sm-1">
                 </div>
-            </div>
-            <div class="col-sm-1"></div>
-            <div class="col-sm-3">
-                <div class="edit_shape">
-                    Edit Shape: 
+                <div class="col-sm-3">
+                    <div class="edit_color">
+                        Edit Colours:
+                        <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
+                            <span class="swatch-picker">
+                                <img src="<?php echo $this->Html->url("/swatch/" . $defaultClr[$i]['png']); ?>" alt="">
+                                <div class="swatch-pick">
+                                    <?php echo $this->element("swatch"); ?>
+                                </div>
+                                <input type="hidden" name="clr_sb[]" value="<?php echo $defaultClr[$i]['clr']; ?>" />
+                            </span>
+                        <?php } ?>
+                        </span> 
+                           <!-- <a href="#"><i class="fa fa-plus-square"></i></a> -->
+
+                    </div>
+                </div>
+                <div class="col-sm-1"></div>
+                <div class="col-sm-3">
+                    <div class="edit_shape">
+                        Edit Shape: 
                         <span class="swatch-picker">
                             <img src="<?php echo $this->Html->url("/images/shap-1.png"); ?>" alt="">
                             <div class="swatch-pick">
@@ -66,31 +66,31 @@
                             </div>
                         </span>
                         <a href="#"><i class="fa fa-plus-square"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
         </form>
 
         <div class="single_page_pro">
             <div class="col-sm-12">
-                
+
                 <div id="rug-preview">
-                    <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims.$defaultShp.".png"); ?>"/>
+                    <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
                     <div class="col-sm-12 sm-p-trig">
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp.".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims.$defaultShp."3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
                         </div>
                         <div class="im col-sm-4">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -98,8 +98,8 @@
             </div>
         </div>
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('#rug-preview .sm-p-trig img').on("mouseenter",function(){
+            $(document).ready(function() {
+                $('#rug-preview .sm-p-trig img').on("mouseenter", function() {
                     $('#big-img').attr({src: $(this).attr('src')});
                 });
             });
@@ -136,19 +136,21 @@
                             <form> 
                                 <p>
                                     <label>Width</label>
-                                    <input name="" type="text">
+                                    <input name="b" id="odr-b" data-bind="value:l" type="text">
                                     <label> <!-- ko text: mUnits -->cm<!-- /ko -->     x     Length </label>
-                                    <input name="" type="text">
+                                    <input name="l" id="odr-l" data-bind="value:b" type="text">
                                     <span><!-- ko text: mUnits -->cm<!-- /ko --></span>
                                 </p>
                                 <p>
                                     <label>Quantity</label>
-                                    <select name="">
-                                        <option></option>
+                                    <select id="odr-qty" data-bind="value:qty " name="">
+                                        <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                                            <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                                        <?php } ?>
                                     </select>
                                     <strong>your rug price: <small> £0.00</small></strong>
 
-                                    <span class="addtocart"><a href="#"><img src="<?php echo $this->Html->url("/images/addtocart.png"); ?>" alt=""></a></span>
+                                    <span class="addtocart" data-bind="click:add2cart"><a href="#"><img src="<?php echo $this->Html->url("/images/addtocart.png"); ?>" alt=""></a></span>
 
                                 </p>               
 
@@ -158,19 +160,28 @@
 
                     </div>
                     <div class="col-sm-6">
-                        <div class="select_cm_all">
+                        <div class="select_cm_all" id="odr-s">
                             <form role="form">
                                 <span>Pile depth </span>
                                 <label class="radio-inline">
-                                    <input type="radio" value="option1" id="inlineRadio1" name="inlineRadioOptions"> 12-14 <!-- ko text: mUnits -->cm<!-- /ko -->
+                                    <input type="radio" value="option1" data-bind="checked: s" id="inlineRadio1" name="inlineRadioOptions"> 
+                                    <span data-bind="cm2ft2cm:{'cm':12,'unit':mUnits}">12</span>-
+                                    <span data-bind="cm2ft2cm:{'cm':14,'unit':mUnits}">14</span>
+                                    <!-- ko text: mUnits -->cm<!-- /ko -->
                                 </label>
                                 <span><img src="<?php echo $this->Html->url("/images/icon1.png"); ?>" alt=""></span>
                                 <label class="radio-inline">
-                                    <input type="radio" value="option2" id="inlineRadio2" name="inlineRadioOptions"> 15-18 <!-- ko text: mUnits -->cm<!-- /ko --> 
+                                    <input type="radio" value="option2" data-bind="checked: s" id="inlineRadio2" name="inlineRadioOptions">
+                                    <span data-bind="cm2ft2cm:{'cm':15,'unit':mUnits}">15</span>-
+                                    <span data-bind="cm2ft2cm:{'cm':18,'unit':mUnits}">18</span>
+                                    <!-- ko text: mUnits -->cm<!-- /ko --> 
                                 </label>
                                 <span><img src="<?php echo $this->Html->url("/images/icon1.png"); ?>" alt=""></span>
                                 <label class="radio-inline">
-                                    <input type="radio" value="option3" id="inlineRadio3" name="inlineRadioOptions"> 19-21 <!-- ko text: mUnits -->cm<!-- /ko -->
+                                    <input type="radio" value="option3" data-bind="checked: s" id="inlineRadio3" name="inlineRadioOptions">
+                                    <span data-bind="cm2ft2cm:{'cm':19,'unit':mUnits}">19</span>-
+                                    <span data-bind="cm2ft2cm:{'cm':21,'unit':mUnits}">21</span>
+                                    <!-- ko text: mUnits -->cm<!-- /ko -->
                                 </label>
 
                             </form>          
@@ -179,28 +190,28 @@
                 </div>
                 <div class="poplular_custom_sizes">
                     <h1>Poplular custom sizes:</h1>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="custom_sizes_box">
-                            <span>140cm x 200cm</span>
+                            <span><span data-bind="cm2ft2cm:{'cm':140,'unit':mUnits}">140</span>cm x <span data-bind="cm2ft2cm:{'cm':200,'unit':mUnits}">200</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
+                            <p>£568.00 </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="custom_sizes_box">
+                            <span><span data-bind="cm2ft2cm:{'cm':120,'unit':mUnits}">120</span>cm x <span data-bind="cm2ft2cm:{'cm':180,'unit':mUnits}">180</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
                             <p>£498.99 </p>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="custom_sizes_box">
-                            <span>140cm x 200cm</span>
-                            <p>£498.99 </p>
+                            <span><span data-bind="cm2ft2cm:{'cm':100,'unit':mUnits}">100</span>cm x <span data-bind="cm2ft2cm:{'cm':160,'unit':mUnits}">160</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
+                            <p>£508.50 </p>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <div class="custom_sizes_box">
-                            <span>140cm x 200cm</span>
-                            <p>£498.99 </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-2">
-                        <div class="custom_sizes_box">
-                            <span>140cm x 200cm</span>
-                            <p>£498.99 </p>
+                            <span><span data-bind="cm2ft2cm:{'cm':150,'unit':mUnits}">150</span>cm x <span data-bind="cm2ft2cm:{'cm':220,'unit':mUnits}">220</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
+                            <p>£798.63 </p>
                         </div>
                     </div>
                 </div>
@@ -246,26 +257,31 @@
 
                         <div class="col-sm-12 padding">
                             <div class="pro_right">
-                                
-                                
-                                <?php foreach($rugDiscounts as $rug){
-                                        foreach($rug['Genrug'] as $genrug){?>
+
+
+                                <?php foreach ($rugDiscounts as $rug) {
+                                    foreach ($rug['Genrug'] as $genrug) {
+                                        ?>
+                                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $rug['Rug']['id'] . "/" . $genrug['colorstamp']); ?>">
                                             <div class="col-md-2 col-sm-4 col-xs-6">
                                                 <div class="product_main">
-                                                    <img alt="" src="<?php echo $this->Html->url('../'.$genrug['path']."pre.png"); ?>">
+                                                    <img alt="" src="<?php echo $this->Html->url('../' . $genrug['path'] . "pre.png"); ?>">
                                                     <p><?php echo $rug['Rug']['description']; ?></p>
                                                     <div class="add_cart2">
                                                         <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
                                                         <div class="rupee">
-                                                            <?php $aa=($genrug['price']*$rug['Rug']['discount'])/100; 
-                                                                $bb = $genrug['price']-$aa;
+                                                            <?php
+                                                            $aa = ($genrug['price'] * $rug['Rug']['discount']) / 100;
+                                                            $bb = $genrug['price'] - $aa;
                                                             ?>
-                                                            <p>$<?php echo $bb;?>   <span>$<?php echo $genrug['price']; ?></span></p>
+                                                            <p>$<?php echo $bb; ?>   <span>$<?php echo $genrug['price']; ?></span></p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                <?php }}?>
+                                        </a>
+    <?php }
+} ?>
                             </div>    
                         </div>
                     </div>
@@ -275,23 +291,25 @@
                         <div class="col-sm-12">
                             <h1>Top rug designs</h1>
                             <div class="row">
-                                <?php foreach($popularGenrugs as $popularGenrug){?>
-                                    <div class="col-sm-2 col-xs-6">
-                                        <div class="pro">
-                                            <img src="/<?php echo $popularGenrug['Genrug']['path']."pre.png";?>" alt="">
-                                            <p><?php echo $popularGenrug['Rug']['description'];?></p>
-                                            <div class="add_cart">
-                                                <div class="col-xs-9 padding">
-                                                    <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                                <div class="col-xs-3 padding">
-                                                    <div class="view">
-                                                        <a href="#"><i class="fa fa-eye"></i></a>
+<?php foreach ($popularGenrugs as $popularGenrug) { ?>
+                                    <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
+                                        <div class="col-sm-2 col-xs-6">
+                                            <div class="pro">
+                                                <img src="/<?php echo $popularGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
+                                                <p><?php echo $popularGenrug['Rug']['description']; ?></p>
+                                                <div class="add_cart">
+                                                    <div class="col-xs-9 padding">
+                                                        <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
+                                                    <div class="col-xs-3 padding">
+                                                        <div class="view">
+                                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                <?php }?>
+                                    </a>
+<?php } ?>
                             </div>
                         </div>
                     </div>
@@ -328,72 +346,116 @@
         cursor: pointer;
         box-shadow: 0 0 4px rgba(55,55,55,0.6);
     }
+    .custom_sizes_box span {
+        float: none;
+    }
+    .col-xs-9.padding > a {
+        float: left;
+        margin: 0 6% 0 0;
+        width: auto;
+    }
+
+    .addtocart {
+        color: #505050;
+        float: left;
+        font-size: 11px;
+        line-height: 28px;
+    }
+
+    .add_cart2 span{
+        width:auto !important;
+        margin: 0 9% 0 0;
+    }
 </style>    
-<?php 
-$this->start("script"); 
-echo $this->Html->css(array("waiting")); 
-echo $this->Html->script(array("http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js","jquery.form.min","jquery.waiting.min")); 
-$this->end(); 
+<?php
+$this->start("script");
+echo $this->Html->css(array("waiting"));
+echo $this->Html->script(array("http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js", "app/custom.bindings", "jquery.form.min", "jquery.waiting.min"));
+$this->end();
 ?>
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('.swatch-picker').hover(function(){
+    $(document).ready(function() {
+        $('.swatch-picker').hover(function() {
             $(this).find('.swatch-pick').show();
-            $(this).css({'box-shadow':'0 0 4px rgba(55,55,55,0.6)'});
-        },function(){
+            $(this).css({'box-shadow': '0 0 4px rgba(55,55,55,0.6)'});
+        }, function() {
             $(this).find('.swatch-pick').hide();
-            $(this).css({'box-shadow':'none'});
+            $(this).css({'box-shadow': 'none'});
         });
-        
-        $('.trig-clr').on("click",function(){
-            var clr = $(this).data().clr ; 
+
+        $('.trig-clr').on("click", function() {
+            var clr = $(this).data().clr;
             console.log($(this).parent().parent().parent().parent().parent());
             $(this).parent().parent().parent().parent().parent().parent().find('input').val(clr);
             $(this).parents('form').submit();
         });
-        $('#shape-pick img').on("click",function(){
+        $('#shape-pick img').on("click", function() {
             var shp = $(this).data().shp;
             console.log(shp);
             $(this).parent().parent().parent().parent().parent().find('input').val(shp);
             $(this).parents('form').submit();
         });
-        
+
         $('#upd-clr-shp').ajaxForm({
-            beforeSubmit:  function(a){
-                $('body').waiting({ fixed: true });
+            beforeSubmit: function(a) {
+                $('body').waiting({fixed: true});
                 return true;
-            },  
-            success: function(d){
+            },
+            success: function(d) {
                 window.location = d.url;
                 //$('body').waiting('done');
                 return false;
             }
         });
-        
+
         edt = new EditorVM();
         ko.applyBindings(edt);
     });
-    
-var EditorVM = function(){
-    var me = this;
-    me.mUnits = ko.observable("cm");
-    me.mUnits.subscribe(function(newVal){
-        console.log(newVal);
-    },this);
-    me.add2cart = function(){
-        var data = {
-            rid: '<?php echo $r_id; ?>',
-            qty: '',
-            l: '',
-            b: '',
-            s: '',
-            shp: '<?php echo $defaultShp; ?>',
-            clr: '<?php echo str_replace("#", "", $colorstamp); ?>'
-        };
-        $.post("http://rugbuilder.com/Cart/add",data, function(d){
-            console.log(d);
-        });
+    var EditorVM = function() {
+        var me = this;
+        me.l = ko.observable('');
+        me.b = ko.observable('');
+        me.s = ko.observable('');
+        me.qty = ko.observable(1);
+        me.mUnits = ko.observable("cm");
+        me.mUnits.subscribe(function(newVal) {
+            console.log(newVal);
+        }, this);
+        me.notify = function(type, msg, focus = null){
+            alert(type + ": " + msg);
+            if (focus != null)
+                $(focus).css({'background': 'pink'});
+            return false;
+        }
+        me.add2cart = function() {
+            $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
+            var send = true;
+            if (me.l() == 0 || me.l() == "") {
+                send = me.notify("Warning", "Please enter lenth of rug.", "#odr-l");
+            }
+            if (me.b() == 0 || me.b() == "") {
+                send = me.notify("Warning", "Please enter bredth of rug.", "#odr-b");
+            }
+            if (me.s() == 0 || me.s() == "") {
+                send = me.notify("Warning", "Please select a pile size.", "#odr-s");
+            }
+
+            var data = {
+                rid: '<?php echo $r_id; ?>',
+                qty: me.qty(),
+                l: me.l(),
+                b: me.b(),
+                s: me.s(),
+                shp: '<?php echo $defaultShp; ?>',
+                clr: '<?php echo str_replace("#", "", $colorstamp); ?>'
+            };
+            if (send) {
+                $.post("http://rugbuilder.com/Cart/add", data, function(d) {
+                    console.log(d);
+                });
+            }
+        }
     }
-}
+
 
 </script>    
