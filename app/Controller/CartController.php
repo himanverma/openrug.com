@@ -68,12 +68,44 @@ class CartController extends AppController{
                 $s = $this->Order->Inlineitem->saveField("qty", $item['Inlineitem']['qty']);
             }
         }
-        
+
         // $order = {"Order":{"user_id":0,"sessionid":"kpc64t1kk8nvmeh2p2n24icmm6","timestamp":1412856993,"status":"Not Confirmed","id":"1"}}
+        // $item = {"Inlineitem":{"order_id":"1","genrug_id":"5","qty":"1","length":"5","bredth":"5","pile_size":"option1","shape":"square","colors":"b791a6-3045e0","id":"3"}}
         
-        $result = $item;
+        $result = $this->Order->find("first",array(
+            "conditions" => array(
+                "sessionid" => $sid
+            )
+        ));        
         $this->response->body(json_encode($result));
     }
+    public function removeitem(){
+        $this->loadModel('Inlineitem');
+        if($this->Inlineitem->delete($this->request->data['iid'])){
+            $result = array(
+                "msg" => "Item removed from cart.",
+                "type" => "info"
+            );
+        }else{
+            $result = array(
+                "msg" => "Unable to remove Item from cart.",
+                "type" => "error"
+            );
+        }
+        $this->response->body(json_encode($result));
+    }
+
+    public function cart(){
+        $sid = $this->Session->id();
+        $this->loadModel("Order");
+        $result = $this->Order->find("first",array(
+            "conditions" => array(
+                "sessionid" => $sid
+            )
+        ));
+        $this->response->body(json_encode($result));
+    }
+    
     
     
 }
