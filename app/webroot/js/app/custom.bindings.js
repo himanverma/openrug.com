@@ -35,7 +35,6 @@ ko.bindingHandlers.cm2ft2cm = {
             if(value.unit() == 'ft'){
                 $(element).html((value.cm * 0.032808).toFixed(2));
             }
-            console.log(value);
         }
         if(value.ft != undefined){
             if(value.unit() == 'ft'){
