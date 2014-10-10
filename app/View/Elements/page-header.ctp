@@ -19,7 +19,7 @@
         <div class="col-sm-12">
             <div class="logo">
                 <div class="col-sm-4">
-                    <a href="#"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
+                    <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
                 </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
@@ -64,7 +64,7 @@
                             </div>
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
-                                    <li class="active"><a href="#">Home</a></li>
+                                    <li class="active"><a href="/">Home</a></li>
                                     <li><a href="#about">Contemporary Rugs</a></li>
                                     <li><a href="#contact">Modern Rugs</a></li>
                                     <li><a href="#contact">Designer Rugs</a></li>
