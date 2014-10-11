@@ -21,7 +21,7 @@ class RugsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('genImg', 'editor', 'index'));
+        $this->Auth->allow(array('genImg', 'editor', 'index','cart'));
     }
 
     /**
@@ -634,6 +634,11 @@ class RugsController extends AppController {
             'order' => array('Genrug.id desc'), "limit" => 18));
         $this->set('popularGenrugs', $popularGenrugs);
     }
+    
+    public function cart(){
+        
+    }
+
 
     /**
      * index method

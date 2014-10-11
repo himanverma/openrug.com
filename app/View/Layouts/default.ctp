@@ -51,9 +51,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "bootstrap.min",
         ));
         */
+        echo $this->Html->script(array("http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"));
         $this->Combinator->add_libs('js', array(
             "jquery.min",
             "bootstrap.min",
+            "jquery.form.min", 
+            "jquery.waiting.min",
+            "/js/app/functions",
+            "/js/app/custom.bindings"
         )); 
         $this->Combinator->add_libs('css', array(
             "bootstrap.min",
@@ -61,6 +66,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "/fonts/stylesheet",
             "font-awesome",
             "bootstrap-theme.min",
+            "waiting"
             //"/font-awesome/css/font-awesome.min",
             //"theme",
         )); 

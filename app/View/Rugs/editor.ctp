@@ -369,8 +369,6 @@
 </style>    
 <?php
 $this->start("script");
-echo $this->Html->css(array("waiting"));
-echo $this->Html->script(array("http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js", "app/custom.bindings", "jquery.form.min", "jquery.waiting.min"));
 $this->end();
 ?>
 <script type="text/javascript">
@@ -427,7 +425,8 @@ $this->end();
                 $(focus).css({'background': 'pink'});
             return false;
         }
-        me.add2cart = function() {
+        me.add2cart = function(d,e) {
+            
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
             var send = true;
             if (me.l() == 0 || me.l() == "") {
@@ -450,10 +449,15 @@ $this->end();
                 clr: '<?php echo str_replace("#", "", $colorstamp); ?>'
             };
             if (send) {
+                var t = me;
                 $.post("http://rugbuilder.com/Cart/add", data, function(d) {
-                    console.log(d);
+                    t.notify("Info","Product added to cart...");
                 });
+                flyToElement($('#big-img'), $(e.currentTarget));
             }
+        }
+        me.removeItem = function(d,e){
+            
         }
     }
 
