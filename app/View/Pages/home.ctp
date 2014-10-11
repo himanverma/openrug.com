@@ -175,19 +175,7 @@
 <div class="facebook_user">
     <div class="row">
         <div class="col-sm-12">
-            <h1>43 Friends <span>Like custom rugs design</span></h1>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-1.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-2.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-3.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-4.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-5.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-6.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-7.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-8.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-9.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-10.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-11.jpg" alt=""></a></div></div>
-            <div class="col-sm-1 col-xs-2 padding_right1"><div class="user"><a href="#"><img src="images/user-4.jpg" alt=""></a></div></div>
+            <iframe width="100%" height="270" frameborder="0" src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fmodernrugs&width=910&height=258&colorscheme=light&show_faces=true&header=false&stream=false&show_border=false&appId=754920931213739" framescroll="no"></iframe>
         </div>
     </div>
 
