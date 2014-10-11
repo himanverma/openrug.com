@@ -281,7 +281,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="../img/avatar3.png" class="img-circle" alt="User Image" />
+                            <img src="/img/avatar3.png" class="img-circle" alt="User Image" />
                             <p>
                                 <?php echo $authUser['User']['full_name'];?>
                                 <small>Member since

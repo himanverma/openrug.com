@@ -30,11 +30,4 @@
 			</dd>
 		</dl>
 	</div>
-	<div class="actions">
-		<h3><?php echo __('Actions'); ?></h3>
-		<ul>
-			<li><?php echo $this->Html->link(__('Edit Seo Title'), array('action' => 'edit', $seoTitle['SeoTitle']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(__('Delete Seo Title'), array('action' => 'delete', $seoTitle['SeoTitle']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $seoTitle['SeoTitle']['id'])); ?> </li>
-		</ul>
-	</div>
 </div>

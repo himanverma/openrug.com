@@ -40,11 +40,4 @@
 			</dd>
 		</dl>
 	</div>
-	<div class="actions">
-		<h3><?php echo __('Actions'); ?></h3>
-		<ul>
-			<li><?php echo $this->Html->link(__('Edit Seo Status Code'), array('action' => 'edit', $seoStatusCode['SeoStatusCode']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(__('Delete Seo Status Code'), array('action' => 'delete', $seoStatusCode['SeoStatusCode']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $seoStatusCode['SeoStatusCode']['id'])); ?> </li>
-		</ul>
-	</div>
 </div>

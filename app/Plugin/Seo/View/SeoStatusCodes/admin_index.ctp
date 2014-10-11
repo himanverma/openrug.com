@@ -1,6 +1,6 @@
 <div class="seo_plugin">
-	<?php echo $this->element('seo_admin_filter', array('plugin' => 'seo', 'model' => 'SeoStatusCode')); ?>
-	<?php echo $this->element('seo_view_head', array('plugin' => 'seo')); ?>
+	<?php //echo $this->element('seo_admin_filter', array('plugin' => 'seo', 'model' => 'SeoStatusCode')); ?>
+	<?php //echo $this->element('seo_view_head', array('plugin' => 'seo')); ?>
 	<div class="seoStatusCodes index">
 		<h2><?php echo __('Seo Status Codes');?></h2>
 		<table cellpadding="0" cellspacing="0">

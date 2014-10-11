@@ -1,3 +1,5 @@
+
+
 <header>
     <div class="social">
         <div class="socil_link">
@@ -14,27 +16,19 @@
 
 
     </div>
+    
+
     <div class="container">
 
         <div class="col-sm-12">
-            <div class="logo">
-                <div class="col-sm-4">
+            
+                <div class="col-sm-3">
+                    <div class="logo">
                     <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
                 </div>
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <div class="search">
-                        <input name="" type="text" value="Search...">
-                        <input name="" type="submit" value="Search">
-                    </div>
                 </div>
-            </div>
-
-
-
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6">
-                <div class="top_nav">
+                <div class="col-sm-6">
+                    <div class="top_nav">
                     <ul>
                         <li><a href="#" class="active">Shop Online</a></li>
                         <li><a href="#">Collections</a></li>
@@ -42,9 +36,15 @@
                         <li><a href="#">Shop Locator</a></li>
                     </ul>
                 </div>
-            </div>
-
-            <div class="col-sm-3"></div>
+                    
+                </div>
+                <div class="col-sm-3">
+                    <div class="search">
+                        <input name="" type="text" value="Search...">
+                        <input name="" type="submit" value="Search">
+                    </div>
+                </div>
+            
 
 
             <div class="navigat">
@@ -227,3 +227,26 @@
 
 </div>
 </header>
+
+    <style>
+        
+    .top_nav{
+        margin-top:8%;
+    }
+    header {
+    border-bottom:none!important;
+    box-shadow: 0 2px 9px #ccc;
+}
+.con_inn {
+    box-shadow: 0 7px 10px #ccc!important;
+}
+.navbar-nav > li > .dropdown-menu{
+    margin-top: 0!important;
+}
+.logo{
+    float: none!important;
+    width: 86px;
+    margin: 0px auto;
+}
+    
+</style>

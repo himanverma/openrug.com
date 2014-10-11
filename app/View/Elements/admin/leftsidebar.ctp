@@ -116,33 +116,100 @@
                     <li><a href="<?php echo $this->Html->url('/manage/modemail');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
                 </ul>
             </li>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             <li  class="treeview">
                 <a href="">
                     <i class="fa fa-dashboard"></i> <span>Seo-List</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo $this->Html->url('/seo/seo_a_b_tests');?>"><i class="fa fa-angle-double-right"></i> AB Tests</a></li>
-                    <li><a href="<?php echo $this->Html->url('/seo_blacklists');?>"><i class="fa fa-angle-double-right"></i> BlackLists</a></li>
-                    <li><a href="<?php echo $this->Html->url('/seo/seo_canonicals');?>"><i class="fa fa-angle-double-right"></i>Canonicals</a></li>
-                    <li><a href="<?php echo $this->Html->url('/seo/seo_meta_tags');?>"><i class="fa fa-angle-double-right"></i> Meta-Tags</a></li>
-                    <li><a href="<?php echo $this->Html->url('/seo/seo_redirects');?>"><i class="fa fa-angle-double-right"></i>Redirects</a></li>
-                    <li><a href="<?php echo $this->Html->url('/seo/seo_status_codes');?>"><i class="fa fa-angle-double-right"></i>Status Codes</a></li>
-                    <li><a href="<?php echo $this->Html->url('/seo/seo_titles');?>"><i class="fa fa-angle-double-right"></i>Title</a></li>
-                    <li><a href="<?php echo $this->Html->url('/seo/seo_uris');?>"><i class="fa fa-angle-double-right"></i>Uris</a></li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_a_b_tests');?>"><i class="fa fa-angle-double-right"></i> AB Tests</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_a_b_tests');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_a_b_tests/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_blacklists');?>"><i class="fa fa-angle-double-right"></i> BlackLists</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_blacklists');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_blacklists/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_canonicals');?>"><i class="fa fa-angle-double-right"></i>Canonicals</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_canonicals');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_canonicals/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_meta_tags');?>"><i class="fa fa-angle-double-right"></i> Meta-Tags</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_meta_tags');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_meta_tags/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_redirects');?>"><i class="fa fa-angle-double-right"></i>Redirects</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_redirects');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_redirects/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_status_codes');?>"><i class="fa fa-angle-double-right"></i>Status Codes</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_status_codes');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_status_codes/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_titles');?>"><i class="fa fa-angle-double-right"></i>Title</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_titles');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_titles/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="<?php //echo $this->Html->url('/admin/seo/seo_uris');?>"><i class="fa fa-angle-double-right"></i>Uris</a>
+                        <ul class="treeview-menu">
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_uris');?>">List</a>
+                            </li>
+                            <li>
+                                <a href="<?php echo $this->Html->url('/admin/seo/seo_uris/add');?>">add-new</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             

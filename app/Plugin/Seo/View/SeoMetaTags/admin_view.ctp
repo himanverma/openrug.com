@@ -40,11 +40,4 @@
 			</dd>
 		</dl>
 	</div>
-	<div class="actions">
-		<h3><?php echo __('Actions'); ?></h3>
-		<ul>
-			<li><?php echo $this->Html->link(__('Edit Seo Meta Tag'), array('action' => 'edit', $seoMetaTag['SeoMetaTag']['id'])); ?> </li>
-			<li><?php echo $this->Html->link(__('Delete Seo Meta Tag'), array('action' => 'delete', $seoMetaTag['SeoMetaTag']['id']), null, sprintf(__('Are you sure you want to delete # %s?'), $seoMetaTag['SeoMetaTag']['id'])); ?> </li>
-		</ul>
-	</div>
 </div>
