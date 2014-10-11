@@ -131,7 +131,7 @@
             </div>
             <div class="col-sm-12">
                 <div class="calculate_price_box">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                         <div class="select_cm_all1">
                             <form> 
                                 <p>
@@ -159,7 +159,7 @@
                         </div>
 
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-7">
                         <div class="select_cm_all" id="odr-s">
                             <form role="form">
                                 <span>Pile depth </span>
@@ -452,6 +452,7 @@ $this->end();
                 var t = me;
                 $.post("http://rugbuilder.com/Cart/add", data, function(d) {
                     t.notify("Info","Product added to cart...");
+                    window.location = "/rugs/cart";
                 });
                 flyToElement($('#big-img'), $(e.currentTarget));
             }
