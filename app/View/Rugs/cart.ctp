@@ -12,17 +12,18 @@
                     <th>Price</th>
                     <th>Remove</th> 	 	 	
                 </tr>
+                <!-- ko foreach:items -->
                 <tr>
                     <td>
                         <div class="order_left">
-                            dsfdsf
+                            <img width="100%" data-bind="attr:{'src': '/files/gen/'+genrug_id+'/'+colors+'/'+shape+'.png'} " />
                         </div>
                         <div class="order_right">
                             <strong>tea time rug</strong>
 
                         <p>product id: 1276034
 
-                        size: 4ft 4in x 4ft 4in
+                        size: <!-- ko text:length --><!-- /ko -->cm x <!-- ko text:bredth --><!-- /ko -->cm
 
                         material: 100% pure wool
 
@@ -30,19 +31,17 @@
                         colours: </p>
                         
                         <p>colours: </p>
-                        <p><img src="#">dfdsfss</p>
+                        <p data-bind="swatch:{'clrstamp':colors}"><img src="#"></p>
                         
                         </div>
                         <p>Rug options...</p>
-                        <p> <input type="checkbox"> Include Scotchgard™ Rug Protector info <i class="fa fa-info"></i>  add +£17.45</p>
+                        <p> 
+                            <input type="checkbox"> Include Scotchgard™ Rug Protector info <i class="fa fa-info"></i>  add +£17.45</p>
                         
                     </td>
                     
                     <td>
-                        <select>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select data-bind="options:$root.qtArray, value:qty">
                         </select>
                     </td>
                     
@@ -55,6 +54,7 @@
                     </td>
                     
                 </tr>
+                <!-- /ko -->
                 <tr>
                     <td>
                     </td>
@@ -200,3 +200,36 @@
         float: right;
     }
 </style>
+<script type="text/javascript">
+    var CartVM = function(){
+        var me = this;
+        me.items = ko.observableArray([]);
+        me.qtArray = [1,2,3,4,5,6,7,8,9,10];
+        me.removeItem = function(d,e){
+            console.log(d);
+            console.log(e);
+        }
+        me.update = function(d,e){
+            console.log(d);
+            console.log(e);
+        }
+        me.init = function(){
+            me.getitems();
+        }
+        me.getitems = function(){
+            var m = me;
+            $.post("/cart/cart",function(d){
+                console.log(d.Inlineitem);
+                    m.items(d.Inlineitem);
+            });
+        }
+        me.init();
+    }
+    var cart = new CartVM();
+    $(document).ready(function(){
+        ko.applyBindings(cart);
+    });
+    
+    
+    
+</script>    
