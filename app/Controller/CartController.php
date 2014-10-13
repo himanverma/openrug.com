@@ -14,6 +14,7 @@ class CartController extends AppController{
             throw new NotFoundException("API Access Denied");
         }
         $this->autoRender = false;
+        $this->response->type('json');
     }
     public function add(){
         $d  = $this->request->data;
