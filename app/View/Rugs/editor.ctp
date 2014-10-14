@@ -252,7 +252,7 @@
 
 
                 <div class="poplular_rug">
-                    <h1>popular rug designs</h1>  
+                    <h1>Additional Colours</h1>  
                     <div class="row">
 
                         <div class="col-sm-12 padding">
@@ -289,9 +289,9 @@
                 <div class="top_rug">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h1>Top rug designs</h1>
+                            <h1>You may also like</h1>
                             <div class="row">
-<?php foreach ($popularGenrugs as $popularGenrug) { ?>
+<?php foreach ($popularGenrugs as $popularGenrug) { if($popularGenrug['Rug']['id'] == $r_id){     continue; } ?>
                                     <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
                                         <div class="col-sm-2 col-xs-6">
                                             <div class="pro">
@@ -442,8 +442,8 @@ $this->end();
             var l = me.l();
             var b = me.b();
             if(me.mUnits() == "ft"){
-                l = (l.cm * 0.032808).toFixed(2);
-                b = (b.cm * 0.032808).toFixed(2);
+                l = (l * 0.032808).toFixed(2);
+                b = (b * 0.032808).toFixed(2);
             }
             var data = {
                 rid: '<?php echo $r_id; ?>',
