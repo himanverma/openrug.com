@@ -24,7 +24,7 @@
                             <div class="sign_in_check_boxx">
                                 <h1><a href="<?php echo $this->Html->url('/users/forgetpwd'); ?>">Forgot Password</a></h1>
                                 <span><input type="checkbox"  class="sign_in_check_in"/></span>
-                                <p>Remember me</p>
+                                <!--<p>Remember me</p>-->
                             </div>
                         </div>
                         <div class="col-lg-4 padding_right">
