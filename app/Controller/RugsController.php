@@ -617,6 +617,7 @@ class RugsController extends AppController {
         $this->set("defaultShp", $defaultShp);
         $this->set("colorstamp",$colorstamp);
         $this->set("r_id",$id);
+        $this->set("price",$rug['Rug']['price']);
 
 
 

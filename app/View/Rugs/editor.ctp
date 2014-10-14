@@ -123,7 +123,7 @@
                             <input type="radio" value="cm" id="inlineRadio1" data-bind="checked: mUnits" name="inlineRadioOptions"> cm
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" value="ft" id="inlineRadio2" data-bind="checked: mUnits" name="inlineRadioOptions"> feet and inches 
+                            <input type="radio" value="ft" id="inlineRadio2" data-bind="checked: mUnits" name="inlineRadioOptions"> feets 
                         </label>
 
                     </form>          
@@ -192,26 +192,26 @@
                     <h1>Poplular custom sizes:</h1>
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':140,'unit':mUnits}">140</span>cm x <span data-bind="cm2ft2cm:{'cm':200,'unit':mUnits}">200</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£568.00 </p>
+                            <span><span data-bind="cm2ft2cm:{'cm':140,'unit':mUnits}">140</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':200,'unit':mUnits}">200</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
+                            <p>£<span data-bind="text:ko.computed(function(){ return (price() * 140/100 * 200/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':120,'unit':mUnits}">120</span>cm x <span data-bind="cm2ft2cm:{'cm':180,'unit':mUnits}">180</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£498.99 </p>
+                            <span><span data-bind="cm2ft2cm:{'cm':120,'unit':mUnits}">120</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':180,'unit':mUnits}">180</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
+                            <p>£<span data-bind="text:ko.computed(function(){return (price() * 120/100 * 180/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':100,'unit':mUnits}">100</span>cm x <span data-bind="cm2ft2cm:{'cm':160,'unit':mUnits}">160</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£508.50 </p>
+                            <span><span data-bind="cm2ft2cm:{'cm':100,'unit':mUnits}">100</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':160,'unit':mUnits}">160</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
+                            <p>£<span data-bind="text:ko.computed(function(){return (price() * 100/100 * 160/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':150,'unit':mUnits}">150</span>cm x <span data-bind="cm2ft2cm:{'cm':220,'unit':mUnits}">220</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£798.63 </p>
+                            <span><span data-bind="cm2ft2cm:{'cm':150,'unit':mUnits}">150</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':220,'unit':mUnits}">220</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
+                            <p>£<span data-bind="text:ko.computed(function(){return (price() * 150/100 * 220/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
 
                         <p>Hand-tufted pure wool with a luxurious pile weight of 3000g/m² and pile depth of 12-14mm.</p>
 
-                        <p>The candy rug is priced at £178/m² and available in extra large sizes of up to 500cm x 1200cm (16ft x 40ft).</p>
+                        <p>The candy rug is priced at £<?php echo $price;?>/m² and available in extra large sizes of up to 500cm x 1200cm (16ft x 40ft).</p>
 
                         <p>This rug is fully customisable. Colours and shape can be edited using the controls above the rug.</p>
                     </div>
@@ -411,6 +411,7 @@ $this->end();
     });
     var EditorVM = function() {
         var me = this;
+        me.price = ko.observable(<?php echo $price;?>);
         me.l = ko.observable('');
         me.b = ko.observable('');
         me.s = ko.observable('');
@@ -438,12 +439,17 @@ $this->end();
             if (me.s() == 0 || me.s() == "") {
                 send = me.notify("Warning", "Please select a pile size.", "#odr-s");
             }
-
+            var l = me.l();
+            var b = me.b();
+            if(me.mUnits() == "ft"){
+                l = (l.cm * 0.032808).toFixed(2);
+                b = (b.cm * 0.032808).toFixed(2);
+            }
             var data = {
                 rid: '<?php echo $r_id; ?>',
                 qty: me.qty(),
-                l: me.l(),
-                b: me.b(),
+                l: l,
+                b: b,
                 s: me.s(),
                 shp: '<?php echo $defaultShp; ?>',
                 clr: '<?php echo str_replace("#", "", $colorstamp); ?>'

@@ -1,4 +1,3 @@
-
 /**
  * Knockout Binding to convert from CM to FT and FT to CM
  * <span data-bind="cm2ft2cm:{'cm':12,'unit':mUnits}">12</span>cm

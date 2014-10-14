@@ -15,6 +15,15 @@ class Inlineitem extends AppModel {
             'conditions' => '',
             'fields' => '',
             'order' => ''
+        ),
+        'Rug' => array(
+            'className' => 'Rug',
+            'foreignKey' => 'genrug_id',
+            'conditions' => '',
+            'fields' => '',
+            'order' => ''
         )
     );
+    
+   
 }

@@ -100,6 +100,7 @@ class CartController extends AppController{
         $sid = $this->Session->id();
         $this->loadModel("Order");
         $result = $this->Order->find("first",array(
+            "recursive" => 2,
             "conditions" => array(
                 "sessionid" => $sid
             )
