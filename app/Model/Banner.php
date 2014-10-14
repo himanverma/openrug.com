@@ -3,9 +3,9 @@
 App::uses('AppModel', 'Model');
 
 /**
- * Rug Model
+ * Banner Model
  *
- * @property Rugpng $Rugpng
+ * @property Banner $Banner
  */
 class Banner extends AppModel {
 

@@ -23,8 +23,8 @@
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $sentdesign['Sentdesign']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $sentdesign['Sentdesign']['id'])); ?>
 			<?php 
-//                        echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $sentdesign['User']['id'])
-//                                , array(), __('Are you sure you want to delete # %s?', $sentdesign['User']['id']));
+//                        echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $sentdesign['Sentdesign']['id'])
+//                                , array(), __('Are you sure you want to delete # %s?', $sentdesign['Sentdesign']['id']));
                         ?>
 		</td>
 	</tr>

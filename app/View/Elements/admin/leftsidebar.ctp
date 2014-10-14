@@ -104,16 +104,6 @@
             </li>
             <li  class="treeview">
                 <a href="">
-                    <i class="fa fa-th"></i> <span>Email Templates</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo $this->Html->url('/manage/emailtemplates');?>"><i class="fa fa-angle-double-right"></i> List All</a></li>
-                    <li><a href="<?php echo $this->Html->url('/manage/modemail');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
-                </ul>
-            </li>
-            <li  class="treeview">
-                <a href="">
                     <i class="fa fa-dashboard"></i> <span>Seo-List</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -213,6 +203,17 @@
                     <i class="fa fa-th"></i> <span>Receive-Design</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
+            </li>
+            
+            <li  class="treeview">
+                <a href="">
+                    <i class="fa fa-th"></i> <span>Coupons-Templates</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo $this->Html->url('/admin/coupons');?>"><i class="fa fa-angle-double-right"></i> List All</a></li>
+                    <li><a href="<?php echo $this->Html->url('/admin/coupons/add');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
+                </ul>
             </li>
         </ul>
     </section>
