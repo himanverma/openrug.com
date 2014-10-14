@@ -39,7 +39,7 @@
                 </td>
 
                 <td>
-                    <select data-bind="options:$root.qtArray, value:qty">
+                    <select data-bind="options:$root.qtArray, value:qty, event:{'change':$root.update} ">
                     </select>
                 </td>
 
@@ -48,7 +48,7 @@
                 </td>
 
                 <td>
-
+                    <button class="btn btn-danger" data-bind="click:$root.removeItem"><i class="glyphicon glyphicon-remove"></i> Remove</button>
                 </td>
 
             </tr>
@@ -204,12 +204,21 @@
                                     me.items = ko.observableArray([]);
                                     me.qtArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
                                     me.removeItem = function(d, e) {
-                                        console.log(d);
-                                        console.log(e);
+                                        $('body').waiting({fixed: true});
+                                        var id = d.id();
+                                        $.post("/cart/removeitem",{id:id} ,function(d){
+                                            $('body').waiting('done');
+                                            me.items.remove(d);
+                                        });
                                     }
                                     me.update = function(d, e) {
-                                        console.log(d);
-                                        console.log(e);
+                                        $('body').waiting({fixed: true});
+                                        var id = d.id();
+                                        var qty = d.qty();
+                                        $.post("/cart/updateitem",{id:id,qty:qty} ,function(d){
+                                            console.log(d);
+                                            $('body').waiting('done');
+                                        });
                                     }
                                     me.init = function() {
                                         me.getitems();
@@ -217,8 +226,9 @@
                                     me.getitems = function() {
                                         var m = me;
                                         $.post("/cart/cart", function(d) {
-                                            console.log(d.Inlineitem);
-                                            m.items(ko.mapping.fromJS(d.Inlineitem)());
+                                            if(d.Inlineitem.length > 0){
+                                                m.items(ko.mapping.fromJS(d.Inlineitem)());
+                                            }
                                         });
                                     }
                                     me.init();

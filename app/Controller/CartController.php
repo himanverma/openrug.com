@@ -81,19 +81,17 @@ class CartController extends AppController{
         $this->response->body(json_encode($result));
     }
     public function removeitem(){
-        $this->loadModel('Inlineitem');
-        if($this->Inlineitem->delete($this->request->data['iid'])){
-            $result = array(
-                "msg" => "Item removed from cart.",
-                "type" => "info"
-            );
-        }else{
-            $result = array(
-                "msg" => "Unable to remove Item from cart.",
-                "type" => "error"
-            );
+        $d = $this->request->data;
+        $this->loadModel("Inlineitem");
+        $this->Inlineitem->id = $d['id'];
+        if($this->Inlineitem->exists($d['id'])){
+            $x = $this->Inlineitem->delete($d['id']);
+            if($x){
+                $this->response->body(json_encode(array("error"=>0,"msg"=>"Item has been removed from cart...")));
+            }else{
+                $this->response->body(json_encode(array("error"=>1,"msg"=>"Unable to remove item...")));
+            }
         }
-        $this->response->body(json_encode($result));
     }
 
     public function cart(){
@@ -108,6 +106,25 @@ class CartController extends AppController{
         $this->response->body(json_encode($result));
     }
     
+    
+    public function updateitem(){
+        $d = $this->request->data;
+        $this->loadModel("Inlineitem");
+        $this->Inlineitem->id = $d['id'];
+        if($this->Inlineitem->exists($d['id'])){
+            $x = $this->Inlineitem->save(array(
+                "Inlineitem" => array(
+                    "qty" => $d['qty']
+                )
+            ));
+            if($x){
+                $this->response->body(json_encode(array("error"=>0,"msg"=>"Item count updated...")));
+            }else{
+                $this->response->body(json_encode(array("error"=>1,"msg"=>"Unable to update item count...")));
+            }
+        }
+        
+    }
     
     
 }
