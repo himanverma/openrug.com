@@ -192,15 +192,17 @@ dl dt:nth-child(4n+1) {
 }
 
 dt {
-	font-weight: bold;
-	padding-left: 4px;
-	vertical-align: top;
-	width: 10em;
+	font-weight: bold !important;
+	padding-left: 4px !important;
+	vertical-align: top !important;
+	width: 10em !important;
+        line-height: 2 !important;
 }
 dd {
-	margin-left: 10em;
-	margin-top: -2em;
-	vertical-align: top;
+	margin-left: 10em !important;
+	margin-top: -2em !important;
+	vertical-align: top !important;
+        line-height: 2 !important;
 }
 
 /** Forms **/

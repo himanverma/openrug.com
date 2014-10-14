@@ -33,6 +33,45 @@ class SentdesignsController extends AppController {
     }
     
     
+    public function admin_index(){
+        $this->Sentdesign->recursive = 0;
+        $this->set('sentdesigns', $this->Paginator->paginate());
+    }
+    
+    
+/**
+ * admin_view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_view($id = null) {
+		if (!$this->Sentdesign->exists($id)) {
+			throw new NotFoundException(__('Invalid rugpng'));
+		}
+		$options = array('conditions' => array('Sentdesign.' . $this->Sentdesign->primaryKey => $id));
+		$this->set('sentdesign', $this->Sentdesign->find('first', $options));
+	}    
+    
+        public function admin_edit($id = null) {
+                $this->Sentdesign->id=$id;
+		if (!$this->Sentdesign->exists($id)) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->Sentdesign->save($this->request->data)) {
+				$this->Session->setFlash(__('The user has been saved.'));
+				return $this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('Sentdesign.' . $this->Sentdesign->primaryKey => $id));
+			$this->request->data = $this->Sentdesign->find('first', $options);
+		}
+	}
+    
     
     
 

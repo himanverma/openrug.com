@@ -97,4 +97,25 @@ class User extends AppModel {
             }
             return true;
         }
+        
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+        public $hasMany = array(
+            'Sentdesign' => array(
+                'className' => 'Sentdesign',
+                'foreignKey' => 'user_id',
+                'dependent' => true,
+                'conditions' => '',
+                'fields' => '',
+                'order' => '',
+                'limit' => '',
+                'offset' => '',
+                'exclusive' => '',
+                'finderQuery' => '',
+                'counterQuery' => ''
+            )
+        );        
 }
