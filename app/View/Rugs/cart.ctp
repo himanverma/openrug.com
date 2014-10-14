@@ -76,7 +76,7 @@
                     <strong><i class="fa fa-truck"></i>Delivery</strong>
                 </td>
                 <td>
-                    <p>£0.00</p>
+                    <p>£<!-- ko text:deliveryCharge --><!-- /ko --></p>
                 </td>
                 <td><p>Free</p></td>
             </tr>
@@ -99,7 +99,7 @@
                     <strong style="color:#CE3E23;">TOTAL</strong> 
                 </td>
                 <td style="background-color:#f1f1f1">
-                    <strong style="color:#CE3E23;">£352.83<strong
+                    <strong style="color:#CE3E23;">£<!-- ko text:total --><!-- /ko --><strong
                             </td>
                             <td style="background-color:#f1f1f1"></td>
                             </tr>
@@ -203,12 +203,22 @@
                                     var me = this;
                                     me.items = ko.observableArray([]);
                                     me.qtArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+                                    me.deliveryCharge = ko.observable(0.00);
+                                    me.total = ko.computed(function(){
+                                        var sum = 0.00;
+                                        var items = ko.mapping.toJS(this.items);
+                                        for(i in items){
+                                            sum += items[i].Rug.price * items[i].qty;
+                                        }
+                                        return sum;
+                                    },this);
                                     me.removeItem = function(d, e) {
                                         $('body').waiting({fixed: true});
                                         var id = d.id();
+                                        var item2Remove = d;
                                         $.post("/cart/removeitem",{id:id} ,function(d){
                                             $('body').waiting('done');
-                                            me.items.remove(d);
+                                            me.items.remove(item2Remove);
                                         });
                                     }
                                     me.update = function(d, e) {

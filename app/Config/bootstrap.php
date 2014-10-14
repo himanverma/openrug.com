@@ -108,5 +108,5 @@ CakeLog::config('error', array(
 	'file' => 'error',
 ));
 CakePlugin::load(array('Combinator','Seo')); // Loads only the combinator plugin
-
+CakePlugin::load('Paypal');
 require_once(APP . 'Plugin' . DS . 'Seo' . DS . 'Lib' . DS . 'Error' . DS . 'SeoAppError.php');

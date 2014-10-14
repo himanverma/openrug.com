@@ -1,12 +1,13 @@
 <?php
 App::uses("AppController", "Controller");
+App::uses('Paypal', 'Paypal.Lib');
 
 /**
  * @property Order $Order Description
  * @property Inlineitem $Inlineitem Description
  */
 class CartController extends AppController{
-    
+    public $Paypal;
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
@@ -125,7 +126,17 @@ class CartController extends AppController{
         }
         
     }
-    
+    public function testpp(){
+        $this->response->type("html");
+        $this->autoRender = true;
+        $this->Paypal = new Paypal(array(
+            'sandboxMode' => true,
+            'nvpUsername' => '{username}',
+            'nvpPassword' => '{password}',
+            'nvpSignature' => '{signature}'
+        ));
+        debug();
+    }
     
 }
 
