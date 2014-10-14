@@ -102,10 +102,6 @@
                     <li><a href="<?php echo $this->Html->url('/admin/Genrugs/add');?>"><i class="fa fa-angle-double-right"></i> Add New</a></li>
                 </ul>
             </li>
-            
-            
-            
-            
             <li  class="treeview">
                 <a href="">
                     <i class="fa fa-th"></i> <span>Email Templates</span>
@@ -212,7 +208,12 @@
                     </li>
                 </ul>
             </li>
-            
+            <li>
+                <a href="<?php echo $this->Html->url('/admin/sentdesigns');?>">
+                    <i class="fa fa-th"></i> <span>Receive-Design</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->
