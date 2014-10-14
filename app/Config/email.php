@@ -48,14 +48,14 @@ class EmailConfig {
 
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
-		'host' => 'localhost',
-		'port' => 25,
+		'from' => array('no-reply@rugbuilder.com' => 'Rug Builder'),
+		'host' => 'ssl://inspire-s1.aspirationhosting.com',
+		'port' => 465,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
-		'client' => null,
-		'log' => false,
+		'username' => 'no-reply@rugbuilder.com',
+		'password' => 'w{5liPl}oZtv',
+		'client' => "Outlook Express",
+		'log' => true,
 		//'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
 	);

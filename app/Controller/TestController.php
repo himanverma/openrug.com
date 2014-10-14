@@ -1,7 +1,6 @@
 <?php
-
 App::uses("AppController", "Controller");
-
+App::uses("CakeEmail", "Network/Email");
 class TestController extends AppController {
 
     private function fromRGB($R, $G, $B) {
@@ -47,6 +46,23 @@ class TestController extends AppController {
             $engine = 'Apc';
         }
         debug($engine);
+        exit;
+    }
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('mail');
+    }
+    public function mail(){
+        $m = new CakeEmail("smtp");
+        $m->to("web@avainfotech.com")
+                ->subject("Test Mail")
+                ->replyTo("support@rugbuilder.com", "Rug Builder Customer Support");
+        try{
+            $x = $m->send("Hello Papaa");
+            debug($x);
+        } catch (Exception $ex) {
+            debug($ex);
+        }
         exit;
     }
 
