@@ -2,7 +2,7 @@
 <html>
     <head>
         <?php echo $this->Html->charset(); ?>
-        <title>OpenRugs | <?php echo @$title_for_layout; ?></title>
+        <title>RugBuilder | <?php echo @$title_for_layout; ?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <!-- bootstrap 3.0.2 -->
         <?php 

@@ -30,7 +30,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-dashboard"></i>
-                    <span>User Template</span>
+                    <span>Users</span>
                     <!--<small class="badge pull-right bg-green">new</small>-->
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -44,7 +44,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-circle"></i>
-                    <span>Banner Template</span>
+                    <span>Banners</span>
                     <!--<small class="badge pull-right bg-green">new</small>-->
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -77,7 +77,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-folder"></i>
-                    <span>Rugpng Templates</span>
+                    <span>Rug Layers</span>
                     <!--<small class="badge pull-right bg-green">new</small>-->
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -93,7 +93,7 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-bar-chart-o"></i>
-                    <span>Genrated Rugs Templates</span>
+                    <span>Generated Rugs</span>
                     <!--<small class="badge pull-right bg-green">new</small>-->
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
@@ -207,7 +207,7 @@
             
             <li  class="treeview">
                 <a href="">
-                    <i class="fa fa-th"></i> <span>Coupons-Templates</span>
+                    <i class="fa fa-th"></i> <span>Coupons Management</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">

@@ -442,8 +442,8 @@ $this->end();
             var l = me.l();
             var b = me.b();
             if(me.mUnits() == "ft"){
-                l = (l * 0.032808).toFixed(2);
-                b = (b * 0.032808).toFixed(2);
+                l = (l / 0.032808).toFixed(2);
+                b = (b / 0.032808).toFixed(2);
             }
             var data = {
                 rid: '<?php echo $r_id; ?>',

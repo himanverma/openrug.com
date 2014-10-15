@@ -2,7 +2,7 @@
 <html class="bg-black">
     <head>
         <?php echo $this->Html->charset(); ?>
-        <title>Bonkered | <?php echo @$title_for_layout; ?></title>
+        <title>RugBuilder | <?php echo @$title_for_layout; ?></title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
         <?php 
             echo $this->Html->css(array(

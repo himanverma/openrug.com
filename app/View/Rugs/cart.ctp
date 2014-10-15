@@ -2,7 +2,7 @@
 <div class="order">
     <h1>1. review your order</h1>
     <p>You have 1 items in your cart</br>
-        Not ready to order? <a href="#">Continue Shopping</a> <a href="#" class="shipping">Empty Shopping Cart</a></p>
+        Not ready to order? <a href="/">Continue Shopping</a></p>
 
     <table cellpadding="5" class="order_cart">
         <tbody>
@@ -201,6 +201,7 @@
                             <script type="text/javascript">
                                 var CartVM = function() {
                                     var me = this;
+                                    me.orderId = ko.observable(0);
                                     me.items = ko.observableArray([]);
                                     me.qtArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
                                     me.deliveryCharge = ko.observable(0.00);
@@ -210,7 +211,16 @@
                                         for(i in items){
                                             sum += items[i].Rug.price * items[i].qty;
                                         }
+                                        try{gross_key.abort()}catch(e){}
+                                        gross_key = $.post("/cart/updategross",{gross_total:sum,id:me.orderId} ,function(d){
+                                        });
                                         return sum;
+                                    },this);
+                                    me.orderId.subscribe(function(newVal){
+                                        var m = this;
+                                        try{gross_key.abort()}catch(e){}
+                                        gross_key = $.post("/cart/updategross",{gross_total:m.total(),id:newVal} ,function(d){
+                                        });
                                     },this);
                                     me.removeItem = function(d, e) {
                                         $('body').waiting({fixed: true});
@@ -239,6 +249,7 @@
                                             if(d.Inlineitem.length > 0){
                                                 m.items(ko.mapping.fromJS(d.Inlineitem)());
                                             }
+                                            m.orderId(d.Order.id);
                                         });
                                     }
                                     me.init();
