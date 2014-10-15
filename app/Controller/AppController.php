@@ -21,8 +21,6 @@
 
 App::uses('Controller', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
-$mailComp = new CakeEmail();
-App::uses('CakeTime', 'Utility');
 
 /**
  * Application Controller
