@@ -17,6 +17,13 @@ class OrdersController extends AppController{
         parent::beforeFilter();
     }
     
+    
+    public function admin_email(){
+        $l = new CakeEmail('smtp');
+        $l->emailFormat('html')->template('default','default')->subject('Testing')->to('ajay_p@avainfotech.com')->send('tests');
+    }
+
+
     public function admin_add(){
         if ($this->request->is('post')) {
             if ($this->Order->save($this->request->data)) {
