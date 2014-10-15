@@ -23,4 +23,15 @@ class Order extends AppModel {
             'counterQuery' => ''
         )
     );
+    
+    
+    public $belongsTo = array(
+		'User' => array(
+			'className' => 'User',
+			'foreignKey' => 'user_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }
