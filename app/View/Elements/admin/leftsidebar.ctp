@@ -223,7 +223,7 @@
             </li>
             <li  class="treeview">
                 <a href="">
-                    <i class="fa fa-th"></i> <span>Mail-Templates Management</span>
+                    <i class="fa fa-th"></i> <span>Mail-Templates</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
