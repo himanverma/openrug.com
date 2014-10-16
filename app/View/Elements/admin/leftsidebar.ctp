@@ -204,6 +204,12 @@
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
             </li>
+            <li>
+                <a href="<?php echo $this->Html->url('/admin/orders');?>">
+                    <i class="fa fa-th"></i> <span>Order-Templates</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+            </li>
             
             <li  class="treeview">
                 <a href="">
