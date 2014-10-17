@@ -19,48 +19,45 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <?php echo $this->Seo->metaTags(); ?>
-        <?php //echo $this->Html->charset(); ?>
-<!--        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!--        <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">-->
-        <title>
-            <?php echo $cakeDescription ?>:
-            <?php echo $title_for_layout; ?>
-        </title>
-        <?php
-        echo $this->Html->meta('icon');
 
-       // echo $this->Html->css('cake.generic');
+        <?php
+        echo $this->Html->charset();
+        echo $this->Seo->title($title_for_layout);
+        echo $this->Html->meta('icon');
+        echo $this->Seo->metaTags();
+        echo $this->Seo->canonical();
+
+        // echo $this->Html->css('cake.generic');
 
         echo $this->fetch('meta');
         /*
-        echo $this->Html->css(array(
-            "bootstrap.min",
-            "style",
-            "/fonts/stylesheet",
-            "/font-awesome/css/font-awesome",
-            "bootstrap-theme.min",
-            //"/font-awesome/css/font-awesome.min",
-            "theme",
-        ));
-        echo $this->AssetCompress->addCss('bootstrap.min.css', 'style.css');
-        echo $this->Html->script(array(
-            "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
-            "bootstrap.min",
-        ));
-        */
+          echo $this->Html->css(array(
+          "bootstrap.min",
+          "style",
+          "/fonts/stylesheet",
+          "/font-awesome/css/font-awesome",
+          "bootstrap-theme.min",
+          //"/font-awesome/css/font-awesome.min",
+          "theme",
+          ));
+          echo $this->AssetCompress->addCss('bootstrap.min.css', 'style.css');
+          echo $this->Html->script(array(
+          "http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js",
+          "bootstrap.min",
+          ));
+         */
         echo $this->Html->script(array("http://cdnjs.cloudflare.com/ajax/libs/knockout/3.2.0/knockout-min.js"));
         $this->Combinator->add_libs('js', array(
             "jquery.min",
             "bootstrap.min",
-            "jquery.form.min", 
+            "jquery.form.min",
             "jquery.waiting.min",
             "/js/app/functions",
             "/js/app/custom.bindings",
             "/js/app/swt"
-        )); 
+        ));
         $this->Combinator->add_libs('css', array(
             "bootstrap.min",
             "style",
@@ -68,14 +65,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "font-awesome",
             "bootstrap-theme.min",
             "waiting"
-            //"/font-awesome/css/font-awesome.min",
-            //"theme",
-        )); 
-        
+                //"/font-awesome/css/font-awesome.min",
+                //"theme",
+        ));
+
         echo $this->Combinator->scripts('css'); // Output CSS files
-        
+
         echo $this->Combinator->scripts('js'); // Output Javascript files
-        
+
         echo $this->fetch('css');
         echo $this->fetch('script');
         ?>
@@ -111,5 +108,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                 });
             });
         </script>
+        <?php echo $this->Seo->honeyPot(); ?>
     </body>
 </html>

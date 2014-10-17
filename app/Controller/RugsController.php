@@ -516,7 +516,7 @@ class RugsController extends AppController {
         return $location;
     }
 
-    public function editor($id = null, $cstamp = null, $shape = "round") {
+    public function editor($id = null, $cstamp = null, $shape = "rect") {
         $defaultShp = $shape;
         $defaultClr = array();
         $tmp_c = array();

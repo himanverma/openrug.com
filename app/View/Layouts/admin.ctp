@@ -15,7 +15,8 @@
                 'admin/bootstrap-wysihtml5/bootstrap3-wysihtml5.min'
             ));
             echo $this->Html->script(array(
-                    'http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js'
+                    'http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js',
+                    'app/swt'
                 ));
         ?>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

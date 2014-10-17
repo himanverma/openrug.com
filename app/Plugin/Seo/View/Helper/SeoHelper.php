@@ -26,7 +26,6 @@ class SeoHelper extends AppHelper {
 		$request = env('REQUEST_URI');
 		$meta_tags = $this->SeoMetaTag->findAllTagsByUri($request);
 		$retval = "";
-
 		foreach ($meta_tags as $tag) {
 			if (isset($metaData[$tag['SeoMetaTag']['name']])) {
 				unset($metaData[$tag['SeoMetaTag']['name']]);

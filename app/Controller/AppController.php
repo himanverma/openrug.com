@@ -32,7 +32,7 @@ App::uses('CakeEmail', 'Network/Email');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-    public $components = array('Auth','Session');
+    public $components = array('Auth','Session','Seo.BlackList');
     public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator','Seo.Seo');
     public function beforeFilter() {
         parent::beforeFilter();

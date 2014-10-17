@@ -59,6 +59,7 @@
 			<td><?php echo $this->Html->image('../'.$rugpng['path'],array('height'=>'50','width'=>'50')); ?></td>
 			<td><?php echo $rugpng['type']; ?></td>
 			<td><?php echo $rugpng['shape']; ?></td>
+                        <td><img src="tst" onerror="this.src = '/swatch/' + swt['<?php echo $rugpng['color']; ?>'].file" /></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'rugpngs', 'action' => 'view', $rugpng['id'])); ?>
 				<?php echo $this->Html->link(__('Edit'), array('controller' => 'rugpngs', 'action' => 'edit', $rugpng['id'])); ?>

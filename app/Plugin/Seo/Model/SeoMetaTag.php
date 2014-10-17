@@ -56,12 +56,12 @@ class SeoMetaTag extends SeoAppModel {
 	function findAllTagsByUri($request = null){
 		$retval = $this->find('all', array(
 			'conditions' => array(
-				"{$this->SeoUri->alias}.uri" => $request,
-				"{$this->SeoUri->alias}.is_approved" => true
+				"{$this->SeoUri->alias}.uri LIKE" => "%".$request."%",
+				"{$this->SeoUri->alias}.is_approved" => 1
 			),
 			'contain' => array("{$this->SeoUri->alias}.uri")
 		));
-		
+
 		if(!empty($retval)){
 			return $retval;
 		}

@@ -6,7 +6,14 @@
 			<legend><?php echo __('Admin Add Seo Meta Tag'); ?></legend>
 		<?php
 			echo $this->Form->input('SeoUri.uri');
-			echo $this->Form->input('name');
+			echo $this->Form->input('name',array(
+                            'options' => array(
+                                "keywords" => "Keywords",
+                                "description" => "Description",
+                                "author" => "Author",
+                                "content-type" => "content-type"
+                            )
+                        ));
 			echo $this->Form->input('content');
 			echo $this->Form->input('is_http_equiv');
 		?>
