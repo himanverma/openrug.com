@@ -82,6 +82,8 @@ class RugpngsController extends AppController {
  * @return void
  */
 	public function admin_edit($id = null) {
+                Configure::write('debug',0);
+                $this->Rugpng->validator()->remove('path');
                 $this->Rugpng->id=$id;
 		if (!$this->Rugpng->exists($id)) {
 			throw new NotFoundException(__('Invalid rugpng'));
@@ -100,7 +102,7 @@ class RugpngsController extends AppController {
                             $pth = $file_name;
                             move_uploaded_file($one['tmp_name'], $pth);
                         }else {
-                            $x = $this->Upload->read('path', $id);
+                            $x = $this->Rugpng->read('path', $id);
                             $this->request->data['Rugpng']['path'] = $x['Rugpng']['path'];
                         }
 			if ($this->Rugpng->save($this->request->data)) {
