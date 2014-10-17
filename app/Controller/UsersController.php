@@ -115,10 +115,10 @@ class UsersController extends AppController {
             if($this->request->is('post')){
                 if($this->Auth->login()){
                     $this->Session->setFlash('LoggedIn Successfully');
-                    $this->redirect(array('controller'=>'users','action'=>'index'));
+                    $this->redirect("/admin/rugs");
                 }else{
                     $this->Session->setFlash('Something went wrong...');
-                    $this->redirect(array('controller'=>'users','action'=>'login'));
+                    $this->redirect("/dashboard");
                 }
             }
         }

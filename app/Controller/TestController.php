@@ -21,6 +21,8 @@ class TestController extends AppController {
     }
 
     public function index() {
+        exit;
+        ini_set("max_execution_time", -1);
         $dir = new DirectoryIterator("swatch");
         foreach ($dir as $fl){
             if (!$fl->isDot()) {
@@ -33,7 +35,10 @@ class TestController extends AppController {
                     $pixel = $image->getImagePixelColor($x, $y); 
                     $clr = $pixel->getColor();
                     $hex = $this->fromRGB($clr['r'], $clr['g'], $clr['b']);
-                    rename('swatch/'.$name, 'swatch/'.$hex.".png");
+                    $tn = explode("_", $name);
+                    $tn = explode(".", $tn[1]);
+                    $tn = $tn[0];
+                    rename('swatch/'.$name, 'swatch/'.$tn."-".$hex.".png");
                     
                 }
             }

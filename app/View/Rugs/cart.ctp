@@ -34,7 +34,7 @@
                     </div>
                     <p>Rug options...</p>
                     <p> 
-                        <input type="checkbox"> Include Scotchgard™ Rug Protector info <i class="fa fa-info"></i>  add +£17.45</p>
+                        <input type="checkbox"> Include Scotchgard™ Rug Protector info <i class="fa fa-info"></i>  add +$17.45</p>
 
                 </td>
 
@@ -44,7 +44,7 @@
                 </td>
 
                 <td>
-                    <strong>£<span data-bind="text:ko.computed(function(){return Rug.price()*qty()})"></span></strong>
+                    <strong>$<span data-bind="text:ko.computed(function(){return Rug.price()*qty()})"></span></strong>
                 </td>
 
                 <td>
@@ -76,7 +76,7 @@
                     <strong><i class="fa fa-truck"></i>Delivery</strong>
                 </td>
                 <td>
-                    <p>£<!-- ko text:deliveryCharge --><!-- /ko --></p>
+                    <p>$<!-- ko text:deliveryCharge --><!-- /ko --></p>
                 </td>
                 <td><p>Free</p></td>
             </tr>
@@ -99,7 +99,7 @@
                     <strong style="color:#CE3E23;">TOTAL</strong> 
                 </td>
                 <td style="background-color:#f1f1f1">
-                    <strong style="color:#CE3E23;">£<!-- ko text:total --><!-- /ko --><strong
+                    <strong style="color:#CE3E23;">$<!-- ko text:total --><!-- /ko --><strong
                             </td>
                             <td style="background-color:#f1f1f1"></td>
                             </tr>

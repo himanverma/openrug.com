@@ -1,5 +1,4 @@
 <?php
-
 App::uses('AppController', 'Controller');
 
 /**
@@ -534,7 +533,8 @@ class RugsController extends AppController {
             foreach ($tmp_c as $rp) {
                 $defaultClr[] = array(
                     "png" => $rp . ".png",
-                    "clr" => "#" . $rp
+                    "clr" => "#" . $rp,
+                    "swt" => $rp
                 );
             }
         } else {
@@ -543,7 +543,8 @@ class RugsController extends AppController {
                 if ($rp['type'] == "LAYER") {
                     $defaultClr[] = array(
                         "png" => $rp['color'] . ".png",
-                        "clr" => "#" . $rp['color']
+                        "clr" => "#" . $rp['color'],
+                        "swt" => $rp['color']
                     );
                 }
             }
@@ -571,7 +572,8 @@ class RugsController extends AppController {
             foreach ($this->request->data['clr_sb'] as $clrs) {
                 $defaultClr[] = array(
                     "png" => ltrim($clrs, "#") . ".png",
-                    "clr" => $clrs
+                    "clr" => $clrs,
+                    "swt" => ltrim($clrs, "#")
                 );
             }
             $defaultShp = $this->request->data['shp_sb'];
@@ -608,7 +610,8 @@ class RugsController extends AppController {
             foreach ($clr as $clrs) {
                 $defaultClr[] = array(
                     "png" => ltrim($clrs, "#") . ".png",
-                    "clr" => $clrs
+                    "clr" => $clrs,
+                    "swt" => ltrim($clrs, "#")
                 );
             }
         }

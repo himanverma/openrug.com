@@ -58,7 +58,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "jquery.form.min", 
             "jquery.waiting.min",
             "/js/app/functions",
-            "/js/app/custom.bindings"
+            "/js/app/custom.bindings",
+            "/js/app/swt"
         )); 
         $this->Combinator->add_libs('css', array(
             "bootstrap.min",

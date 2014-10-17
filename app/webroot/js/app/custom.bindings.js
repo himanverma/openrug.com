@@ -54,7 +54,8 @@ ko.bindingHandlers.swatch = {
             var b = a.split("-");
             var c = "";
             for (i in b) {
-                c += '<img src="/swatch/' + b[i] + '.png" />';
+                var t = b[i];
+                c += '<img src="/swatch/' + swt[t].file + '" />';
             }
             $(element).html(c);
         }
@@ -67,7 +68,8 @@ ko.bindingHandlers.swatch = {
             var b = a.split("-");
             var c = "";
             for (i in b) {
-                c += '<img src="/swatch/' + b[i] + '.png" />';
+                var t = b[i];
+                c += '<img src="/swatch/' + swt[t].file + '" />';
             }
             $(element).html(c);
         }

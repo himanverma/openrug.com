@@ -16,7 +16,7 @@
                         Edit Colours:
                         <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
                             <span class="swatch-picker">
-                                <img src="<?php echo $this->Html->url("/swatch/" . $defaultClr[$i]['png']); ?>" alt="">
+                                <img style="width:16px; height: 16px;" src="tst" onerror="this.src = '/swatch/' + swt['<?php echo $defaultClr[$i]['swt']; ?>'].file" alt="">
                                 <div class="swatch-pick">
                                     <?php echo $this->element("swatch"); ?>
                                 </div>
@@ -33,32 +33,32 @@
                     <div class="edit_shape">
                         Edit Shape: 
                         <span class="swatch-picker">
-                            <img src="<?php echo $this->Html->url("/images/shap-1.png"); ?>" alt="">
+                            <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-".$defaultShp.".png"); ?>" alt="">
                             <div class="swatch-pick">
                                 <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
                                 <table id="shape-pick" cellpadding="5">
                                     <tr>
                                         <td align="center">
-                                            <img data-shp="oval" src="<?php echo $this->Html->url("/images/oval.png"); ?>" alt=""><br>
+                                            <img data-shp="oval" src="<?php echo $this->Html->url("/images/sh-oval.png"); ?>" alt=""><br>
                                             <strong>Oval</strong>
                                         </td>
                                         <td align="center">
-                                            <img data-shp="square" src="<?php echo $this->Html->url("/images/square.png"); ?>" alt=""><br>
+                                            <img data-shp="square" src="<?php echo $this->Html->url("/images/sh-square.png"); ?>" alt=""><br>
                                             <strong>Square</strong>
                                         </td>
                                         <td align="center">
-                                            <img data-shp="round" src="<?php echo $this->Html->url("/images/round_1.png"); ?>" alt=""><br>
+                                            <img data-shp="round" src="<?php echo $this->Html->url("/images/sh-round.png"); ?>" alt=""><br>
                                             <strong>Round</strong>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="center">
-                                            <img data-shp="rect" src="<?php echo $this->Html->url("/images/rectangular.png"); ?>" alt=""><br>
+                                            <img data-shp="rect" src="<?php echo $this->Html->url("/images/sh-rect.png"); ?>" alt=""><br>
                                             <strong>Rectangular</strong>
                                         </td>
                                         <td></td>
                                         <td align="center">
-                                            <img data-shp="runner" src="<?php echo $this->Html->url("/images/runners.png"); ?>" alt=""><br>
+                                            <img data-shp="runner" src="<?php echo $this->Html->url("/images/sh-runner.png"); ?>" alt=""><br>
                                             <strong>Runners</strong>
                                         </td>
                                     </tr>
@@ -148,7 +148,7 @@
                                             <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
                                         <?php } ?>
                                     </select>
-                                    <strong>your rug price: <small> £0.00</small></strong>
+                                    <strong>your rug price: <small> $0.00</small></strong>
 
                                     <span class="addtocart" data-bind="click:add2cart"><a href="#"><img src="<?php echo $this->Html->url("/images/addtocart.png"); ?>" alt=""></a></span>
 
@@ -193,25 +193,25 @@
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
                             <span><span data-bind="cm2ft2cm:{'cm':140,'unit':mUnits}">140</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':200,'unit':mUnits}">200</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£<span data-bind="text:ko.computed(function(){ return (price() * 140/100 * 200/100).toFixed(2); })"></span> </p>
+                            <p>$<span data-bind="text:ko.computed(function(){ return (price() * 140/100 * 200/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
                             <span><span data-bind="cm2ft2cm:{'cm':120,'unit':mUnits}">120</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':180,'unit':mUnits}">180</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£<span data-bind="text:ko.computed(function(){return (price() * 120/100 * 180/100).toFixed(2); })"></span> </p>
+                            <p>$<span data-bind="text:ko.computed(function(){return (price() * 120/100 * 180/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
                             <span><span data-bind="cm2ft2cm:{'cm':100,'unit':mUnits}">100</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':160,'unit':mUnits}">160</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£<span data-bind="text:ko.computed(function(){return (price() * 100/100 * 160/100).toFixed(2); })"></span> </p>
+                            <p>$<span data-bind="text:ko.computed(function(){return (price() * 100/100 * 160/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="custom_sizes_box">
                             <span><span data-bind="cm2ft2cm:{'cm':150,'unit':mUnits}">150</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':220,'unit':mUnits}">220</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>£<span data-bind="text:ko.computed(function(){return (price() * 150/100 * 220/100).toFixed(2); })"></span> </p>
+                            <p>$<span data-bind="text:ko.computed(function(){return (price() * 150/100 * 220/100).toFixed(2); })"></span> </p>
                         </div>
                     </div>
                 </div>
@@ -224,7 +224,7 @@
 
                         <p>Hand-tufted pure wool with a luxurious pile weight of 3000g/m² and pile depth of 12-14mm.</p>
 
-                        <p>The candy rug is priced at £<?php echo $price;?>/m² and available in extra large sizes of up to 500cm x 1200cm (16ft x 40ft).</p>
+                        <p>The candy rug is priced at $<?php echo $price;?>/m² and available in extra large sizes of up to 500cm x 1200cm (16ft x 40ft).</p>
 
                         <p>This rug is fully customisable. Colours and shape can be edited using the controls above the rug.</p>
                     </div>
