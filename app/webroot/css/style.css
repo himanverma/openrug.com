@@ -1530,3 +1530,96 @@ input[type=checkbox]:checked ~ #menu{
 .sign_in_check_boxx h1{margin:0 0 4%; padding:0px; float:left; width:auto; height:auto; font-size:12px; color:#606060; font-family:Arial, Helvetica, sans-serif; width:100%; float:left;}
 .sign_in_check_boxx h1 a{color:#333;}
 .sign_in_check_boxx h1 a:hover{color:#333; text-decoration:none;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=================================================================================*/
+/*===================================profile page==================================*/
+/*=================================================================================*/
+.profile{
+	width:100%;
+	float:left;
+	padding:2% 0;
+	}
+.profile h1 {
+    color: #353535;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 20px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0 0 4px 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.form_new {
+    float: left;
+    margin-top: 9px;
+    width: 100%;
+}
+.form_new label {
+    color: #353535;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    font-weight: normal;
+    text-align: right;
+    width: 100%;
+	text-transform:uppercase;
+	padding: 7px;
+	
+}
+.form_new input {
+    width: 100%;
+	border: 1px solid #d6d6d6;
+    border-radius: 1px;
+    box-shadow: 0 1px 2px #999 inset;
+    color: #333;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 7px;
+}
+
+.form_new a{
+	color:#333;
+	font-size:12px;
+	}
+	
+.order{
+	width:100%;
+	float:left;
+	padding:2% 0;
+	}
+.order h1 {
+    color: #353535;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 20px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0 0 4px 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.table-responsive {
+    float: left;
+    width: 100%;
+}
+.table th{
+	background:#f2f2f2;
+	}

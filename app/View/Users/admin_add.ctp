@@ -1,24 +1,21 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
-	<fieldset>
-		<legend><?php echo __('Admin Add User'); ?></legend>
-	<?php
-		echo $this->Form->input('username');
-		echo $this->Form->input('password');
-		echo $this->Form->input('full_name');
-		echo $this->Form->input('email');
-		echo '<div class="select type required"><lable for="UserRole">Role &nbsp</lable>';
-                    echo $this->Form->select('type', array('admin' => 'Admin', 'user' => 'User'));
-                echo "</div>";
-
-	?>
-	</fieldset>
-<?php echo $this->Form->end(__('Submit')); ?>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Users'), array('action' => 'index')); ?></li>
-	</ul>
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title">Add New User</h3>
+    </div>
+    <?php echo $this->Form->create('User'); ?>
+    <div class="box-body">
+        <?php
+        echo $this->Form->input('username');
+        echo $this->Form->input('password');
+        echo $this->Form->input('full_name');
+        echo $this->Form->input('email');
+        echo '<div class="select type required"><lable for="UserRole">Role &nbsp</lable>';
+        echo $this->Form->select('type', array('admin' => 'Admin', 'user' => 'User'));
+        echo "</div>";
+        ?>
+    </div>
+    <div class="box-footer">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+    <?php echo $this->Form->end(); ?>
 </div>

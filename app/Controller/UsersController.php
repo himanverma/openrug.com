@@ -22,10 +22,76 @@ class UsersController extends AppController {
         }
 
 /**
- * admin_index method
+ * info method
  *
  * @return void
  */
+        public function order() {
+
+	}
+        
+        public function info(){
+                $this->User->id=$this->Auth->User('id');
+		if (!$this->User->exists($this->Auth->User('id'))) {
+			throw new NotFoundException(__('Invalid user'));
+		}
+		if ($this->request->is(array('post', 'put'))) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash(__('The user has been saved.'));
+				return $this->redirect(array('action' => 'info'));
+			} else {
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->User('id')));
+			$this->request->data = $this->User->find('first', $options);
+		}
+        }
+        
+/**
+ * admin_changepass method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */        
+        
+        public function admin_changepass(){
+	      if ($this->request->is('post')) {		
+		   $password =AuthComponent::password($this->data['User']['old_password']);	
+                   $em= $this->Auth->user('email');
+		   $pass=$this->User->find('first',array('conditions'=>
+                       array('AND'=>array('User.password'=>$password,'User.email' => $em))));
+		   if($pass){
+			  if($this->data['User']['new_password'] != $this->data['User']['cpassword'] ){
+				$this->Session->setFlash("New password and Confirm password field do not match");		  
+			  }
+			  else {  
+                                $this->User->data['User']['password'] = $this->data['User']['new_password'];
+                                $this->User->id = $pass['User']['id'];
+                                if($this->User->exists()){
+                                        $pass['User']['password'] = $this->data['User']['new_password'];
+                                        if($this->User->save($this->request->data)) {
+                                          $this->Session->setFlash("Password updated");
+                                          $this->redirect(array('controller'=>'users','action' => 'index'));
+                                        }
+                                }
+			   }
+		   }
+		   else{
+			   $this->Session->setFlash("Your old password did not match.");
+		   }
+	      }
+        }
+        
+        
+        
+        
+/**
+ * admin_index method
+ *
+ * @return void
+ */        
 	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
@@ -243,5 +309,40 @@ class UsersController extends AppController {
                 $this->Session->setFlash('Pls try again...');
                 $this->redirect(array('/'));
             }
+        }
+/**
+ * changepass method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */        
+        
+        public function changepass(){
+	      if ($this->request->is('post')) {		
+		   $password =AuthComponent::password($this->data['User']['old_password']);	
+                   $em= $this->Auth->user('email');
+		   $pass=$this->User->find('first',array('conditions'=>
+                       array('AND'=>array('User.password'=>$password,'User.email' => $em))));
+		   if($pass){
+			  if($this->data['User']['new_password'] != $this->data['User']['cpassword'] ){
+				$this->Session->setFlash("New password and Confirm password field do not match");		  
+			  }
+			  else {  
+                                $this->User->data['User']['password'] = $this->data['User']['new_password'];
+                                $this->User->id = $pass['User']['id'];
+                                if($this->User->exists()){
+                                        $pass['User']['password'] = $this->data['User']['new_password'];
+                                        if($this->User->save($this->request->data)) {
+                                          $this->Session->setFlash("Password updated");
+                                          $this->redirect(array('controller'=>'users','action' => 'changepass'));
+                                        }
+                                }
+			   }
+		   }
+		   else{
+			   $this->Session->setFlash("Your old password did not match.");
+		   }
+	      }
         }
 }

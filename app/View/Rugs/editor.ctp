@@ -123,7 +123,7 @@
                             <input type="radio" value="cm" id="inlineRadio1" data-bind="checked: mUnits" name="inlineRadioOptions"> cm
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" value="ft" id="inlineRadio2" data-bind="checked: mUnits" name="inlineRadioOptions"> feets 
+                            <input type="radio" value="ft" id="inlineRadio2" data-bind="checked: mUnits" name="inlineRadioOptions"> feet
                         </label>
 
                     </form>          
@@ -150,7 +150,8 @@
                                     </select>
                                     <strong>your rug price: <small> $0.00</small></strong>
 
-                                    <span class="addtocart" data-bind="click:add2cart"><a href="#"><img src="<?php echo $this->Html->url("/images/addtocart.png"); ?>" alt=""></a></span>
+                                    <span class="addtocart" data-bind="click:add2cart" class="t-tip"  data-toggle="tooltip" data-placement="top" title="Add To Cart">
+                                        <a href="#"><img src="<?php echo $this->Html->url("/images/addtocart.png"); ?>" alt=""></a></span>
 
                                 </p>               
 
@@ -378,6 +379,7 @@ $this->end();
 ?>
 <script type="text/javascript">
     $(document).ready(function() {
+        $('.addtocart').tooltip();
         $('.swatch-picker').hover(function() {
             $(this).find('.swatch-pick').show();
             $(this).css({'box-shadow': '0 0 4px rgba(55,55,55,0.6)'});

@@ -129,6 +129,19 @@ class User extends AppModel {
                 'exclusive' => '',
                 'finderQuery' => '',
                 'counterQuery' => ''
+            ),
+            'Billingadd' => array(
+                'className' => 'Billingadd',
+                'foreignKey' => 'user_id',
+                'dependent' => true,
+                'conditions' => '',
+                'fields' => '',
+                'order' => '',
+                'limit' => '',
+                'offset' => '',
+                'exclusive' => '',
+                'finderQuery' => '',
+                'counterQuery' => ''
             )
         );        
 }
