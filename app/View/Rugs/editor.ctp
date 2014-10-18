@@ -33,7 +33,7 @@
                     <div class="edit_shape">
                         Edit Shape: 
                         <span class="swatch-picker">
-                            <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-".$defaultShp.".png"); ?>" alt="">
+                            <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-" . $defaultShp . ".png"); ?>" alt="">
                             <div class="swatch-pick">
                                 <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
                                 <table id="shape-pick" cellpadding="5">
@@ -224,7 +224,7 @@
 
                         <p>Hand-tufted pure wool with a luxurious pile weight of 3000g/m² and pile depth of 12-14mm.</p>
 
-                        <p>The candy rug is priced at $<?php echo $price;?>/m² and available in extra large sizes of up to 500cm x 1200cm (16ft x 40ft).</p>
+                        <p>The candy rug is priced at $<?php echo $price; ?>/m² and available in extra large sizes of up to 500cm x 1200cm (16ft x 40ft).</p>
 
                         <p>This rug is fully customisable. Colours and shape can be edited using the controls above the rug.</p>
                     </div>
@@ -259,7 +259,8 @@
                             <div class="pro_right">
 
 
-                                <?php foreach ($rugDiscounts as $rug) {
+                                <?php
+                                foreach ($rugDiscounts as $rug) {
                                     foreach ($rug['Genrug'] as $genrug) {
                                         ?>
                                         <a href="<?php echo $this->Html->url('/rugs/editor/' . $rug['Rug']['id'] . "/" . $genrug['colorstamp']); ?>">
@@ -280,8 +281,9 @@
                                                 </div>
                                             </div>
                                         </a>
-    <?php }
-} ?>
+                                    <?php }
+                                }
+                                ?>
                             </div>    
                         </div>
                     </div>
@@ -291,7 +293,10 @@
                         <div class="col-sm-12">
                             <h1>You may also like</h1>
                             <div class="row">
-<?php foreach ($popularGenrugs as $popularGenrug) { if($popularGenrug['Rug']['id'] == $r_id){     continue; } ?>
+<?php foreach ($popularGenrugs as $popularGenrug) {
+    if ($popularGenrug['Rug']['id'] == $r_id) {
+        continue;
+    } ?>
                                     <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
                                         <div class="col-sm-2 col-xs-6">
                                             <div class="pro">
@@ -408,10 +413,11 @@ $this->end();
 
         edt = new EditorVM();
         ko.applyBindings(edt);
+        edt.mUnits('ft');
     });
     var EditorVM = function() {
         var me = this;
-        me.price = ko.observable(<?php echo $price;?>);
+        me.price = ko.observable(<?php echo $price; ?>);
         me.l = ko.observable('');
         me.b = ko.observable('');
         me.s = ko.observable('');
@@ -420,14 +426,14 @@ $this->end();
         me.mUnits.subscribe(function(newVal) {
             console.log(newVal);
         }, this);
-        me.notify = function(type, msg, focus = null){
+        me.notify = function(type, msg, focus) {
             alert(type + ": " + msg);
             if (focus != null)
                 $(focus).css({'background': 'pink'});
             return false;
         }
-        me.add2cart = function(d,e) {
-            
+        me.add2cart = function(d, e) {
+
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
             var send = true;
             if (me.l() == 0 || me.l() == "") {
@@ -441,7 +447,7 @@ $this->end();
             }
             var l = me.l();
             var b = me.b();
-            if(me.mUnits() == "ft"){
+            if (me.mUnits() == "ft") {
                 l = (l / 0.032808).toFixed(2);
                 b = (b / 0.032808).toFixed(2);
             }
@@ -457,14 +463,14 @@ $this->end();
             if (send) {
                 var t = me;
                 $.post("http://rugbuilder.com/Cart/add", data, function(d) {
-                    t.notify("Info","Product added to cart...");
+                    t.notify("Info", "Product added to cart...", "#dsf-td5df");
                     window.location = "/rugs/cart";
                 });
                 flyToElement($('#big-img'), $(e.currentTarget));
             }
         }
-        me.removeItem = function(d,e){
-            
+        me.removeItem = function(d, e) {
+
         }
     }
 

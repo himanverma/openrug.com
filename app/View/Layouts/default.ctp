@@ -23,15 +23,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <?php
-        echo $this->Html->charset();
-        echo $this->Seo->title($title_for_layout);
-        echo $this->Html->meta('icon');
-        echo $this->Seo->metaTags();
-        echo $this->Seo->canonical();
+        echo $this->Html->charset() ."\n";
+        echo $this->Seo->title($title_for_layout) ."\n";
+        echo $this->Html->meta('icon') ."\n";
+        echo $this->Seo->metaTags() ."\n";
+        echo $this->Seo->canonical() ."\n";
 
         // echo $this->Html->css('cake.generic');
 
-        echo $this->fetch('meta');
+        echo $this->fetch('meta') ."\n";
         /*
           echo $this->Html->css(array(
           "bootstrap.min",
