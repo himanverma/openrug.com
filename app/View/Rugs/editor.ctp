@@ -220,7 +220,7 @@
                 <div class="candy_rug">
                     <div class="col-sm-7 padding">
                         <h1>candy rug <span>product no: 2077677</span></h1>
-                        <p>The candy wool rug is hand made to measure and exclusive to rug couture.</p>
+                        <p>The candy wool rug is hand made to measure and exclusive to rug builder.</p>
 
                         <p>Hand-tufted pure wool with a luxurious pile weight of 3000g/m² and pile depth of 12-14mm.</p>
 
