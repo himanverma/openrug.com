@@ -40,7 +40,7 @@
 
                     <div class="boot_menu"> <p>Call United States Toll Free 1-800-830-4787  <a href="#">Terms & Conditions</a>   |   <a href="#">Privacy & Security </a>  |   <a href="#">Affiliate Program</a>   |   <a href="#">The Privé</a></p>
 
-                        <p> © 1999-2014 Custom commercial rugs- All Rights Reserved    <a href="#">Popular Searches</a>   |   <a href="#">Store Map</a>   |   <a href="#">Site Index </a>  |  <a href="#"> RSS</a></p>
+                        <p> © 1999-2014 Custom commercial RugBuilder.com- All Rights Reserved  and Desigend By <a target="_blank" href="http://mediaweb.co.il/"> MediaWeb.co.il</a>  <a href="#">Popular Searches</a>   |   <a href="#">Store Map</a>   |   <a href="#">Site Index </a>  |  <a href="#"> RSS</a></p>
                     </div>
 
                 </div>
