@@ -157,7 +157,7 @@ class CartController extends AppController {
 
         $order = array(
             'description' => 'Your purchase with Acme clothes store',
-            'currency' => 'GBP',
+            'currency' => 'USD',
             'return' => 'https://www.my-amazing-clothes-store.com/review-paypal.php',
             'cancel' => 'https://www.my-amazing-clothes-store.com/checkout.php',
             'custom' => 'bingbong',

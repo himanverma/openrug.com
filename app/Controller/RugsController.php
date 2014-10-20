@@ -20,7 +20,7 @@ class RugsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('genImg', 'editor', 'index','cart'));
+        $this->Auth->allow(array('genImg', 'editor', 'index','cart','billing'));
     }
 
     /**
@@ -642,9 +642,11 @@ class RugsController extends AppController {
     public function cart(){
         
     }
+    public function billing(){
+        
+    }
 
-
-    /**
+        /**
      * index method
      *
      * @return void

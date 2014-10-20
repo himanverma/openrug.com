@@ -252,6 +252,13 @@
                                             m.orderId(d.Order.id);
                                         });
                                     }
+                                    me.checkOut = function(d,e){
+                                        window.location = "/rugs/billing";
+                                        /*$.post("/cart/paypaldirect",{orderId:me.orderId()},function(d){
+                                            console.log(d);
+                                        });*/
+                                    }
+                                    
                                     me.init();
                                 }
                                 var cart = new CartVM();
