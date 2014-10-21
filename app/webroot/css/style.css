@@ -1598,7 +1598,7 @@ input[type=checkbox]:checked ~ #menu{
 	color:#333;
 	font-size:12px;
 	}
-	
+
 .order{
 	width:100%;
 	float:left;
@@ -1616,6 +1616,86 @@ input[type=checkbox]:checked ~ #menu{
     text-decoration: none;
     width: 100%;
 }
+
+.order strong {
+    color: #353535;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 15px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+.order span {
+    color: #C33;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+.order p {
+    color: #8f8f8f;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 12px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+}
+.order_item {
+    border-top: 1px solid #ccc;
+    float: left;
+    margin-top: 5px;
+    padding: 8px 0;
+    width: 100%;
+}
+.order_item strong {
+    color: #909090;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 14px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+.order_item p {
+    color: #787878;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 3px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.order_image{
+	width:100%;
+	float:left;
+	text-align:center;
+	}
+.order_image a img{
+	width:auto;
+	margin: 5px;
+	border:1px solid #ccc;
+	padding:3px;
+	}
 .table-responsive {
     float: left;
     width: 100%;

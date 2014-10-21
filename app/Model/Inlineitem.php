@@ -16,8 +16,8 @@ class Inlineitem extends AppModel {
             'fields' => '',
             'order' => ''
         ),
-        'Rug' => array(
-            'className' => 'Rug',
+        'Genrug' => array(
+            'className' => 'Genrug',
             'foreignKey' => 'genrug_id',
             'conditions' => '',
             'fields' => '',

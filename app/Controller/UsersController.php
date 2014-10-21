@@ -4,6 +4,7 @@ App::uses('AppController', 'Controller');
  * Users Controller
  *
  * @property User $User
+ * @property Order $Order
  * @property PaginatorComponent $Paginator
  * @property SessionComponent $Session
  */
@@ -18,7 +19,7 @@ class UsersController extends AppController {
         
         public function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow(array('admin_login','add','forgetpwd','resetpass'));
+            $this->Auth->allow(array('admin_login','add','forgetpwd','resetpass','order'));
         }
 
 /**
@@ -27,7 +28,14 @@ class UsersController extends AppController {
  * @return void
  */
         public function order() {
-
+            $this->loadModel('Order');
+            $this->Order->recursive=2;
+            $orderLists=$this->Order->find('all',array(
+//                    conditions=>array('Order.id'=>$this->Auth->User('id')),
+                    'contain'=>array('Inlineitem'=>array('Genrug'))
+                    ,'order'=>array('Order.id DESC')
+                    ));
+            $this->set('orderLists',$orderLists);
 	}
         
         public function info(){
