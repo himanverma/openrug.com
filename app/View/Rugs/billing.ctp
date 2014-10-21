@@ -78,10 +78,31 @@
         </div>
     </div>
     <hr>
-
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="col-md-4">
+                <h4>Contact</h4>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Primary<sup style="color: red;">*</sup></label>
+                    <input type="text" data-bind="value:contactPrimary" class="form-control small" id="" placeholder="Mobile / Phone">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Other</label>
+                    <input type="text" data-bind="value:contactOther " class="form-control" id="" placeholder="Other">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <br>
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-success pull-right" >Proceed to Pay</button>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript">
-    var BillingVM = function(){
+    var BillingVM = function() {
         var me = this;
         me.firstName = ko.observable('');
         me.lastName = ko.observable('');
@@ -91,44 +112,47 @@
         me.postalCode = ko.observable('');
         me.company = ko.observable('');
         me.isDeliverySame = ko.observable(false);
-        me.firstNameD = ko.computed(function(){
-            if(this.isDeliverySame()){
+        me.firstNameD = ko.computed(function() {
+            if (this.isDeliverySame()) {
                 return this.firstName();
             }
-        },this);
-        me.lastNameD = ko.computed(function(){
-            if(this.isDeliverySame()){
+        }, this);
+        me.lastNameD = ko.computed(function() {
+            if (this.isDeliverySame()) {
                 return this.lastName();
             }
-        },this);
-        me.cityD = ko.computed(function(){
-            if(this.isDeliverySame()){
+        }, this);
+        me.cityD = ko.computed(function() {
+            if (this.isDeliverySame()) {
                 return this.city();
             }
-        },this);
-        me.countryD = ko.computed(function(){
-            if(this.isDeliverySame()){
+        }, this);
+        me.countryD = ko.computed(function() {
+            if (this.isDeliverySame()) {
                 return this.country();
             }
-        },this);
-        me.addressD = ko.computed(function(){
-            if(this.isDeliverySame()){
+        }, this);
+        me.addressD = ko.computed(function() {
+            if (this.isDeliverySame()) {
                 return this.address();
             }
-        },this);
-        me.postalCodeD = ko.computed(function(){
-            if(this.isDeliverySame()){
+        }, this);
+        me.postalCodeD = ko.computed(function() {
+            if (this.isDeliverySame()) {
                 return this.postalCode();
             }
-        },this);
-        me.companyD = ko.computed(function(){
-            if(this.isDeliverySame()){
+        }, this);
+        me.companyD = ko.computed(function() {
+            if (this.isDeliverySame()) {
                 return this.company();
             }
-        },this);
+        }, this);
+
+        me.contactPrimary = ko.observable();
+        me.contactOther = ko.observable();
     }
     var billingObj = new BillingVM();
-    $(document).ready(function(){
+    $(document).ready(function() {
         ko.applyBindings(billingObj);
     });
 </script>

@@ -5,7 +5,7 @@
 		<fieldset>
 			<legend><?php echo __('Admin Add Seo Meta Tag'); ?></legend>
 		<?php
-			echo $this->Form->input('SeoUri.uri');
+			echo $this->Form->input('SeoUri.uri',array('options'=>$uris));
 			echo $this->Form->input('name',array(
                             'options' => array(
                                 "keywords" => "Keywords",

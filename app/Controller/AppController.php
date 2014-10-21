@@ -36,6 +36,25 @@ class AppController extends Controller {
     public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator','Seo.Seo');
     public function beforeFilter() {
         parent::beforeFilter();
+        
+        $ext = explode(".", $this->request->here);
+        $ext = strtolower($ext[count($ext)-1]);
+        if(!in_array($ext, array("gif","png","php","jpg","pdf")) && !strstr($this->request->here, "/admin")){
+            $this->loadModel('Seo.SeoUri');
+            $uri = $this->SeoUri->find('first',array('conditions'=>array('SeoUri.uri'=>$this->request->here)));
+            if(empty($uri)){
+                $this->SeoUri->create();
+                $this->SeoUri->save(array(
+                   'SeoUri' => array(
+                       'uri' => $this->request->here,
+                       'is_approved' => 1,
+                       'created' => date("Y-m-d H:i:s",time()),
+                       'modified' => date("Y-m-d H:i:s",time()),
+                   )
+                ));
+            }
+        }
+        
         $this->Auth->authenticate = array( 
             'all' => array( 
                 'userModel' => 'User', 

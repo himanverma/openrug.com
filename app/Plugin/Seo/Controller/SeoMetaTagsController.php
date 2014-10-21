@@ -32,6 +32,9 @@ class SeoMetaTagsController extends SeoAppController {
 				$this->Session->setFlash(__('The seo meta tag could not be saved. Please, try again.'));
 			}
 		}
+                $this->loadModel('Seo.SeoUri');
+                $uris = $this->SeoUri->find('list',array('fields'=>array('SeoUri.uri')));
+                $this->set("uris", $uris);
 	}
 
 	function admin_edit($id = null) {
