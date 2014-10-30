@@ -137,7 +137,7 @@ class RugsController extends AppController {
         $rnd->destroy();
 
         $rnd = new Imagick("files/templates/roundroom.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 400);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
         $rnd->compositeimage(new Imagick("files/templates/roundroom.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);

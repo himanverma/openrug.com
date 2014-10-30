@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="footer_logo">
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-4">
-                        <a href="#"><img src="<?php echo $this->Html->url('/images/f_logo1.png'); ?>" alt=""></a>
-                        <a href="#"><img src="<?php echo $this->Html->url('/images/f_logo2.png'); ?>" alt=""></a>
-                        <a href="#"><img src="<?php echo $this->Html->url('/images/f_logo3.png'); ?>" alt=""></a>
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="down_arrow">
+                    <div class="col-sm-12">
+                        <div style="margin: 0 auto; width: 400px;">
+                             <a href="#"><img src="<?php echo $this->Html->url('/img/paypalLogoGrey.png'); ?>" alt=""></a>
+                            <!--<a href="#"><img src="<?php echo $this->Html->url('/images/f_logo1.png'); ?>" alt=""></a>-->
+                            <a href="#"><img src="<?php echo $this->Html->url('/images/f_logo2.png'); ?>" alt=""></a>
+                            <a href="#"><img src="<?php echo $this->Html->url('/images/f_logo3.png'); ?>" alt=""></a>
+                        </div>
+                        <div class="down_arrow pull-right">
                             <span><i class="fa fa-angle-double-down"></i></span>
                         </div>
                     </div>

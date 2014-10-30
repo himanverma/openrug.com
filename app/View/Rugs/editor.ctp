@@ -116,6 +116,7 @@
         <div class="calculate_price">
             <div class="col-sm-6"><h1>calculate price - <span>specify measurements:</span></h1></div>
             <div class="col-sm-3"></div>
+            <?php /*
             <div class="col-sm-3">
                 <div class="select_cm">
                     <form role="form">
@@ -129,6 +130,9 @@
                     </form>          
                 </div>
             </div>
+             * 
+             */
+            ?>
             <div class="col-sm-12">
                 <div class="calculate_price_box">
                     <div class="col-sm-5">
@@ -161,6 +165,10 @@
 
                     </div>
                     <div class="col-sm-7">
+                        <select name="approx_size[]" id="approx_size" class="multiselect" title="Size" multiple="multiple" size="4"><option value="12">2 x 3</option><option value="13">3 x 5</option><option value="14">4 x 6</option><option value="15">5 x 8</option><option value="23">8' Round</option><option value="29">8' Runner</option><option value="6">8' Square</option><option value="16">6 x 9</option><option value="22">6' Round</option><option value="28">6' Runner</option><option value="5">6' Square</option><option value="17">8 x 10</option><option value="19">10 x 14</option><option value="18">9 x 12</option><option value="20">12 x 15</option><option value="24">10' Round</option><option value="25">12' Round</option><option value="26">14' Round</option><option value="27">4' Runner</option><option value="30">10' Runner</option><option value="31">12' Runner</option><option value="3">14' Runner</option><option value="4">4' Square</option><option value="7">10' Square</option><option value="108">16' Runner</option><option value="21">4' Round</option><option value="198">5' Round</option><option value="8">12' Square</option><option value="9">14' Square</option><option value="97">Octagon</option><option value="100">Shapes</option><option value="11">Sample</option><option value="101">Oval</option><option value="105">12 x 18</option><option value="104">15 x 20</option><option value="207">Oversize</option></select>
+                    </div>
+                    <?php /*
+                    <div class="col-sm-7">
                         <div class="select_cm_all" id="odr-s">
                             <form role="form">
                                 <span>Pile depth </span>
@@ -188,7 +196,11 @@
                             </form>          
                         </div>
                     </div>
+                     * 
+                     */
+                    ?>
                 </div>
+                <?php /*
                 <div class="poplular_custom_sizes">
                     <h1>Poplular custom sizes:</h1>
                     <div class="col-sm-3">
@@ -216,7 +228,8 @@
                         </div>
                     </div>
                 </div>
-
+                */
+                ?>
 
                 <div class="candy_rug">
                     <div class="col-sm-7 padding">
