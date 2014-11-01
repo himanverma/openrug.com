@@ -404,7 +404,7 @@ foreach ($sizes as $s) {
                 if(x[i].label == this.size())
                     size = x[i].size_in_ft;
             }
-            return size * me.price() * this.qty() - (this.size() * me.price() * this.qty()) * <?php echo $crug['discount']; ?> / 100;
+            return size * me.price() * this.qty() - (size * me.price() * this.qty()) * <?php echo $crug['discount']; ?> / 100;
         }, this);
         me.mUnits = ko.observable("cm");
         me.mUnits.subscribe(function(newVal) {
