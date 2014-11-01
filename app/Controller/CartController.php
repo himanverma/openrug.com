@@ -48,9 +48,9 @@ class CartController extends AppController {
                 "conditions" => array(
                     "Inlineitem.order_id" => $order['Order']['id'],
                     "genrug_id" => $d["rid"],
-                    "length" => $d["l"],
-                    "bredth" => $d["b"],
-                    "pile_size" => $d["s"],
+                    "length" => $d["size"],
+                    "bredth" => 0,//$d["b"],
+                    "pile_size" => 0,//$d["s"],
                     "shape" => $d["shp"],
                     "colors" => $d["clr"]
                 )
@@ -60,9 +60,9 @@ class CartController extends AppController {
                     "order_id" => $order['Order']['id'],
                     "genrug_id" => $d["rid"],
                     "qty" => $d["qty"],
-                    "length" => $d["l"],
-                    "bredth" => $d["b"],
-                    "pile_size" => $d["s"],
+                    "length" => $d["size"],
+                    "bredth" => 0,//$d["b"],
+                    "pile_size" => 0,//$d["s"],
                     "shape" => $d["shp"],
                     "colors" => $d["clr"]
                 )

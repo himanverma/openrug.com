@@ -623,6 +623,7 @@ class RugsController extends AppController {
         $this->set("colorstamp",$colorstamp);
         $this->set("r_id",$id);
         $this->set("price",$rug['Rug']['price']);
+        $this->set("crug",$rug['Rug']);
 
 
 
@@ -639,6 +640,10 @@ class RugsController extends AppController {
             'group' => array('Genrug.rug_id'),
             'order' => array('Genrug.id desc'), "limit" => 18));
         $this->set('popularGenrugs', $popularGenrugs);
+        
+        $this->loadModel('Size');
+        $this->set("sizes", $this->Size->find('all'));
+        
     }
     
     public function cart(){

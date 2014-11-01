@@ -72,29 +72,100 @@
         </form>
 
         <div class="single_page_pro">
-            <div class="col-sm-12">
+            <div class="col-lg-12">
+                <div class="col-lg-9">
+                    <div id="rug-preview">
+                        <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
+                        <div class="col-sm-12 sm-p-trig">
+                            <div class="im col-sm-2">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                            <div class="im col-sm-2">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                            <div class="im col-sm-2">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                            <div class="im col-sm-2">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                            <div class="im col-sm-4">
 
-                <div id="rug-preview">
-                    <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
-                    <div class="col-sm-12 sm-p-trig">
-                        <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                        </div>
-                        <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                        </div>
-                        <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                        </div>
-                        <div class="im col-sm-2">
-                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                        </div>
-                        <div class="im col-sm-4">
-
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-3">
+                    <h5 class="pull-right" style="text-transform: uppercase; margin-top: 20px;">SKU: <?php
+                        $sku_pre = md5($crug['name']);
+                        $sku_pre = str_split($sku_pre, 3);
+                        echo $sku_pre[0] . ((int) ($crug['id']) + 487);
+                        ?></h5>
+                    <h2><?php echo $crug['name']; ?></h2>
+                    <hr>
+                    <div>
+                        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+                        <script type="text/javascript">stLight.options({publisher: "9fd7ddb9-da0d-4b7d-83fd-987ccdd7c64d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+                        <span class='st_facebook' displayText='Facebook'></span>
+                        <span class='st_twitter' displayText='Tweet'></span>
+                        <span class='st_pinterest' displayText='Pinterest'></span>
+                        <span class='st_googleplus' displayText='Google +'></span>
+                    </div>
+                    <div style="margin-top: 30px;  font-size: 12pt;">
+                        <div class="col-lg-12">
+                            <div class="col-sm-6"><b>Pattern : </b></div>
+                            <div class="col-sm-6"><?php echo $crug['pattern']; ?></div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="col-sm-6"><b>Price/sq.ft. : </b></div>
+                            <div class="col-sm-6">USD <?php echo round($crug['price'], 2); ?></div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="col-sm-6"><b>Shape : </b></div>
+                            <div class="col-sm-6"><?php echo $defaultShp == "rect" ? "RECTANGULAR" : strtoupper($defaultShp); ?></div>
+                        </div>
 
+                        <?php if ($crug['discount'] != 0) { ?>
+                            <div class="col-lg-12" style="color: green;">
+                                <div class="col-sm-8"><b>Discount : </b></div>
+                                <div class="col-sm-4"><?php echo $crug['discount']; ?>%</div>
+                            </div>
+                        <?php } ?>
+                    </div>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Size<br>
+                                    <a style="font-size:10px;" href="#">Custom Size Inquiry</a>
+                                </th>
+                                <th>Qty</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <!--<select name="approx_size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"><option value="12">2 x 3</option><option value="13">3 x 5</option><option value="14">4 x 6</option><option value="15">5 x 8</option><option value="23">8' Round</option><option value="29">8' Runner</option><option value="6">8' Square</option><option value="16">6 x 9</option><option value="22">6' Round</option><option value="28">6' Runner</option><option value="5">6' Square</option><option value="17">8 x 10</option><option value="19">10 x 14</option><option value="18">9 x 12</option><option value="20">12 x 15</option><option value="24">10' Round</option><option value="25">12' Round</option><option value="26">14' Round</option><option value="27">4' Runner</option><option value="30">10' Runner</option><option value="31">12' Runner</option><option value="3">14' Runner</option><option value="4">4' Square</option><option value="7">10' Square</option><option value="108">16' Runner</option><option value="21">4' Round</option><option value="198">5' Round</option><option value="8">12' Square</option><option value="9">14' Square</option><option value="97">Octagon</option><option value="100">Shapes</option><option value="11">Sample</option><option value="101">Oval</option><option value="105">12 x 18</option><option value="104">15 x 20</option><option value="207">Oversize</option></select>-->
+                                    <select data-bind="options: sizes, optionsText: 'label', optionsValue: 'label' , value:size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"></select>
+                                </td>
+                                <td>
+                                    <select id="odr-qty" class="form-control sm" data-bind="value:qty ">
+                                        <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                                            <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </td>
+                                <td>
+                                    <span style="color: green; font-size: 12pt;">
+                                        $<b data-bind="text:total"></b>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button data-bind="click:add2cart" class="btn btn-primary">Add to Cart</button>
+                </div>
             </div>
         </div>
         <script type="text/javascript">
@@ -114,123 +185,7 @@
             }
         </style>
         <div class="calculate_price">
-            <div class="col-sm-6"><h1>calculate price - <span>specify measurements:</span></h1></div>
-            <div class="col-sm-3"></div>
-            <?php /*
-            <div class="col-sm-3">
-                <div class="select_cm">
-                    <form role="form">
-                        <label class="radio-inline">
-                            <input type="radio" value="cm" id="inlineRadio1" data-bind="checked: mUnits" name="inlineRadioOptions"> cm
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" value="ft" id="inlineRadio2" data-bind="checked: mUnits" name="inlineRadioOptions"> feet
-                        </label>
-
-                    </form>          
-                </div>
-            </div>
-             * 
-             */
-            ?>
             <div class="col-sm-12">
-                <div class="calculate_price_box">
-                    <div class="col-sm-5">
-                        <div class="select_cm_all1">
-                            <form> 
-                                <p>
-                                    <label>Width</label>
-                                    <input name="b" id="odr-b" data-bind="value:l" type="text">
-                                    <label> <!-- ko text: mUnits -->cm<!-- /ko -->     x     Length </label>
-                                    <input name="l" id="odr-l" data-bind="value:b" type="text">
-                                    <span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                                </p>
-                                <p>
-                                    <label>Quantity</label>
-                                    <select id="odr-qty" data-bind="value:qty " name="">
-                                        <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
-                                            <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <strong>your rug price: <small> $0.00</small></strong>
-
-                                    <span class="addtocart" data-bind="click:add2cart" class="t-tip"  data-toggle="tooltip" data-placement="top" title="Add To Cart">
-                                        <a href="#"><img src="<?php echo $this->Html->url("/images/addtocart.png"); ?>" alt=""></a></span>
-
-                                </p>               
-
-
-                            </form>          
-                        </div>
-
-                    </div>
-                    <div class="col-sm-7">
-                        <select name="approx_size[]" id="approx_size" class="multiselect" title="Size" multiple="multiple" size="4"><option value="12">2 x 3</option><option value="13">3 x 5</option><option value="14">4 x 6</option><option value="15">5 x 8</option><option value="23">8' Round</option><option value="29">8' Runner</option><option value="6">8' Square</option><option value="16">6 x 9</option><option value="22">6' Round</option><option value="28">6' Runner</option><option value="5">6' Square</option><option value="17">8 x 10</option><option value="19">10 x 14</option><option value="18">9 x 12</option><option value="20">12 x 15</option><option value="24">10' Round</option><option value="25">12' Round</option><option value="26">14' Round</option><option value="27">4' Runner</option><option value="30">10' Runner</option><option value="31">12' Runner</option><option value="3">14' Runner</option><option value="4">4' Square</option><option value="7">10' Square</option><option value="108">16' Runner</option><option value="21">4' Round</option><option value="198">5' Round</option><option value="8">12' Square</option><option value="9">14' Square</option><option value="97">Octagon</option><option value="100">Shapes</option><option value="11">Sample</option><option value="101">Oval</option><option value="105">12 x 18</option><option value="104">15 x 20</option><option value="207">Oversize</option></select>
-                    </div>
-                    <?php /*
-                    <div class="col-sm-7">
-                        <div class="select_cm_all" id="odr-s">
-                            <form role="form">
-                                <span>Pile depth </span>
-                                <label class="radio-inline">
-                                    <input type="radio" value="option1" data-bind="checked: s" id="inlineRadio1" name="inlineRadioOptions"> 
-                                    <span data-bind="cm2ft2cm:{'cm':12,'unit':mUnits}">12</span>-
-                                    <span data-bind="cm2ft2cm:{'cm':14,'unit':mUnits}">14</span>
-                                    <!-- ko text: mUnits -->cm<!-- /ko -->
-                                </label>
-                                <span><img src="<?php echo $this->Html->url("/images/icon1.png"); ?>" alt=""></span>
-                                <label class="radio-inline">
-                                    <input type="radio" value="option2" data-bind="checked: s" id="inlineRadio2" name="inlineRadioOptions">
-                                    <span data-bind="cm2ft2cm:{'cm':15,'unit':mUnits}">15</span>-
-                                    <span data-bind="cm2ft2cm:{'cm':18,'unit':mUnits}">18</span>
-                                    <!-- ko text: mUnits -->cm<!-- /ko --> 
-                                </label>
-                                <span><img src="<?php echo $this->Html->url("/images/icon1.png"); ?>" alt=""></span>
-                                <label class="radio-inline">
-                                    <input type="radio" value="option3" data-bind="checked: s" id="inlineRadio3" name="inlineRadioOptions">
-                                    <span data-bind="cm2ft2cm:{'cm':19,'unit':mUnits}">19</span>-
-                                    <span data-bind="cm2ft2cm:{'cm':21,'unit':mUnits}">21</span>
-                                    <!-- ko text: mUnits -->cm<!-- /ko -->
-                                </label>
-
-                            </form>          
-                        </div>
-                    </div>
-                     * 
-                     */
-                    ?>
-                </div>
-                <?php /*
-                <div class="poplular_custom_sizes">
-                    <h1>Poplular custom sizes:</h1>
-                    <div class="col-sm-3">
-                        <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':140,'unit':mUnits}">140</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':200,'unit':mUnits}">200</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>$<span data-bind="text:ko.computed(function(){ return (price() * 140/100 * 200/100).toFixed(2); })"></span> </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':120,'unit':mUnits}">120</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':180,'unit':mUnits}">180</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>$<span data-bind="text:ko.computed(function(){return (price() * 120/100 * 180/100).toFixed(2); })"></span> </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':100,'unit':mUnits}">100</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':160,'unit':mUnits}">160</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>$<span data-bind="text:ko.computed(function(){return (price() * 100/100 * 160/100).toFixed(2); })"></span> </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="custom_sizes_box">
-                            <span><span data-bind="cm2ft2cm:{'cm':150,'unit':mUnits}">150</span><!-- ko text: mUnits -->cm<!-- /ko --> x <span data-bind="cm2ft2cm:{'cm':220,'unit':mUnits}">220</span><!-- ko text: mUnits -->cm<!-- /ko --></span>
-                            <p>$<span data-bind="text:ko.computed(function(){return (price() * 150/100 * 220/100).toFixed(2); })"></span> </p>
-                        </div>
-                    </div>
-                </div>
-                */
-                ?>
-
                 <div class="candy_rug">
                     <div class="col-sm-7 padding">
                         <h1>candy rug <span>product no: 2077677</span></h1>
@@ -295,7 +250,8 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    <?php }
+                                    <?php
+                                    }
                                 }
                                 ?>
                             </div>    
@@ -307,10 +263,12 @@
                         <div class="col-sm-12">
                             <h1>You may also like</h1>
                             <div class="row">
-<?php foreach ($popularGenrugs as $popularGenrug) {
-    if ($popularGenrug['Rug']['id'] == $r_id) {
-        continue;
-    } ?>
+                                <?php
+                                foreach ($popularGenrugs as $popularGenrug) {
+                                    if ($popularGenrug['Rug']['id'] == $r_id) {
+                                        continue;
+                                    }
+                                    ?>
                                     <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
                                         <div class="col-sm-2 col-xs-6">
                                             <div class="pro">
@@ -433,10 +391,21 @@ $this->end();
     var EditorVM = function() {
         var me = this;
         me.price = ko.observable(<?php echo $price; ?>);
-        me.l = ko.observable('');
-        me.b = ko.observable('');
-        me.s = ko.observable('');
+        me.sizes = ko.observableArray(<?php $exr = array();
+foreach ($sizes as $s) {
+    $exr[] = array('label' => $s['Size']['label'], 'size_in_ft' => $s['Size']['size_in_ft'], 'id' => $s['Size']['id']);
+} echo json_encode($exr); ?>);
+        me.size = ko.observable('4 x 6');
         me.qty = ko.observable(1);
+        me.total = ko.computed(function() {
+            var size = 0;
+            var x = this.sizes();
+            for(i in x){
+                if(x[i].label == this.size())
+                    size = x[i].size_in_ft;
+            }
+            return size * me.price() * this.qty() - (this.size() * me.price() * this.qty()) * <?php echo $crug['discount']; ?> / 100;
+        }, this);
         me.mUnits = ko.observable("cm");
         me.mUnits.subscribe(function(newVal) {
             console.log(newVal);
@@ -451,27 +420,10 @@ $this->end();
 
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
             var send = true;
-            if (me.l() == 0 || me.l() == "") {
-                send = me.notify("Warning", "Please enter lenth of rug.", "#odr-l");
-            }
-            if (me.b() == 0 || me.b() == "") {
-                send = me.notify("Warning", "Please enter bredth of rug.", "#odr-b");
-            }
-            if (me.s() == 0 || me.s() == "") {
-                send = me.notify("Warning", "Please select a pile size.", "#odr-s");
-            }
-            var l = me.l();
-            var b = me.b();
-            if (me.mUnits() == "ft") {
-                l = (l / 0.032808).toFixed(2);
-                b = (b / 0.032808).toFixed(2);
-            }
             var data = {
                 rid: '<?php echo $r_id; ?>',
                 qty: me.qty(),
-                l: l,
-                b: b,
-                s: me.s(),
+                size: me.size(),
                 shp: '<?php echo $defaultShp; ?>',
                 clr: '<?php echo str_replace("#", "", $colorstamp); ?>'
             };
