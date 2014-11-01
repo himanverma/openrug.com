@@ -1,34 +1,30 @@
-
-
 <header>
     <div class="social">
         <div class="socil_link">
-            <a href="#"> My Account </a>
-            <a href="#">Email Updates</a>
-            <a href="#">Wish List</a>
-            <a href="#">Shopping Bag (0)</a>
-
-            <span><a href="#"><img src="<?php echo $this->Html->url('/images/fb.png');?>" alt=""></a></span>
+            <?php if($authUser){?>
+                <a href="<?php echo $this->Html->url('/users/info')?>"> My Account </a>
+<!--                <a href="#">Email Updates</a>
+                <a href="#">Wish List</a>-->
+                <a href="#">Shopping Bag (0)</a>
+            <?php }?>
+                <span>
+                    <a href="https://www.facebook.com/modernrugs" target="_blank">
+                        <img src="<?php echo $this->Html->url('/images/fb.png');?>" alt="">
+                    </a>
+                </span>
             <span><a href="#"><img src="<?php echo $this->Html->url('/images/tweet.png');?>" alt=""></a></span>
             <span><a href="#"><img src="<?php echo $this->Html->url('/images/yt.png');?>" alt=""></a></span>
-
         </div>
-
-
     </div>
-    
-
     <div class="container">
-
         <div class="col-sm-12">
-            
-                <div class="col-sm-3">
-                    <div class="logo">
-                    <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
-                </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="top_nav">
+            <div class="col-sm-3">
+                <div class="logo">
+                <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
+            </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="top_nav">
                     <ul>
                         <li><a href="#" class="active">Shop Online</a></li>
                         <li><a href="#">Collections</a></li>
@@ -36,22 +32,15 @@
                         <li><a href="#">Shop Locator</a></li>
                     </ul>
                 </div>
-                    
+            </div>
+            <div class="col-sm-3">
+                <div class="search">
+                    <input name="" type="text" value="Search...">
+                    <input name="" type="submit" value="Search">
                 </div>
-                <div class="col-sm-3">
-                    <div class="search">
-                        <input name="" type="text" value="Search...">
-                        <input name="" type="submit" value="Search">
-                    </div>
-                </div>
-            
-
-
+            </div>
             <div class="navigat">
                 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-
-
-
                     <div class="navbar navbar-default navbar-static-top">
                         <div class="container">
                             <div class="navbar-header">
@@ -60,7 +49,6 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-
                             </div>
                             <div class="navbar-collapse collapse">
                                 <ul class="nav navbar-nav">
