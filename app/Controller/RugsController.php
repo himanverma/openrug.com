@@ -131,6 +131,8 @@ class RugsController extends AppController {
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
         $rnd->compositeimage(new Imagick("files/templates/round4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/round4-tag.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "round2.png");
         $rnd->writeimage();
