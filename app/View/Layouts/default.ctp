@@ -84,12 +84,12 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     </head>
 
     <body role="document">
-        <?php
-        echo $this->element("page-top");
+        
+        <?php 
         echo $this->element("page-header");
         ?>
-        <div class="main_con">
-            <div class="container">
+        <div class="main_con"> 
+            <div class="container-fluid">
                 <div class="con_inn">
 
                     <div class="col-sm-12">

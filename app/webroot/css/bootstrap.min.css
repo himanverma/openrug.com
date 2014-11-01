@@ -604,8 +604,8 @@ width:970px
 .container-fluid {
 	margin-right:auto;
 	margin-left:auto;
-	padding-left:15px;
-	padding-right:15px
+	padding-left:50px;
+	padding-right:50px
 }
 .row {
 	margin-left:-15px;
@@ -1337,16 +1337,17 @@ display:table-cell
 }
 
 @media (max-width:767px) {
-.social{position:inherit !important; float:left !important; width:100% !important;}
+.social{position:inherit !important; float:left !important; width:100% !important;  margin-top: 3% !important; 
+       margin-bottom: 3% !important; padding-left: 15px !important; padding-right: 15px !important; }
 .socil_link{position:inherit !important; float:left !important; width:100% !important;}
 .social a{width:auto !important; padding:0 3% !important;}
-.search {padding: 5% 0 20% !important;}
+.search {padding: 5% 0 0% !important;}
 .footer_logo2{border:none !important;}
 .f_menu ul li a{padding:5px 2% 3px !important;}
 .f_menu ul{margin:0px !important; padding:0 !important; width:100% !important;}
 .top_cat h1{text-align:center !important;}
 .top_cat p{text-align:center !important;}
-.top_cat a{text-align:center !important;}
+.top_cat a{text-align:center !important;} 
 .cat_img img{margin-top:5px !important;}
 .left_top{text-align:center !important; width:100% !important;}
 .left_top p{text-align:center !important; width:100% !important;}
@@ -1354,6 +1355,14 @@ display:table-cell
 .right-nav ul li a{float:left !important; padding: 0 4% 0 0 !important}
 .footer_logo > .col-sm-4{text-align:center !important;}
 .down_arrow {float: none!important; margin-top: 12px!important; text-align: center !important;}
+
+
+.container-fluid {
+	margin-right:auto; 
+	margin-left:auto;
+	padding-left:15px;
+	padding-right:15px
+}
 	
 .table-responsive {
 width:100%;

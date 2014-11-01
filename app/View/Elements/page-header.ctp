@@ -1,5 +1,36 @@
 <header>
-    <div class="social">
+    
+    <div class="container-fluid">
+        <div class="con_inn1">
+            <?php
+        echo $this->element("page-top");
+        ?>
+        <div class="col-sm-12"> 
+            <div class="col-sm-1">
+                <div class="logo">
+                <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
+            </div>
+            </div>
+            
+            <div class="col-sm-7">
+                <div class="top_nav">
+                    <ul>
+                        <li><a href="#" class="active">Shop Online</a></li> 
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Shop Locator</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="search">
+                    <div class="col-sm-9 padding"><input name="" type="text" value="Search..."></div>
+                    <div class="col-sm-3 padding"><input name="" type="submit" value="Search"></div>
+                </div>
+            </div>
+            
+            <div class="col-sm-1 padding">
+                <div class="social">
         <div class="socil_link">
             <?php if($authUser){?>
                 <a href="<?php echo $this->Html->url('/users/info')?>"> My Account </a>
@@ -16,33 +47,15 @@
             <span><a href="#"><img src="<?php echo $this->Html->url('/images/yt.png');?>" alt=""></a></span>
         </div>
     </div>
-    <div class="container">
-        <div class="col-sm-12">
-            <div class="col-sm-3">
-                <div class="logo">
-                <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
+                
             </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="top_nav">
-                    <ul>
-                        <li><a href="#" class="active">Shop Online</a></li>
-                        <li><a href="#">Collections</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Shop Locator</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="search">
-                    <input name="" type="text" value="Search...">
-                    <input name="" type="submit" value="Search">
-                </div>
-            </div>
+            
+            
+            
             <div class="navigat">
                 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                     <div class="navbar navbar-default navbar-static-top">
-                        <div class="container">
+                        <div class="navigation_new">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                                     <span class="icon-bar"></span>
@@ -211,6 +224,7 @@
             </div>
         </div>
 
+    </div>
     </div>
 
 </div>

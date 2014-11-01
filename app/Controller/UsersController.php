@@ -19,7 +19,7 @@ class UsersController extends AppController {
         
         public function beforeFilter() {
             parent::beforeFilter();
-            $this->Auth->allow(array('admin_login','add','forgetpwd','resetpass','order'));
+            $this->Auth->allow(array('admin_login','add','forgetpwd','resetpass','order','login'));
         }
 
 /**

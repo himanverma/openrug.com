@@ -5,14 +5,14 @@
 /*===================================Header========================================*/
 /*=================================================================================*/
 
-
+body{
+   background:url(../images/bg_pett.jpg) repeat !important;
+}
 .social {
     color: #ff0000;
-    position: absolute;
-    right: 8%;
-    top: 7%;
-    width: 100px;
-    z-index: 999;
+    width: auto;
+    float: right;
+    margin-top: 38%;
 }
 
 .social span{
@@ -124,7 +124,7 @@ color: #fff;
 .top_text{
 	width:100%;
 	float:left;
-	background:#252525;
+	background:#f2f2f2;
 	padding: 5px 3%;
 	}
 .left_top {
@@ -175,10 +175,15 @@ header{
 	width:100%;
 	float:left;
 	margin:0px;
-	border-bottom:3px double #ccc;
-	padding: 0.2% 0;
-	background:#fff;
+        box-shadow: none !important;
 	}
+        
+        .navigation_new{
+            width: 100%; 
+            float: left; 
+            border-top:1px solid #ccc;
+            border-bottom:2px solid #ccc;
+        }
 .logo{
 	width:100%;
 	float:left;
@@ -222,10 +227,11 @@ header{
 .search {
     margin:0px auto;
     padding: 14% 0 9%;
-    width: 192px;
+    width: 100%; 
+    float: right;
 }
-.search input{
-	width:auto;
+.search input{ 
+	width:100%;
 	float:left;
 	background:#f2f2f2;
 	border:none;
@@ -236,7 +242,7 @@ header{
 	padding:0 3%;
 	}
 .search input[type=submit]{
-	width:auto;
+	width:100%;
 	float:left;
 	background:#000;
 	color:#fff;
@@ -260,10 +266,25 @@ header{
 	width:100%;
 	float:left;
 	background:#fff;
-	box-shadow:0 0 10px #ccc;
+	box-shadow:0 9px 10px #ccc;
 	padding-bottom: 10px;
 	margin-bottom:30px;
+        padding-top: 12px;
 	}
+.con_inn1 {
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: hsl(0, 0%, 100%);
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    box-shadow: 0 -6px 10px hsl(0, 0%, 80%);
+    float: left;
+    width: 100%;
+}
+
 .banner{
 	width:100%;
 	float:left;
@@ -301,6 +322,16 @@ header{
 	font-family: 'avenir_45_bookregular';
 	text-transform:uppercase;
 	color:#262626;
+	}
+.top_cat h3{
+	width:100%;
+	float:left;
+	font-size:32px;
+	font-family: 'avenir_45_bookregular';
+	text-transform:uppercase;
+	color:#262626;
+        padding: 10px 10px;
+        background: #f2f2f2;
 	}
 .top_cat p{
 	width:100%;
@@ -1703,3 +1734,102 @@ input[type=checkbox]:checked ~ #menu{
 .table th{
 	background:#f2f2f2;
 	}
+        
+        
+/*========================1-11-2014================================*/
+
+.online_shapes_box {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-bottom-color: hsl(0, 0%, 80%);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-image-outset: 0 0 0 0;
+    border-image-repeat: stretch stretch;
+    border-image-slice: 100% 100% 100% 100%;
+    border-image-source: none;
+    border-image-width: 1 1 1 1;
+    border-left-color-ltr-source: physical;
+    border-left-color-rtl-source: physical;
+    border-left-color-value: hsl(0, 0%, 80%);
+    border-left-style-ltr-source: physical;
+    border-left-style-rtl-source: physical;
+    border-left-style-value: solid;
+    border-left-width-ltr-source: physical;
+    border-left-width-rtl-source: physical;
+    border-left-width-value: 1px;
+    border-right-color-ltr-source: physical;
+    border-right-color-rtl-source: physical;
+    border-right-color-value: hsl(0, 0%, 80%);
+    border-right-style-ltr-source: physical;
+    border-right-style-rtl-source: physical;
+    border-right-style-value: solid;
+    border-right-width-ltr-source: physical;
+    border-right-width-rtl-source: physical;
+    border-right-width-value: 1px;
+    border-top-color: hsl(0, 0%, 80%);
+    border-top-style: solid;
+    border-top-width: 1px;
+    float: left;
+    margin-top: 6%;
+    width: 100%;
+}
+.online_shapes_box img {
+    width: 100%;
+}
+.online_shapes_box h1 {
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: hsl(0, 0%, 0%);
+    background-image: none;
+    background-origin: padding-box;
+    background-position: 0 0;
+    background-repeat: repeat;
+    background-size: auto auto;
+    color: hsl(0, 0%, 87%);
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 20px;
+    font-weight: normal;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 7px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 7px;
+    text-align: center;
+    width: 100%;
+}
+.online_shapes_box p {
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    color: hsl(0, 0%, 34%);
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 14px;
+    font-weight: normal;
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+    margin-bottom: 6px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 7px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 7px;
+    text-align: center;
+    width: 100%;
+}

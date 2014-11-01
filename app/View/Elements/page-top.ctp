@@ -1,3 +1,5 @@
+
+<div class="col-sm-12">
 <div class="top_text">
     <div class="col-sm-4">
         <div class="left_top">
@@ -18,4 +20,5 @@
             </ul>
         </nav>
     </div>
+</div>
 </div>
