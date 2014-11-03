@@ -43,6 +43,11 @@ color: #fff;
 }
 .navbar-default .navbar-nav > li > a{
 	color:#fff;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+        font-family:"arial" !important;
+        font-weight: bold;
+        font-size: 12px !important;
 }
 .navbar-default .navbar-nav > .dropdown > a .caret{
 	border-top-color: #000;
@@ -125,7 +130,7 @@ color: #fff;
 	width:100%;
 	float:left;
 	background:#f2f2f2;
-	padding: 5px 3%;
+	padding: 5px 0;
 	}
 .left_top {
     float: left;
@@ -154,23 +159,30 @@ color: #fff;
 	}
 .right-nav ul li{
 	display:inline;
+        padding: 0 2%;
+        float: left;
+        border-right: 1px solid #676767;
+        line-height: 11px;
 	}
 .right-nav ul li a{
 	margin:0px;
-	padding: 0 1%;
+	padding:0;
 	float:left;
 	text-align:left;
-	font-family: 'avenir_45_bookregular';
+	font-family:arial;
 	font-size:12px;
-	color:#afafaf;
+	color:#676767;
 	width:auto;
 	text-decoration:none;
 	list-style:none;
+        font-weight: bold;
 	}
 .right-nav ul li a:hover{
-	color:#fff;
+	color:#333;
 	}
-	
+        .right-nav ul li:last-child{
+            border-right: none;
+        }
 header{
 	width:100%;
 	float:left;
@@ -189,6 +201,11 @@ header{
 	float:left;
 	text-align:center;
 	}
+.logo img {
+    width: 140px;
+    padding: 10px 0px;
+    float: left;
+}
 .top_nav{
 	width:100%;
 	float:left;
@@ -289,6 +306,14 @@ header{
 	width:100%;
 	float:left;
 	}
+.banner_left{
+        width:100%;
+	float:left;
+        }
+.banner_left img{
+        width:100%;
+	float:left;
+        }
 .carousel-caption h3 {
     background:url(../images/banner_bg.png) repeat;
     float: left;
@@ -414,59 +439,79 @@ header{
 .pro{
 	width:100%;
 	float:left;
-	background:#f2f2f2;
-	box-shadow:0 0 5px #ababab;
+	background:#fff;
 	margin-bottom:15px;
 	}
 .pro img{
-	width:90%;
-	margin:5%;
+	width:100%;
+	margin:0;
 	}
 .pro p{
 	width:100%;
 	float:left;
-	font-size:12px;
-	font-family: 'avenir_45_bookregular';
+	font-size:11px;
+	font-family: 'arial';
 	color:#676766;
 	text-align:left;
 	padding:5% 5% 3% ;
 	line-height:18px;
 	margin:0px;
+        text-transform: uppercase;
+	}
+.pro strong{
+	width:100%;
+	float:left;
+	font-size:16px;
+	font-family:arial;
+	color:#676766;
+	text-align:left;
+	padding:0% 5% 3% ;
+	line-height:13px;
+	margin:0px;
+        font-weight: bold;
 	}
 .add_cart{
 	width:100%;
 	float:left;
 	}
 .add_cart span {
-    background: none repeat scroll 0 0 #fff;
-    color: #000;
+    background:#FD836B;
+    color: #fff;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family:arial;
     font-size: 10px;
     line-height: 18px;
-    padding: 5% 5% 3%;
+    padding: 6px 6px 5px 6px;
     text-align: left;
     width: 100%;
+    font-weight: bold;
 }
 .add_cart span a {
     color: #000;
 }
 .add_cart span i {
-    color: #9a9a9a;
+    color: #fff;
     float: left;
     font-size: 15px;
     padding: 3px;
 }
 .view {
-    background: none repeat scroll 0 0 #e1e1e1;
+    background: none repeat scroll 0 0 #535353;
     float: left;
     width: 100%;
 }
-.view i {
-    color: #9a9a9a;
+.view > a {
     float: left;
+    padding-bottom: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 7px;
+    text-align: center;
+    width: 100%;
+}
+.view i {
+    color: #fff;
     font-size: 15px;
-    padding: 7px 6px;
 }
 
 
@@ -523,6 +568,7 @@ footer{
 	float:left;
 	margin-bottom: 3%;
 	}
+
 .down_arrow{
 	text-align:right;
 	float:right;
@@ -607,7 +653,10 @@ footer{
     float: left;
     padding: 0 18%;
     text-align: center;
-	width:100%;
+width:100%;
+}
+.footer_logo2 img {
+    width: 150px;
 }
 
 
@@ -1308,7 +1357,9 @@ input[type=checkbox]:checked ~ #menu{
 
 .addtocart {
     width: auto;
-    float: right !important;
+    float: left !important;
+    margin-left: 5%;
+    color: #fff !important;
 }
 
 .poplular_custom_sizes{
@@ -1738,7 +1789,7 @@ input[type=checkbox]:checked ~ #menu{
         
 /*========================1-11-2014================================*/
 
-.online_shapes_box {
+.online_shapes_box1 {
     -moz-border-bottom-colors: none;
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
@@ -1775,42 +1826,39 @@ input[type=checkbox]:checked ~ #menu{
     float: left;
     margin-top: 6%;
     width: 100%;
+    position: relative;
 }
-.online_shapes_box img {
+.online_shapes_box1 img {
     width: 100%;
+    border:1px solid #333 !important;
 }
-.online_shapes_box h1 {
-    -moz-text-decoration-color: -moz-use-text-color;
-    -moz-text-decoration-line: none;
-    -moz-text-decoration-style: solid;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: hsl(0, 0%, 0%);
-    background-image: none;
-    background-origin: padding-box;
-    background-position: 0 0;
-    background-repeat: repeat;
-    background-size: auto auto;
-    color: hsl(0, 0%, 87%);
+.online_shapes_box1 h1 {
+    background:url(../images/text_bg.png) repeat !important;
+    color:#fff;
+    text-shadow: 0 1px 1px hsl(0, 0%, 5%);
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 20px;
     font-weight: normal;
-    list-style-image: none;
-    list-style-position: outside;
-    list-style-type: none;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
+    margin: 0;
     padding-bottom: 7px;
     padding-left: 0;
     padding-right: 0;
     padding-top: 7px;
     text-align: center;
     width: 100%;
+    position: absolute;
+    bottom: 20px;
+     filter: alpha(opacity=60); /* For IE8 and earlier */
 }
-.online_shapes_box p {
+
+.online_shapes_box1 h1 span {
+    float: left;
+    font-size: 15px;
+    width: 100%;
+}
+
+.online_shapes_box1 p {
     -moz-text-decoration-color: -moz-use-text-color;
     -moz-text-decoration-line: none;
     -moz-text-decoration-style: solid;

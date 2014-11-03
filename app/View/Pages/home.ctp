@@ -1,10 +1,12 @@
 <?php echo $this->Html->script(array('addtocart.js'), array('inline' => false)); ?>
 <div class="row">
     <div class="col-sm-12">
-        <div class="col-lg-4 col-md-12">
-            <img src="images/new_left.png" alt="">
+        <div class="col-sm-4">
+            <div class="banner_left">
+                <img src="images/new_left.png" alt="">
+            </div>
         </div>
-        <div class="col-lg-8 col-md-12">
+        <div class="col-sm-8"> 
             <div class="banner">
                 <div data-ride="carousel" class="carousel slide" id="carousel-example-captions">
                     <div class="carousel-inner">
@@ -83,29 +85,23 @@
         
         
                             <div class="col-sm-4">
-                            	<div class="online_shapes_box">
-                                	<a href="#"><img alt="" src="images/online_img1.jpg"></a>
-                                    <h1>Online shape tools</h1>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and type
-setting industry. </p>
+                            	<div class="online_shapes_box1">
+                                	<a href="#"><img alt="" src="images/b1.jpg"></a>
+                                        <h1>choose your design<span>We have thousand and are adding more everyday</span></h1>
                                 </div>
                             </div>
                             
                             <div class="col-sm-4">
-                            	<div class="online_shapes_box">
-                                	<a href="#"><img alt="" src="images/online_img1.jpg"></a>
-                                    <h1>Online shape tools</h1>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and type
-setting industry. </p>
+                            	<div class="online_shapes_box1">
+                                	<a href="#"><img alt="" src="images/b2.jpg"></a>
+                                    <h1>Customize it<span>Pick your colors,shape,size and other options</span></h1>
                                 </div>
                             </div>
                             
                             <div class="col-sm-4">
-                            	<div class="online_shapes_box">
-                                	<a href="#"><img alt="" src="images/online_img1.jpg"></a>
-                                    <h1>Online shape tools</h1>
-                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and type
-setting industry. </p>
+                            	<div class="online_shapes_box1">
+                                	<a href="#"><img alt="" src="images/b3.jpg"></a>
+                                    <h1>approve your rug<span>delivered in 4-6 weeks</span></h1>
                                 </div>
                             </div>
                             
@@ -156,29 +152,33 @@ setting industry. </p>
             <h1>popular rug designs</h1><br/><br/>
             <div class="row">
 <?php foreach ($popularGenrugs as $popularGenrug) { ?>
-                    <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
-                        <div class="col-sm-2 col-xs-6" >
-                            <div class="pro">
-                                <img src="/<?php echo $popularGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
-                                <p><?php echo $popularGenrug['Rug']['description']; ?></p>
-                                <div class="add_cart">
-                                    <div class="col-xs-9 padding">
-                                        <span>
-                                            <i class="fa fa-shopping-cart"></i>
-                                            <a href="javascript:void()" class="addtocart" id="<?php echo $popularGenrug['Genrug']['id']; ?>">
-                                                Add to Cart
-                                            </a>
-                                        </span>
-                                    </div>
-                                    <div class="col-xs-3 padding">
-                                        <div class="view">
-                                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>"><i class="fa fa-eye"></i></a>
-                                        </div>
+                    <div class="col-sm-2 col-xs-6" >
+                        <div class="pro">
+                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
+                                 <img src="/<?php echo $popularGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
+                            </a> 
+                            <p><?php echo $popularGenrug['Rug']['description']; ?></p>
+                            <strong><?php echo $popularGenrug['Rug']['description']; ?>$ 250.00</strong><!-- this is custom changes please edit correct code-->
+                            <div class="add_cart">
+                                <div class="col-sm-9 padding">
+                                    <span>
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <a href="javascript:void()" class="addtocart" id="<?php echo $popularGenrug['Genrug']['id']; ?>">
+                                            Add to Cart
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="col-sm-3 padding">
+                                    <div class="view">
+                                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
+                    
 <?php } ?>
             </div>
         </div>
@@ -192,13 +192,16 @@ setting industry. </p>
             <h1>recent rug designs</h1><br/><br/>
             <div class="row">
 <?php foreach ($recentGenrugs as $recentGenrug) { ?>
-                    <a href="<?php echo $this->Html->url('/rugs/editor/' . $recentGenrug['Rug']['id'] . "/" . $recentGenrug['Genrug']['colorstamp']); ?>">
-                        <div class="col-sm-2 col-xs-6" >
+                    <div class="col-sm-2 col-xs-6" >
                             <div class="pro">
-                                <img src="/<?php echo $recentGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
+                                 <a href="<?php echo $this->Html->url('/rugs/editor/' . $recentGenrug['Rug']['id'] . "/" . $recentGenrug['Genrug']['colorstamp']); ?>">
+                                        <img src="/<?php echo $recentGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
+                                 </a>
+
                                 <p><?php echo $recentGenrug['Rug']['description']; ?></p>
+                                <strong><?php echo $popularGenrug['Rug']['description']; ?>$ 250.00</strong><!-- this is custom changes please edit correct code-->
                                 <div class="add_cart">
-                                    <div class="col-xs-9 padding">
+                                    <div class="col-sm-9 padding">
                                         <span>
                                             <i class="fa fa-shopping-cart"></i>
                                             <a href="javascript:void()" class="addtocart"  id="<?php echo $recentGenrug['Genrug']['id']; ?>">
@@ -206,7 +209,7 @@ setting industry. </p>
                                             </a>
                                         </span>
                                     </div>
-                                    <div class="col-xs-3 padding">
+                                    <div class="col-sm-3 padding">
                                         <div class="view">
                                             <a href="#"><i class="fa fa-eye"></i></a>
                                         </div>
@@ -214,7 +217,6 @@ setting industry. </p>
                                 </div>
                             </div>
                         </div>
-                    </a>
 <?php } ?>
             </div>
         </div>

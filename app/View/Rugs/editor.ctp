@@ -2,16 +2,14 @@
     <div class="single_pro">
         <form id="upd-clr-shp" method="post">
             <div class="color_editor">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <div class="single_pro_menu">
                         <a href="#">home</a>  >  <a href="#">rugs</a>  >  <a href="#">natural</a>  >  <a href="#">tea time rug </a>
                         <p>tea time rug   <span>product no: 1276034 </span></p>
                         <div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>
                     </div>
                 </div>
-                <div class="col-sm-1">
-                </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="edit_color">
                         Edit Colours:
                         <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
@@ -28,8 +26,7 @@
 
                     </div>
                 </div>
-                <div class="col-sm-1"></div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="edit_shape">
                         Edit Shape: 
                         <span class="swatch-picker">
@@ -68,7 +65,22 @@
                         <a href="#"><i class="fa fa-plus-square"></i></a>
                     </div>
                 </div>
-            </div>
+            
+                <div class="col-sm-5 sm-p-trig">
+                            <div class="im col-sm-3">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                            <div class="im col-sm-3">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                            <div class="im col-sm-3">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                            <div class="im col-sm-3">
+                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                            </div>
+                        </div>
+</div> 
         </form>
 
         <div class="single_page_pro">
@@ -76,23 +88,6 @@
                 <div class="col-lg-9">
                     <div id="rug-preview">
                         <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
-                        <div class="col-sm-12 sm-p-trig">
-                            <div class="im col-sm-2">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                            <div class="im col-sm-2">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                            <div class="im col-sm-2">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                            <div class="im col-sm-2">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                            <div class="im col-sm-4">
-
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -178,10 +173,14 @@
         <style type="text/css">
             .sm-p-trig img {
                 cursor: pointer;
-                height: 60px;
+                height: auto;
             }
             #big-img {
                 height: 475px;
+                background:none;
+                box-shadow:none;
+                border:none;
+                border-right:1px solid #ccc;
             }
         </style>
         <div class="calculate_price">

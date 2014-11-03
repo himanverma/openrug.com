@@ -347,6 +347,8 @@ p {
 	line-height:1.4
 }
 @media (min-width:768px) {
+    
+    
 .lead {
 font-size:21px
 }
@@ -1337,6 +1339,7 @@ display:table-cell
 }
 
 @media (max-width:767px) {
+.logo{float: none !impotant;}
 .social{position:inherit !important; float:left !important; width:100% !important;  margin-top: 3% !important; 
        margin-bottom: 3% !important; padding-left: 15px !important; padding-right: 15px !important; }
 .socil_link{position:inherit !important; float:left !important; width:100% !important;}
@@ -5011,3 +5014,6 @@ th.visible-print, td.visible-print {
 	display:none!important
 }
 }
+
+
+

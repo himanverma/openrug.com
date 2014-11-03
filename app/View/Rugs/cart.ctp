@@ -209,7 +209,7 @@
                                         var sum = 0.00;
                                         var items = ko.mapping.toJS(this.items);
                                         for(i in items){
-                                            sum += items[i].Rug.price * items[i].qty;
+                                            sum += items[i].Genrug.price * items[i].qty;
                                         }
                                         try{gross_key.abort()}catch(e){}
                                         gross_key = $.post("/cart/updategross",{gross_total:sum,id:me.orderId} ,function(d){

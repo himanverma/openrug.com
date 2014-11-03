@@ -6,8 +6,8 @@
             <p>Free* shipping to INDIA  / EASY RETURNS TAXES & DUTIES PAID*</p>
         </div>
     </div>
-    <div class="col-sm-3"></div>
-    <div class="col-sm-5">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-6">
         <nav class="right-nav">
             <ul>
                 <li><a href="#">Custom Rugs</a></li>

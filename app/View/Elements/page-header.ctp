@@ -6,13 +6,13 @@
         echo $this->element("page-top");
         ?>
         <div class="col-sm-12"> 
-            <div class="col-sm-1">
+            <div class="col-sm-2 padding">
                 <div class="logo">
-                <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt="" style="float: left;"></a>
+                <a href="/"><img src="<?php echo $this->Html->url('/images/logo.png');?>" alt=""></a>
             </div>
             </div>
             
-            <div class="col-sm-7">
+            <div class="col-sm-6">
                 <div class="top_nav">
                     <ul>
                         <li><a href="#" class="active">Shop Online</a></li> 
@@ -246,8 +246,8 @@
     margin-top: 0!important;
 }
 .logo{
-    float: none!important;
-    width: 86px;
+    float: left;
+    width: 100%;
     margin: 0px auto;
 }
     
