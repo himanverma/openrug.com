@@ -647,7 +647,8 @@ class RugsController extends AppController {
     }
     
     public function cart(){
-        
+        $this->loadModel('Size');
+        $this->set("sizes", $this->Size->find('all'));
     }
     public function billing(){
         

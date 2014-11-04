@@ -55,6 +55,7 @@ ko.bindingHandlers.swatch = {
             var c = "";
             for (i in b) {
                 var t = b[i];
+                if(swt[t] != undefined)
                 c += '<img src="/swatch/' + swt[t].file + '" />';
             }
             $(element).html(c);
@@ -69,6 +70,7 @@ ko.bindingHandlers.swatch = {
             var c = "";
             for (i in b) {
                 var t = b[i];
+                if(swt[t] != undefined)
                 c += '<img src="/swatch/' + swt[t].file + '" />';
             }
             $(element).html(c);

@@ -23,10 +23,8 @@
 
                         <p>
                             Product id: <!-- ko text:length() --><!-- /ko --><br />
-                            Size: <!-- ko text:length() --><!-- /ko -->cm x <!-- ko text:bredth() --><!-- /ko -->cm
-                            <br />
-                            Pile Size: <!-- ko text:pile_size() --><!-- /ko -->
-                            colours: </p>
+                            Size: <!-- ko text:length() --><!-- /ko -->
+                        </p>
 
                         <p>colours: </p>
                         <p data-bind="swatch:{'clrstamp':colors()}"></p>
@@ -44,7 +42,7 @@
                 </td>
 
                 <td>
-                    <strong>$<span data-bind="text:ko.computed(function(){return Rug.price()*qty()})"></span></strong>
+                    <strong><span data-bind="text:ko.computed(function(){ return '$' + cart.totalPerItem(Genrug.Rug.price(),qty(),length(),0)})"></span></strong>
                 </td>
 
                 <td>
@@ -203,30 +201,48 @@
                                     var me = this;
                                     me.orderId = ko.observable(0);
                                     me.items = ko.observableArray([]);
+                                    me.sizes = ko.observableArray(<?php $exr = array();
+foreach ($sizes as $s) {
+    $exr[] = array('label' => $s['Size']['label'], 'size_in_ft' => $s['Size']['size_in_ft'], 'id' => $s['Size']['id']);
+} echo json_encode($exr); ?>);
                                     me.qtArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
                                     me.deliveryCharge = ko.observable(0.00);
-                                    me.total = ko.computed(function(){
+                                    me.totalPerItem = function(price,qty,size,discount) {
+                                        var x = me.sizes();
+                                        for(i in x){
+                                            if(x[i].label == size)
+                                                size = x[i].size_in_ft;
+                                        }
+                                        return size * price * qty - (size * price * qty) * discount / 100;
+                                    };
+                                    me.total = ko.computed(function() {
                                         var sum = 0.00;
                                         var items = ko.mapping.toJS(this.items);
-                                        for(i in items){
-                                            sum += items[i].Genrug.price * items[i].qty;
+                                        for (i in items) {
+                                            sum += me.totalPerItem(items[i].Genrug.price,items[i].qty,items[i].length,0) ;
                                         }
-                                        try{gross_key.abort()}catch(e){}
-                                        gross_key = $.post("/cart/updategross",{gross_total:sum,id:me.orderId} ,function(d){
+                                        try {
+                                            gross_key.abort()
+                                        } catch (e) {
+                                        }
+                                        gross_key = $.post("/cart/updategross", {gross_total: sum, id: me.orderId}, function(d) {
                                         });
                                         return sum;
-                                    },this);
-                                    me.orderId.subscribe(function(newVal){
+                                    }, this);
+                                    me.orderId.subscribe(function(newVal) {
                                         var m = this;
-                                        try{gross_key.abort()}catch(e){}
-                                        gross_key = $.post("/cart/updategross",{gross_total:m.total(),id:newVal} ,function(d){
+                                        try {
+                                            gross_key.abort()
+                                        } catch (e) {
+                                        }
+                                        gross_key = $.post("/cart/updategross", {gross_total: m.total(), id: newVal}, function(d) {
                                         });
-                                    },this);
+                                    }, this);
                                     me.removeItem = function(d, e) {
                                         $('body').waiting({fixed: true});
                                         var id = d.id();
                                         var item2Remove = d;
-                                        $.post("/cart/removeitem",{id:id} ,function(d){
+                                        $.post("/cart/removeitem", {id: id}, function(d) {
                                             $('body').waiting('done');
                                             me.items.remove(item2Remove);
                                         });
@@ -235,7 +251,7 @@
                                         $('body').waiting({fixed: true});
                                         var id = d.id();
                                         var qty = d.qty();
-                                        $.post("/cart/updateitem",{id:id,qty:qty} ,function(d){
+                                        $.post("/cart/updateitem", {id: id, qty: qty}, function(d) {
                                             console.log(d);
                                             $('body').waiting('done');
                                         });
@@ -246,19 +262,19 @@
                                     me.getitems = function() {
                                         var m = me;
                                         $.post("/cart/cart", function(d) {
-                                            if(d.Inlineitem.length > 0){
+                                            if (d.Inlineitem.length > 0) {
                                                 m.items(ko.mapping.fromJS(d.Inlineitem)());
                                             }
                                             m.orderId(d.Order.id);
                                         });
                                     }
-                                    me.checkOut = function(d,e){
+                                    me.checkOut = function(d, e) {
                                         window.location = "/rugs/billing";
                                         /*$.post("/cart/paypaldirect",{orderId:me.orderId()},function(d){
-                                            console.log(d);
-                                        });*/
+                                         console.log(d);
+                                         });*/
                                     }
-                                    
+
                                     me.init();
                                 }
                                 var cart = new CartVM();
