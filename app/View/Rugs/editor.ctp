@@ -165,7 +165,7 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function() {
-                $('#rug-preview .sm-p-trig img').on("mouseenter", function() {
+                $('.sm-p-trig img').on("mouseenter", function() {
                     $('#big-img').attr({src: $(this).attr('src')});
                 });
             });

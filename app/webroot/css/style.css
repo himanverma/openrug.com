@@ -8,11 +8,15 @@
 body{
    background:url(../images/bg_pett.jpg) repeat !important;
 }
+.top_social{
+    float:left;
+    width: 100%;
+}
 .social {
     color: #ff0000;
-    width: auto;
     float: right;
-    margin-top: 38%;
+    margin-top: 10px;
+    width: 80px;
 }
 
 .social span{
@@ -21,15 +25,39 @@ body{
 }
 
 .social a{
-	width:100%;
-	color: #919191;
+    width:100%;
+    color: #919191;
     float: left;
     font-family: "avenir_45_bookregular";
     font-size: 12px;
-	background:none;
-	}
+    background:none;
+    }
+.visitor_line{
+    width: 100%;
+    float: left;
+}
+.visitor_text{
+    width: 100%;
+    float: left;
+}
+.visitor_text p {
+    color: #777777;
+    float: left;
+    font-family: "arial";
+    font-size: 11px;
+    margin: 11px 0;
+    width: 100%;
+}
+.visitor_text p span{color: #ff8275;} 
 
-
+.social p{
+    width:100%;
+    color: #ccc;
+    float: left;
+    font-family: "arial";
+    font-size: 12px;
+    background:none;
+    }
 
 .dropdown-menu li:hover .sub-menu {
     visibility: visible;
@@ -130,7 +158,7 @@ color: #fff;
 	width:100%;
 	float:left;
 	background:#f2f2f2;
-	padding: 5px 0;
+	padding: 10px 0;
 	}
 .left_top {
     float: left;
@@ -176,9 +204,10 @@ color: #fff;
 	text-decoration:none;
 	list-style:none;
         font-weight: bold;
+        transition: color 0.6s ease 0s;
 	}
 .right-nav ul li a:hover{
-	color:#333;
+	color:#ff8275;
 	}
         .right-nav ul li:last-child{
             border-right: none;
@@ -193,8 +222,8 @@ header{
         .navigation_new{
             width: 100%; 
             float: left; 
-            border-top:1px solid #ccc;
-            border-bottom:2px solid #ccc;
+            border-top:1px solid #535353;
+            border-bottom:3px solid #535353;
         }
 .logo{
 	width:100%;
@@ -243,7 +272,7 @@ header{
 	}
 .search {
     margin:0px auto;
-    padding: 14% 0 9%;
+    padding: 2% 0;
     width: 100%; 
     float: right;
 }
@@ -268,6 +297,73 @@ header{
 	font-size:13px;
 	}
 	
+.support {
+        color: #777777;
+        float: left;
+        font-family: "arial";
+        font-size: 11px;
+        width: 100%;
+}
+.support p {
+        color: #777777;
+        float: left;
+        font-family: "arial";
+        font-size: 11px;
+        width:auto;
+        margin: 11px 0;
+}
+.support i {
+        background: none repeat scroll 0 0 #545454;
+        border-radius: 50px;
+        color: #fff;
+        font-size: 23px;
+        padding: 4px 11px;
+        margin: 5px;
+        float: left;
+}
+
+.shopping_icon {
+        color: #ff8275;
+        float: left;
+        font-family: "arial";
+        font-size: 11px;
+        width: 100%;
+}
+.shopping_icon p {
+        color: #ff8275;
+        float: left;
+        font-family: "arial";
+        font-size: 11px;
+        width:auto;
+        margin: 11px 0;
+} 
+
+.shopping_icon p a {
+        color: #ff8275;
+        transition: color 0.6s ease 0s;
+} 
+.shopping_icon p a:hover {
+        color: #545454;
+        text-decoration: none;
+}
+
+.shopping_icon a i {
+    background: none repeat scroll 0 0 #ff8275;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 17px;
+    margin: 5px;
+    padding: 6px 7px; 
+    float: left;
+    transition: background 0.2s ease 0s;
+    transition: color 0.6s ease 0s;
+}
+.shopping_icon a i:hover {
+        background: #545454;
+        text-decoration: none;
+        color: #ff8275;
+}
+
 
 /*=================================================================================*/
 /*===================================main container================================*/
@@ -285,7 +381,7 @@ header{
 	background:#fff;
 	box-shadow:0 9px 10px #ccc;
 	padding-bottom: 10px;
-	margin-bottom:30px;
+	margin-bottom:0px; 
         padding-top: 12px;
 	}
 .con_inn1 {
@@ -348,16 +444,27 @@ header{
 	text-transform:uppercase;
 	color:#262626;
 	}
-.top_cat h3{
-	width:100%;
-	float:left;
-	font-size:32px;
-	font-family: 'avenir_45_bookregular';
-	text-transform:uppercase;
-	color:#262626;
-        padding: 10px 10px;
-        background: #f2f2f2;
-	}
+.top_cat h3 {
+        background:url(../images/bg_pett.jpg) repeat !important;  
+        color: #ff8275;
+        float: left;
+        font-family: arial;
+        font-size: 27px;
+        padding: 10px;
+        text-transform: uppercase;
+        width: 100%;
+}
+.top_cat h3 span {
+        color: #a1a1a1;
+        float: right;
+        font-family: arial;
+        font-size: 17px;
+        font-weight: bold;
+        padding-top: 5px; 
+        text-align: center;
+        text-transform: none;
+        width: auto;
+}
 .top_cat p{
 	width:100%;
 	float:left;
@@ -461,7 +568,7 @@ header{
 .pro strong{
 	width:100%;
 	float:left;
-	font-size:16px;
+	font-size:15px;
 	font-family:arial;
 	color:#676766;
 	text-align:left;
@@ -556,15 +663,16 @@ header{
 /*======================================Footer=====================================*/
 /*=================================================================================*/
 
-footer{
-	width:100%;
-	float:left;
-	background:#fff;
-	border-top:1px solid #ccc;
-	padding:0.5%;
-	}
+footer {
+    background: none repeat scroll 0 0 #fff;
+    border-top: 3px solid #545454;
+    box-shadow: 0 10px 9px #ccc;
+    float: left;
+    padding: 0.5%;
+    width: 100%;
+}
 .footer_logo{
-	width:100%;
+	width:100%; 
 	float:left;
 	margin-bottom: 3%;
 	}
@@ -592,6 +700,78 @@ footer{
     width: 100%;
 }
 
+.footer_box_about_us {
+    float: left;
+    height: auto;
+    margin: 0;
+    padding: 3% 0 0;
+    width: 100%;
+}
+.footer_box_about_us h1 {
+    color: #4b4b48;
+    display: block;
+    float: left;
+    font-family:"arial";
+    font-size: 18px;
+    height: auto;
+    margin: 0 0 4%;
+    padding: 0 0 2%;
+    position: relative;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.footer_box_about_us li {
+    background: url("../images/footer_arrow.png") no-repeat scroll left center rgba(0, 0, 0, 0);
+    color: #a7a7a7;
+    display: block;
+    float: left;
+    font-family:"arial";
+    font-size: 12px;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.footer_box_about_us li a {
+    color: #777777;
+    display: block;
+    float: left;
+    font-family:"arial";
+    font-size: 11px;
+    height: auto;
+    line-height: 23px;
+    margin: 0;
+    padding: 0%;
+    position: relative; 
+    width: 100%;
+    transition: color 0.6s ease 0s;
+}
+.footer_box_about_us p i {
+    color: #777;
+    float: left;
+    font-size: 14px;
+    padding: 5px 5px 9px 0;
+}
+.footer_box_about_us li a i{padding-right:5px; } 
+.footer_box_about_us li a:hover {
+    color: #ff8275;
+    text-decoration: none;  
+}
+.footer_box_about_us li p{
+    color: #777777;
+    float: left;
+    font-family:"arial";
+    font-size: 11px;
+    height: auto;
+    line-height: 23px;
+    margin: 0;
+    padding: 0;
+    transition: color 0.6s ease 0s;
+}
+
+
 .f_menu{
 	width:100%;
 	float:left;
@@ -602,15 +782,15 @@ footer{
 .f_menu ul {
     float: left;
     margin: 0;
-    padding: 0 12.5%;
+    padding:0%;
     width: 100%;
 }
 .f_menu ul li{
 	display:inline
 	}
 .f_menu ul li a{
-	margin:0px;
-	padding:5px 1% 8px;
+	margin:0px; 
+	padding:5px 1% 8px 0 !important; 
 	float:left;
 	text-align:left;
 	text-decoration:none;
@@ -865,32 +1045,38 @@ width:100%;
 	line-height:18px;
 	margin:0px;
 	}
-.add_cart2{
-	width:100%;
-	float:left;
-	}
+.add_cart2 {
+    background: none repeat scroll 0 0 #fd836b;
+    float: left;
+    padding: 8px 0 0;
+    width: 100%;
+}
 .add_cart2 span {
-    background: none repeat scroll 0 0 #f2f2f2;
-    color: #000;
+    color: #fff;
     float: left;
     font-family: "avenir_45_bookregular";
     font-size: 10px;
     line-height: 18px;
-    padding: 5% 5% 3%;
+    padding: 0 5px 5px;
     text-align: center;
     width: 100%;
 }
 .add_cart2 span a {
     color: #000;
 }
+
+.add_cart2  a {
+    color: #fff;
+}
+
 .add_cart2 span i {
-    color: #9a9a9a;
+    color: #fff;
     font-size: 15px;
     padding: 3px;
+    background: none repeat scroll 0 0 #fd836b;
 }
 .rupee {
-    background: none repeat scroll 0 0 #e3e3e3;
-    border-top: 1px solid #fff;
+    background: none repeat scroll 0 0 #535353;
     color: #d70000;
     float: left;
     font-family: "avenir_45_bookregular";

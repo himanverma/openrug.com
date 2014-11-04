@@ -79,7 +79,7 @@
 
 
     </div>-->
-    <h3>Welcome to Rugbuilder.com</h3>
+    <h3>Welcome to Rugbuilder.com<span>Customize your colors, shape and size from thousands of our award-wining designs</span></h3>
     <div class="row">
         
         

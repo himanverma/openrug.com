@@ -36,7 +36,6 @@ class AppController extends Controller {
     public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator','Seo.Seo');
     public function beforeFilter() {
         parent::beforeFilter();
-        
         $ext = explode(".", $this->request->here);
         $ext = strtolower($ext[count($ext)-1]);
         if(!in_array($ext, array("gif","png","php","jpg","pdf")) && !strstr($this->request->here, "/admin")){

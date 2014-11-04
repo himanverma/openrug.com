@@ -12,34 +12,23 @@
             </div>
             </div>
             
-            <div class="col-sm-6">
-                <div class="top_nav">
-                    <ul>
-                        <li><a href="#" class="active">Shop Online</a></li> 
-                        <li><a href="#">Collections</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Shop Locator</a></li>
-                    </ul>
-                </div>
+            <div class="col-sm-4">
+
             </div>
-            <div class="col-sm-3">
-                <div class="search">
-                    <div class="col-sm-9 padding"><input name="" type="text" value="Search..."></div>
-                    <div class="col-sm-3 padding"><input name="" type="submit" value="Search"></div>
-                </div>
-            </div>
-            
-            <div class="col-sm-1 padding">
-                <div class="social">
+            <div class="col-sm-6 padding">
+                <div class="col-sm-12 padding" style="margin-top:20px;">
+                    <div class="row">
+                    <div class="col-sm-4"> 
+                    <div class="social">
         <div class="socil_link">
             <?php if($authUser){?>
                 <a href="<?php echo $this->Html->url('/users/info')?>"> My Account </a>
 <!--                <a href="#">Email Updates</a>
                 <a href="#">Wish List</a>-->
-                <a href="#">Shopping Bag (0)</a>
+                <a href="#">Shopping Bag (0)</a> 
             <?php }?>
                 <span>
-                    <a href="https://www.facebook.com/modernrugs" target="_blank">
+                    <a href="https://www.facebook.com/modernrugs" target="_blank">  
                         <img src="<?php echo $this->Html->url('/images/fb.png');?>" alt="">
                     </a>
                 </span>
@@ -47,8 +36,22 @@
             <span><a href="#"><img src="<?php echo $this->Html->url('/images/yt.png');?>" alt=""></a></span>
         </div>
     </div>
+    </div>
+                <div class="col-sm-4"><div class="support"><i class="fa fa-mobile-phone"></i><p>Support +000 (111) 1234</p></div></div>
+                <div class="col-sm-4"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Support +000 (111) 1234</a></p></div></div>    
+    </div>
+                </div>
                 
+                <div class="col-sm-6"><div class="visitor_text"><p>Welcome visitor you can <span>login</span> or <span>create an account</span></p></div></div>  
+                <div class="col-sm-6 padding">
+                <div class="search">
+                    <div class="col-sm-9 padding"><input name="" type="text" value="Search..."></div> 
+                    <div class="col-sm-3 padding"><input name="" type="submit" value="Search"></div>
+                </div>
             </div>
+            </div>
+            
+           
             
             
             
