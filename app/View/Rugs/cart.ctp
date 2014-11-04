@@ -81,7 +81,7 @@
             <tr>
                 <td>
                     <p><strong>Promotional Code *</strong> type code into the box and click update total.</p>
-                    <p><input type="text">dsfsdfsdf</p>
+                    <p><input placeholder="Eg. GET30" type="text" id="promo-cd" /> <button data-bind="click: $root.applyPromo">Update Total</button></p>
                 </td>
                 <td>
                 </td>
@@ -255,6 +255,15 @@ foreach ($sizes as $s) {
                                             console.log(d);
                                             $('body').waiting('done');
                                         });
+                                    }
+                                    me.applyPromo = function(d,e){
+                                        if($('#promo-cd').val() == ""){
+                                            alert("Enter Promo Code...");
+                                            $('#promo-cd').focus();
+                                        }else{
+                                            $('#promo-cd').css({color:'red'});
+                                            alert("Invalid Promo Code...");
+                                        }
                                     }
                                     me.init = function() {
                                         me.getitems();
