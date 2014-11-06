@@ -353,4 +353,10 @@ class UsersController extends AppController {
 		   }
 	      }
         }
+        public function account(){
+            
+        }
+        public function checkout(){
+            
+        }
 }

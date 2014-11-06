@@ -13,7 +13,7 @@
             <span class="col-sm-6"><label>Username*</label></span>
             <span class="col-sm-6">
                 <?php echo $this->Form->input('username',array('label'=>'','div'=>FALSE,'readonly'))?>
-            </span>
+            </span> 
         </div>
         <div class="form_new">
             <span class="col-sm-6"><label>Email*</label></span>
@@ -36,3 +36,5 @@
     <div class="col-sm-3"></div>
 </div>
 <?php echo $this->Form->end();?>
+
+

@@ -26,13 +26,13 @@ body{
 
 .social a{
     width:100%;
-    color: #919191;
+    color: #919191; 
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial"; 
     font-size: 12px;
     background:none;
     }
-.visitor_line{
+.visitor_line{ 
     width: 100%;
     float: left;
 }
@@ -142,7 +142,7 @@ color: #fff;
     margin-bottom: 0;
   }
   .megamenu.dropdown-header {
-    padding: 3px 15px !important;
+    padding: 3px 15px !important; 
 
   }
   .navbar-nav .open .dropdown-menu .dropdown-header{
@@ -167,7 +167,7 @@ color: #fff;
 .left_top p{
     float: left;
     width: auto;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:12px;
 	color:#afafaf;
 	margin:0px;
@@ -197,7 +197,7 @@ color: #fff;
 	padding:0;
 	float:left;
 	text-align:left;
-	font-family:arial;
+	font-family:"arial";
 	font-size:12px;
 	color:#676767;
 	width:auto;
@@ -258,7 +258,7 @@ header{
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:11px;
 	color:#afafaf;
 	text-transform:uppercase;
@@ -282,7 +282,7 @@ header{
 	background:#f2f2f2;
 	border:none;
 	height:27px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:13px;
 	color:#afafaf;
 	padding:0 3%;
@@ -293,7 +293,7 @@ header{
 	background:#000;
 	color:#fff;
 	height:27px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:13px;
 	}
 	
@@ -418,7 +418,7 @@ header{
 	padding:0px;
 	color:#fff;
 	font-size:19px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	padding: 17px;
 	text-transform:uppercase;
 	
@@ -440,7 +440,7 @@ header{
 	width:100%;
 	float:left;
 	font-size:14px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	text-transform:uppercase;
 	color:#262626;
 	}
@@ -448,7 +448,7 @@ header{
         background:url(../images/bg_pett.jpg) repeat !important;  
         color: #ff8275;
         float: left;
-        font-family: arial;
+        font-family: "arial";
         font-size: 27px;
         padding: 10px;
         text-transform: uppercase;
@@ -457,7 +457,7 @@ header{
 .top_cat h3 span {
         color: #a1a1a1;
         float: right;
-        font-family: arial;
+        font-family: "arial";
         font-size: 17px;
         font-weight: bold;
         padding-top: 5px; 
@@ -469,14 +469,14 @@ header{
 	width:100%;
 	float:left;
 	font-size:13px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	color:#7a7a7a;
 	}
 .top_cat a{
 	width:100%;
 	float:left;
 	font-size:14px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	color:#484848;
 	text-align:right;
 	}
@@ -490,7 +490,7 @@ header{
 	width:100%;
 	float:left;
 	font-size:19px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	text-transform:uppercase;
 	color:#2b2727;
 	text-align:center;
@@ -502,7 +502,7 @@ header{
 	width:100%;
 	float:left;
 	font-size:14px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	color:#777777;
 	text-align:center;
 	text-transform:uppercase;
@@ -519,7 +519,7 @@ header{
 	padding:5%;
 	background:#e7e7e7;
 	font-size:14px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	color:#70706f;
 	text-transform:uppercase;
 	border-bottom:1px solid #fff;
@@ -535,7 +535,7 @@ header{
 	width:100%;
 	float:left;
 	font-size:19px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	text-transform:uppercase;
 	color:#2b2727;
 	text-align:left;
@@ -569,7 +569,7 @@ header{
 	width:100%;
 	float:left;
 	font-size:15px;
-	font-family:arial;
+	font-family:"arial";
 	color:#676766;
 	text-align:left;
 	padding:0% 5% 3% ;
@@ -585,7 +585,7 @@ header{
     background:#FD836B;
     color: #fff;
     float: left;
-    font-family:arial;
+    font-family:"arial";
     font-size: 10px;
     line-height: 18px;
     padding: 6px 6px 5px 6px;
@@ -630,7 +630,7 @@ header{
 	width:100%;
 	float:left;
 	font-size:27px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	color:#005cba;
 	text-align:left;
 	padding: 1% 0;
@@ -643,7 +643,7 @@ header{
 .facebook_user h1 span{
 	width:auto;
 	font-size:12px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	color:#8e8e8e;
 	text-align:left;
 	padding:0 0 0 5px;
@@ -795,7 +795,7 @@ footer {
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:12px;
 	color:#c0c0c0;
 	width:auto;
@@ -817,7 +817,7 @@ footer {
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:12px;
 	color:#c0c0c0;
 	width:100%;
@@ -864,7 +864,7 @@ width:100%;
     border-radius: 5px 5px 0 0;
     color: #0d0d0d;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 14px;
     margin: 0;
     padding: 4%;
@@ -879,7 +879,7 @@ width:100%;
 .category_box ul h2 {
     color: #0d0d0d;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 15px;
     margin: 0;
     padding: 4%;
@@ -905,7 +905,7 @@ width:100%;
 	text-decoration:none;
 	display:inline;
 	float:left;
-	font-family: "avenir_45_bookregular";
+	font-family: "arial";
     font-size: 13px;
 	color:#4e4e4e;
 	width: 100%;
@@ -924,7 +924,7 @@ width:100%;
     color: #919191;
     display: inline;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 5%;
@@ -943,7 +943,7 @@ width:100%;
     margin: 3% 3%;
     width: 94%;
 	color:#8b8b8b;
-	font-family: "avenir_45_bookregular";
+	font-family: "arial";
     font-size: 13px;
 }
 
@@ -953,7 +953,7 @@ width:100%;
     border-radius: 3px;
     color: #fff;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 16px;
     height: 38px;
     margin: 0;
@@ -968,7 +968,7 @@ width:100%;
 .clearence h1 {
     color: #000;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 19px;
     list-style: outside none none;
     margin:2% 0;
@@ -981,7 +981,7 @@ width:100%;
 .clearence p {
     color: #919191;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 0 0 13px;
@@ -993,7 +993,7 @@ width:100%;
 .clearence a {
     color: #000;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
 	width: 100%;
 	text-align:right;
@@ -1021,7 +1021,7 @@ width:100%;
 .offer {
     background: none repeat scroll 0 0 #d70000;
     color: #fff;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 11px;
     font-weight: normal;
     line-height: 16px;
@@ -1038,7 +1038,7 @@ width:100%;
 	width:100%;
 	float:left;
 	font-size:12px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	color:#676766;
 	text-align:center;
 	padding:5% 5% 3% ;
@@ -1054,7 +1054,7 @@ width:100%;
 .add_cart2 span {
     color: #fff;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 10px;
     line-height: 18px;
     padding: 0 5px 5px;
@@ -1079,16 +1079,16 @@ width:100%;
     background: none repeat scroll 0 0 #535353;
     color: #d70000;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     padding: 4% 0;
     width: 100%;
 }
 .rupee p{
 	width:auto;
-	color: #d70000;
+	color: #fff;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
 	width:100%;
 	padding:0px;
@@ -1097,7 +1097,7 @@ width:100%;
 	width:auto;
 	color: #919191;
     float: none;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
 	text-decoration: line-through;
 	background:none;
@@ -1146,7 +1146,7 @@ width:100%;
 .footer_new_nav li a {
     color: #000;
     display: block;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     height: 22px;
     padding: 0%;
@@ -1167,7 +1167,7 @@ width:100%;
 	line-height:0px;
 	margin:0px;
 	padding:0px;
-	font-family: "avenir_45_bookregular";
+	font-family: "arial";
 	color:#888;
 	font-size:13px;
 	}
@@ -1271,14 +1271,14 @@ input[type=checkbox]:checked ~ #menu{
 	}
 .contact_no h1 {
     color: #1b98b6;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 33px;
     margin-top: 10px;
     text-align: center;
     width: 100%;
 }
 .contact_no p{
-	font-family: "avenir_45_bookregular";
+	font-family: "arial";
 	color:#888;
 	font-size:13px;
 	width:100%;
@@ -1312,7 +1312,7 @@ input[type=checkbox]:checked ~ #menu{
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:10.5px;
 	color:#888;
 	width:auto;
@@ -1324,7 +1324,7 @@ input[type=checkbox]:checked ~ #menu{
 	padding: 1% 0;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:14px;
 	color:#0e0e0e;
 	text-align:left;
@@ -1338,7 +1338,7 @@ input[type=checkbox]:checked ~ #menu{
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:12px;
 	color:#9e9e9e;
 	width:auto;
@@ -1359,7 +1359,7 @@ input[type=checkbox]:checked ~ #menu{
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:14px;
 	color:#0dd0d;
 	width:100%;
@@ -1389,7 +1389,7 @@ input[type=checkbox]:checked ~ #menu{
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:14px;
 	color:#0dd0d;
 	width:100%;
@@ -1425,7 +1425,7 @@ input[type=checkbox]:checked ~ #menu{
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:20px;
 	color:#353535;
 	width:100%;
@@ -1438,7 +1438,7 @@ input[type=checkbox]:checked ~ #menu{
 	text-align:left;
 	text-decoration:none;
 	list-style:none;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:13px;
 	color:#898989;
 	}	
@@ -1447,7 +1447,7 @@ input[type=checkbox]:checked ~ #menu{
 	float:left;
 	}
 .select_cm label{
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:14px;
 	color:#585858;
 	}
@@ -1474,7 +1474,7 @@ input[type=checkbox]:checked ~ #menu{
 	float:left;
 	}
 .select_cm_all label{
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:13px;
 	color:#585858;
 	padding-right: 15px;
@@ -1484,7 +1484,7 @@ input[type=checkbox]:checked ~ #menu{
 	width:auto;
 	padding-right:5px;
 	color:#717171;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:13px;
 	}
 	
@@ -1502,7 +1502,7 @@ input[type=checkbox]:checked ~ #menu{
 	padding-bottom:15px;
 	}
 .select_cm_all1 label{
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:13px;
 	color:#585858;
 	padding: 0px 15px;
@@ -1510,7 +1510,7 @@ input[type=checkbox]:checked ~ #menu{
 	}
 
 .select_cm_all1 p strong{
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:13px;
 	color:#585858;
 	padding-right: 7px;
@@ -1518,7 +1518,7 @@ input[type=checkbox]:checked ~ #menu{
 	font-weight:normal;
 	}
 .select_cm_all1 p strong small{
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:15px;
 	color:#585858;
 	font-weight: bold;
@@ -1535,7 +1535,7 @@ input[type=checkbox]:checked ~ #menu{
 }
 .select_cm_all label {
     color: #585858;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 12px !important;
     font-weight: normal;
     padding-right: 1px !important;
@@ -1557,7 +1557,7 @@ input[type=checkbox]:checked ~ #menu{
 .poplular_custom_sizes h1 {
     color: #353535;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 20px;
     list-style: outside none none;
     margin: 0;
@@ -1573,7 +1573,7 @@ input[type=checkbox]:checked ~ #menu{
 	}
 
 .custom_sizes_box span{
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:14px;
 	color:#717171;
 	font-weight:normal;
@@ -1581,7 +1581,7 @@ input[type=checkbox]:checked ~ #menu{
 	width:100%;
 	}
 .custom_sizes_box p{
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	font-size:14px;
 	color:#353535;
 	font-weight:normal;
@@ -1597,7 +1597,7 @@ input[type=checkbox]:checked ~ #menu{
     border-bottom: 1px solid #dedddd;
     color: #353535;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 20px;
     list-style: outside none none;
     margin: 0;
@@ -1608,7 +1608,7 @@ input[type=checkbox]:checked ~ #menu{
 }
 .candy_rug h1 span {
     color: #898989;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 0;
@@ -1625,7 +1625,7 @@ input[type=checkbox]:checked ~ #menu{
     border-bottom: 1px solid #dedddd;
     color: #353535;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 16px;
     list-style: outside none none;
     margin: 0;
@@ -1638,7 +1638,7 @@ input[type=checkbox]:checked ~ #menu{
 .candy_rug p {
     color: #858585;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 11px 0 0;
@@ -1649,7 +1649,7 @@ input[type=checkbox]:checked ~ #menu{
 
 .candy_rug_right span {
     color: #898989;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 0;
@@ -1662,7 +1662,7 @@ input[type=checkbox]:checked ~ #menu{
 .candy_rug_right p {
     color: #858585;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 11px 0 0;
@@ -1681,7 +1681,7 @@ input[type=checkbox]:checked ~ #menu{
 	width:100%;
 	float:left;
 	font-size:19px;
-	font-family: 'avenir_45_bookregular';
+	font-family: "arial";
 	text-transform:uppercase;
 	color:#2b2727;
 	text-align:left;
@@ -1756,7 +1756,7 @@ input[type=checkbox]:checked ~ #menu{
 	display:inline-block;
 	cursor:pointer;
 	color:#666666;
-	font-family:arial;
+	font-family:"arial";
 	font-size:15px;
 	 float: right;
 	padding:6px 24px;
@@ -1825,7 +1825,7 @@ input[type=checkbox]:checked ~ #menu{
 .profile h1 {
     color: #353535;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 20px;
     list-style: outside none none;
     margin: 0;
@@ -1842,7 +1842,7 @@ input[type=checkbox]:checked ~ #menu{
 .form_new label {
     color: #353535;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     font-weight: normal;
     text-align: right;
@@ -1875,7 +1875,7 @@ input[type=checkbox]:checked ~ #menu{
 .order h1 {
     color: #353535;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 20px;
     list-style: outside none none;
     margin: 0;
@@ -1888,7 +1888,7 @@ input[type=checkbox]:checked ~ #menu{
 .order strong {
     color: #353535;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 15px;
     list-style: outside none none;
     margin: 0;
@@ -1900,7 +1900,7 @@ input[type=checkbox]:checked ~ #menu{
 .order span {
     color: #C33;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 0;
@@ -1912,7 +1912,7 @@ input[type=checkbox]:checked ~ #menu{
 .order p {
     color: #8f8f8f;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 12px;
     list-style: outside none none;
     margin: 0;
@@ -1931,7 +1931,7 @@ input[type=checkbox]:checked ~ #menu{
 .order_item strong {
     color: #909090;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 14px;
     list-style: outside none none;
     margin: 0;
@@ -1943,7 +1943,7 @@ input[type=checkbox]:checked ~ #menu{
 .order_item p {
     color: #787878;
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 13px;
     list-style: outside none none;
     margin: 0;
@@ -2050,7 +2050,7 @@ input[type=checkbox]:checked ~ #menu{
     -moz-text-decoration-style: solid;
     color: hsl(0, 0%, 34%);
     float: left;
-    font-family: "avenir_45_bookregular";
+    font-family: "arial";
     font-size: 14px;
     font-weight: normal;
     list-style-image: none;
@@ -2066,4 +2066,263 @@ input[type=checkbox]:checked ~ #menu{
     padding-top: 7px;
     text-align: center;
     width: 100%;
+}
+/*===========================================================================*/
+/*=========================================billing===========================*/
+/*===========================================================================*/
+
+.form-control {
+    border: 1px solid #eaeaea !important;
+    border-radius: 1px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.075) inset !important;
+    margin-top: 10px;
+    width:100%;
+    float: left;
+}
+
+.panel-body label {
+    color: #777777;
+    float: left;
+    font-family: "arial";
+    font-size: 11px;
+    line-height: 33px;
+    margin: 10px 0 0;
+    text-transform: uppercase;
+}
+.panel-body h4 { 
+    color: #353535;
+    float: left;
+    font-family: "arial";
+    font-size: 19px;
+    list-style: outside none none;
+    margin: 0 0 10px;
+    padding: 0px; 
+    text-align: left;
+    text-decoration: none; 
+    text-transform: uppercase;
+    width: 100%; 
+}
+.pull-right {
+    float: left;
+    width: 100%;
+}
+.pull-right > input[type="checkbox"]{ 
+    float: left;
+    margin: 0 5px 0 0;
+    padding: 0;
+}
+
+.panel-default {
+    border-color: #ddd;
+    float: left;
+    width: 100%;
+    padding: 0 0 15px 0;
+}
+
+.panel-default label {
+    color: #777777;
+    float: left;
+    font-family: "arial";
+    font-size: 11px; 
+    line-height: 33px;
+    margin: 10px 0 0; 
+    text-transform: uppercase;
+}
+.btn-success{
+    margin: 20px 0;
+}
+.panel-body{
+    padding:15px 0px !important;
+}
+
+/*===========================================================================*/
+/*================================my account=================================*/
+/*===========================================================================*/
+.myaccount{
+    width: 100%;
+    float: left;
+}
+.myaccount_left{
+    width: 100%;
+    float: left;
+}
+
+.myaccount_left h1 {
+    color: #353535;
+    float: left;
+    font-family: "arial";
+    font-size: 25px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 1% 0 10px;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+    font-weight:normal;
+    text-transform: uppercase;
+}
+
+
+.myaccount_left ul{
+	float:left;
+	width:100%;
+	margin:10px 0;
+	padding:0px;
+	}
+.myaccount_left ul h1 {
+    color: #353535;
+    float: left;
+    font-family: "arial";
+    font-size:18px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 1% 0 10px;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+    font-weight:normal;
+    text-transform: none;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.myaccount_left ul li {
+    display: inline;
+    float: left;
+    font-weight: normal;
+    margin: 0;
+    text-decoration: none;
+    width: 100%;
+}
+.myaccount_left ul li a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	float:left;
+	width:100%;
+	font-weight:normal;
+	display:inline;
+	text-decoration:none;
+        color:#777777;
+        padding:5px; 
+        transition: color 0.6s ease 0s;
+	}
+.myaccount_left ul li a:hover{
+    color: #ff8275;
+    background: #f8f8f8;
+}
+
+
+.myaccount_right{
+    width: 100%;
+    float: left;
+    background: #fff;
+    border:1px solid #f2f2f2;
+}
+.myaccount_right h1 {
+    background: none repeat scroll 0 0 #f2f2f2;
+    box-shadow: 0 3px 0 #ccc;
+    color: #333;
+    float: left;
+    font-family: "arial";
+    font-size: 14px;
+    line-height: 33px;
+    margin: 0;
+    padding: 0 12px;
+    text-transform: uppercase;
+    width: 100%;
+    font-weight:bold;
+}
+
+.myaccount_right ul{
+	float:left;
+	width:100%;
+	margin:10px 0;
+	padding:0px;
+	}
+.myaccount_right ul li {
+    border-bottom: 1px solid #f2f2f2;
+    display: inline;
+    float: left;
+    font-weight: normal;
+    margin: 0 5%;
+    text-decoration: none;
+    width: 90%;
+}
+.myaccount_right ul li a{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	float:left;
+	width:100%;
+	font-weight:normal;
+	display:inline;
+	text-decoration:none;
+        color:#777777;
+        padding:5px; 
+        transition: color 0.6s ease 0s;
+	}
+.myaccount_right ul li a:hover{
+    color: #ff8275;
+    background: #f8f8f8;
+}
+
+/*===========================================================================*/
+/*=================================checkout==================================*/
+/*===========================================================================*/
+
+.checkout{
+    width: 100%;
+    float: left;
+}
+.checkout h1 {
+    color: #353535;
+    float: left;
+    font-family: "arial";
+    font-size: 25px;
+    list-style: outside none none;
+    margin: 0;
+    padding: 1% 0 10px;
+    text-align: left;
+    text-decoration: none;
+    width: 100%;
+    font-weight:normal;
+    text-transform: uppercase;
+}
+.panel-default > .panel-heading{
+    background: #f8f8f8;
+    float: left;
+    width: 100%;
+    background-image:none !important; 
+}
+.panel-group > .panel-default {
+    padding: 0;
+    box-shadow: none;
+}
+.panel-title > a {
+    color: #535353;
+    font-size: 11px;
+}
+.panel-title {
+    color: inherit;
+    float: right;
+    font-size: 16px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.panel-heading span{
+    color: #353535;
+    float: left;
+    font-family: "arial";
+    font-size: 13px;
+}
+.table td{
+    border-top:none !important;
+    border-right:none !important;
+    border-left:none !important;
+    color: #535353;
+    font-size: 11px;
+    border-bottom:1px solid #ddd !important;
+}
+.table th{
+    color: #333;
+    font-size: 12px;
 }
