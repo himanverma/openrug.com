@@ -82,25 +82,23 @@
     <h3>Welcome to Rugbuilder.com<span>Customize your colors, shape and size from thousands of our award-wining designs</span></h3>
     <div class="row">
         
-        
-        
+
                             <div class="col-sm-4">
-                            	<div class="online_shapes_box1">
-                                	<a href="#"><img alt="" src="images/b1.jpg"></a>
+                                <div class="online_shapes_box1">
+                                        <a href="/Browses/browse"><img alt="" src="images/b1.jpg"></a>
                                         <h1>choose your design<span>We have thousand and are adding more everyday</span></h1>
                                 </div>
-                            </div>
-                            
+                            </div>         
                             <div class="col-sm-4">
                             	<div class="online_shapes_box1">
-                                	<a href="#"><img alt="" src="images/b2.jpg"></a>
+                                	<a href="/Browses/shape"><img alt="" src="images/b2.jpg"></a>
                                     <h1>Customize it<span>Pick your colors,shape,size and other options</span></h1>
                                 </div>
                             </div>
                             
                             <div class="col-sm-4">
                             	<div class="online_shapes_box1">
-                                	<a href="#"><img alt="" src="images/b3.jpg"></a>
+                                	<a href="/Browses/color"><img alt="" src="images/b3.jpg"></a>
                                     <h1>approve your rug<span>delivered in 4-6 weeks</span></h1>
                                 </div>
                             </div>

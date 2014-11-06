@@ -2326,3 +2326,231 @@ input[type=checkbox]:checked ~ #menu{
     color: #333;
     font-size: 12px;
 }
+/*=================================================================================*/
+/*===================================Shape page====================================*/
+/*=================================================================================*/
+
+.shapes {
+    margin: 15px 0 0;
+    width: 100%;
+}
+
+.shape_page{
+	width:100%;
+	float:left;
+	}
+
+.vertical_menu{
+	width:100%;
+	float:left;
+	margin:15px 0 0;
+	padding:0px;
+	}
+.vertical_menu ul h1{
+	margin:0 0 6px;
+	float:left;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:20px;
+	color:#000;
+	}
+
+.vertical_menu ul{
+	margin:0px;
+	padding:0px;
+	float:left;
+	width:100%;
+	}
+.vertical_menu ul li{
+	display:inline;
+	}
+.vertical_menu ul li a{
+	margin:0px;
+	padding: 0 1%;
+	float:left;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:13px;
+	color:#898989;
+	width:100%;
+	}
+.vertical_menu ul li a:hover{
+	color:#000;
+	}
+
+.rug_shapes{
+	width:100%;
+	float:left;
+	}
+.rug_shapes h1{
+	margin:0 0 6px;
+	float:left;
+	text-align:left;
+	text-decoration:none;
+	list-style:none;
+	font-family: 'avenir_45_bookregular';
+	font-size:20px;
+	color:#000;
+	}
+.rug_five_shape{
+	width:100%;
+	float:left;
+	background: #f9f9f9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f9f9f9 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f9f9f9 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f9f9f9 0%,#f2f2f2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+	border-bottom: 1px solid #dedede;
+    border-top: 1px solid #ebebeb;
+	margin:1% 0 0 0;
+	}
+.shapes_all {
+    border-right: 1px solid #ccc;
+    box-shadow: 1px 0 0 #fff;
+    float: left;
+    padding: 7% 0;
+    text-align: center;
+    width: 100%;
+}
+
+.rug_five_shape .col-sm-4 .shapes_all {
+    border-right: 0 none;
+	box-shadow: none;
+    padding: 3% 0 !important;
+}
+.shapes_all > a {
+    float: left;
+    text-align: center;
+    width: 100%;
+}
+
+.shapes_all p {
+    color: #000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+
+.shape_demo{
+	width:100%;
+	float:left;
+	}
+.shape_demo_con{
+	width:100%;
+	float:left;
+	}
+.shape_img {
+    float: left;
+    margin: 4% 0;
+    text-align: right;
+    width: 100%;
+}
+.shape_img img {
+    width: 100%;
+}
+
+.shape_demo_con h1 {
+    color: #000;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 20px;
+    list-style: outside none none;
+    margin: 20px 0 6px;
+    text-align: left;
+    text-decoration: none;
+}
+.shape_demo_con p {
+    color: #858585;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 14px;
+    list-style: outside none none;
+    margin: 0 0 6px;
+    text-align: left;
+    text-decoration: none;
+}
+
+.online_shapes{
+	width:100%;
+	float:left;
+	}
+.online_shapes strong {
+    color: #3d3d3d;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 16px;
+    list-style: outside none none;
+    margin: 0 0 6px;
+    text-align: left;
+    text-decoration: none;
+	font-weight:normal;
+}
+
+.online_shapes p {
+    color: #858585;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 13px;
+    list-style: outside none none;
+    margin: 0 0 6px;
+    text-align: left;
+    text-decoration: none;
+	font-weight:normal;
+}
+
+.online_shapes_box {
+    border: 1px solid #cbcbcb;
+    float: left;
+    margin-top: 6%;
+    width: 100%;
+}
+
+.online_shapes_box img{
+	width:100%;
+	}
+.online_shapes_box h1 {
+    background: none repeat scroll 0 0 #000;
+    color: #ddd;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 20px;
+    font-weight: normal;
+    list-style: outside none none;
+    margin: 0 0 0px;
+    padding: 7px 0;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+.online_shapes_box p {
+    color: #565656;
+    float: left;
+    font-family: "avenir_45_bookregular";
+    font-size: 14px;
+    font-weight: normal;
+    list-style: outside none none;
+    margin: 0 0 6px;
+    padding: 7px 3%;
+    text-align: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+#div1{
+	display:none;
+	}
+	

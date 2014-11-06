@@ -216,7 +216,7 @@ class UsersController extends AppController {
         public function logout(){
             $this->Auth->logout();
             $this->Session->setFlash("Thanks For visiting us!!!");
-            $this->redirect(array('controller'=>'users','action'=>'login'));
+            $this->redirect('/');
         }
         public function add(){
             if ($this->request->is('post')) {
