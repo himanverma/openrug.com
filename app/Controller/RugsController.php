@@ -20,7 +20,7 @@ class RugsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('genImg', 'editor', 'index','cart','billing'));
+        $this->Auth->allow(array('genImg', 'editor', 'index','cart','billing','additionalRugs'));
     }
 
     /**
@@ -49,7 +49,16 @@ class RugsController extends AppController {
         }
         return $dir;
     }
-
+    private function getBgPresp($bg, $presp = 60){
+        $controlPoints = array(
+            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
+            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
+            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
+            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
+        );
+        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
+        return $bg;
+    }
     private function genImgRound($rugpngs, $colors = array(), $location = "files/temp/") {
         if (is_file($location . "round.png")) {
             return $location;
@@ -93,60 +102,72 @@ class RugsController extends AppController {
         $pre->compositeimage($bg, \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
         $pre->scaleimage(125, 119);
         $pre->setImageFileName($location . "pre.png");
+        $pre->setinterlacescheme(\Imagick::INTERLACE_PNG);
         $pre->writeimage();
         $pre->destroy();
         /* Creates Preview Image Over */
 
-        $presp = 60;
-        $controlPoints = array(
-            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
-            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
-            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
-            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
-        );
-        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
+        
 
-        $rnd = new Imagick("files/templates/round2.png");
+        $rnd = new Imagick("files/templates/new/circle/angle.png");
+        $bg->scaleimage(0, $rnd->getimageheight());
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/round2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/circle/angle_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "round.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
-
-        $rnd = new Imagick("files/templates/round3.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        
+        
+        $rnd = new Imagick("files/templates/new/circle/flip.png");
+        $bg->scaleimage(0, $rnd->getimageheight()+50);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, -30);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/round3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/circle/flip_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/new/circle/flip.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "round1.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
-
-        $rnd = new Imagick("files/templates/round4.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
+       
+        $rnd = new Imagick("files/templates/new/circle/straight.png");
+        $bg->scaleimage(0, $rnd->getimageheight()+50);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, -40);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/round4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
-        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $rnd->compositeimage(new Imagick("files/templates/round4-tag.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/circle/straight_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        //$rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        //$rnd->compositeimage(new Imagick("files/templates/round4-tag.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "round2.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/roundroom.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 400);
+        
+        $bg = $this->getBgPresp($bg,70);
+        
+        $rnd = new Imagick("files/templates/new/circle/setting-sh.png");
+        $bg->scaleimage(0, $rnd->getimageheight()-300);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_ATOP, 170, 400);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/roundroom.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/circle/setting_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $rnd->compositeimage(new Imagick("files/templates/roundroom-bg.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/circle/setting.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "round3.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
@@ -190,54 +211,62 @@ class RugsController extends AppController {
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
 
-        $presp = 60;
-        $controlPoints = array(
-            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
-            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
-            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
-            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
-        );
-        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
-
-        $rnd = new Imagick("files/templates/rect/ptrn-1.png");
+        $bg1 = $this->getBgPresp($bg,70);
+        $rnd = new Imagick("files/templates/new/rectangle/angle.png");
+        $bg1->scaleimage(0, $rnd->getimageheight());
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/rectangle/angle_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/rect/ptrn-2.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        $rnd = new Imagick("files/templates/new/rectangle/flip.png");
+        $bg1->scaleimage(0, $rnd->getimageheight());
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/rectangle/flip_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/new/rectangle/flip.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect1.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/rect/ptrn-3.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
+        $rnd = new Imagick("files/templates/new/rectangle/zoom.png");
+        $bg1->scaleimage(0, $rnd->getimageheight());
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/rectangle/zoom_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect2.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
-
-        $rnd = new Imagick("files/templates/rect/ptrn-4.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
+        
+        
+        $bg4 = $this->getBgPresp($bg,100);
+        $rnd = new Imagick("files/templates/new/rectangle/setting.png");
+        $bg4->scaleimage(0, $rnd->getimageheight()-100);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 80, 200);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/rectangle/setting_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $rnd->compositeimage(new Imagick("files/templates/rect/ptrn-5.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/rectangle/setting-bg.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "rect3.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
@@ -290,33 +319,43 @@ class RugsController extends AppController {
         );
         $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
 
-        $rnd = new Imagick("files/templates/oval/oval-1.png");
+        $rnd = new Imagick("files/templates/new/oval/angle.png");
+        $bg->scaleimage(0, $rnd->getimageheight()+50);
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/oval/oval-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/oval/angle_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "oval.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/oval/oval-2.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        $rnd = new Imagick("files/templates/new/oval/flip.png");
+        $bg->scaleimage(0, $rnd->getimageheight()+50);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-
-        $rnd->compositeimage(new Imagick("files/templates/oval/oval-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/oval/flip_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/new/oval/flip.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "oval1.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/oval/oval-3.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
+        $rnd = new Imagick("files/templates/new/oval/straight.png");
+        $bg->scaleimage(0, $rnd->getimageheight()+50);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/oval/oval-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/oval/straight_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "oval2.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
         /*
@@ -518,7 +557,7 @@ class RugsController extends AppController {
         return $location;
     }
 
-    public function editor($id = null, $cstamp = null, $shape = "rect") {
+    public function editor($id = null, $cstamp = null, $shape = "round") {
         $defaultShp = $shape;
         $defaultClr = array();
         $tmp_c = array();
@@ -628,12 +667,7 @@ class RugsController extends AppController {
 
 
 
-        $rugDiscounts = $this->Rug->find('all', array('conditions' => array(
-                "NOT" => array(
-                    "Rug.discount" => '0'
-                )
-            ), 'contain' => array('Genrug')));
-        $this->set('rugDiscounts', $rugDiscounts);
+        
         $this->loadModel('Genrug');
 
         $popularGenrugs = $this->Genrug->find('all', array(
@@ -643,6 +677,13 @@ class RugsController extends AppController {
         
         $this->loadModel('Size');
         $this->set("sizes", $this->Size->find('all'));
+        $rugDiscounts = $this->Rug->find('all', array('conditions' => array(
+                "NOT" => array(
+                    "Rug.discount" => '0'
+                )
+            ), 'contain' => array('Genrug')));
+         
+        $this->set('rugDiscounts', $rugDiscounts);
         
     }
     
@@ -723,7 +764,26 @@ class RugsController extends AppController {
         }
         return $dirs;
     }
+    
+    public $paginate = array('limit'=>10);
+    public function additionalRugs(){
+        
+        //$this->Paginator->settings = array('limit' => 3); 
+        $x = $this->paginate("Rug", array(
+             "Rug.discount <>" => '0'
+        ));
+        /*
+        $rugDiscounts = $this->Rug->find('all', array('conditions' => array(
+                "NOT" => array(
+                    "Rug.discount" => '0'
+                )
+            ), 'contain' => array('Genrug')));
+         * 
+         */
+        $this->set('rugDiscounts2', $x);
+    }
 
+    
     /**
      * admin_add method
      *
