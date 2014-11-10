@@ -1,6 +1,7 @@
-
+<footer>
     <div class="container-fluid">
-        <footer>
+
+
         <div class="col-sm-12">
 
             <div class="down_arrow pull-right">
@@ -99,5 +100,5 @@
                 </div>
             </div>
         </div>
-       </footer>
     </div>
+</footer>

@@ -11,6 +11,7 @@
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6 padding">
                     <div class="col-sm-12 padding" style="margin-top:20px;">
+                        <div class="row">
                             <div class="col-sm-4"> 
                                 <div class="social">
                                     <div class="socil_link">
@@ -27,6 +28,7 @@
                             <div class="col-sm-4"><div class="support"><i class="fa fa-mobile-phone"></i><p>Support +000 (111) 1234</p></div></div>
                             <div class="col-sm-4"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Support +000 (111) 1234</a></p></div></div>    
                         </div>
+                    </div>
                     <div class="col-sm-6">
                         <div class="visitor_text">
                             <?php if ($authUser) { ?>
@@ -247,9 +249,6 @@
         float: left;
         width: 100%;
         margin: 0px auto;
-    }
-    .visitor_text a {
-        color: #ff8275;
     }
 
 </style>
