@@ -4,10 +4,8 @@ App::uses('AppController', 'Controller');
 
 /**
  * Orders Controller
- * Users Controller
  * 
  * @property Order $Order
- * @property User $User
  * @property PaginatorComponent $Paginator
  * @property SessionComponent $Session
  */
@@ -19,23 +17,6 @@ class OrdersController extends AppController{
         parent::beforeFilter();
     }
     
-    public function index(){
-        $this->loadModel('User');
-        $myOrders=$this->User->find('first',
-                array(
-                    'recursive'=>3,
-                    'contain'=>array(
-                        'Order'=>array(
-                            'Inlineitem'=>array(
-                                'Genrug'
-                            )
-                        )
-                    ),
-                    'conditions'=>array('User.id'=>$this->Auth->user('id'))
-                    ));
-        debug($myOrders);exit;
-        $this->set('myOrders',$myOrders);
-    }
     
     public function admin_email(){
         $l = new CakeEmail('smtp');

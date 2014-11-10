@@ -87,7 +87,7 @@
             <div class="col-lg-12">
                 <div class="col-lg-9">
                     <div id="rug-preview">
-                        <img class="well well-sm" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
+                        <img align="center" class="well well-sm" style="height: auto; width: 90%;" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
                     </div>
                 </div>
                 <div class="col-lg-3">
@@ -180,6 +180,9 @@
                 background:none;
                 box-shadow:none;
                 border:none;
+            }
+            #rug-preview {
+                
                 border-right:1px solid #ccc;
             }
         </style>
