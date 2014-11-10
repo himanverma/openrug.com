@@ -31,7 +31,7 @@ class UsersController extends AppController {
             $this->loadModel('Order');
             $this->Order->recursive=2;
             $orderLists=$this->Order->find('all',array(
-//                    conditions=>array('Order.id'=>$this->Auth->User('id')),
+                    conditions=>array('Order.id'=>$this->Auth->User('id')),
                     'contain'=>array('Inlineitem'=>array('Genrug'))
                     ,'order'=>array('Order.id DESC')
                     ));

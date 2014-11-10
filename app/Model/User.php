@@ -142,6 +142,19 @@ class User extends AppModel {
                 'exclusive' => '',
                 'finderQuery' => '',
                 'counterQuery' => ''
+            ),
+            'Genrug' => array(
+                'className' => 'Genrug',
+                'foreignKey' => 'user_id',
+                'dependent' => true,
+                'conditions' => '',
+                'fields' => '',
+                'order' => '',
+                'limit' => '',
+                'offset' => '',
+                'exclusive' => '',
+                'finderQuery' => '',
+                'counterQuery' => ''
             )
         );        
 }

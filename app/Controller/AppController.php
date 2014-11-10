@@ -65,6 +65,9 @@ class AppController extends Controller {
         $this->Auth->allow('admin_add');
         if($this->request->param("prefix")){
             $this->layout = "admin";
+            $this->Auth->loginAction ="/dashboard";
+        }else{
+            $this->Auth->loginAction ="/users/login";
         }
         $this->loadModel('User');
         $this->set('authUser',$this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->User('id')))));
