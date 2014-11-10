@@ -32,6 +32,13 @@ class Order extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+                'Billingadd' => array(
+			'className' => 'Billingadd',
+			'foreignKey' => 'billingadd_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 }

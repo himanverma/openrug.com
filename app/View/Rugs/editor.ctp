@@ -12,7 +12,7 @@
                 <div class="col-sm-2">
                     <div class="edit_color">
                         Edit Colours:
-                        <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
+                        <?php  for ($i = 0; $i < $colorCount; $i++) { ?>    
                             <span class="swatch-picker">
                                 <img style="width:16px; height: 16px;" src="tst" onerror="this.src = '/swatch/' + swt['<?php echo $defaultClr[$i]['swt']; ?>'].file" alt="">
                                 <div class="swatch-pick">
@@ -230,7 +230,7 @@
                             <div class="pro_right">
 
 
-                                <?php
+                                <?php                                
                                 foreach ($rugDiscounts as $rug) {
                                     foreach ($rug['Genrug'] as $genrug) {
                                         ?>
@@ -254,7 +254,7 @@
                                         </a>
                                     <?php
                                     }
-                                }
+                                } 
                                 ?>
                             </div>    
                         </div>

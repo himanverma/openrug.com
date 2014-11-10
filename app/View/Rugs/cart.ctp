@@ -1,7 +1,7 @@
 <?php echo $this->Html->script(array("knockout.mapping.min")); ?>
 <div class="order">
     <h1>1. review your order</h1>
-    <p>You have 1 items in your cart</br>
+    <p>You have <!-- ko text: items().length --><!-- /ko --> items in your cart</br>
         Not ready to order? <a href="/">Continue Shopping</a></p>
 
     <table cellpadding="5" class="order_cart">
@@ -22,7 +22,7 @@
                         <strong></strong>
 
                         <p>
-                            Product id: <!-- ko text:length() --><!-- /ko --><br />
+                            Product id: <!-- ko text:Genrug.id()+'ITM'+id() --><!-- /ko --><br />
                             Size: <!-- ko text:length() --><!-- /ko -->
                         </p>
 
@@ -42,7 +42,7 @@
                 </td>
 
                 <td>
-                    <strong><span data-bind="text:ko.computed(function(){ return '$' + cart.totalPerItem(Genrug.Rug.price(),qty(),length(),0)})"></span></strong>
+                    <strong><span data-bind="text:ko.computed(function(){ return '$' + cart.totalPerItem(Genrug.price(),qty(),length(),0)})"></span></strong>
                 </td>
 
                 <td>
@@ -58,12 +58,7 @@
                     <strong>Delivery&nbsp;country</strong>
                 </td>
                 <td colspan="2">
-                    <select style="width:222px;">
-                        <option value="Algeria">Algeria</option>     
-                        <option value="Argentina">Argentina</option>     
-                        <option value="Australia">Australia</option>     
-                        <option value="Austria">Austria</option>     
-                        <option value="Bahamas">Bahamas</option>   
+                    <select style="width:222px;" data-bind="options: countries, optionsValue: 'code', optionsText: 'name'">
                     </select>
                 </td>
             </tr>
@@ -104,7 +99,7 @@
 
                             </tbody>
                             </table>
-                            <input type="button" value="Next step-Address >" class="next_step">
+    <input type="button" value="Next step-Address >" data-bind="click: checkOut" class="next_step">
                             </div>
 
 
@@ -199,6 +194,7 @@
                             <script type="text/javascript">
                                 var CartVM = function() {
                                     var me = this;
+                                    me.countries = ko.observableArray([]);
                                     me.orderId = ko.observable(0);
                                     me.items = ko.observableArray([]);
                                     me.sizes = ko.observableArray(<?php $exr = array();
@@ -267,6 +263,11 @@ foreach ($sizes as $s) {
                                     }
                                     me.init = function() {
                                         me.getitems();
+                                        alert('data');
+                                        $.get( "/js/countries.js", function( data ) {
+                                            data = eval(data);
+                                            me.countries(data);
+                                        });
                                     }
                                     me.getitems = function() {
                                         var m = me;

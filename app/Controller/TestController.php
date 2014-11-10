@@ -21,7 +21,7 @@ class TestController extends AppController {
     }
 
     public function index() {
-        exit;
+        //exit;
         ini_set("max_execution_time", -1);
         $dir = new DirectoryIterator("swatch");
         foreach ($dir as $fl){
