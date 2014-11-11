@@ -1,5 +1,7 @@
 <div class="order">
+    <div class="col-sm-9">
     <h1>Order-List</h1>
+    <?php if($orderLists){?>
     <?php foreach($orderLists as $orderList){ ?>
     <strong>NO <?php echo $orderList['Order']['id']; ?></strong>
     <span>Rs $<?php echo $orderList['Order']['gross_total']; ?></span>
@@ -25,6 +27,28 @@
         </div>
         <div class="col-sm-4"></div>
     </div>
-    <?php }}?>
+    <?php }}}else{
+        echo "<br/><br/><br/><center><b>No order!!!</b></center>";
+    }?>
+    </div>
+    <div class="col-sm-3">
+        <div class="myaccount_right">
+            <h1>My account</h1>
+            <ul>
+                <li><a href="/users/account">My Account</a></li>
+                <li><a href="/users/info">Edit Account</a></li>
+                <li><a href="/users/changepass">Password</a></li>
+                <li><a href="#">Address Books</a></li>
+
+
+                <li><a href="#">View your created rugs</a></li>
+                <li><a href="#">View your bespoke designs</a></li>
+                <li><a href="/users/order">View your customized rug orders</a></li>
+                <li><a href="#">View your strike-off order</a></li>
+                <li><a href="#">View your sample card orders</a></li>
+                <li><a href="/users/logout">Logout</a></li>
+            </ul>
+        </div>            
+    </div>
 
 </div>
