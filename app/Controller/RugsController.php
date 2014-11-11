@@ -674,9 +674,6 @@ class RugsController extends AppController {
             'group' => array('Genrug.rug_id'),
             'order' => array('Genrug.id desc'), "limit" => 18));
         $this->set('popularGenrugs', $popularGenrugs);
-        
-        $this->loadModel('Size');
-        $this->set("sizes", $this->Size->find('all'));
         $rugDiscounts = $this->Rug->find('all', array('conditions' => array(
                 "NOT" => array(
                     "Rug.discount" => '0'

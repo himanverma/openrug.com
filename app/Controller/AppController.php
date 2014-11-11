@@ -68,5 +68,8 @@ class AppController extends Controller {
         }
         $this->loadModel('User');
         $this->set('authUser',$this->User->find('first',array('conditions'=>array('User.id'=>$this->Auth->User('id')))));
+        
+        $this->loadModel('Size');
+        $this->set("sizes_cart", $this->Size->find('all'));
     }
 }

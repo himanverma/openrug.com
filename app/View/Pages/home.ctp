@@ -1,4 +1,4 @@
-<?php echo $this->Html->script(array('addtocart.js'), array('inline' => false)); ?>
+<?php  echo $this->Html->script(array('addtocart.js'), array('inline' => false)); ?>
 <div class="row">
     <div class="col-sm-12">
         <div class="col-sm-4">
@@ -152,23 +152,28 @@
 <?php foreach ($popularGenrugs as $popularGenrug) { ?>
                     <div class="col-sm-2 col-xs-6" >
                         <div class="pro">
-                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
+                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id']); ?>">
                                  <img src="/<?php echo $popularGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
                             </a> 
-                            <p><?php echo $popularGenrug['Rug']['description']; ?></p>
-                            <strong><?php echo $popularGenrug['Rug']['description']; ?>$ 250.00</strong><!-- this is custom changes please edit correct code-->
+                            <p><?php echo $popularGenrug['Genrug']['description']; ?></p>
+                            <strong><?php echo $popularGenrug['Genrug']['description']; ?>$ <?php echo $popularGenrug['Genrug']['price']; ?>/sq.ft.</strong><!-- this is custom changes please edit correct code-->
                             <div class="add_cart">
                                 <div class="col-sm-9 padding">
                                     <span>
                                         <i class="fa fa-shopping-cart"></i>
-                                        <a href="javascript:void()" class="addtocart" id="<?php echo $popularGenrug['Genrug']['id']; ?>">
+                                        <a href="javascript:void()" class="addtocart"
+                                            data-price="<?php echo $popularGenrug['Genrug']['price']; ?>"
+                                               data-rid="<?php echo $popularGenrug['Rug']['id']; ?>"
+                                               data-cstamp="<?php echo $popularGenrug['Genrug']['colorstamp']; ?>"
+                                               data-discount="<?php echo $popularGenrug['Rug']['discount']; ?>"
+                                           id="<?php echo $popularGenrug['Genrug']['id']; ?>">
                                             Add to Cart
                                         </a>
                                     </span>
                                 </div>
                                 <div class="col-sm-3 padding">
                                     <div class="view">
-                                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
+                                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id']); ?>">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                     </div>
@@ -192,17 +197,22 @@
 <?php foreach ($recentGenrugs as $recentGenrug) { ?>
                     <div class="col-sm-2 col-xs-6" >
                             <div class="pro">
-                                 <a href="<?php echo $this->Html->url('/rugs/editor/' . $recentGenrug['Rug']['id'] . "/" . $recentGenrug['Genrug']['colorstamp']); ?>">
+                                 <a href="<?php echo $this->Html->url('/rugs/editor/' . $recentGenrug['Genrug']['rug_id'] . "/" . $recentGenrug['Genrug']['colorstamp']); ?>">
                                         <img src="/<?php echo $recentGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
                                  </a>
 
-                                <p><?php echo $recentGenrug['Rug']['description']; ?></p>
-                                <strong><?php echo $popularGenrug['Rug']['description']; ?>$ 250.00</strong><!-- this is custom changes please edit correct code-->
+                                <p><?php echo $recentGenrug['Genrug']['description']; ?></p>
+                                <strong><?php echo $popularGenrug['Genrug']['description']; ?>$ <?php echo $popularGenrug['Genrug']['price']; ?>/sq.ft.</strong><!-- this is custom changes please edit correct code-->
                                 <div class="add_cart">
                                     <div class="col-sm-9 padding">
                                         <span>
                                             <i class="fa fa-shopping-cart"></i>
-                                            <a href="javascript:void()" class="addtocart"  id="<?php echo $recentGenrug['Genrug']['id']; ?>">
+                                            <a href="javascript:void()" class="addtocart" 
+                                               data-price="<?php echo $recentGenrug['Genrug']['price']; ?>"
+                                               data-rid="<?php echo $recentGenrug['Rug']['id']; ?>"
+                                               data-cstamp="<?php echo $recentGenrug['Genrug']['colorstamp']; ?>"
+                                               data-discount="<?php echo $recentGenrug['Rug']['discount']; ?>"
+                                               id="<?php echo $recentGenrug['Genrug']['id']; ?>">
                                                 Add to Cart
                                             </a>
                                         </span>
@@ -220,7 +230,42 @@
         </div>
     </div>
 </div>
-
+<script id="clrbx-cart" type="text/html">
+    <div>
+        <h2>Add to cart</h2><hr />
+        <table>
+            <tr>
+                <td><b>Shape:</b></td>
+                <td>
+                    <select data-bind="value:shp" class="form-control sm">
+                        <option value="round">ROUND</option>
+                        <option value="oval">OVAL</option>
+                        <option value="rect">RECTANGULAR</option>
+                        <option value="square">SQUARE</option>
+                        <option value="runner">RUNNER</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Size:</b></td>
+                <td><select data-bind="options: sizes, optionsText: 'label', optionsValue: 'label' , value:size" class="form-control sm"  ></select></td>
+            </tr>
+            <tr>
+                <td><b>Quantity:</b></td>
+                <td><select id="odr-qty" class="form-control sm" data-bind="value:qty ">
+                    <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                        <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                    <?php } ?>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn btn-default" data-bind="click:add2cart">Add to Cart</button></td>
+            </tr>
+        </table>
+    </div>
+</script>
 
 <div class="facebook_user">
     <div class="row">
@@ -230,6 +275,72 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.addtocart').on("click",function(e){
+            var clrObj = new EditorVM($(this).data('price'),$(this).data('rid'),$(this).data('cstamp'),$(this).data('discount'));
+            var html = $('#clrbx-cart').html();
+            $.colorbox({html:html});
+            try{ ko.cleanNode($('#cboxContent')[0]); }catch(e){console.log(e);}
+            ko.applyBindings(clrObj,$('#cboxContent')[0]);
+            return false;
+        });
+    });
+var EditorVM = function(price,rid,cstamp,discount) {
+        var me = this;
+        me.rid = rid;
+        me.cstamp = cstamp;
+        me.price = ko.observable(price);
+        me.shp = ko.observable('round');
+        me.sizes = ko.observableArray(<?php
+$exr = array();
+foreach ($sizes_cart as $s) {
+    $exr[] = array('label' => $s['Size']['label'], 'size_in_ft' => $s['Size']['size_in_ft'], 'id' => $s['Size']['id']);
+} echo json_encode($exr);
+?>);
+        me.size = ko.observable('4 x 6');
+        me.qty = ko.observable(1);
+        me.total = ko.computed(function() {
+            var size = 0;
+            var x = this.sizes();
+            for (i in x) {
+                if (x[i].label == this.size())
+                    size = x[i].size_in_ft;
+            }
+            return size * me.price() * this.qty() - (size * me.price() * this.qty()) * discount / 100;
+        }, this);
+        me.mUnits = ko.observable("cm");
+        me.mUnits.subscribe(function(newVal) {
+            console.log(newVal);
+        }, this);
+        me.notify = function(type, msg, focus) {
+            alert(type + ": " + msg);
+            if (focus != null)
+                $(focus).css({'background': 'pink'});
+            return false;
+        }
+        me.add2cart = function(d, e) {
+            $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
+            var send = true;
+            var data = {
+                rid: me.rid,
+                qty: me.qty(),
+                size: me.size(),
+                shp: me.shp(),
+                clr: me.cstamp
+            };
+            if (send) {
+                var t = me;
+                $.post("http://rugbuilder.com/Cart/add", data, function(d) {
+                    t.notify("Info", "Product added to cart...", "#dsf-td5df");
+                    window.location = "/rugs/cart";
+                });
+                flyToElement($('#big-img'), $(e.currentTarget));
+            }
+        }
+    }
+</script>
+
 <style>
 
     .col-xs-9.padding > a {

@@ -52,11 +52,18 @@ class PagesController extends AppController {
             $this->set('banners',$banners);
             
             $popularGenrugs = $this->Genrug->find('all',array(
+                'recursive' => 1,
                 'group'=>array('Genrug.rug_id'),
                 'order'=>array('Genrug.id desc'),"limit"=>18));
+            // debug($popularGenrugs); exit;
             $this->set('popularGenrugs',$popularGenrugs);
             
-            $recentGenrugs = $this->Genrug->find('all',array('order'=>array('Genrug.id desc'),"limit"=>18));
+            $recentGenrugs = $this->Genrug->find('all',array(
+                    'recursive' => 1,
+                    'order'=>array('Genrug.id desc'),
+                    "limit"=>18
+                )
+            );
             $this->set('recentGenrugs',$recentGenrugs);
             
         }

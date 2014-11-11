@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
 
 	$('.addtocart').on('click', function(event) {
@@ -28,3 +29,4 @@ $(document).ready(function(){
 	});
 
 });
+*/

@@ -12,7 +12,7 @@
                 <div class="col-sm-2">
                     <div class="edit_color">
                         Edit Colours:
-                        <?php  for ($i = 0; $i < $colorCount; $i++) { ?>    
+                        <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
                             <span class="swatch-picker">
                                 <img style="width:16px; height: 16px;" src="tst" onerror="this.src = '/swatch/' + swt['<?php echo $defaultClr[$i]['swt']; ?>'].file" alt="">
                                 <div class="swatch-pick">
@@ -65,22 +65,22 @@
                         <a href="#"><i class="fa fa-plus-square"></i></a>
                     </div>
                 </div>
-            
+
                 <div class="col-sm-5 sm-p-trig">
-                            <div class="im col-sm-3">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                            <div class="im col-sm-3">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                            <div class="im col-sm-3">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                            <div class="im col-sm-3">
-                                <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
-                            </div>
-                        </div>
-</div> 
+                    <div class="im col-sm-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                    </div>
+                    <div class="im col-sm-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                    </div>
+                    <div class="im col-sm-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                    </div>
+                    <div class="im col-sm-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100%">
+                    </div>
+                </div>
+            </div> 
         </form>
 
         <div class="single_page_pro">
@@ -182,7 +182,7 @@
                 border:none;
             }
             #rug-preview {
-                
+
                 border-right:1px solid #ccc;
             }
         </style>
@@ -230,7 +230,7 @@
                             <div class="pro_right">
 
 
-                                <?php                                
+                                <?php
                                 foreach ($rugDiscounts as $rug) {
                                     foreach ($rug['Genrug'] as $genrug) {
                                         ?>
@@ -252,9 +252,9 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    <?php
+                                        <?php
                                     }
-                                } 
+                                }
                                 ?>
                             </div>    
                         </div>
@@ -288,7 +288,7 @@
                                             </div>
                                         </div>
                                     </a>
-<?php } ?>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -393,17 +393,19 @@ $this->end();
     var EditorVM = function() {
         var me = this;
         me.price = ko.observable(<?php echo $price; ?>);
-        me.sizes = ko.observableArray(<?php $exr = array();
-foreach ($sizes as $s) {
+        me.sizes = ko.observableArray(<?php
+$exr = array();
+foreach ($sizes_cart as $s) {
     $exr[] = array('label' => $s['Size']['label'], 'size_in_ft' => $s['Size']['size_in_ft'], 'id' => $s['Size']['id']);
-} echo json_encode($exr); ?>);
+} echo json_encode($exr);
+?>);
         me.size = ko.observable('4 x 6');
         me.qty = ko.observable(1);
         me.total = ko.computed(function() {
             var size = 0;
             var x = this.sizes();
-            for(i in x){
-                if(x[i].label == this.size())
+            for (i in x) {
+                if (x[i].label == this.size())
                     size = x[i].size_in_ft;
             }
             return size * me.price() * this.qty() - (size * me.price() * this.qty()) * <?php echo $crug['discount']; ?> / 100;

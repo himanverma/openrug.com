@@ -1,3 +1,4 @@
+/*
 $(document).ready(function(){
 
 	$('.numeric1').on('keypress', function(event) {
@@ -66,3 +67,4 @@ $(document).ready(function(){
 	}
 
 });
+*/

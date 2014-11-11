@@ -56,7 +56,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "jquery.waiting.min",
             "/js/app/functions",
             "/js/app/custom.bindings",
-            "/js/app/swt"
+            "/js/app/swt",
+            "/js/jquery.colorbox-min"
         ));
         $this->Combinator->add_libs('css', array(
             "bootstrap.min",
@@ -64,7 +65,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "/fonts/stylesheet",
             "font-awesome",
             "bootstrap-theme.min",
-            "waiting"
+            "waiting",
+            "colorbox"
                 //"/font-awesome/css/font-awesome.min",
                 //"theme",
         ));
