@@ -165,6 +165,14 @@ class CartController extends AppController {
         );
         try {
             $redirectUri = $this->Paypal->setExpressCheckout($order);
+            $parts = parse_url($redirectUri);
+            parse_str($parts['query'], $urlqry);
+            $token = $urlqry['token'];
+            $this->Order->updateAll(array(
+                'Order.paypal_token' => "'".$token."'"
+            ), array(
+                'Order.id' => $odr['Order']['id']
+            ));
             $this->response->body(json_encode(array('error' => 0, 'data' => $redirectUri)));
         } catch (Exception $e) {
             $this->response->body(json_encode(array('error' => 1, 'data' => $e->getMessage())));
@@ -172,8 +180,24 @@ class CartController extends AppController {
     }
 
     public function thankyou($data) {
-        debug($this->request);
-        exit;
+        $this->loadModel('Order');
+        $sid = $this->Session->id();
+        $odr = $this->Order->find('first', array('contain' => false, 'conditions' => array('Order.sessionid' => $sid)));
+        $this->Paypal = new Paypal(array(
+            'sandboxMode' => true,
+            'nvpUsername' => 'payments-facilitator_api1.modernrugs.com',
+            'nvpPassword' => '1380641932',
+            'nvpSignature' => 'AwyQ-r.6obAXd4Dxr0H-NWmJzlNaAj9iMRS.TSvcK3s1WPabX59oMJqO'
+        ));
+        $paypal_data_raw = $this->Paypal->getExpressCheckoutDetails($token);
+        $this->Order->updateAll(array(
+                'Order.paypal_data_raw' => "'".json_encode($paypal_data_raw)."'",
+                'Order.status' => "'COMPLETE'",
+            ), array(
+                'Order.id' => $odr['Order']['id']
+            ));
+        //debug($this->request);
+        //exit;
     }
 
     public function cancel($data) {
