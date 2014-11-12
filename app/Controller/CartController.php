@@ -14,7 +14,7 @@ class CartController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
-        if(!in_array($this->request->param('action'), array("paypaldirect"))){
+        if (!in_array($this->request->param('action'), array("paypaldirect"))) {
             if (!$this->request->is('ajax')) {
                 throw new NotFoundException("API Access Denied");
             }
@@ -22,19 +22,20 @@ class CartController extends AppController {
             $this->response->type('json');
         }
     }
-    public function billAddOnOrder(){
-            if($this->request->is('ajax')){
-                $sid = $this->Session->id();
-                $this->loadModel('Order');
-                $this->Order->updateAll(array(
-                    'Order.billingadd_id' => $this->request->data['id']
-                ), array(
-                    'Order.sessionid' => $sid
-                ));
-                $this->response->body(json_encode(1));
-            }else{
-                exit;
-            }
+
+    public function billAddOnOrder() {
+        if ($this->request->is('ajax')) {
+            $sid = $this->Session->id();
+            $this->loadModel('Order');
+            $this->Order->updateAll(array(
+                'Order.billingadd_id' => $this->request->data['id']
+                    ), array(
+                'Order.sessionid' => $sid
+            ));
+            $this->response->body(json_encode(1));
+        } else {
+            exit;
+        }
     }
 
     public function add() {
@@ -63,8 +64,8 @@ class CartController extends AppController {
                     "Inlineitem.order_id" => $order['Order']['id'],
                     "genrug_id" => $d["rid"],
                     "length" => $d["size"],
-                    "bredth" => 0,//$d["b"],
-                    "pile_size" => 0,//$d["s"],
+                    "bredth" => 0, //$d["b"],
+                    "pile_size" => 0, //$d["s"],
                     "shape" => $d["shp"],
                     "colors" => $d["clr"]
                 )
@@ -75,8 +76,8 @@ class CartController extends AppController {
                     "genrug_id" => $d["rid"],
                     "qty" => $d["qty"],
                     "length" => $d["size"],
-                    "bredth" => 0,//$d["b"],
-                    "pile_size" => 0,//$d["s"],
+                    "bredth" => 0, //$d["b"],
+                    "pile_size" => 0, //$d["s"],
                     "shape" => $d["shp"],
                     "colors" => $d["clr"]
                 )
@@ -127,26 +128,27 @@ class CartController extends AppController {
         ));
         $this->response->body(json_encode($result));
     }
-    public function makepayment(){
+
+    public function makepayment() {
         $this->loadModel('Order');
         $sid = $this->Session->id();
         $this->Order->recursive = 3;
-        $odr = $this->Order->find('first',array('contain'=>array('Inlineitem','Inlineitem.Genrug','Inlineitem.Genrug.Rug'),'conditions'=>array('Order.sessionid'=>$sid)));
-        
+        $odr = $this->Order->find('first', array('contain' => array('Inlineitem', 'Inlineitem.Genrug', 'Inlineitem.Genrug.Rug'), 'conditions' => array('Order.sessionid' => $sid)));
+
         $this->Paypal = new Paypal(array(
-            'sandboxMode' => true,  
+            'sandboxMode' => true,
             'nvpUsername' => 'payments-facilitator_api1.modernrugs.com',
             'nvpPassword' => '1380641932',
             'nvpSignature' => 'AwyQ-r.6obAXd4Dxr0H-NWmJzlNaAj9iMRS.TSvcK3s1WPabX59oMJqO'
         ));
         $this->loadModel('Size');
         $cart_items = array();
-        foreach ($odr['Inlineitem'] as $i){
-            $size = $this->Size->find("first",array('conditions'=>array('Size.label'=>$i['length'])));
+        foreach ($odr['Inlineitem'] as $i) {
+            $size = $this->Size->find("first", array('conditions' => array('Size.label' => $i['length'])));
             $size = $size['Size']['size_in_ft'];
-            $price = ($size * $i['Genrug']['price'] * $i['qty']) - ($size * $i['Genrug']['price'] * $i['qty']) * $i['Genrug']['Rug']['discount'] / 100 ;
+            $price = ($size * $i['Genrug']['price'] * $i['qty']) - ($size * $i['Genrug']['price'] * $i['qty']) * $i['Genrug']['Rug']['discount'] / 100;
             $cart_items[] = array(
-                'name' => $i['Genrug']['name']." ID: ".$i['id']."ITM".$i['genrug_id'],
+                'name' => $i['Genrug']['name'] . " ID: " . $i['id'] . "ITM" . $i['genrug_id'],
                 'description' => $i['Genrug']['description'],
                 'tax' => 0.00,
                 'shipping' => 0.00,
@@ -163,18 +165,18 @@ class CartController extends AppController {
         );
         try {
             $redirectUri = $this->Paypal->setExpressCheckout($order);
-            $this->response->body(json_encode(array('error'=>0,'data'=>$redirectUri)));
+            $this->response->body(json_encode(array('error' => 0, 'data' => $redirectUri)));
         } catch (Exception $e) {
-            $this->response->body(json_encode(array('error'=>1,'data'=>$e->getMessage())));
-        } 
-        
+            $this->response->body(json_encode(array('error' => 1, 'data' => $e->getMessage())));
+        }
     }
-    
-    public function thankyou($data){
+
+    public function thankyou($data) {
         debug($this->request);
         exit;
     }
-    public function cancel($data){
+
+    public function cancel($data) {
         debug($this->request);
         exit;
     }
@@ -196,14 +198,14 @@ class CartController extends AppController {
             }
         }
     }
-    
-    public function updategross(){
+
+    public function updategross() {
         $d = $this->request->data;
         $this->loadModel('Order');
         $this->Order->id = $d['id'];
-        if($this->Order->exists($d['id'])){
-            if($this->Order->updateAll(array('Order.gross_total'=>  round($d['gross_total'],2)), array("Order.id"=>$d['id']))){
-                $this->response->body(json_encode(array("msg"=>"gross_total updated...")));
+        if ($this->Order->exists($d['id'])) {
+            if ($this->Order->updateAll(array('Order.gross_total' => round($d['gross_total'], 2)), array("Order.id" => $d['id']))) {
+                $this->response->body(json_encode(array("msg" => "gross_total updated...")));
             }
         }
     }
@@ -212,13 +214,13 @@ class CartController extends AppController {
         $this->response->type("html");
         $this->autoRender = true;
         $this->Paypal = new Paypal(array(
-            'sandboxMode' => true,  
+            'sandboxMode' => true,
             'nvpUsername' => 'payments-facilitator_api1.modernrugs.com',
             'nvpPassword' => '1380641932',
             'nvpSignature' => 'AwyQ-r.6obAXd4Dxr0H-NWmJzlNaAj9iMRS.TSvcK3s1WPabX59oMJqO'
         ));
-        
-        
+
+
 
         $order = array(
             'description' => 'Your purchase with Acme clothes store',
@@ -248,8 +250,7 @@ class CartController extends AppController {
             debug($redirectUri);
         } catch (Exception $e) {
             debug($e->getMessage());
-        } 
+        }
     }
-    
 
 }

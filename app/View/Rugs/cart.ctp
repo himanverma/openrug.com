@@ -99,7 +99,7 @@
 
                             </tbody>
                             </table>
-    <input type="button" value="Next step-Address >" data-bind="click: checkOut" class="next_step">
+                            <input type="button" value="Next step-Address >" data-bind="click: checkOut" class="next_step">
                             </div>
 
 
@@ -197,16 +197,18 @@
                                     me.countries = ko.observableArray([]);
                                     me.orderId = ko.observable(0);
                                     me.items = ko.observableArray([]);
-                                    me.sizes = ko.observableArray(<?php $exr = array();
+                                    me.sizes = ko.observableArray(<?php
+$exr = array();
 foreach ($sizes as $s) {
     $exr[] = array('label' => $s['Size']['label'], 'size_in_ft' => $s['Size']['size_in_ft'], 'id' => $s['Size']['id']);
-} echo json_encode($exr); ?>);
+} echo json_encode($exr);
+?>);
                                     me.qtArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
                                     me.deliveryCharge = ko.observable(0.00);
-                                    me.totalPerItem = function(price,qty,size,discount) {
+                                    me.totalPerItem = function(price, qty, size, discount) {
                                         var x = me.sizes();
-                                        for(i in x){
-                                            if(x[i].label == size)
+                                        for (i in x) {
+                                            if (x[i].label == size)
                                                 size = x[i].size_in_ft;
                                         }
                                         return size * price * qty - (size * price * qty) * discount / 100;
@@ -215,7 +217,7 @@ foreach ($sizes as $s) {
                                         var sum = 0.00;
                                         var items = ko.mapping.toJS(this.items);
                                         for (i in items) {
-                                            sum += me.totalPerItem(items[i].Genrug.price,items[i].qty,items[i].length,items[i].Genrug.Rug.discount) ;
+                                            sum += me.totalPerItem(items[i].Genrug.price, items[i].qty, items[i].length, items[i].Genrug.Rug.discount);
                                         }
                                         try {
                                             gross_key.abort()
@@ -252,19 +254,19 @@ foreach ($sizes as $s) {
                                             $('body').waiting('done');
                                         });
                                     }
-                                    me.applyPromo = function(d,e){
-                                        if($('#promo-cd').val() == ""){
+                                    me.applyPromo = function(d, e) {
+                                        if ($('#promo-cd').val() == "") {
                                             alert("Enter Promo Code...");
                                             $('#promo-cd').focus();
-                                        }else{
-                                            $('#promo-cd').css({color:'red'});
+                                        } else {
+                                            $('#promo-cd').css({color: 'red'});
                                             alert("Invalid Promo Code...");
                                         }
                                     }
                                     me.init = function() {
                                         me.getitems();
                                         //alert('data');
-                                        $.get( "/js/countries.js", function( data ) {
+                                        $.get("/js/countries.js", function(data) {
                                             data = eval(data);
                                             me.countries(data);
                                         });

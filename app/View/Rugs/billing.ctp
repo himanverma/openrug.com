@@ -211,13 +211,13 @@
                         }
                     }
 
-                    $.post("/Billingadds/addNewAddress?_=" + (new Date()).getTime(), {data:d},function(d2){
-                        $.post("/cart/billAddOnOrder?_=" + (new Date()).getTime(),{id:d2.Billingadd.id},function(d3){
-                            if(d3==1){
-                                $.post("/cart/makepayment?_=" + (new Date()).getTime(),function(d4){
-                                    if(d4.error == 0){
+                    $.post("/Billingadds/addNewAddress?_=" + (new Date()).getTime(), {data: d}, function(d2) {
+                        $.post("/cart/billAddOnOrder?_=" + (new Date()).getTime(), {id: d2.Billingadd.id}, function(d3) {
+                            if (d3 == 1) {
+                                $.post("/cart/makepayment?_=" + (new Date()).getTime(), function(d4) {
+                                    if (d4.error == 0) {
                                         window.location = d4.data
-                                    }else{
+                                    } else {
                                         alert(d4.data);
                                     }
                                 });
