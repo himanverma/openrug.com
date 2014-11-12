@@ -14,7 +14,7 @@ class CartController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
-        if (!in_array($this->request->param('action'), array("thankyou","cancel"))) {
+        if (!in_array($this->request->param('action'), array("thankyou", "cancel"))) {
             if (!$this->request->is('ajax')) {
                 throw new NotFoundException("API Access Denied");
             }
@@ -158,19 +158,20 @@ class CartController extends AppController {
         $order = array(
             'description' => 'Your purchase with RugBuilder.com',
             'currency' => 'USD',
-            'return' => 'https://rugbuilder.com/cart/thankyou',
-            'cancel' => 'https://rugbuilder.com/cart/cancel',
+            'return' => 'http://rugbuilder.com/cart/thankyou',
+            'cancel' => 'http://rugbuilder.com/cart/cancel',
             'custom' => $odr['Order']['id'],
             'items' => $cart_items,
         );
+        $this->Session->write("Odr", $order);
         try {
             $redirectUri = $this->Paypal->setExpressCheckout($order);
             $parts = parse_url($redirectUri);
             parse_str($parts['query'], $urlqry);
             $token = $urlqry['token'];
             $this->Order->updateAll(array(
-                'Order.paypal_token' => "'".$token."'"
-            ), array(
+                'Order.paypal_token' => "'" . $token . "'"
+                    ), array(
                 'Order.id' => $odr['Order']['id']
             ));
             $this->response->body(json_encode(array('error' => 0, 'data' => $redirectUri)));
@@ -179,7 +180,8 @@ class CartController extends AppController {
         }
     }
 
-    public function thankyou($data) {
+    public function thankyou($data = null) {
+        $this->autoRender = true;
         $this->loadModel('Order');
         $sid = $this->Session->id();
         $odr = $this->Order->find('first', array('contain' => false, 'conditions' => array('Order.sessionid' => $sid)));
@@ -189,20 +191,32 @@ class CartController extends AppController {
             'nvpPassword' => '1380641932',
             'nvpSignature' => 'AwyQ-r.6obAXd4Dxr0H-NWmJzlNaAj9iMRS.TSvcK3s1WPabX59oMJqO'
         ));
-        $paypal_data_raw = $this->Paypal->getExpressCheckoutDetails($token);
+        $paypal_data_raw = $this->Paypal->getExpressCheckoutDetails($odr['Order']['paypal_token']);
         $this->Order->updateAll(array(
-                'Order.paypal_data_raw' => "'".json_encode($paypal_data_raw)."'",
+            'Order.paypal_data_raw' => "'" . json_encode($paypal_data_raw) . "'",
+            'Order.status' => "'COMPLETE'",
+                ), array(
+            'Order.id' => $odr['Order']['id']
+        ));
+        try {
+            $x = $this->Paypal->doExpressCheckoutPayment($this->Session->read("Odr"), $odr['Order']['paypal_token'], $paypal_data_raw['PAYERID']);
+            $this->Order->updateAll(array(
+                'Order.paypal_data_raw' => "'" . json_encode($x) . "'",
                 'Order.status' => "'COMPLETE'",
-            ), array(
+                    ), array(
                 'Order.id' => $odr['Order']['id']
             ));
+        } catch (PaypalRedirectException $e) {
+            $this->redirect($e->getMessage());
+        } catch (Exception $e) {
+            // $e->getMessage();
+        }
         //debug($this->request);
         //exit;
     }
 
-    public function cancel($data) {
-        debug($this->request);
-        exit;
+    public function cancel($data = null) {
+        $this->autoRender = true;
     }
 
     public function updateitem() {

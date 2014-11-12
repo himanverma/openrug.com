@@ -9,5 +9,5 @@
         if(cntDn < 1){
             window.location = "/";
         }
-    },10000);
+    },1000);
 </script>
