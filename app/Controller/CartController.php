@@ -14,7 +14,7 @@ class CartController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
         $this->Auth->allow();
-        if (!in_array($this->request->param('action'), array("paypaldirect"))) {
+        if (!in_array($this->request->param('action'), array("thankyou","cancel"))) {
             if (!$this->request->is('ajax')) {
                 throw new NotFoundException("API Access Denied");
             }
@@ -207,49 +207,6 @@ class CartController extends AppController {
             if ($this->Order->updateAll(array('Order.gross_total' => round($d['gross_total'], 2)), array("Order.id" => $d['id']))) {
                 $this->response->body(json_encode(array("msg" => "gross_total updated...")));
             }
-        }
-    }
-
-    public function paypaldirect() {
-        $this->response->type("html");
-        $this->autoRender = true;
-        $this->Paypal = new Paypal(array(
-            'sandboxMode' => true,
-            'nvpUsername' => 'payments-facilitator_api1.modernrugs.com',
-            'nvpPassword' => '1380641932',
-            'nvpSignature' => 'AwyQ-r.6obAXd4Dxr0H-NWmJzlNaAj9iMRS.TSvcK3s1WPabX59oMJqO'
-        ));
-
-
-
-        $order = array(
-            'description' => 'Your purchase with Acme clothes store',
-            'currency' => 'USD',
-            'return' => 'https://www.my-amazing-clothes-store.com/review-paypal.php',
-            'cancel' => 'https://www.my-amazing-clothes-store.com/checkout.php',
-            'custom' => 'bingbong',
-            'items' => array(
-                0 => array(
-                    'name' => 'Blue shoes',
-                    'description' => 'A pair of really great blue shoes',
-                    'tax' => 2.00,
-                    'shipping' => 0.00,
-                    'subtotal' => 8.00,
-                ),
-                1 => array(
-                    'name' => 'Red trousers',
-                    'description' => 'Tight pair of red pants, look good with a hat.',
-                    'tax' => 2.00,
-                    'shipping' => 2.00,
-                    'subtotal' => 6.00
-                ),
-            )
-        );
-        try {
-            $redirectUri = $this->Paypal->setExpressCheckout($order);
-            debug($redirectUri);
-        } catch (Exception $e) {
-            debug($e->getMessage());
         }
     }
 
