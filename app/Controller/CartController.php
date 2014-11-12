@@ -22,6 +22,20 @@ class CartController extends AppController {
             $this->response->type('json');
         }
     }
+    public function billAddOnOrder(){
+            if($this->request->is('ajax')){
+                $sid = $this->Session->id();
+                $this->loadModel('Order');
+                $this->Order->updateAll(array(
+                    'Order.billingadd_id' => $this->request->data['id']
+                ), array(
+                    'Order.sessionid' => $sid
+                ));
+                $this->response->body(json_encode(1));
+            }else{
+                exit;
+            }
+    }
 
     public function add() {
         $d = $this->request->data;
@@ -113,6 +127,57 @@ class CartController extends AppController {
         ));
         $this->response->body(json_encode($result));
     }
+    public function makepayment(){
+        $this->loadModel('Order');
+        $sid = $this->Session->id();
+        $this->Order->recursive = 3;
+        $odr = $this->Order->find('first',array('contain'=>array('Inlineitem','Inlineitem.Genrug','Inlineitem.Genrug.Rug'),'conditions'=>array('Order.sessionid'=>$sid)));
+        
+        $this->Paypal = new Paypal(array(
+            'sandboxMode' => true,  
+            'nvpUsername' => 'payments-facilitator_api1.modernrugs.com',
+            'nvpPassword' => '1380641932',
+            'nvpSignature' => 'AwyQ-r.6obAXd4Dxr0H-NWmJzlNaAj9iMRS.TSvcK3s1WPabX59oMJqO'
+        ));
+        $this->loadModel('Size');
+        $cart_items = array();
+        foreach ($odr['Inlineitem'] as $i){
+            $size = $this->Size->find("first",array('conditions'=>array('Size.label'=>$i['length'])));
+            $size = $size['Size']['size_in_ft'];
+            $price = ($size * $i['Genrug']['price'] * $i['qty']) - ($size * $i['Genrug']['price'] * $i['qty']) * $i['Genrug']['Rug']['discount'] / 100 ;
+            $cart_items[] = array(
+                'name' => $i['Genrug']['name']." ID: ".$i['id']."ITM".$i['genrug_id'],
+                'description' => $i['Genrug']['description'],
+                'tax' => 0.00,
+                'shipping' => 0.00,
+                'subtotal' => $price,
+            );
+        }
+        $order = array(
+            'description' => 'Your purchase with RugBuilder.com',
+            'currency' => 'USD',
+            'return' => 'https://rugbuilder.com/cart/thankyou',
+            'cancel' => 'https://rugbuilder.com/cart/cancel',
+            'custom' => $odr['Order']['id'],
+            'items' => $cart_items,
+        );
+        try {
+            $redirectUri = $this->Paypal->setExpressCheckout($order);
+            $this->response->body(json_encode(array('error'=>0,'data'=>$redirectUri)));
+        } catch (Exception $e) {
+            $this->response->body(json_encode(array('error'=>1,'data'=>$e->getMessage())));
+        } 
+        
+    }
+    
+    public function thankyou($data){
+        debug($this->request);
+        exit;
+    }
+    public function cancel($data){
+        debug($this->request);
+        exit;
+    }
 
     public function updateitem() {
         $d = $this->request->data;
@@ -147,7 +212,7 @@ class CartController extends AppController {
         $this->response->type("html");
         $this->autoRender = true;
         $this->Paypal = new Paypal(array(
-            'sandboxMode' => true,
+            'sandboxMode' => true,  
             'nvpUsername' => 'payments-facilitator_api1.modernrugs.com',
             'nvpPassword' => '1380641932',
             'nvpSignature' => 'AwyQ-r.6obAXd4Dxr0H-NWmJzlNaAj9iMRS.TSvcK3s1WPabX59oMJqO'

@@ -42,7 +42,7 @@
                 </td>
 
                 <td>
-                    <strong><span data-bind="text:ko.computed(function(){ return '$' + cart.totalPerItem(Genrug.price(),qty(),length(),0)})"></span></strong>
+                    <strong><span data-bind="text:ko.computed(function(){ return '$' + cart.totalPerItem(Genrug.price(),qty(),length(),Genrug.Rug.discount())})"></span></strong>
                 </td>
 
                 <td>
@@ -215,7 +215,7 @@ foreach ($sizes as $s) {
                                         var sum = 0.00;
                                         var items = ko.mapping.toJS(this.items);
                                         for (i in items) {
-                                            sum += me.totalPerItem(items[i].Genrug.price,items[i].qty,items[i].length,0) ;
+                                            sum += me.totalPerItem(items[i].Genrug.price,items[i].qty,items[i].length,items[i].Genrug.Rug.discount) ;
                                         }
                                         try {
                                             gross_key.abort()
@@ -263,7 +263,7 @@ foreach ($sizes as $s) {
                                     }
                                     me.init = function() {
                                         me.getitems();
-                                        alert('data');
+                                        //alert('data');
                                         $.get( "/js/countries.js", function( data ) {
                                             data = eval(data);
                                             me.countries(data);

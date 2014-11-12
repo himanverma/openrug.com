@@ -15,8 +15,31 @@ class BillingaddsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session');
+        
+        
+        public function addNewAddress(){
+            
+            $this->autoRender = false;
+            if($this->request->is('ajax')){
+                $this->request->data['Billingadd']['user_id'] = $this->Auth->user('id');
+                $d = $this->request->data;
+                $res = $this->Billingadd->find('first',array('conditions'=>array('Billingadd.address'=>$d['Billingadd']['address'])));
+                if(empty($res)){
+                    $this->Billingadd->create();
+                    $this->Billingadd->save($d);
+                    $res = $this->Billingadd->find('first',array('conditions'=>array('Billingadd.address'=>$d['Billingadd']['address'])));
+                }
+                $this->response->body(json_encode($res));
+                $this->response->type('json');
+            }else{
+                exit;
+            }
+        }
 
-/**
+        
+
+
+        /**
  * index method
  *
  * @return void
