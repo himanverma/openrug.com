@@ -20,11 +20,11 @@
                         <div class="vertical_menu">
                             <ul>
                                 <h1>Quick Links... </h1>
-                                <li><a class="active" href="#">Rectangular rugs</a></li>
-                                <li><a href="#">Square rugs</a></li>
-                                <li><a href="#">Round rugs</a></li>
-                                <li><a href="#">Oval rugs</a></li>
-                                <li><a href="#">Hallway runners</a></li>
+                                <li><a class="active" href="/rugs/editor/5/97a5ae-356361/rect">Rectangular rugs</a></li>
+                                <li><a href="/rugs/editor/5/97a5ae-356361/square">Square rugs</a></li>
+                                <li><a href="/rugs/editor/5/97a5ae-356361/round">Round rugs</a></li>
+                                <li><a href="/rugs/editor/5/97a5ae-356361/oval">Oval rugs</a></li>
+                                <li><a href="/rugs/editor/5/97a5ae-356361">Hallway runners</a></li>
                             </ul>
                         </div>
                     </div>
@@ -36,32 +36,42 @@
                             <div class="rug_five_shape">
                                 <div class="col-sm-2">
                                     <div class="shapes_all">
-                                        <a href="#"><img src="<?php echo $this->Html->url('/images/round.png');?>" alt=""></a>
+                                        <a href="/rugs/editor/5/97a5ae-356361/round">
+                                            <img src="<?php echo $this->Html->url('/images/round.png');?>" alt="">
+                                        </a>
                                         <p>Round</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="shapes_all">
-                                        <a href="#"><img src="<?php echo $this->Html->url('/images/round2.png');?>" alt=""></a>
-                                        <p>Round</p>
+                                        <a href="/rugs/editor/5/97a5ae-356361/oval">
+                                            <img src="<?php echo $this->Html->url('/images/round2.png');?>" alt="">
+                                        </a>
+                                        <p>Oval</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="shapes_all">
-                                        <a href="#"><img src="<?php echo $this->Html->url('/images/sq1.png');?>" alt=""></a>
-                                        <p>Round</p>
+                                        <a href="/rugs/editor/5/97a5ae-356361/rect">
+                                            <img src="<?php echo $this->Html->url('/images/sq1.png');?>" alt="">
+                                        </a>
+                                        <p>Rectangular</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-2">
                                     <div class="shapes_all">
-                                        <a href="#"><img src="<?php echo $this->Html->url('/images/sq2.png');?>" alt=""></a>
-                                        <p>Round</p>
+                                        <a href="/rugs/editor/5/97a5ae-356361/square">
+                                            <img src="<?php echo $this->Html->url('/images/sq2.png');?>" alt="">
+                                        </a>
+                                        <p>Square</p>
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
                                     <div class="shapes_all">
-                                        <a href="#"><img src="<?php echo $this->Html->url('/images/sq3.png');?>" alt=""></a>
-                                        <p>Round</p>
+                                        <a href="/rugs/editor/5/97a5ae-356361/runner">
+                                            <img src="<?php echo $this->Html->url('/images/sq3.png');?>" alt="">
+                                        </a>
+                                        <p>Runners</p>
                                     </div>
                                 </div>
                             </div>
