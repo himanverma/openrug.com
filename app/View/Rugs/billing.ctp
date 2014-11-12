@@ -1,6 +1,18 @@
 <div>
     <h2>Address</h2>
     <hr>
+    <h2 title="Click to Fill">Saved Addresses</h2>
+    <div data-bind="foreach: savedAddress " title="Click to Fill">
+        <div title="Click to Fill" class="well well-sm clickable-ad" style="cursor: pointer;" data-bind="click: $parent.selectAdd ">
+            
+            <h4 data-bind="text: Billingadd.firstName + ' ' + Billingadd.lastName"></h4>
+            <div>
+                <span data-bind="text: Billingadd.address"></span>, <span data-bind="text: Billingadd.city"></span>(<span data-bind="text: Billingadd.postalCode"></span>), <span data-bind="text: Billingadd.country"></span><br>
+                <span data-bind="text: Billingadd.contactPrimary"></span>
+            </div>
+        </div>
+    </div>
+    <hr>
     <form id="billCRX" role="form">
         <div class="col-md-6 padding">
             <div class="panel panel-default">
@@ -103,6 +115,7 @@
     var BillingVM = function() {
         var me = this;
         me.id = null;
+        me.savedAddress = ko.observableArray(<?php echo json_encode($savedadds); ?>);
         me.firstName = ko.observable('');
         me.lastName = ko.observable('');
         me.city = ko.observable('');
@@ -184,6 +197,22 @@
                 }
             });
         }
+        me.selectAdd = function(d,e){
+            var a = me.savedAddress()[0].Billingadd;
+            for(i in a){
+              console.log(i);
+              try{
+                    if(typeof me[i] == 'object'){
+                      me[i] = a[i];
+                    }
+                    if(typeof me[i] == 'function'){
+                      me[i](a[i]);
+                    }
+                }catch(e){
+                    console.log(e);
+                }
+            }
+        }
         me.validate = function() {
             return me.validator.form();
         }
@@ -224,6 +253,18 @@
                             }
                         });
                     });
+                }else{
+                    $.post("/cart/billAddOnOrder?_=" + (new Date()).getTime(), {id: me.id}, function(d3) {
+                            if (d3 == 1) {
+                                $.post("/cart/makepayment?_=" + (new Date()).getTime(), function(d4) {
+                                    if (d4.error == 0) {
+                                        window.location = d4.data
+                                    } else {
+                                        alert(d4.data);
+                                    }
+                                });
+                            }
+                        });
                 }
             }
             console.log(r);
@@ -235,3 +276,9 @@
         ko.applyBindings(billingObj);
     });
 </script>
+<style type="text/css">
+    .clickable-ad:hover {
+        background: green;
+        color: white;
+    }
+</style>

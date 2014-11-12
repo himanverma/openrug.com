@@ -558,6 +558,10 @@ class RugsController extends AppController {
     }
 
     public function editor($id = null, $cstamp = null, $shape = "round") {
+        if($cstamp != null && count(explode("-", $cstamp)) < 2){
+            throw new NotFoundException("Rug Not Found...");
+            return true;
+        }
         $defaultShp = $shape;
         $defaultClr = array();
         $tmp_c = array();
@@ -569,6 +573,10 @@ class RugsController extends AppController {
                 'Rug.id' => $id
             )
         ));
+        if(empty($rug)){
+            throw new NotFoundException("Rug Not Found...");
+            return true;
+        }
         if ($cstamp != null) {
             $tmp_c = explode("-", $cstamp);
             foreach ($tmp_c as $rp) {
@@ -689,7 +697,14 @@ class RugsController extends AppController {
         $this->set("sizes", $this->Size->find('all'));
     }
     public function billing(){
-        
+        $this->loadModel('Billingadd');
+        $a = $this->Billingadd->find("all",array(
+            'contain' => false,
+            'conditions' => array(
+                'Billingadd.user_id' => $this->Auth->user('id')
+            )
+        ));
+        $this->set("savedadds", $a);
     }
 
         /**
