@@ -787,21 +787,11 @@ class RugsController extends AppController {
     }
     
     public $paginate = array('limit'=>10);
-    public function additionalRugs(){
-        
-        //$this->Paginator->settings = array('limit' => 3); 
-        $x = $this->paginate("Rug", array(
-             "Rug.discount <>" => '0'
-        ));
-        /*
-        $rugDiscounts = $this->Rug->find('all', array('conditions' => array(
-                "NOT" => array(
-                    "Rug.discount" => '0'
-                )
-            ), 'contain' => array('Genrug')));
-         * 
-         */
-        $this->set('rugDiscounts2', $x);
+    public function additionalRugs(){        
+        $this->Paginator->settings = array('limit' => 3); 
+        $this->paginate['recursive'] = 2;
+        $x = $this->paginate("Genrug", array('1=1 group BY Genrug.rug_id order BY Genrug.id desc'));
+        $this->set('rugDiscounts', $x);
     }
 
     

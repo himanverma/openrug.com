@@ -2,6 +2,8 @@
 App::uses("AppController", "Controller");
 App::uses("CakeEmail", "Network/Email");
 class TestController extends AppController {
+    
+    public $components = array('Paginator', 'Session');
 
     private function fromRGB($R, $G, $B) {
 
@@ -55,7 +57,7 @@ class TestController extends AppController {
     }
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('mail');
+        $this->Auth->allow('mail','test2');
     }
     public function mail(){
         $m = new CakeEmail("smtp");
@@ -69,6 +71,15 @@ class TestController extends AppController {
             debug($ex);
         }
         exit;
+    }
+    
+    public function test2(){
+        $this->loadModel('Genrug');
+        $this->Paginator->settings = array(
+                "limit" => 2
+            );
+        $x = $this->paginate("Genrug");
+        debug($x);
     }
 
 }
