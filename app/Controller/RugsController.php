@@ -214,7 +214,7 @@ class RugsController extends AppController {
         $bg1 = $this->getBgPresp($bg,70);
         $rnd = new Imagick("files/templates/new/rectangle/angle.png");
         $bg1->scaleimage(0, $rnd->getimageheight());
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+        $rnd->compositeimage($bg1, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
         $rnd->compositeimage(new Imagick("files/templates/new/rectangle/angle_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
@@ -411,56 +411,60 @@ class RugsController extends AppController {
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
 
-        $presp = 60;
-        $controlPoints = array(
-            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
-            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
-            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
-            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
-        );
-        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
+        $bg = $this->getBgPresp($bg,60);
 
-        $rnd = new Imagick("files/templates/square/square-1.png");
+        $rnd = new Imagick("files/templates/new/square/angle.png");
+        $bg->scaleimage(0, $rnd->getimageheight());
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/square/square-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/square/angle_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "square.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/square/square-2.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        $rnd = new Imagick("files/templates/new/square/flip.png");
+        $bg->scaleimage(0, $rnd->getimageheight()+40);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/square/square-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/square/flip_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/new/square/flip.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "square1.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);    
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/square/square-4.png");
+        $rnd = new Imagick("files/templates/new/square/straight.png");
+        $bg->scaleimage(0, $rnd->getimageheight());
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/square/square-4.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/square/straight_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "square2.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
-
-        $rnd = new Imagick("files/templates/square/square-3.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
-        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-
-        $rnd->compositeimage(new Imagick("files/templates/square/square-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
-        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
-        $rnd->compositeimage(new Imagick("files/templates/square/square-3-1.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
-        $rnd->setimageformat("png");
-        $rnd->setImageFileName($location . "square3.png");
-        $rnd->writeimage();
-        $rnd->destroy();
+//
+//        $rnd = new Imagick("files/templates/new/square/straight.png");
+//        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
+//        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+//
+//        $rnd->compositeimage(new Imagick("files/templates/square/square-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+//        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+//        $rnd->compositeimage(new Imagick("files/templates/square/square-3-1.png"), \Imagick::COMPOSITE_DEFAULT, 0, 0, Imagick::CHANNEL_ALPHA);
+//        $rnd->setimageformat("png");
+//        $rnd->setImageFileName($location . "square3.png");
+//        $rnd->writeimage();
+//        $rnd->destroy();
 
         return $location;
     }
@@ -502,46 +506,51 @@ class RugsController extends AppController {
         $bg->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
 
-        $presp = 60;
-        $controlPoints = array(
-            -$presp, -$presp, 0, $presp, # top left ( x1, y1 , x2 ,y2)
-            $bg->getimagewidth() + $presp, -$presp, $bg->getimagewidth(), $presp, # top right ( x1, y1 , x2 ,y2) 
-            $bg->getimagewidth(), $bg->getimageheight(), $bg->getimagewidth() + $presp, $bg->getimageheight() - $presp, # bottom right ( x1, y1 , x2 ,y2)
-            0, $bg->getimageheight(), -$presp, $bg->getimageheight() + $presp # bottom left ( x1, y1 , x2 ,y2)
-        );
-        $bg->distortImage(Imagick::DISTORTION_PERSPECTIVE, $controlPoints, true);
-
-        $rnd = new Imagick("files/templates/runner/runners-1.png");
+        $bg = $this->getBgPresp($bg,60);
+       
+        $rnd = new Imagick("files/templates/new/runner/angle.png");
+        $bg->scaleimage(0, $rnd->getimageheight());
         $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/runner/runners-1.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/runner/angle_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "runner.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        $rnd = new Imagick("files/templates/runner/runners-2.png");
-        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 30);
+        $rnd = new Imagick("files/templates/new/runner/flip.png");
+        $bg->scaleimage(0, $rnd->getimageheight());
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
         $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-        $rnd->compositeimage(new Imagick("files/templates/runner/runners-2.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->compositeimage(new Imagick("files/templates/new/runner/flip_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        $rnd->compositeimage(new Imagick("files/templates/new/runner/flip.png"), \Imagick::COMPOSITE_DSTOVER, 0, 0, Imagick::CHANNEL_ALPHA);
         $rnd->setimageformat("png");
         $rnd->setImageFileName($location . "runner1.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
         $rnd->writeimage();
         $rnd->destroy();
 
-        /*
-          $rnd = new Imagick("files/templates/runner/runners-3.png");
-          $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 20);
-          $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
+        
+        $rnd = new Imagick("files/templates/new/runner/straight.png");
+        $bg->scaleimage($rnd->getimagewidth(), 0);
+        $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 0);
+        $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
 
-          $rnd->compositeimage(new Imagick("files/templates/runner/runners-3.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
-          $rnd->setimageformat("png");
-          $rnd->setImageFileName($location . "runner2.png");
-          $rnd->writeimage();
-          $rnd->destroy();
+        $rnd->compositeimage(new Imagick("files/templates/new/runner/straight_trim.png"), \Imagick::COMPOSITE_COPYOPACITY, 0, 0, Imagick::CHANNEL_ALPHA);
+        $rnd->setimageformat("png");
+        $rnd->setImageFileName($location . "runner2.png");
+        $rnd->setinterlacescheme(\Imagick::INTERLACE_PNG);
+        $rnd->scaleimage(733,0);
+        $rnd->writeimage();
+        $rnd->destroy();
 
+          /*
           $rnd = new Imagick("files/templates/runner/runners-4.png");
           $rnd->compositeimage($bg, \Imagick::COMPOSITE_MULTIPLY, 0, 200);
           $rnd->mergeimagelayers(Imagick::LAYERMETHOD_COALESCE);
