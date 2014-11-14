@@ -30,6 +30,9 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
         Router::connect('/dashboard', array('controller' => 'users', 'action' => 'login','prefix'=>'admin'));
+        
+        Router::parseExtensions('rss','xml');  //parse XML extension
+        Router::connect('/sitemap', array('controller' => 'sitemaps', 'action' => 'index')); //rewrite URL
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

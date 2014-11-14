@@ -144,92 +144,52 @@
     </div>
 </div>
 
-<div class="popular_rug">
-    <div class="row">
-        <div class="col-sm-12"><br/>
-            <h1>popular rug designs</h1><br/><br/>
-            <div class="row">
-<?php foreach ($popularGenrugs as $popularGenrug) { ?>
-                    <div class="col-sm-2 col-xs-6" >
-                        <div class="pro">
-                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id']); ?>">
-                                 <img src="/<?php echo $popularGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
-                            </a> 
-                            <p><?php echo $popularGenrug['Genrug']['description']; ?></p>
-                            <strong><?php echo $popularGenrug['Genrug']['description']; ?>$ <?php echo $popularGenrug['Genrug']['price']; ?>/sq.ft.</strong><!-- this is custom changes please edit correct code-->
-                            <div class="add_cart">
-                                <div class="col-sm-9 padding">
-                                    <span>
-                                        <i class="fa fa-shopping-cart"></i>
-                                        <a href="javascript:void()" class="addtocart"
-                                            data-price="<?php echo $popularGenrug['Genrug']['price']; ?>"
-                                               data-rid="<?php echo $popularGenrug['Rug']['id']; ?>"
-                                               data-cstamp="<?php echo $popularGenrug['Genrug']['colorstamp']; ?>"
-                                               data-discount="<?php echo $popularGenrug['Rug']['discount']; ?>"
-                                           id="<?php echo $popularGenrug['Genrug']['id']; ?>">
-                                            Add to Cart
-                                        </a>
-                                    </span>
-                                </div>
-                                <div class="col-sm-3 padding">
-                                    <div class="view">
-                                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id']); ?>">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-<?php } ?>
-            </div>
-        </div>
-    </div>
+<div class="popular_rug" id="ajax-pplr">
+    
 </div>
-
-
-<div class="popular_rug">
-    <div class="row">
-        <div class="col-sm-12"><br/>
-            <h1>recent rug designs</h1><br/><br/>
-            <div class="row">
-<?php foreach ($recentGenrugs as $recentGenrug) { ?>
-                    <div class="col-sm-2 col-xs-6" >
-                            <div class="pro">
-                                 <a href="<?php echo $this->Html->url('/rugs/editor/' . $recentGenrug['Genrug']['rug_id'] . "/" . $recentGenrug['Genrug']['colorstamp']); ?>">
-                                        <img src="/<?php echo $recentGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
-                                 </a>
-
-                                <p><?php echo $recentGenrug['Genrug']['description']; ?></p>
-                                <strong><?php echo $popularGenrug['Genrug']['description']; ?>$ <?php echo $popularGenrug['Genrug']['price']; ?>/sq.ft.</strong><!-- this is custom changes please edit correct code-->
-                                <div class="add_cart">
-                                    <div class="col-sm-9 padding">
-                                        <span>
-                                            <i class="fa fa-shopping-cart"></i>
-                                            <a href="javascript:void()" class="addtocart" 
-                                               data-price="<?php echo $recentGenrug['Genrug']['price']; ?>"
-                                               data-rid="<?php echo $recentGenrug['Rug']['id']; ?>"
-                                               data-cstamp="<?php echo $recentGenrug['Genrug']['colorstamp']; ?>"
-                                               data-discount="<?php echo $recentGenrug['Rug']['discount']; ?>"
-                                               id="<?php echo $recentGenrug['Genrug']['id']; ?>">
-                                                Add to Cart
-                                            </a>
-                                        </span>
-                                    </div>
-                                    <div class="col-sm-3 padding">
-                                        <div class="view">
-                                            <a href="#"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-<?php } ?>
-            </div>
-        </div>
-    </div>
+<div class="popular_rug" id="ajax-rcnt">
+    
 </div>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.pagination a').click(paginate);
+});
+
+var paginate = function(event) {
+    event.preventDefault();
+    var href;
+    href = $(this).attr('href');
+    getdata($(this).attr('href'));
+}
+function getdata(urle){
+if (urle.match(/\/popularRugs*/i)) {
+    $('#ajax-pplr').html("<br><br><br><center>loading...</center><br><br><br>");
+}
+if (urle.match(/\/recentRugs*/i)) {
+    $('#ajax-rcnt').html("<br><br><br><center>loading...</center><br><br><br>");
+}
+
+
+
+$.ajax({
+      url: urle,
+      cache: false,
+      success: function(html){
+
+        if (urle.match(/\/popularRugs*/i)) {
+            $('#ajax-pplr').html(html);
+        }
+        if (urle.match(/\/recentRugs*/i)) {
+            $('#ajax-rcnt').html(html);
+        }
+        $('.pagination a').click(paginate);
+      }
+    });
+}
+
+getdata('/Ajax/popularRugs');
+getdata('/Ajax/recentRugs');
+</script>    
 <script id="clrbx-cart" type="text/html">
     <div>
         <h2>Add to cart</h2><hr />

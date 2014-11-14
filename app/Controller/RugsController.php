@@ -566,7 +566,7 @@ class RugsController extends AppController {
         return $location;
     }
 
-    public function editor($id = null, $cstamp = null, $shape = "round") {
+    public function editor($id = null, $cstamp = null, $shape = "square") {
         if($cstamp != null && count(explode("-", $cstamp)) < 2){
             throw new NotFoundException("Rug Not Found...");
             return true;
@@ -789,7 +789,7 @@ class RugsController extends AppController {
     public $paginate = array('limit'=>10);
     public function additionalRugs(){        
         $this->Paginator->settings = array('limit' => 3); 
-        $this->paginate['recursive'] = 2;
+       
         $x = $this->paginate("Genrug", array('1=1 group BY Genrug.rug_id order BY Genrug.id desc'));
         $this->set('rugDiscounts', $x);
     }

@@ -21,10 +21,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <head>
         <!--        <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <?php
         echo $this->Html->charset() ."\n";
-        echo $this->Seo->title($title_for_layout) ."\n";
+        echo $this->Seo->title(Configure::read('Settings.site_name')." : ".$title_for_layout) ."\n";
         echo $this->Html->meta('icon') ."\n";
         echo $this->Seo->metaTags() ."\n";
         echo $this->Seo->canonical() ."\n";
@@ -111,5 +110,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             });
         </script>
         <?php echo $this->Seo->honeyPot(); ?>
+        <?php echo Configure::read('Settings.google_analytics'); ?>
     </body>
 </html>

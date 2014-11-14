@@ -1,3 +1,4 @@
+<?php debug($rugDiscounts); exit; ?>
 <div class="col-sm-12 padding">
     <p>
         <?php

@@ -35,6 +35,7 @@ class AppController extends Controller {
     public $components = array('Auth','Session','Seo.BlackList');
     public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator','Seo.Seo');
     public function beforeFilter() {
+        $this->_setSettings();
         parent::beforeFilter();
         $ext = explode(".", $this->request->here);
         $ext = strtolower($ext[count($ext)-1]);
@@ -71,5 +72,14 @@ class AppController extends Controller {
         
         $this->loadModel('Size');
         $this->set("sizes_cart", $this->Size->find('all'));
+        
+    }
+    
+    public function _setSettings(){
+        $this->loadModel("Setting");
+        $g_settings = $this->Setting->find("all");
+        foreach($g_settings as $s){
+            Configure::write('Settings.'.$s['Setting']['name'], $s['Setting']['value']);   
+        }
     }
 }

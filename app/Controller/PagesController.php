@@ -57,7 +57,7 @@ class PagesController extends AppController {
                 'order'=>array('Genrug.id desc'),
                 //"limit"=>18
             ));
-            // debug($popularGenrugs); exit;
+            //debug($popularGenrugs); exit;
             $this->set('popularGenrugs',$popularGenrugs);
             
             $recentGenrugs = $this->Genrug->find('all',array(
