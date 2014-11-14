@@ -12,7 +12,7 @@
                 <div class="col-sm-6 padding">
                     <div class="col-sm-12 padding" style="margin-top:20px;">
                         <div class="row">
-                            <div class="col-sm-4"> 
+                            <div class="col-sm-3"> 
                                 <div class="social">
                                     <div class="socil_link">
                                         <span>
@@ -25,8 +25,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-4"><div class="support"><i class="fa fa-mobile-phone"></i><p>Support +000 (111) 1234</p></div></div>
-                            <div class="col-sm-4"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Support +000 (111) 1234</a></p></div></div>    
+                            <div class="col-sm-4"><div class="support"><i class="fa fa-mobile-phone"></i><p>Support 1-800-8307847 </p></div></div>
+                            <div class="col-sm-5"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Shopping Cart +000 (111) 1234</a></p></div></div>    
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -174,49 +174,31 @@
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Shape <b class="caret"></b></a>				
                                             <ul class="dropdown-menu megamenu row">
-                                                <li class="col-sm-3">
+                                                <li class="col-sm-2">
                                                     <ul>
-                                                        <li class="dropdown-header">Glyphicons</li>
-                                                        <li><a href="#">Available glyphs</a></li>
-                                                        <li class="disabled"><a href="#">How to use</a></li>
-                                                        <li><a href="#">Examples</a></li>
-                                                        <li class="divider"></li>
-                                                        <li class="dropdown-header">Dropdowns</li>
-                                                        <li><a href="#">Example</a></li>
-                                                        <li><a href="#">Aligninment options</a></li>
-                                                        <li><a href="#">Headers</a></li>
-                                                        <li><a href="#">Disabled menu items</a></li>
+                                                        <li><a href="#">Oval<br/><img src="images/oval.png" alt=""></a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="col-sm-3">
+                                                <li class="col-sm-2">
                                                     <ul>
-                                                        <li class="dropdown-header">Button groups</li>
-                                                        <li><a href="#">Basic example</a></li>
-                                                        <li><a href="#">Button toolbar</a></li>
-                                                        <li><a href="#">Sizing</a></li>
-                                                        <li><a href="#">Nesting</a></li>
-                                                        <li><a href="#">Vertical variation</a></li>
-                                                        <li class="divider"></li>
-                                                        <li class="dropdown-header">Button dropdowns</li>
-                                                        <li><a href="#">Single button dropdowns</a></li>
+                                                        <li><a href="#">Square<br/><img src="images/sh-square.png" alt=""></a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="col-sm-3">
+                                                <li class="col-sm-2">
                                                     <ul>
-                                                        <li class="dropdown-header">Input groups</li>
-                                                        <li><a href="#">Basic example</a></li>
-                                                        <li><a href="#">Sizing</a></li>
-                                                        <li><a href="#">Checkboxes and radio addons</a></li>
-                                                        <li class="divider"></li>
-                                                        <li class="dropdown-header">Navs</li>
-                                                        <li><a href="#">Tabs</a></li>
-                                                        <li><a href="#">Pills</a></li>
-                                                        <li><a href="#">Justified</a></li>
+                                                        <li><a href="#">Round<br/><img src="images/sh-round.png" alt=""></a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="col-sm-3">
-                                                    <img src="images/color.png" alt="">
-                                                </li>
+                                                <li class="col-sm-2">
+                                                    <ul>
+                                                        <li><a href="#">Rectangular<br/><img src="images/sh-rect.png" alt=""></a></li>
+                                                    </ul>
+                                                </li>       
+                                                <li class="col-sm-2">
+                                                    <ul>
+                                                        <li><a href="#">Runner<br/><img src="images/sh-runner.png" alt=""></a></li>
+                                                    </ul>
+                                                </li>       
                                             </ul>
                                         </li>
                                     </ul>
