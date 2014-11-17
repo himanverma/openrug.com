@@ -323,9 +323,9 @@ header{
         background: none repeat scroll 0 0 #545454;
         border-radius: 50px;
         color: #fff;
-        font-size: 23px;
-        padding: 4px 11px;
-        margin: 5px;
+        font-size: 34px;
+        padding: 4px 13px;
+        margin: 0 5px; 
         float: left;
 }
 
@@ -2561,5 +2561,5 @@ input[type=checkbox]:checked ~ #menu{
 	display:none;
 	}
 .well.well-sm{
-        height: 70px;
+        height: 70px; 
         }	
