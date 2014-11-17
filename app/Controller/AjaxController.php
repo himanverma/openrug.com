@@ -30,7 +30,7 @@ class AjaxController extends AppController {
         $this->layout = 'blank';
         $this->loadModel('Genrug');
         $this->Paginator->settings = array(
-                'limit' => 18,
+                'limit' => 12,
                 'order' => array('Genrug.id DESC'),
                 //'group' => array('Genrug.rug_id')
             );        
