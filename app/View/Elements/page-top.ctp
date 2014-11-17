@@ -2,7 +2,7 @@
     <div class="top_text">
         <div class="col-sm-4">
             <div class="left_top">
-                <p>Free* shipping to INDIA  / EASY RETURNS TAXES & DUTIES PAID*</p>
+                <p>EASY RETURNS TAXES & DUTIES PAID*</p>
             </div>
         </div>
         <div class="col-sm-4"></div>

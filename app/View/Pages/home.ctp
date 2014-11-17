@@ -183,6 +183,14 @@ $.ajax({
             $('#ajax-rcnt').html(html);
         }
         $('.pagination a').click(paginate);
+        $('.addtocart').on("click",function(e){
+            var clrObj = new EditorVM($(this).data('price'),$(this).data('rid'),$(this).data('cstamp'),$(this).data('discount'));
+            var html = $('#clrbx-cart').html();
+            $.colorbox({html:html});
+            try{ ko.cleanNode($('#cboxContent')[0]); }catch(e){console.log(e);}
+            ko.applyBindings(clrObj,$('#cboxContent')[0]);
+            return false;
+        });
       }
     });
 }
