@@ -94,7 +94,9 @@
                     <h5 class="pull-right" style="text-transform: uppercase; margin-top: 20px;">SKU: <?php
                         $sku_pre = md5($crug['name']);
                         $sku_pre = str_split($sku_pre, 3);
-                        echo $sku_pre[0] . ((int) ($crug['id']) + 487);
+                        //echo $sku_pre[0] . ((int) ($crug['id']) + 487);
+                        echo $crug['id']."ITM".$crug2['id'];
+                        //print_r($crug2);
                         ?></h5>
                     <h2 class="sph1"><?php echo $crug['name']; ?></h2>
                     <hr>

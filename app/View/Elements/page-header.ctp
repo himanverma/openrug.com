@@ -125,60 +125,18 @@
                                         </li>
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Color <b class="caret"></b></a>				
-                                            <ul class="dropdown-menu megamenu row">
-                                                <li class="col-sm-3">
-                                                    <ul>
-                                                        <li class="dropdown-header">Glyphicons</li>
-                                                        <li><a href="#">Available glyphs</a></li>
-                                                        <li class="disabled"><a href="#">How to use</a></li>
-                                                        <li><a href="#">Examples</a></li>
-                                                        <li class="divider"></li>
-                                                        <li class="dropdown-header">Dropdowns</li>
-                                                        <li><a href="#">Example</a></li>
-                                                        <li><a href="#">Aligninment options</a></li>
-                                                        <li><a href="#">Headers</a></li>
-                                                        <li><a href="#">Disabled menu items</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-sm-3">
-                                                    <ul>
-                                                        <li class="dropdown-header">Button groups</li>
-                                                        <li><a href="#">Basic example</a></li>
-                                                        <li><a href="#">Button toolbar</a></li>
-                                                        <li><a href="#">Sizing</a></li>
-                                                        <li><a href="#">Nesting</a></li>
-                                                        <li><a href="#">Vertical variation</a></li>
-                                                        <li class="divider"></li>
-                                                        <li class="dropdown-header">Button dropdowns</li>
-                                                        <li><a href="#">Single button dropdowns</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-sm-3">
-                                                    <ul>
-                                                        <li class="dropdown-header">Input groups</li>
-                                                        <li><a href="#">Basic example</a></li>
-                                                        <li><a href="#">Sizing</a></li>
-                                                        <li><a href="#">Checkboxes and radio addons</a></li>
-                                                        <li class="divider"></li>
-                                                        <li class="dropdown-header">Navs</li>
-                                                        <li><a href="#">Tabs</a></li>
-                                                        <li><a href="#">Pills</a></li>
-                                                        <li><a href="#">Justified</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-sm-3">
-                                                    <img src="images/color.png" alt="">
-                                                </li>
+                                            <ul class="dropdown-menu megamenu row" style="padding: 0 5px;">
+                                                <?php echo $this->element("swatch_1"); ?>
                                             </ul>
                                         </li>
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Shape <b class="caret"></b></a>				
                                             <ul class="dropdown-menu megamenu row">
-                                                        <li><a href="#">Oval<br/><img src="images/oval.png" alt=""></a></li>                                                
-                                                        <li><a href="#">Square<br/><img src="images/sh-square.png" alt=""></a></li>                                                                                                   
-                                                        <li><a href="#">Round<br/><img src="images/sh-round.png" alt=""></a></li>                                                                                                
-                                                        <li><a href="#">Rectangular<br/><img src="images/sh-rect.png" alt=""></a></li>                                                
-                                                        <li><a href="#">Runner<br/><img src="images/sh-runner.png" alt=""></a></li>                                                  
+                                                        <li><a href="/rugs/shape/oval">Oval<br/><img src="images/oval.png" alt=""></a></li>                                                
+                                                        <li><a href="/rugs/shape/square">Square<br/><img src="images/sh-square.png" alt=""></a></li>                                                                                                   
+                                                        <li><a href="/rugs/shape/round">Round<br/><img src="images/sh-round.png" alt=""></a></li>                                                                                                
+                                                        <li><a href="/rugs/shape/rect">Rectangular<br/><img src="images/sh-rect.png" alt=""></a></li>                                                
+                                                        <li><a href="/rugs/shape/runner">Runner<br/><img src="images/sh-runner.png" alt=""></a></li>                                                  
                                             </ul>
                                         </li>
                                     </ul>

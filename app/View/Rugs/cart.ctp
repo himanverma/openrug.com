@@ -22,7 +22,7 @@
                         <strong></strong>
 
                         <p>
-                            Product id: <!-- ko text:Genrug.id()+'ITM'+id() --><!-- /ko --><br />
+                            Product id: <!-- ko text:Genrug.id()+'ITM'+Genrug.rug_id() --><!-- /ko --><br />
                             Size: <!-- ko text:length() --><!-- /ko -->
                         </p>
 

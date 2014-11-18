@@ -37,4 +37,38 @@ class AjaxController extends AppController {
         $x = $this->paginate("Genrug");
         $this->set('recentGenrugs', $x);
     }
+    
+    public function bycolor($color=null){
+        $this->layout = 'blank';
+        $this->loadModel('Genrug');
+        $this->Paginator->settings = array(
+                'limit' => 18,
+                'order' => array('Genrug.id DESC'),
+                'conditions' => array(
+                    'Genrug.colorstamp LIKE' => "%".$color."%"
+                )
+            );        
+        $x = $this->paginate("Genrug");
+        $this->set('popularGenrugs', $x);
+        $this->set('color',$color);
+    }
+    
+    
+    
+    
+    
+    public function popularRugs1($shape=null){
+        $this->layout = 'blank';
+        $this->loadModel('Genrug');
+        $this->Paginator->settings = array(
+                'limit' => 18,
+                'order' => array('Genrug.id DESC'),
+                //'group' => array('Genrug.rug_id')
+            );        
+        $x = $this->paginate("Genrug");
+        $this->set('popularGenrugs', $x);
+        $this->set('shape',$shape);
+    }
+    
+   
 }

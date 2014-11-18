@@ -20,7 +20,16 @@ class RugsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('genImg', 'editor', 'index','cart','billing','additionalRugs'));
+        $this->Auth->allow(array('genImg', 'editor', 'index','cart','billing','additionalRugs','shape',"bycolor"));
+    }
+    
+    public function bycolor($color="4273b9"){
+        $this->Session->write("Rugs.bycolor", $color);
+        $this->set('color',$color);
+    }
+
+    public function shape($shape=null){
+        $this->set('shape',$shape);
     }
 
     /**
@@ -679,7 +688,9 @@ class RugsController extends AppController {
         $this->set("colorstamp",$colorstamp);
         $this->set("r_id",$id);
         $this->set("price",$rug['Rug']['price']);
-        $this->set("crug",$rug['Rug']);
+        $crug = $this->Rug->Genrug->find('first',array('conditions'=>array('Genrug.colorstamp'=>  str_replace("#", "", $colorstamp),'Genrug.rug_id'=>$rug['Rug']['id'])));
+        $this->set("crug",$crug['Rug']);
+        $this->set("crug2",$crug['Genrug']);
 
 
 
