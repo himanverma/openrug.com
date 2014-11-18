@@ -64,6 +64,7 @@ body{
 }
 .dropdown-menu{
     top:97.3% !important;
+    left: inherit !important;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -92,8 +93,8 @@ color: #fff;
 }
 .megamenu{
   padding: 20px 0px;
-  width:97.6%;
-  margin: 0 1.2% !important;
+  width:auto;
+  margin: 0% !important;
   border-top: 3px solid #535353;
 }
 .megamenu> li > ul {
@@ -151,7 +152,7 @@ color: #fff;
 
   }
   .navbar-nav .open .dropdown-menu .dropdown-header{
-	color: #000;
+    color: #000;
     font-size: 18px;
     margin: 0;
     padding: 0 0 0 5%;
@@ -323,9 +324,9 @@ header{
         background: none repeat scroll 0 0 #545454;
         border-radius: 50px;
         color: #fff;
-        font-size: 23px;
-        padding: 4px 11px;
-        margin: 5px;
+        font-size: 29px;
+        padding: 4px 13px;
+        margin: 0 5px; 
         float: left;
 }
 
@@ -2556,10 +2557,187 @@ input[type=checkbox]:checked ~ #menu{
     text-decoration: none;
     width: 100%;
 }
-
 #div1{
-	display:none;
+	display:none; 
 	}
 .well.well-sm{
-        height: 70px;
-        }	
+        height: 70px; 
+        background: #fff !important;
+        box-shadow: none !important;
+}
+.confrigation{
+    float: left;
+    width: 100%;
+    margin: 10px 0px;
+    font-family: arial;
+    font-size: 12px;
+    color: #535353;
+    font-weight: normal;
+}
+.confrigation b{
+    float: left;
+    width: 100%;
+    font-family: arial;
+    font-size: 13px;
+    color: #333;
+    font-weight: bold;
+}
+.table span {
+    float: left;
+    margin-top: 13px;
+    color: #ff826e;
+}
+
+.sph1 {
+    color: #383838;
+    float: left;
+    font-family: arial;
+    font-size: 21px;
+    font-weight: bold;
+    margin: 0 0 12px;
+    padding: 0;
+    width: 100%;
+}
+.addtocart1 {
+    background: none repeat scroll 0 0 #ff826e;
+    border: medium none;
+    color: #fff;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px 16px;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus{
+    background:#ff826e !important; 
+    color: #fff !important; 
+}
+.swatch-pick{ 
+    background: #fff !important; 
+    box-shadow: none !important;
+    top: 27px !important; 
+    border-radius: 0px !important; 
+}
+/*=================================================================================*/
+/*====================================Contact us===================================*/
+/*=================================================================================*/
+.contact_main{ width:100%; float:left; margin:2% 0 2% 0;}
+.contact{ width:100%; float:left; border: 1px solid #ff826e; margin: 0 0 3%;}
+.contact h3{color: #fff;
+	background:#ff826e;
+    float: left;
+    font-family: "arial";
+    font-size: 22px;
+    font-weight:normal;
+    margin: 0;
+    padding:1%;
+	text-align: center;
+    width: 100%;}
+
+.contact_inn{ background:#fff; width:100%; float:left;  padding: 0 4% 4%;}
+.contact_inn input{ background:#fdfbfb; 
+		border:1px solid #d6d4d7; 
+		width:100%; 
+		float:left; 
+		height: 31px; 
+		color:#c8c6c6; 
+		font-size: 15px; 
+		font-family: "open_sansregular"; 
+		margin-top: 4%;}
+
+
+.contact_inn textarea{background-color: #fdfbfb;
+    border: 1px solid #d6d4d7;
+	height:auto;
+	width:100%;
+	float:left;
+	margin-top: 4%;}
+
+.submit{ width:100%; float:left;  margin: 3% 0 0;}
+.btn_one{
+background:#ff826e;
+border:1px solid #ff826e;
+padding: 1% 5%;
+font-family: "arial"; 
+font-size:16px;
+color:#fff;
+}
+
+
+.contact_one{width:100%; float:left; border: 1px solid #ff826e;}
+.contact_one h3{color: #fff;
+	background:#ff826e;
+    float: left;
+    font-family: "arial";
+    font-size: 22px;
+    font-weight:normal;
+    margin: 0;
+    padding:1%;
+	text-align: center;
+    width: 100%;}
+
+.contact_inn_one{ background:#fff; width:100%; float:left;  padding:0 4% 19%;}
+.contact_inn_one ul{ width:100%; float:left; padding:0; margin: 0;}
+.contact_inn_one ul li{ width:100%; list-style:none; font-size:14px; font-family: "open_sansregular"; float:left;}
+.glyphicon.glyphicon-home.home { 
+    border: 2px solid #666161;
+    border-radius: 100px;
+    color: #666161;
+    font-size: 19px;
+    padding: 1%;
+	float:left;
+	margin: 2%;
+}
+
+.contact_inn_one ul li p {
+    float: left;
+    margin-top: 2%;
+    width: 83%;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#333;
+}
+
+.glyphicon.glyphicon-earphone.earphone {
+    border: 2px solid #666161;
+    border-radius: 100px;
+    color: #666161;
+    float: left;
+    font-size: 19px;
+    margin: 2%;
+    padding: 1%;
+}
+
+.glyphicon.glyphicon-envelope.envelope{ 
+    border: 2px solid #666161;
+    border-radius: 100px;
+    color: #666161;
+    font-size: 19px;
+    padding: 1%;
+	float:left;
+	margin: 2%;
+}
+i.name{ 
+    border: 2px solid #666161;
+    border-radius: 100px;
+    color: #666161;
+    font-size: 19px;
+    padding: 1%;
+	float:left;
+	margin: 2%;
+}
+
+.glyphicon.glyphicon-earphone.earphone{ 
+    border: 2px solid #666161;
+    border-radius: 100px;
+    color: #666161;
+    font-size: 19px;
+    padding: 1%;
+	float:left;
+	margin: 2%;
+}
+	
+	
+	
+	
+	
+	

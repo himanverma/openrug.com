@@ -67,18 +67,19 @@
                 </div>
 
                 <div class="col-sm-5 sm-p-trig">
+                    <div class="im col-xs-3">
                     <div class="im col-sm-3">
                         <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
                     </div>
-                    <div class="im col-sm-3">
+                    <div class="im col-xs-3">
                         <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
                     </div>
-                    <div class="im col-sm-3">
+                    <div class="im col-xs-3">
                         <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
                     </div>
-                    <div class="im col-sm-3">
+                    <div class="im col-xs-3">
                         <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
-                    </div>
+                    </div> 
                 </div>
             </div> 
         </form>
@@ -96,7 +97,7 @@
                         $sku_pre = str_split($sku_pre, 3);
                         echo $sku_pre[0] . ((int) ($crug['id']) + 487);
                         ?></h5>
-                    <h2><?php echo $crug['name']; ?></h2>
+                    <h2 class="sph1"><?php echo $crug['name']; ?></h2>
                     <hr>
                     <div>
                         <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
@@ -106,18 +107,18 @@
                         <span class='st_pinterest' displayText='Pinterest'></span>
                         <span class='st_googleplus' displayText='Google +'></span>
                     </div>
-                    <div style="margin-top: 30px;  font-size: 12pt;">
-                        <div class="col-lg-12">
-                            <div class="col-sm-6"><b>Pattern : </b></div>
-                            <div class="col-sm-6"><?php echo $crug['pattern']; ?></div>
+                    <div class="confrigation">
+                        <div class="row">
+                            <div class="col-xs-6"><b>Pattern : </b></div>
+                            <div class="col-xs-6"><?php echo $crug['pattern']; ?></div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="col-sm-6"><b>Price/sq.ft. : </b></div>
-                            <div class="col-sm-6">USD <?php echo round($crug['price'], 2); ?></div>
+                        <div class="row">
+                            <div class="col-xs-6"><b>Price/sq.ft. : </b></div>
+                            <div class="col-xs-6">USD <?php echo round($crug['price'], 2); ?></div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="col-sm-6"><b>Shape : </b></div>
-                            <div class="col-sm-6"><?php echo $defaultShp == "rect" ? "RECTANGULAR" : strtoupper($defaultShp); ?></div>
+                        <div class="row">
+                            <div class="col-xs-6"><b>Shape : </b></div>
+                            <div class="col-xs-6"><?php echo $defaultShp == "rect" ? "RECTANGULAR" : strtoupper($defaultShp); ?></div>
                         </div>
 
                         <?php if ($crug['discount'] != 0) { ?>
@@ -152,14 +153,14 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <span style="color: green; font-size: 12pt;">
+                                    <span style="color: #ff826e; font-size: 12pt;">
                                         $<b data-bind="text:total"></b>
                                     </span>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <button data-bind="click:add2cart" class="btn btn-primary">Add to Cart</button>
+                    <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
                 </div>
             </div>
         </div>

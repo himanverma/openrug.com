@@ -1358,7 +1358,9 @@ display:table-cell
 .right-nav ul li a{float:left !important; padding: 0 4% 0 0 !important}
 .footer_logo > .col-sm-4{text-align:center !important;}
 .down_arrow {float: none!important; margin-top: 12px!important; text-align: center !important;}
-
+.well.well-sm{height: auto !important; width: 59px;}
+.support{float: left!important;}
+.shopping_icon{float: left!important;}
 
 .container-fluid {
 	margin-right:auto; 

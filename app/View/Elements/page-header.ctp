@@ -174,31 +174,11 @@
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Shape <b class="caret"></b></a>				
                                             <ul class="dropdown-menu megamenu row">
-                                                <li class="col-sm-2">
-                                                    <ul>
-                                                        <li><a href="#">Oval<br/><img src="images/oval.png" alt=""></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-sm-2">
-                                                    <ul>
-                                                        <li><a href="#">Square<br/><img src="images/sh-square.png" alt=""></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-sm-2">
-                                                    <ul>
-                                                        <li><a href="#">Round<br/><img src="images/sh-round.png" alt=""></a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="col-sm-2">
-                                                    <ul>
-                                                        <li><a href="#">Rectangular<br/><img src="images/sh-rect.png" alt=""></a></li>
-                                                    </ul>
-                                                </li>       
-                                                <li class="col-sm-2">
-                                                    <ul>
-                                                        <li><a href="#">Runner<br/><img src="images/sh-runner.png" alt=""></a></li>
-                                                    </ul>
-                                                </li>       
+                                                        <li><a href="#">Oval<br/><img src="images/oval.png" alt=""></a></li>                                                
+                                                        <li><a href="#">Square<br/><img src="images/sh-square.png" alt=""></a></li>                                                                                                   
+                                                        <li><a href="#">Round<br/><img src="images/sh-round.png" alt=""></a></li>                                                                                                
+                                                        <li><a href="#">Rectangular<br/><img src="images/sh-rect.png" alt=""></a></li>                                                
+                                                        <li><a href="#">Runner<br/><img src="images/sh-runner.png" alt=""></a></li>                                                  
                                             </ul>
                                         </li>
                                     </ul>
