@@ -68,7 +68,6 @@
 
                 <div class="col-sm-5 sm-p-trig">
                     <div class="im col-xs-3">
-                    <div class="im col-sm-3">
                         <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
                     </div>
                     <div class="im col-xs-3">

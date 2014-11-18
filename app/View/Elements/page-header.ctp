@@ -45,7 +45,7 @@
                     </div>  
                     <div class="col-sm-6 padding">
                         <div class="search">
-                            <div class="col-sm-9 padding"><input name="" type="text" value="Search..."></div> 
+                            <div class="col-sm-9 padding"><input name="" type="text" placeholder="Search..."></div> 
                             <div class="col-sm-3 padding"><input name="" type="submit" value="Search"></div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                         <li class="active"><a href="/">Home</a></li>
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Design<b class="caret"></b></a>				
-                                            <ul class="dropdown-menu megamenu row">
+<!--                                            <ul class="dropdown-menu megamenu row">
                                                 <li class="col-sm-3">
                                                     <ul>
                                                         <li class="dropdown-header">Glyphicons</li>
@@ -121,7 +121,7 @@
                                                         <li><a href="#">Inverted navbar</a></li>
                                                     </ul>
                                                 </li>
-                                            </ul>
+                                            </ul>-->
                                         </li>
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Color <b class="caret"></b></a>				

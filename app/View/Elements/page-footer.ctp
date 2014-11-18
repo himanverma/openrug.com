@@ -49,7 +49,7 @@
                         <div class="col-sm-3">
                             <ul class="footer_box_about_us">
                                 <h1>Customer Service</h1>
-                                <li><a href=""><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
+                                <li><a href="/contacts"><i class="fa fa-angle-double-right"></i>Contact Us</a></li>
                                 <li><a href=""><i class="fa fa-angle-double-right"></i>Returns</a></li>
                                 <li><a href=""><i class="fa fa-angle-double-right"></i>Site Map</a></li>
                             </ul>

@@ -10,9 +10,14 @@
     <div class="order_item">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-            <strong>Shipmet#1[2 items] <button class="btn btn-xs btn-success" type="button"><?php echo $orderList['Order']['status'];?></button></strong>
+            <strong>Shipment#1[2 items] <button class="btn btn-xs btn-success" type="button"><?php echo $orderList['Order']['status'];?></button></strong>
             <p>
-                <?php if($orderList['Order']['delivery_date']){
+                <?php
+                if($orderList['Order']['paypal_data_raw']){
+                    $paymentRecords=json_decode($orderList['Order']['paypal_data_raw']);
+//                    foreach($paymentRecords as $paymentRecord){
+                        echo $paymentRecords->ACK;
+//                    }
                     echo $orderList['Order']['delivery_date'];
                 }else{
                     echo 'Pending';
