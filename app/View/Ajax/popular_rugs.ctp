@@ -2,7 +2,24 @@
     <div class="row">
 
         <div class="col-sm-12"><br/>
-            <h1>popular rug designs</h1><br/><br/>
+            <h1>popular rug designs</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="dataTables_paginate paging_bootstrap" style="float:right;">
+                        <ul class="pagination" >
+                            <?php
+                            //echo $this->Paginator->sort('Rug.price', "Price", array('class' => "glyphicon glyphicon-sort btn btn-primary"));
+
+                            echo $this->Paginator->first(__('<< First', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
+                            echo $this->Paginator->prev('< ', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'prev disabled'));
+                            echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentTag' => 'a'));
+                            echo $this->Paginator->next(' >', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'next disabled'));
+                            echo $this->Paginator->last(__('>> Last', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <?php foreach ($popularGenrugs as $popularGenrug) { ?>
                     <div class="col-sm-2 col-xs-6" >
@@ -39,23 +56,7 @@
 
                 <?php } ?>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="dataTables_paginate paging_bootstrap" style="float:right;">
-                        <ul class="pagination" >
-                            <?php
-                            //echo $this->Paginator->sort('Rug.price', "Price", array('class' => "glyphicon glyphicon-sort btn btn-primary"));
-
-                            echo $this->Paginator->first(__('<< First', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
-                            echo $this->Paginator->prev('< ', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'prev disabled'));
-                            echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentTag' => 'a'));
-                            echo $this->Paginator->next(' >', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'next disabled'));
-                            echo $this->Paginator->last(__('>> Last', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            
             
         </div>
     </div>
