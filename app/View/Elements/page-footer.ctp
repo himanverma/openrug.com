@@ -91,11 +91,11 @@
 
             <div class="col-sm-4">
                 <div class="footer_logo">
-                    <div style="margin: 0 auto; width: 400px;">
-                        <a href="#"><img src="<?php echo $this->Html->url('/img/paypalLogoGrey.png'); ?>" alt=""></a>
-                       <!--<a href="#"><img src="<?php echo $this->Html->url('/images/f_logo1.png'); ?>" alt=""></a>-->
-                        <a href="#"><img src="<?php echo $this->Html->url('/images/f_logo2.png'); ?>" alt=""></a>
-                        <a href="#"><img src="<?php echo $this->Html->url('/images/f_logo3.png'); ?>" alt=""></a>
+                    <div style="margin: 0 auto; width:100%;text-align:center;">
+                       <div class="col-sm-4"> <a href="#"><i class="fa fa-cc-mastercard"></i></a></div>
+                     <!--<a href="#"><img src="<?php echo $this->Html->url('/images/f_logo1.png'); ?>" alt=""></a>-->
+                        <div class="col-sm-4"><a href="#"><img src="<?php echo $this->Html->url('/images/f_logo2.png'); ?>" alt=""></a></div>
+                        <div class="col-sm-4"><a href="#"><img src="<?php echo $this->Html->url('/images/f_logo3.png'); ?>" alt=""></a></div>
                     </div>
                 </div>
             </div>

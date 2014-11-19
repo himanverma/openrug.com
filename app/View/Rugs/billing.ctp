@@ -1,3 +1,4 @@
+   <div class="row">
 <div>
     <h2>Address</h2>
     <hr>
@@ -14,7 +15,7 @@
     </div>
     <hr>
     <form id="billCRX" role="form">
-        <div class="col-md-6 padding">
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-sm-12"><h4>Billing Address</h4></div>
@@ -50,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 padding">
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="col-sm-12"><div class="col-sm-6 padding"><h4>Delivery Address</h4></div>
@@ -88,7 +89,7 @@
             </div>
         </div>
         <hr />
-        <div class="col-md-12 padding">
+        <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="col-md-6 padding"> 
                     <div class="col-md-12"> <h4>Contact</h4></div>
@@ -109,6 +110,7 @@
             </div>
         </div>
     </form>
+</div>
 </div>
 <?php echo $this->Html->script(array('jquery.validate.min')); ?>
 <script type="text/javascript">

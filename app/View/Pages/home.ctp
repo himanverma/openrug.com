@@ -1,6 +1,6 @@
 <?php  echo $this->Html->script(array('addtocart.js'), array('inline' => false)); ?>
-<div class="row">
-    <div class="col-sm-12">
+<div class="col-sm-12 padding">
+    <div class="row">
         <div class="col-sm-4">
             <div class="banner_left">
                 <img src="images/new_left.png" alt="">
