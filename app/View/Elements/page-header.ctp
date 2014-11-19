@@ -12,7 +12,7 @@
                 <div class="col-sm-6 padding">
                     <div class="col-sm-12 padding" style="margin-top:20px;">
                         <div class="row">
-                            <div class="col-sm-5"> 
+                            <div class="col-sm-3"> 
                                 <div class="social">
                                     <div class="socil_link">
                                         <span>
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-4"><div class="support"><i class="fa fa-mobile-phone"></i><p>Support 1-800-8307847 </p></div></div>
-                            <div class="col-sm-3"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Shopping Cart</a></p></div></div>    
+                            <div class="col-sm-5"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Shopping Cart</a></p></div></div>    
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -69,7 +69,10 @@
                                             <ul class="dropdown-menu megamenu row">
                                                 <li class="col-sm-12">
                                                     <ul>
-                                                        <li class="dropdown-header">Style</li>
+                                                        <?php foreach($patterns as $_k => $_v){ ?>
+                                                        <li><a href="/rugs/bypattern/<?php echo $_k; ?>"><?php echo $_v; ?></a></li>
+                                                        <?php } ?>
+                                                        <!--<li class="dropdown-header">Style</li>
                                                         <li><a href="#">Available glyphs</a></li>
                                                         <li><a href="#">Designer Rugs </a></li>
                                                         <li><a href="#">Felt Rugs </a></li>
@@ -85,7 +88,7 @@
                                                         <li><a href="#">Border Rugs </a></li>
                                                         <li><a href="#">Braided Rugs </a></li>
                                                         <li><a href="#">Cotton Rugs </a></li>
-                                                        <li><a href="#">Cowhide Rugs</a></li>
+                                                        <li><a href="#">Cowhide Rugs</a></li>-->
                                                     </ul>
                                                 </li>
                                             </ul>

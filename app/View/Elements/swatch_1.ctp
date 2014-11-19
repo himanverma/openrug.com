@@ -14,16 +14,6 @@
             }
         }
         ksort($ar);
-        /* $tst = array();
-          for($i = 1; $i <= 600; $i++){
-          $name = $ar[$i];
-          $code = rtrim($name, ".png");
-          $code = explode("-", $code);
-          $code = $code[1];
-          $tst[$code] = array("file" => $ar[$i],"id"=>$i);
-          }
-          echo json_encode($tst);
-          exit; */
         for ($i = 1; $i <= 600; $i++) {
             $name = $ar[$i];
             $code = rtrim($name, ".png");

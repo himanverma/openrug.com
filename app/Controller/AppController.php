@@ -34,6 +34,46 @@ App::uses('CakeEmail', 'Network/Email');
 class AppController extends Controller {
     public $components = array('Auth','Session','Seo.BlackList');
     public $helpers = array('Cache','Html','Session','Form','Combinator.Combinator','Seo.Seo');
+    public $_patterns = array(
+                "ANM" => "Animal Print Rugs",
+                "AZN" => "Asian Rugs", 
+                "BRD" => "Braided Rugs",
+                "BRDR" => "Border Rugs",
+                "DSN" => "Designer Rugs",
+                "FLR" => "Floral Rugs",
+                "GB" => "Gabbeh Rugs",
+                "HILO" => "Textured Rugs",
+                "KID" => "Kids Rugs",
+                "KLM" => "Flat Woven Rugs",
+                "ODD" => "Odd Shaped Rugs",
+                "OUT" => "Outdoor Rugs",
+                "SHG" => "Shag Rugs",
+                "SLD" => "Solid Rugs",
+                "STR" => "Striped Rugs",
+                "SW" => "Southwestern Rugs",
+                "TBT" => "Tibetan Rugs",
+                "TRD" => "Traditional Rugs",
+                "COW" => "Cowhide Rugs",
+                "ECO" => "Natural Fiber Rugs",
+                "FLT" => "Felt Rugs",
+                "LTH" => "Leather Rugs",
+                "POLY" => "Acrylic Rugs",
+                "SHP" => "Sheepskin Rugs",
+                "SILK" => "Silk Rugs",
+                "WL" => "Wool Rugs",
+                "TTH" => "Thick yarn threads",
+                "PRT" => "Patterned Rugs",
+                "ART" => "Modern Abstract Rugs",
+                "THM" => "Medium-thick yarns",
+                "THT" => "Thin yarn threads",
+                "PHH" => "High pile height",
+                "PHM" => "Medium pile height",
+                "PHL" => "Low pile height",
+                "POP" => "Pop Art Rugs",
+                "TRN" => "Transitional Rugs",
+                "COT" => "Cotton Rugs",
+                "DYE" => "Overdyed Rugs",
+            );
     public function beforeFilter() {
         $this->_setSettings();
         parent::beforeFilter();
@@ -72,6 +112,7 @@ class AppController extends Controller {
         
         $this->loadModel('Size');
         $this->set("sizes_cart", $this->Size->find('all'));
+        $this->set("patterns",  $this->_patterns);
         
     }
     

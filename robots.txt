@@ -1,2 +1,3 @@
+Sitemap: http://rugbuilder.com/sitemap.xml
 User-agent: *
 Disallow: /seo/
