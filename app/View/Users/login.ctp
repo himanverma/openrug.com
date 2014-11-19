@@ -2,8 +2,8 @@
     <div class="row">
         <!--sign in start-->
         <div class="sign_main_in_box">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
                 <div class="sign_box_inn">
                     <div class="Sign_box_tittle"><h1>Sign in Here</h1></div>
                     <?php echo $this->Form->create('User'); ?>
@@ -36,7 +36,7 @@
                     <?php echo $this->Form->end(); ?>
                 </div>
             </div>
-            <div class="col-lg-2"></div>
+            <div class="col-lg-4"></div>
         </div>
         <!--sign in end-->
     </div>

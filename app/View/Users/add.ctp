@@ -5,8 +5,8 @@
             <div class="col-lg-12" style="text-align: center !important;">
                 <?php echo $this->Session->flash(); ?>
             </div>
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
                 <div class="sign_box_inn">
                     <div class="Sign_box_tittle"><h1>Sign up Here</h1></div>
                     <?php echo $this->Form->create('User'); ?>
@@ -56,7 +56,7 @@
                     </div>
                     <?php echo $this->Form->end(); ?>
                 </div> </div>
-            <div class="col-lg-2"></div>
+            <div class="col-lg-4"></div>
         </div>
         <!--sign in end-->
     </div>
