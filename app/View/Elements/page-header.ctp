@@ -132,11 +132,11 @@
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Shape <b class="caret"></b></a>				
                                             <ul class="dropdown-menu megamenu row">
-                                                        <li><a href="/rugs/shape/oval">Oval<br/><img src="images/oval.png" alt=""></a></li>                                                
-                                                        <li><a href="/rugs/shape/square">Square<br/><img src="images/sh-square.png" alt=""></a></li>                                                                                                   
-                                                        <li><a href="/rugs/shape/round">Round<br/><img src="images/sh-round.png" alt=""></a></li>                                                                                                
-                                                        <li><a href="/rugs/shape/rect">Rectangular<br/><img src="images/sh-rect.png" alt=""></a></li>                                                
-                                                        <li><a href="/rugs/shape/runner">Runner<br/><img src="images/sh-runner.png" alt=""></a></li>                                                  
+                                                        <li><a href="/rugs/shape/oval">Oval<br/><img src="/images/oval.png" alt=""></a></li>                                                
+                                                        <li><a href="/rugs/shape/square">Square<br/><img src="/images/sh-square.png" alt=""></a></li>                                                                                                   
+                                                        <li><a href="/rugs/shape/round">Round<br/><img src="/images/sh-round.png" alt=""></a></li>                                                                                                
+                                                        <li><a href="/rugs/shape/rect">Rectangular<br/><img src="/images/sh-rect.png" alt=""></a></li>                                                
+                                                        <li><a href="/rugs/shape/runner">Runner<br/><img src="/images/sh-runner.png" alt=""></a></li>                                                  
                                             </ul>
                                         </li>
                                     </ul>
