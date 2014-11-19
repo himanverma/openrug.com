@@ -54,6 +54,13 @@
                         </div>
                     </div>
 
+                <?php }  if(count($popularGenrugs) == 0){ ?>
+                <div class="col-lg-12">
+                    <center>
+                        <h2>No Results Found...</h2>
+                        <h3>Please choose another color.</h3>
+                    </center>
+                </div>
                 <?php } ?>
             </div>
             

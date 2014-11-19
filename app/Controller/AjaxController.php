@@ -44,6 +44,7 @@ class AjaxController extends AppController {
         $this->Paginator->settings = array(
                 'limit' => 18,
                 'order' => array('Genrug.id DESC'),
+                'contain' => array('Rug'),
                 'conditions' => array(
                     'Genrug.colorstamp LIKE' => "%".$color."%"
                 )
