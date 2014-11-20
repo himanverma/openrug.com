@@ -59,10 +59,17 @@ class CartController extends AppController {
             ));
         }
         if (!empty($order)) {
+            $this->loadModel('Genrug');
+            $genrug = $this->Genrug->find("first",array(
+                "conditions" => array(
+                    "Genrug.rug_id" => $d["rid"],
+                    "Genrug.colorstamp" => $d["clr"]
+                )
+            ));
             $item = $this->Order->Inlineitem->find("first", array(
                 "conditions" => array(
                     "Inlineitem.order_id" => $order['Order']['id'],
-                    "genrug_id" => $d["rid"],
+                    "genrug_id" => $genrug['Genrug']["id"],
                     "length" => $d["size"],
                     "bredth" => 0, //$d["b"],
                     "pile_size" => 0, //$d["s"],
@@ -73,7 +80,7 @@ class CartController extends AppController {
             $itemData = array(
                 "Inlineitem" => array(
                     "order_id" => $order['Order']['id'],
-                    "genrug_id" => $d["rid"],
+                    "genrug_id" => $genrug['Genrug']["id"],
                     "qty" => $d["qty"],
                     "length" => $d["size"],
                     "bredth" => 0, //$d["b"],

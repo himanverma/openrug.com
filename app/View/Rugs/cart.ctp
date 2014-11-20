@@ -16,13 +16,13 @@
                 <tr>
                     <td>
                         <div class="order_left">
-                            <img width="100%" data-bind="attr:{'src': '/files/gen/'+genrug_id()+'/'+colors()+'/'+shape()+'.png'} " />
+                            <img width="100%" data-bind="attr:{'src': '/files/gen/'+Genrug.rug_id()+'/'+colors()+'/'+shape()+'.png'} " />
                         </div>
                         <div class="order_right">
                             <strong></strong>
 
                             <p>
-                                Product id: <!-- ko text:Genrug.id()+'ITM'+Genrug.rug_id() --><!-- /ko --><br />
+                                Product id: <!-- ko text:Genrug.rug_id()+'ITM'+Genrug.id() --><!-- /ko --><br />
                                 Size: <!-- ko text:length() --><!-- /ko -->
                             </p>
 

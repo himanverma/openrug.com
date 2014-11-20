@@ -1,3 +1,8 @@
+<?php 
+//print_r($crug2);
+//exit; 
+
+?>
 <div class="row">
     <div class="single_pro">
         <form id="upd-clr-shp" method="post">
@@ -5,7 +10,7 @@
                 <div class="col-sm-3">
                     <div class="single_pro_menu">
                         <a href="#">home</a>  >  <a href="#">rugs</a>  >  <a href="#">natural</a>  >  <a href="#">tea time rug </a>
-                        <p>tea time rug   <span>product no: 1276034 </span></p>
+                        <p>tea time rug   <span>product no: <?php echo $crug['id']."ITM".$crug2['id']; ?> </span></p>
                         <div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>
                     </div>
                 </div>

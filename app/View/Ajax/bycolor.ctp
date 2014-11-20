@@ -25,7 +25,7 @@
                 <?php foreach ($popularGenrugs as $popularGenrug) { ?>
                     <div class="col-sm-2 col-xs-6" >
                         <div class="pro">
-                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id']); ?>">
+                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id'] . "/" . $popularGenrug['Genrug']['colorstamp']); ?>">
                                 <img src="/<?php echo $popularGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
                             </a> 
                             <p><?php echo $popularGenrug['Genrug']['description']; ?></p>

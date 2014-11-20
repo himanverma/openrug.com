@@ -1,12 +1,8 @@
-
     <div class="row">
-
-        <div class="col-sm-12">
+        <div class="col-sm-12"><br/>
+            <h1>Rugs by Pattern : <?php echo $patterns[$c_pattern]."($c_pattern)"; ?></h1>
             <div class="row">
-                <div class="col-lg-6">
-                    <h1>popular rug designs</h1>
-                </div>
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <div class="dataTables_paginate paging_bootstrap" style="float:right;">
                         <ul class="pagination" >
                             <?php
@@ -56,6 +52,13 @@
                         </div>
                     </div>
 
+                <?php }  if(count($popularGenrugs) == 0){ ?>
+                <div class="col-lg-12">
+                    <center>
+                        <h2>No Results Found...</h2>
+                        <h3>Please choose another pattern.</h3>
+                    </center>
+                </div>
                 <?php } ?>
             </div>
             

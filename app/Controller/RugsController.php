@@ -20,12 +20,16 @@ class RugsController extends AppController {
 
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow(array('genImg', 'editor', 'index','cart','billing','additionalRugs','shape',"bycolor"));
+        $this->Auth->allow(array('genImg', 'editor', 'index','cart','billing','additionalRugs','shape',"bycolor","bypattern"));
     }
     
     public function bycolor($color="4273b9"){
         $this->Session->write("Rugs.bycolor", $color);
         $this->set('color',$color);
+    }
+    public function bypattern($pattern="ANZ"){
+        $this->Session->write("Rugs.pattern", $pattern);
+        $this->set('c_pattern',$pattern);
     }
 
     public function shape($shape=null){

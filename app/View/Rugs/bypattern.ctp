@@ -14,7 +14,7 @@ var paginate = function(event) {
     getdata($(this).attr('href'));
 }
 function getdata(urle){
-if (urle.match(/\/Ajax\/bycolor*/i)) {
+if (urle.match(/\/Ajax\/bypattern*/i)) {
     $('#ajax-pplr').html("<br><br><br><center>loading...</center><br><br><br>");
 }
 
@@ -26,7 +26,7 @@ $.ajax({
       cache: false,
       success: function(html){
 
-        if (urle.match(/\/Ajax\/bycolor*/i)) {
+        if (urle.match(/\/Ajax\/bypattern*/i)) {
             $('#ajax-pplr').html(html);
         }
         $('.pagination a').click(paginate);
@@ -42,7 +42,7 @@ $.ajax({
     });
 }
 
-getdata('/Ajax/bycolor/<?php echo $color; ?>');
+getdata('/Ajax/bypattern/<?php echo $c_pattern; ?>');
 //getdata('/Ajax/recentRugs1/oval');
 </script>    
 <script id="clrbx-cart" type="text/html">

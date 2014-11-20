@@ -53,6 +53,21 @@ class AjaxController extends AppController {
         $this->set('popularGenrugs', $x);
         $this->set('color',$color);
     }
+    public function bypattern($pattern=null){
+        $this->layout = 'blank';
+        $this->loadModel('Genrug');
+        $this->Paginator->settings = array(
+                'limit' => 18,
+                'order' => array('Genrug.id DESC'),
+                'contain' => array('Rug'),
+                'conditions' => array(
+                    'Rug.pattern LIKE' => $pattern
+                )
+            );        
+        $x = $this->paginate("Genrug");
+        $this->set('popularGenrugs', $x);
+        $this->set('c_pattern',$pattern);
+    }
     
     
     

@@ -1,7 +1,7 @@
 <header>
     <div class="container-fluid">
         <div class="con_inn1">
-            <?php echo $this->element("page-top");?>
+            <?php echo $this->element("page-top"); ?>
             <div class="col-sm-12"> 
                 <div class="col-sm-2 padding">
                     <div class="logo">
@@ -64,72 +64,26 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li class="active"><a href="/">Home</a></li>
-                                        
-                                        <li class="dropdown menu-large">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traditionals <b class="caret"></b></a>    
-                                            <ul class="dropdown-menu megamenu row">
-                                             <li class="col-sm-3">
-                                              <ul>
-                                               <li><a href="#">Example</a></li>
-                                               <li><a href="#">Aligninment options</a></li>
-                                               <li><a href="#">Headers</a></li>
-                                               <li><a href="#">Disabled menu items</a></li>
-                                              </ul>
-                                             </li>
-                                             <li class="col-sm-3">
-                                              <ul>
-                                               <li><a href="#">Example</a></li>
-                                               <li><a href="#">Aligninment options</a></li>
-                                               <li><a href="#">Headers</a></li>
-                                               <li><a href="#">Disabled menu items</a></li>
-                                              </ul>
-                                             </li>
-                                             <li class="col-sm-3">
-                                              <ul>
-                                               <li><a href="#">Example</a></li>
-                                               <li><a href="#">Aligninment options</a></li>
-                                               <li><a href="#">Headers</a></li>
-                                               <li><a href="#">Disabled menu items</a></li>
-                                              </ul>
-                                             </li>
-                                             <li class="col-sm-3">
-                                              <ul>
-                                               <li><a href="#">Example</a></li>
-                                               <li><a href="#">Aligninment options</a></li>
-                                               <li><a href="#">Headers</a></li>
-                                               <li><a href="#">Disabled menu items</a></li>
-                                              </ul>
-                                             </li>
-                                            </ul>
-                                          </li>
-                                          
+
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Design <b class="caret"></b></a>    
                                             <ul class="dropdown-menu megamenu row">
-                                                <li class="col-sm-6">
-                                                    <ul>
-                                                        <?php foreach($patterns as $_k => $_v){ ?>
-                                                        <li><a href="/rugs/bypattern/<?php echo $_k; ?>"><?php echo $_v; ?></a></li>
-                                                        <?php } ?>
-                                                        <!--<li class="dropdown-header">Style</li>
-                                                        <li><a href="#">Available glyphs</a></li>
-                                                        <li><a href="#">Designer Rugs </a></li>
-                                                        <li><a href="#">Felt Rugs </a></li>
-                                                        <li><a href="#">Modern Abstract Rugs </a></li>
-                                                        <li><a href="#">Odd Shaped Rugs </a></li>
-                                                        <li><a href="#">Pop Art Rugs </a></li>
-                                                        <li><a href="#">Shag Rugs </a></li>
-                                                        <li><a href="#">Silk Rugs </a></li>
-                                                        <li><a href="#">Textured Rugs </a></li>
-                                                        <li><a href="#">Tibetan Rugs </a></li>
-                                                        <li><a href="#">Acrylic Rugs </a></li>
-                                                        <li><a href="#">Animal Print Rugs </a></li>
-                                                        <li><a href="#">Border Rugs </a></li>
-                                                        <li><a href="#">Braided Rugs </a></li>
-                                                        <li><a href="#">Cotton Rugs </a></li>
-                                                        <li><a href="#">Cowhide Rugs</a></li>-->
-                                                    </ul>
-                                                </li>
+                                                <?php 
+                                                    $cntr = 0;
+                                                    $cntr2 = 0;
+                                                    foreach ($patterns as $_k => $_v) { 
+                                                        $cntr++; $cntr2++;
+                                                        if($cntr == 1)
+                                                            echo '<li class="col-sm-3"><ul>';
+                                                 ?>
+                                                    <li><a href="/rugs/bypattern/<?php echo $_k; ?>"><?php echo $_v; ?></a></li>
+                                                <?php 
+                                                        if($cntr == 4 || $cntr2 == count($patterns)){
+                                                            echo '</ul></li>';
+                                                            $cntr = 0;
+                                                        }
+                                                    } 
+                                                ?>
                                             </ul>
                                         </li>
                                         <li class="dropdown menu-large">
@@ -141,15 +95,15 @@
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Shape <b class="caret"></b></a>				
                                             <ul class="dropdown-menu megamenu row">
-                                                        <li><a href="/rugs/shape/oval">Oval<br/><img src="/images/oval.png" alt=""></a></li>                                                
-                                                        <li><a href="/rugs/shape/square">Square<br/><img src="/images/sh-square.png" alt=""></a></li>                                                                                                   
-                                                        <li><a href="/rugs/shape/round">Round<br/><img src="/images/sh-round.png" alt=""></a></li>                                                                                                
-                                                        <li><a href="/rugs/shape/rect">Rectangular<br/><img src="/images/sh-rect.png" alt=""></a></li>                                                
-                                                        <li><a href="/rugs/shape/runner">Runner<br/><img src="/images/sh-runner.png" alt=""></a></li>                                                  
+                                                <li><a href="/rugs/shape/oval">Oval<br/><img src="/images/oval.png" alt=""></a></li>                                                
+                                                <li><a href="/rugs/shape/square">Square<br/><img src="/images/sh-square.png" alt=""></a></li>                                                                                                   
+                                                <li><a href="/rugs/shape/round">Round<br/><img src="/images/sh-round.png" alt=""></a></li>                                                                                                
+                                                <li><a href="/rugs/shape/rect">Rectangular<br/><img src="/images/sh-rect.png" alt=""></a></li>                                                
+                                                <li><a href="/rugs/shape/runner">Runner<br/><img src="/images/sh-runner.png" alt=""></a></li>                                                  
                                             </ul>
                                         </li>
                                     </ul>
-                                    
+
                                 </div>
                             </div>
                         </div>
