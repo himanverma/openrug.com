@@ -57,7 +57,7 @@ class TestController extends AppController {
     }
     public function beforeFilter() {
         parent::beforeFilter();
-        $this->Auth->allow('mail','test2');
+        $this->Auth->allow('mail','test2','payu');
     }
     public function mail(){
         $m = new CakeEmail("smtp");
@@ -81,5 +81,10 @@ class TestController extends AppController {
         $x = $this->paginate("Genrug");
         debug($x);
     }
+    
+    public function payu(){
+        
+    }
+    
 
 }

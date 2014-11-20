@@ -2,23 +2,24 @@
 <div class="profile">
     
     <div class="col-sm-9">
-        <h1>My Profile</h1>
+        
         <div class="form_new">
+            <h1>My Profile</h1>
             <span class="col-sm-6"><label>Name*</label></span>
             <span class="col-sm-6">
-                <?php echo $this->Form->input('full_name',array('label'=>'','div'=>FALSE))?>
+                <?php echo $this->Form->input('full_name',array('label'=>FALSE,'div'=>FALSE))?>
             </span>
         </div>
         <div class="form_new">
             <span class="col-sm-6"><label>Username*</label></span>
             <span class="col-sm-6">
-                <?php echo $this->Form->input('username',array('label'=>'','div'=>FALSE,'readonly'))?>
+                <?php echo $this->Form->input('username',array('label'=>FALSE,'div'=>FALSE,'readonly'))?>
             </span> 
         </div>
         <div class="form_new">
             <span class="col-sm-6"><label>Email*</label></span>
             <span class="col-sm-6">
-                <?php echo $this->Form->input('email',array('label'=>'','div'=>FALSE,'readonly'))?>
+                <?php echo $this->Form->input('email',array('label'=>FALSE,'div'=>FALSE,'readonly'))?>
             </span>
         </div>
         <div class="form_new">

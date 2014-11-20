@@ -9,7 +9,34 @@
                         <div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-2"></div>
+
+                <div class="col-sm-5 sm-p-trig">
+                    <div class="im col-xs-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                    </div>
+                    <div class="im col-xs-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                    </div>
+                    <div class="im col-xs-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                    </div>
+                    <div class="im col-xs-3">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                    </div> 
+                </div>
+            </div> 
+        </form>
+
+        <div class="single_page_pro">
+            <div class="col-lg-12">
+                <div class="col-lg-8">
+                    <div id="rug-preview">
+                        <img align="center" class="well well-sm" style="height: auto; width: 90%;" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
+                    </div>
+                </div>
+                <div class="col-lg-4">
                     <div class="edit_color">
                         Edit Colours:
                         <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
@@ -23,10 +50,7 @@
                         <?php } ?>
                         </span> 
                            <!-- <a href="#"><i class="fa fa-plus-square"></i></a> -->
-
                     </div>
-                </div>
-                <div class="col-sm-2">
                     <div class="edit_shape">
                         Edit Shape: 
                         <span class="swatch-picker">
@@ -64,33 +88,8 @@
                         </span>
                         <a href="#"><i class="fa fa-plus-square"></i></a>
                     </div>
-                </div>
-
-                <div class="col-sm-5 sm-p-trig">
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
-                    </div>
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
-                    </div>
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
-                    </div>
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
-                    </div> 
-                </div>
-            </div> 
-        </form>
-
-        <div class="single_page_pro">
-            <div class="col-lg-12">
-                <div class="col-lg-9">
-                    <div id="rug-preview">
-                        <img align="center" class="well well-sm" style="height: auto; width: 90%;" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
-                    </div>
-                </div>
-                <div class="col-lg-3">
+                    
+                    
                     <h5 class="pull-right" style="text-transform: uppercase; margin-top: 20px;">SKU: <?php
                         $sku_pre = md5($crug['name']);
                         $sku_pre = str_split($sku_pre, 3);
@@ -123,9 +122,9 @@
                         </div>
 
                         <?php if ($crug['discount'] != 0) { ?>
-                            <div class="col-lg-12" style="color: green;">
-                                <div class="col-sm-8"><b>Discount : </b></div>
-                                <div class="col-sm-4"><?php echo $crug['discount']; ?>%</div>
+                            <div class="row" style="color: green;">
+                                <div class="col-xs-6"><b>Discount : </b></div>
+                                <div class="col-xs-6"><?php echo $crug['discount']; ?>%</div>
                             </div>
                         <?php } ?>
                     </div>
@@ -162,6 +161,7 @@
                         </tbody>
                     </table>
                     <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
+                    <button data-bind="click:add2cart" class="addtocart1">Checkout</button>
                 </div>
             </div>
         </div>

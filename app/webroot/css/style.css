@@ -2750,6 +2750,21 @@ i.name{
     font-size: 5em;
 }	
 	
-	
-	
+.edit_shape img{
+    width: auto;
+}
+.swatch-pick > table {
+    float: left;
+    width: auto;
+}
+.swatch-pick > table td {
+    float: left;
+    width: auto;
+}
+.swatch-pick{
+    left: -252px;
+}
+.pagination{
+    margin: 5px 0 !important;
+}
 	

@@ -1361,6 +1361,9 @@ display:table-cell
 .well.well-sm{height: auto !important; width: 59px;}
 .support{float: left!important;}
 .shopping_icon{float: left!important;}
+.swatch-pick{
+    left: 0px !important;
+} 
 
 .container-fluid {
 	margin-right:auto; 

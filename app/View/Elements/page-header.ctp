@@ -12,7 +12,7 @@
                 <div class="col-sm-6 padding">
                     <div class="col-sm-12 padding" style="margin-top:20px;">
                         <div class="row">
-                            <div class="col-sm-3"> 
+                            <div class="col-sm-5"> 
                                 <div class="social">
                                     <div class="socil_link">
                                         <span>
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-4"><div class="support"><i class="fa fa-mobile-phone"></i><p>Support 1-800-8307847 </p></div></div>
-                            <div class="col-sm-5"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Shopping Cart</a></p></div></div>    
+                            <div class="col-sm-3"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Shopping Cart</a></p></div></div>    
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -64,10 +64,49 @@
                                 <div class="navbar-collapse collapse">
                                     <ul class="nav navbar-nav">
                                         <li class="active"><a href="/">Home</a></li>
+                                        
+                                        <li class="dropdown menu-large">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Traditionals <b class="caret"></b></a>    
+                                            <ul class="dropdown-menu megamenu row">
+                                             <li class="col-sm-3">
+                                              <ul>
+                                               <li><a href="#">Example</a></li>
+                                               <li><a href="#">Aligninment options</a></li>
+                                               <li><a href="#">Headers</a></li>
+                                               <li><a href="#">Disabled menu items</a></li>
+                                              </ul>
+                                             </li>
+                                             <li class="col-sm-3">
+                                              <ul>
+                                               <li><a href="#">Example</a></li>
+                                               <li><a href="#">Aligninment options</a></li>
+                                               <li><a href="#">Headers</a></li>
+                                               <li><a href="#">Disabled menu items</a></li>
+                                              </ul>
+                                             </li>
+                                             <li class="col-sm-3">
+                                              <ul>
+                                               <li><a href="#">Example</a></li>
+                                               <li><a href="#">Aligninment options</a></li>
+                                               <li><a href="#">Headers</a></li>
+                                               <li><a href="#">Disabled menu items</a></li>
+                                              </ul>
+                                             </li>
+                                             <li class="col-sm-3">
+                                              <ul>
+                                               <li><a href="#">Example</a></li>
+                                               <li><a href="#">Aligninment options</a></li>
+                                               <li><a href="#">Headers</a></li>
+                                               <li><a href="#">Disabled menu items</a></li>
+                                              </ul>
+                                             </li>
+                                            </ul>
+                                          </li>
+                                          
                                         <li class="dropdown menu-large">
                                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">By Design <b class="caret"></b></a>    
                                             <ul class="dropdown-menu megamenu row">
-                                                <li class="col-sm-12">
+                                                <li class="col-sm-6">
                                                     <ul>
                                                         <?php foreach($patterns as $_k => $_v){ ?>
                                                         <li><a href="/rugs/bypattern/<?php echo $_k; ?>"><?php echo $_v; ?></a></li>
