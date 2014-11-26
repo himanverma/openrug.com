@@ -33,6 +33,13 @@
         
         Router::parseExtensions('rss','xml');  //parse XML extension
         Router::connect('/sitemap', array('controller' => 'sitemaps', 'action' => 'index')); //rewrite URL
+        
+        App::uses("Staticpage", "Model");
+        $n = new Staticpage();
+        $nx = $n->find("all");
+        foreach ($nx as $nr){
+            Router::connect('/'.$nr['Staticpage']['slug'], array('controller' => 'Staticpages', 'action' => 'view',$nr['Staticpage']['id']));
+        }
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

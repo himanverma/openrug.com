@@ -29,5 +29,13 @@ class StaticpagesController extends AppController {
             }
         }
     }
+    public function view($id=null){
+        $this->set("content", $x = $this->Staticpage->find("first", array(
+            'conditions' => array(
+                'Staticpage.id' => $id
+            )
+        )));
+        $this->set("title_for_layout", $x['Staticpage']['title']);
+    }
     
 }

@@ -100,7 +100,7 @@
                                 </tbody>
                                 </table>
                                 </div>
-                                <input type="button" value="Next step-Address >" data-bind="click: checkOut" class="next_step">
+                                <input type="button" class="addtocart1" value="Next step-Address >" data-bind="click: checkOut" class="next_step" /> 
                                 </div>
 
 

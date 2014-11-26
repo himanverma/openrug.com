@@ -1,8 +1,3 @@
-<?php 
-//print_r($crug2);
-//exit; 
-
-?>
 <div class="row">
     <div class="single_pro">
         <form id="upd-clr-shp" method="post">
@@ -42,6 +37,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
+                    <form method="post">
                     <div class="edit_color">
                         Edit Colours:
                         <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
@@ -93,7 +89,7 @@
                         </span>
                         <a href="#"><i class="fa fa-plus-square"></i></a>
                     </div>
-                    
+                    </form>
                     
                     <h5 class="pull-right" style="text-transform: uppercase; margin-top: 20px;">SKU: <?php
                         $sku_pre = md5($crug['name']);
@@ -229,77 +225,13 @@
 
 
 
-                <div class="poplular_rug">
-                    <h1>Additional Colours</h1>  
-                    <div class="row">
-
-                        <div class="col-sm-12 padding">
-                            <div class="pro_right">
-
-
-                                <?php
-                                foreach ($rugDiscounts as $rug) {
-                                    foreach ($rug['Genrug'] as $genrug) {
-                                        ?>
-                                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $rug['Rug']['id'] . "/" . $genrug['colorstamp']); ?>">
-                                            <div class="col-md-2 col-sm-4 col-xs-6">
-                                                <div class="product_main">
-                                                    <img alt="" src="<?php echo $this->Html->url('../' . $genrug['path'] . "pre.png"); ?>">
-                                                    <p><?php echo $rug['Rug']['description']; ?></p>
-                                                    <div class="add_cart2">
-                                                        <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span>
-                                                        <div class="rupee">
-                                                            <?php
-                                                            $aa = ($genrug['price'] * $rug['Rug']['discount']) / 100;
-                                                            $bb = $genrug['price'] - $aa;
-                                                            ?>
-                                                            <p>$<?php echo $bb; ?>   <span>$<?php echo $genrug['price']; ?></span></p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <?php
-                                    }
-                                }
-                                ?>
-                            </div>    
-                        </div>
-                    </div>
+                <div class="popular_rug" id="ajax-pplr">
+    
                 </div>
-                <div class="top_rug">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1>You may also like</h1>
-                            <div class="row">
-                                <?php
-                                foreach ($popularGenrugs as $popularGenrug) {
-                                    if ($popularGenrug['Rug']['id'] == $r_id) {
-                                        continue;
-                                    }
-                                    ?>
-                                    <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Rug']['id']); ?>">
-                                        <div class="col-sm-2 col-xs-6">
-                                            <div class="pro">
-                                                <img src="/<?php echo $popularGenrug['Genrug']['path'] . "pre.png"; ?>" alt="">
-                                                <p><?php echo $popularGenrug['Rug']['description']; ?></p>
-                                                <div class="add_cart">
-                                                    <div class="col-xs-9 padding">
-                                                        <span><i class="fa fa-shopping-cart"></i><a href="#">Add to Cart</a></span></div>
-                                                    <div class="col-xs-3 padding">
-                                                        <div class="view">
-                                                            <a href="#"><i class="fa fa-eye"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
+                <div class="top_rug" id="ajax-rcnt">
+    
                 </div>
+                
             </div>
         </div>
     </div>
@@ -345,7 +277,8 @@
         color: #505050;
         float: left;
         font-size: 11px;
-        line-height: 28px;
+/*        line-height: 28px;*/
+        line-height: 23px;
     }
 
     .add_cart2 span{
@@ -368,17 +301,17 @@ $this->end();
             $(this).css({'box-shadow': 'none'});
         });
 
-        $('.trig-clr').on("click", function() {
+        $('.trig-clr').off("click").on("click", function() {
             var clr = $(this).data().clr;
-            console.log($(this).parent().parent().parent().parent().parent());
             $(this).parent().parent().parent().parent().parent().parent().find('input').val(clr);
             $(this).parents('form').submit();
+            return false;
         });
-        $('#shape-pick img').on("click", function() {
+        $('#shape-pick img').off("click").on("click", function() {
             var shp = $(this).data().shp;
-            console.log(shp);
             $(this).parent().parent().parent().parent().parent().find('input').val(shp);
-            $(this).parents('form').submit();
+            $(this).closest('form').submit();
+            return false;
         });
 
         $('#upd-clr-shp').ajaxForm({
@@ -451,6 +384,88 @@ foreach ($sizes_cart as $s) {
 
         }
     }
-
-
 </script>    
+<script type="text/javascript">
+$(document).ready(function () {
+    $('.pagination a').click(paginate);
+});
+
+var paginate = function(event) {
+    event.preventDefault();
+    var href;
+    href = $(this).attr('href');
+    getdata($(this).attr('href'));
+}
+function getdata(urle){
+if (urle.match(/\/popularRugs*/i)) {
+    $('#ajax-pplr').html("<br><br><br><center>loading...</center><br><br><br>");
+}
+if (urle.match(/\/recentRugs*/i)) {
+    $('#ajax-rcnt').html("<br><br><br><center>loading...</center><br><br><br>");
+}
+
+
+
+$.ajax({
+      url: urle,
+      cache: false,
+      success: function(html){
+
+        if (urle.match(/\/popularRugs*/i)) {
+            $('#ajax-pplr').html(html);
+        }
+        if (urle.match(/\/recentRugs*/i)) {
+            $('#ajax-rcnt').html(html);
+        }
+        $('.pagination a').click(paginate);
+        $('.addtocart').on("click",function(e){
+            var clrObj = new EditorVM($(this).data('price'),$(this).data('rid'),$(this).data('cstamp'),$(this).data('discount'));
+            var html = $('#clrbx-cart').html();
+            $.colorbox({html:html});
+            try{ ko.cleanNode($('#cboxContent')[0]); }catch(e){console.log(e);}
+            ko.applyBindings(clrObj,$('#cboxContent')[0]);
+            return false;
+        });
+      }
+    });
+}
+
+getdata('/Ajax/popularRugs');
+getdata('/Ajax/recentRugs');
+</script>
+<script id="clrbx-cart" type="text/html">
+    <div>
+        <h2>Add to cart</h2><hr />
+        <table>
+            <tr>
+                <td><b>Shape:</b></td>
+                <td>
+                    <select data-bind="value:shp" class="form-control sm">
+                        <option value="round">ROUND</option>
+                        <option value="oval">OVAL</option>
+                        <option value="rect">RECTANGULAR</option>
+                        <option value="square">SQUARE</option>
+                        <option value="runner">RUNNER</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Size:</b></td>
+                <td><select data-bind="options: sizes, optionsText: 'label', optionsValue: 'label' , value:size" class="form-control sm"  ></select></td>
+            </tr>
+            <tr>
+                <td><b>Quantity:</b></td>
+                <td><select id="odr-qty" class="form-control sm" data-bind="value:qty ">
+                    <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                        <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                    <?php } ?>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button class="btn btn-default" data-bind="click:add2cart">Add to Cart</button></td>
+            </tr>
+        </table>
+    </div>
+</script>

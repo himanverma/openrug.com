@@ -16,14 +16,19 @@ if(isset($this->request->data['Staticpage'])){
                         'div' => array('class'=>'form-group'),
                         'class' => 'form-control'
                     ));
+                    
                     echo $this->Form->input("slug", array(
                         'div' => array('class'=>'form-group'),
                         'class' => 'form-control'
                     ));
+                    
                     echo $this->Form->input("content", array(
                         'div' => array('class'=>'form-group'),
                         'class' => 'form-control'
-                    ))
+                    ));
+                    
+                    if($id != "")
+                        echo $this->Form->input("id",array('type'=>'hidden'));
                 ?>
             </div>
             <div class="box-footer">

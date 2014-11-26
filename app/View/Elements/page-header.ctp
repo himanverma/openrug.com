@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-4"><div class="support"><i class="fa fa-mobile-phone"></i><p>Support 1-800-8307847 </p></div></div>
-                            <div class="col-sm-3"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="#">Shopping Cart</a></p></div></div>    
+                            <div class="col-sm-3"><div class="shopping_icon"><a href="#"><i class="fa fa-shopping-cart"></i></a><p><a href="/rugs/cart">Shopping Cart</a></p></div></div>    
                         </div>
                     </div>
                     <div class="col-sm-6">
