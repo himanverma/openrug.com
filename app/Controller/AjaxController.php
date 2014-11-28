@@ -25,8 +25,10 @@ class AjaxController extends AppController {
             );        
         $x = $this->paginate("Genrug");
         $this->set('popularGenrugs', $x);
+        $this->set("view",$this->request->query("view"));
     }
     public function recentRugs(){
+        
         $this->layout = 'blank';
         $this->loadModel('Genrug');
         $this->Paginator->settings = array(
@@ -36,6 +38,7 @@ class AjaxController extends AppController {
             );        
         $x = $this->paginate("Genrug");
         $this->set('recentGenrugs', $x);
+        $this->set("view",$this->request->query("view"));
     }
     
     public function bycolor($color=null){
@@ -52,6 +55,7 @@ class AjaxController extends AppController {
         $x = $this->paginate("Genrug");
         $this->set('popularGenrugs', $x);
         $this->set('color',$color);
+        $this->set("view",$this->request->query("view"));
     }
     public function bypattern($pattern=null){
         $this->layout = 'blank';
@@ -67,6 +71,7 @@ class AjaxController extends AppController {
         $x = $this->paginate("Genrug");
         $this->set('popularGenrugs', $x);
         $this->set('c_pattern',$pattern);
+        $this->set("view",$this->request->query("view"));
     }
     
     

@@ -1,24 +1,7 @@
     <div class="row">
         <div class="col-sm-12"><br/>
             <div class="row">
-                <div class="col-lg-6">
-                    <h1>recent rug designs</h1>
-                </div>
-                <div class="col-lg-6">
-                    <div class="dataTables_paginate paging_bootstrap" style="float:right;">
-                        <ul class="pagination" >
-                            <?php
-                            //echo $this->Paginator->sort('Rug.price', "Price", array('class' => "glyphicon glyphicon-sort btn btn-primary"));
-
-                            echo $this->Paginator->first(__('<< First', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
-                            echo $this->Paginator->prev('< ', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'prev disabled'));
-                            echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentTag' => 'a'));
-                            echo $this->Paginator->next(' >', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'next disabled'));
-                            echo $this->Paginator->last(__('>> Last', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
-                            ?>
-                        </ul>
-                    </div>
-                </div>
+                <?php echo $this->element("pager-common",array("title" => "popular rug designs","visible" => true)); ?>
             </div>
             <div class="row">
                 <?php foreach ($recentGenrugs as $recentGenrug) { ?>
@@ -57,4 +40,4 @@
             
         </div>
     </div>
-</div>
+

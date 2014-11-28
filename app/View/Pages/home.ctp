@@ -152,7 +152,7 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function () {
-    $('.pagination a').click(paginate);
+    $('.pagination a').off("click").on("click",paginate);
 });
 
 var paginate = function(event) {
@@ -160,6 +160,7 @@ var paginate = function(event) {
     var href;
     href = $(this).attr('href');
     getdata($(this).attr('href'));
+    return false;
 }
 function getdata(urle){
 if (urle.match(/\/popularRugs*/i)) {
@@ -182,8 +183,9 @@ $.ajax({
         if (urle.match(/\/recentRugs*/i)) {
             $('#ajax-rcnt').html(html);
         }
-        $('.pagination a').click(paginate);
+        $('.pagination a').off("click").on("click",paginate);
         $('.addtocart').on("click",function(e){
+            e.preventDefault();
             var clrObj = new EditorVM($(this).data('price'),$(this).data('rid'),$(this).data('cstamp'),$(this).data('discount'));
             var html = $('#clrbx-cart').html();
             $.colorbox({html:html});

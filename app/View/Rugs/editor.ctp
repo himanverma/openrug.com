@@ -1,6 +1,6 @@
 <div class="row">
     <div class="single_pro">
-        <form id="upd-clr-shp" method="post">
+        <form method="post">
             <div class="color_editor">
                 <div class="col-sm-3">
                     <div class="single_pro_menu">
@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <form method="post">
+                    <form id="upd-clr-shp" method="post">
                     <div class="edit_color">
                         Edit Colours:
                         <?php for ($i = 0; $i < $colorCount; $i++) { ?>    

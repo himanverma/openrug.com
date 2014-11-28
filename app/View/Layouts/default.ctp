@@ -107,6 +107,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                 $(".down_arrow").click(function() {
                     $(".footer_menu").toggle();
                 });
+                $( document ).ajaxComplete(function() {
+                    $("[data-toggle=tooltip]").tooltip();
+                });
             });
         </script>
         <?php echo $this->Seo->honeyPot(); ?>

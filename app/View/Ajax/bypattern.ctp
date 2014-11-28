@@ -2,21 +2,7 @@
         <div class="col-sm-12"><br/>
             <h1>Rugs by Pattern : <?php echo $patterns[$c_pattern]."($c_pattern)"; ?></h1>
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="dataTables_paginate paging_bootstrap" style="float:right;">
-                        <ul class="pagination" >
-                            <?php
-                            //echo $this->Paginator->sort('Rug.price', "Price", array('class' => "glyphicon glyphicon-sort btn btn-primary"));
-
-                            echo $this->Paginator->first(__('<< First', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
-                            echo $this->Paginator->prev('< ', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'prev disabled'));
-                            echo $this->Paginator->numbers(array('separator' => '', 'tag' => 'li', 'currentTag' => 'a'));
-                            echo $this->Paginator->next(' >', array('tag' => 'li', 'disabledTag' => 'a'), null, array('disabledTag' => 'a', 'tag' => 'li', 'class' => 'next disabled'));
-                            echo $this->Paginator->last(__('>> Last', true), array('tag' => 'li'), array('tag' => 'li', 'class' => 'number-first'));
-                            ?>
-                        </ul>
-                    </div>
-                </div>
+                <?php echo $this->element("pager-common",array("title" => "recent rug designs")); ?>
             </div>
             <div class="row">
                 <?php foreach ($popularGenrugs as $popularGenrug) { ?>
@@ -69,5 +55,35 @@
     .pagination .current a {
         background: blue;
         color: #fff;
+    }
+    .cstamp-list img {
+        margin: 4px;
+        height: 30px;
+        width: 30px;
+    }
+
+    .list_price{
+        width: 100%;
+        float: left;
+    }
+    .cart_list_view {
+        border-bottom: 1px solid #f1f1f1;
+        float: left;
+        padding: 20px 0;
+        width: 100%;
+    }
+    .list_small_images img {
+        float: left;
+        margin-right: 8px;
+        margin-bottom: 20px;
+        width: 80px;
+        height: 65px;
+    }
+    .list_price_p {
+        float: left;
+        height: 42px;
+        margin: 5px 0;
+        overflow: hidden;
+        width: 100%;
     }
 </style>
