@@ -3,43 +3,108 @@
     <div class="col-sm-12"><br/>
         <h1>rug of shape</h1>
         <div class="row">
-            <?php echo $this->element("pager-common",array("title" => "recent rug designs")); ?>
+            <?php echo $this->element("pager-common", array("title" => "recent rug designs")); ?>
         </div>
         <div class="row">
-            <?php foreach ($popularGenrugs as $popularGenrug) { ?>
-                <div class="col-sm-2 col-xs-6" >
-                    <div class="pro">
-                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id'] . "/" . $popularGenrug['Genrug']['colorstamp'] . "/" . $shape); ?>">
-                            <img src="/<?php echo $popularGenrug['Genrug']['path'] . $shape . ".png"; ?>" alt="">
-                        </a> 
-                        <p><?php echo $popularGenrug['Genrug']['description']; ?></p>
-                        <strong><?php echo $popularGenrug['Genrug']['description']; ?>$ <?php echo $popularGenrug['Genrug']['price']; ?>/sq.ft.</strong><!-- this is custom changes please edit correct code-->
-                        <div class="add_cart">
-                            <div class="col-sm-9 padding">
-                                <span>
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <a href="javascript:void()" class="addtocart"
-                                       data-price="<?php echo $popularGenrug['Genrug']['price']; ?>"
-                                       data-rid="<?php echo $popularGenrug['Rug']['id']; ?>"
-                                       data-cstamp="<?php echo $popularGenrug['Genrug']['colorstamp']; ?>"
-                                       data-discount="<?php echo $popularGenrug['Rug']['discount']; ?>"
-                                       id="<?php echo $popularGenrug['Genrug']['id']; ?>">
-                                        Add to Cart
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="col-sm-3 padding">
-                                <div class="view">
-                                    <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id']); ?>">
-                                        <i class="fa fa-eye"></i>
-                                    </a>
+            <?php
+            if ($view != "list") {
+                foreach ($popularGenrugs as $popularGenrug) {
+                    ?>
+                    <div class="col-sm-2 col-xs-6" >
+                        <div class="pro">
+                            <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id'] . "/" . $popularGenrug['Genrug']['colorstamp'] . "/" . $shape); ?>">
+                                <img src="/<?php echo $popularGenrug['Genrug']['path'] . $shape . ".png"; ?>" alt="">
+                            </a> 
+                            <p><?php echo $popularGenrug['Genrug']['description']; ?></p>
+                            <strong><?php echo $popularGenrug['Genrug']['description']; ?>$ <?php echo $popularGenrug['Genrug']['price']; ?>/sq.ft.</strong><!-- this is custom changes please edit correct code-->
+                            <div class="add_cart">
+                                <div class="col-sm-9 padding">
+                                    <span>
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <a href="javascript:void()" class="addtocart"
+                                           data-price="<?php echo $popularGenrug['Genrug']['price']; ?>"
+                                           data-rid="<?php echo $popularGenrug['Rug']['id']; ?>"
+                                           data-cstamp="<?php echo $popularGenrug['Genrug']['colorstamp']; ?>"
+                                           data-discount="<?php echo $popularGenrug['Rug']['discount']; ?>"
+                                           id="<?php echo $popularGenrug['Genrug']['id']; ?>">
+                                            Add to Cart
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="col-sm-3 padding">
+                                    <div class="view">
+                                        <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id']); ?>">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <?php
+                }
+            } else {
+                foreach ($popularGenrugs as $popularGenrug) {
+                    ?>
+                    <div class="cart_list_view">
+                        <div class="col-sm-12">
+                            <div class="col-sm-2">
+                                <img src="/<?php echo $popularGenrug['Genrug']['path'] . $shape . ".png"; ?>" class="img-thumbnail" width="100%" />
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="list_small_images">
+                                    <img src="/<?php echo $popularGenrug['Genrug']['path'] . $shape."1.png"; ?>" onerror="$(this).remove();" class="img-thumbnail" width="100%" />
+                                    <img src="/<?php echo $popularGenrug['Genrug']['path'] . $shape."2.png"; ?>" onerror="$(this).remove();" class="img-thumbnail" width="100%" />
+                                    <img src="/<?php echo $popularGenrug['Genrug']['path'] . $shape."3.png"; ?>" onerror="$(this).remove();" class="img-thumbnail" width="100%" />
+                                    <img src="/<?php echo $popularGenrug['Genrug']['path'] . $shape."4.png"; ?>" onerror="$(this).remove();" class="img-thumbnail" width="100%" />
+                                </div>
+                            </div>
 
-            <?php } ?>
+
+                            <div class="col-sm-7">
+                                <a href="<?php echo $this->Html->url('/rugs/editor/' . $popularGenrug['Genrug']['rug_id'] . "/" . $popularGenrug['Genrug']['colorstamp'] . "/" . $shape); ?>">
+                                    <h1><?php echo $popularGenrug['Genrug']['name'] . "(" . $popularGenrug['Genrug']['colorstamp'] . ")"; ?></h1>
+                                </a>
+                                <span class="list_price_p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</span>
+
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-8">
+                                            <div class="row">
+                                                <p class="cstamp-list" data-bind="swatch:{'clrstamp':'<?php echo $popularGenrug['Genrug']['colorstamp']; ?>'}"></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="list_price">
+                                                <strong>$ 17.00/sq.ft.</strong>
+                                                <div class="add_cart add_cart_list">
+                                                    <div class="col-sm-9 padding">
+                                                        <span>
+                                                            <i class="fa fa-shopping-cart"></i>
+                                                            <a id="1" data-discount="5" data-cstamp="4273b9-98b9c6" data-rid="5" data-price="17.00" class="addtocart" href="javascript:void()">
+                                                                Add to Cart
+                                                            </a>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-sm-3 padding">
+                                                        <div class="view">
+                                                            <a href="#"><i class="fa fa-eye"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <?php
+                }
+            }
+            ?>
         </div>
 
 

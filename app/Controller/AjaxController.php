@@ -89,6 +89,7 @@ class AjaxController extends AppController {
         $x = $this->paginate("Genrug");
         $this->set('popularGenrugs', $x);
         $this->set('shape',$shape);
+        $this->set("view",$this->request->query("view"));
     }
     
    
