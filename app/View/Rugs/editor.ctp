@@ -5,8 +5,8 @@
                 <div class="col-sm-3">
                     <div class="single_pro_menu">
                         <a href="#">home</a>  >  <a href="#">rugs</a>  >  <a href="#">natural</a>  >  <a href="#">tea time rug </a>
-                        <p>tea time rug   <span>product no: <?php echo $crug['id']."ITM".$crug2['id']; ?> </span></p>
-                        <div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>
+                        <p>tea time rug   <br /><span>product no: <?php echo $crug['id']."ITM".$crug2['id']; ?> </span></p>
+                        <!--<div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>-->
                     </div>
                 </div>
                 <div class="col-sm-2"></div>
@@ -129,6 +129,51 @@
                             </div>
                         <?php } ?>
                     </div>
+                    <table>
+                        <tr class="input_tr">
+                            <td>
+                                <p class="input_p">Width:</p>
+                            </td>
+                            <td>
+                                <input class="input_ft"  type="text" /> <label class="input_label"> ft.</label> <input class="input_ft" type="text" /> <label class="input_label">in.</label>
+                            </td>
+                        </tr>
+                        <tr class="input_tr">
+                            <td>
+                                <p class="input_p">Height:</p>
+                            </td>
+                            <td>
+                                <input class="input_ft" type="text" /><label class="input_label"> ft.</label> <input class="input_ft" type="text" /> <label class="input_label">in.</label>
+                            </td>
+                        </tr>
+                        <tr class="input_psf">
+                            <td>
+                                <p class="input_p">Carving:</p>
+                            </td>
+      
+                            <td>
+                                <p class="input_pp">(+$1.50 psf):</p>
+                            </td>
+                            <td>
+                                <select class="input_select">
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </td>
+                        </tr>
+                         <tr class="input_psf">
+                            <td>
+                                <p class="input_p">Pile Depth:</p>
+                            </td>
+                     
+                       
+                            <td>
+                                <p class="input_pile"><input type="radio" name="pl_depth" value="1/2">1/2"</p>
+                                <p class="input_pile"><input type="radio" name="pl_depth" value="5/8">5/8"</p>
+                                <p class="input_pile"><input type="radio" name="pl_depth" value="3/4">3/4"</p>
+                            </td>
+                        </tr>
+                    </table>
 
                     <table class="table">
                         <thead>
@@ -188,19 +233,60 @@
 
                 border-right:1px solid #ccc;
             }
+            
+            .input_ft{
+               border: 1px solid #a8a8a8;
+                border-radius: 0;
+                float: left;
+                width: 40px; 
+            }
+            .input_label{
+               float: left;
+               margin:0 5px;
+               font-weight: normal;
+            }
+            .input_tr{
+                margin-bottom: 10px;
+                clear: both;
+                float: left;
+            }
+            .input_psf{
+                margin-bottom: 5px;
+                clear: both;
+                float: left;
+            }
+            .input_p{
+                float: left;
+                margin-right: 5px;
+                line-height: 26px;
+                margin-bottom: 0;
+                width: 75px;
+            }
+            .input_pp{
+                float: left;
+                margin-right: 5px;
+                line-height: 26px;
+                margin-bottom: 0;
+            }
+            .input_select{
+                float: left;
+                height: 26px;
+            }
+            .input_pile{
+                float: left;
+                margin-left: 10px;
+                margin-bottom: 0;
+            }
+            .input_pile:first-child{
+                margin-left: 0px;
+            }
         </style>
         <div class="calculate_price">
             <div class="col-sm-12">
                 <div class="candy_rug">
                     <div class="col-sm-7 padding">
-                        <h1>candy rug <span>product no: 2077677</span></h1>
-                        <p>The candy wool rug is hand made to measure and exclusive to rug builder.</p>
-
-                        <p>Hand-tufted pure wool with a luxurious pile weight of 3000g/m² and pile depth of 12-14mm.</p>
-
-                        <p>The candy rug is priced at $<?php echo $price; ?>/m² and available in extra large sizes of up to 500cm x 1200cm (16ft x 40ft).</p>
-
-                        <p>This rug is fully customisable. Colours and shape can be edited using the controls above the rug.</p>
+                        <h1><?php echo $crug['name']; ?> </h1>
+                        <?php echo $crug['description']; ?>
                     </div>
                     <div class="col-sm-5 padding">
                         <div class="candy_rug_right">
