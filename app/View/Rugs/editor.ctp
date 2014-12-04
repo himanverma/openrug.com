@@ -55,27 +55,27 @@
                     <div class="edit_shape">
                         Edit Shape: 
                         <span class="swatch-picker">
-                            <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-" . $defaultShp . ".png"); ?>" alt="">
+                            <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-" . $defaultShp . ".png?_=".time()); ?>" alt="">
                             <div class="swatch-pick">
                                 <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
                                 <table id="shape-pick" cellpadding="5">
                                     <tr>
                                         <td align="center">
-                                            <img data-shp="oval" src="<?php echo $this->Html->url("/images/sh-oval.png"); ?>" alt=""><br>
+                                            <img data-shp="oval" src="<?php echo $this->Html->url("/images/sh-oval.png?_=".time()); ?>" alt=""><br>
                                             <strong>Oval</strong>
                                         </td>
                                         <td align="center">
-                                            <img data-shp="square" src="<?php echo $this->Html->url("/images/sh-square.png"); ?>" alt=""><br>
+                                            <img data-shp="square" src="<?php echo $this->Html->url("/images/sh-square.png?_=".time()); ?>" alt=""><br>
                                             <strong>Square</strong>
                                         </td>
                                         <td align="center">
-                                            <img data-shp="round" src="<?php echo $this->Html->url("/images/sh-round.png"); ?>" alt=""><br>
+                                            <img data-shp="round" src="<?php echo $this->Html->url("/images/sh-round.png?_=".time()); ?>" alt=""><br>
                                             <strong>Round</strong>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td align="center">
-                                            <img data-shp="rect" src="<?php echo $this->Html->url("/images/sh-rect.png"); ?>" alt=""><br>
+                                            <img data-shp="rect" src="<?php echo $this->Html->url("/images/sh-rect.png?_=".time()); ?>" alt=""><br>
                                             <strong>Rectangular</strong>
                                         </td>
                                         <td></td>
@@ -168,7 +168,7 @@
                      
                        
                             <td>
-                                <p class="input_pile"><input type="radio" name="pl_depth" value="1/2">1/2"</p>
+                                <p class="input_pile"><input data-bind="pile" type="radio" name="pl_depth" value="1/2">1/2"</p>
                                 <p class="input_pile"><input type="radio" name="pl_depth" value="5/8">5/8"</p>
                                 <p class="input_pile"><input type="radio" name="pl_depth" value="3/4">3/4"</p>
                             </td>
@@ -425,6 +425,7 @@ foreach ($sizes_cart as $s) {
     $exr[] = array('label' => $s['Size']['label'], 'size_in_ft' => $s['Size']['size_in_ft'], 'id' => $s['Size']['id']);
 } echo json_encode($exr);
 ?>);
+        
         me.size = ko.observable('4 x 6');
         me.qty = ko.observable(1);
         me.total = ko.computed(function() {
