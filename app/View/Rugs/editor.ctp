@@ -5,7 +5,7 @@
                 <div class="col-sm-3">
                     <div class="single_pro_menu">
                         <a href="#">home</a>  >  <a href="#">rugs</a>  >  <a href="#">natural</a>  >  <a href="#">tea time rug </a>
-                        <p>tea time rug   <br /><span>product no: <?php echo $crug['id']."ITM".$crug2['id']; ?> </span></p>
+                        <p>tea time rug   <br /><span>product no: <?php echo $crug['id'] . "ITM" . $crug2['id']; ?> </span></p>
                         <!--<div class="btn_click"><a href="#"><img src="<?php echo $this->Html->url('/images/click_here_btn.png'); ?>" alt=""></a></div>-->
                     </div>
                 </div>
@@ -38,64 +38,64 @@
                 </div>
                 <div class="col-lg-4">
                     <form id="upd-clr-shp" method="post">
-                    <div class="edit_color">
-                        Edit Colours:
-                        <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
+                        <div class="edit_color">
+                            Edit Colours:
+                            <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
+                                <span class="swatch-picker">
+                                    <img style="width:16px; height: 16px;" src="tst" onerror="this.src = '/swatch/' + swt['<?php echo $defaultClr[$i]['swt']; ?>'].file" alt="">
+                                    <div class="swatch-pick">
+                                        <?php echo $this->element("swatch"); ?>
+                                    </div>
+                                    <input type="hidden" name="clr_sb[]" value="<?php echo $defaultClr[$i]['clr']; ?>" />
+                                </span>
+                            <?php } ?>
+                            </span> 
+                               <!-- <a href="#"><i class="fa fa-plus-square"></i></a> -->
+                        </div>
+                        <div class="edit_shape">
+                            Edit Shape: 
                             <span class="swatch-picker">
-                                <img style="width:16px; height: 16px;" src="tst" onerror="this.src = '/swatch/' + swt['<?php echo $defaultClr[$i]['swt']; ?>'].file" alt="">
+                                <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-" . $defaultShp . ".png?_=" . time()); ?>" alt="">
                                 <div class="swatch-pick">
-                                    <?php echo $this->element("swatch"); ?>
+                                    <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
+                                    <table id="shape-pick" cellpadding="5">
+                                        <tr>
+                                            <td align="center">
+                                                <img data-shp="oval" src="<?php echo $this->Html->url("/images/sh-oval.png?_=" . time()); ?>" alt=""><br>
+                                                <strong>Oval</strong>
+                                            </td>
+                                            <td align="center">
+                                                <img data-shp="square" src="<?php echo $this->Html->url("/images/sh-square.png?_=" . time()); ?>" alt=""><br>
+                                                <strong>Square</strong>
+                                            </td>
+                                            <td align="center">
+                                                <img data-shp="round" src="<?php echo $this->Html->url("/images/sh-round.png?_=" . time()); ?>" alt=""><br>
+                                                <strong>Round</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center">
+                                                <img data-shp="rect" src="<?php echo $this->Html->url("/images/sh-rect.png?_=" . time()); ?>" alt=""><br>
+                                                <strong>Rectangular</strong>
+                                            </td>
+                                            <td></td>
+                                            <td align="center">
+                                                <img data-shp="runner" src="<?php echo $this->Html->url("/images/sh-runner.png"); ?>" alt=""><br>
+                                                <strong>Runners</strong>
+                                            </td>
+                                        </tr>
+                                    </table> 
                                 </div>
-                                <input type="hidden" name="clr_sb[]" value="<?php echo $defaultClr[$i]['clr']; ?>" />
                             </span>
-                        <?php } ?>
-                        </span> 
-                           <!-- <a href="#"><i class="fa fa-plus-square"></i></a> -->
-                    </div>
-                    <div class="edit_shape">
-                        Edit Shape: 
-                        <span class="swatch-picker">
-                            <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-" . $defaultShp . ".png?_=".time()); ?>" alt="">
-                            <div class="swatch-pick">
-                                <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
-                                <table id="shape-pick" cellpadding="5">
-                                    <tr>
-                                        <td align="center">
-                                            <img data-shp="oval" src="<?php echo $this->Html->url("/images/sh-oval.png?_=".time()); ?>" alt=""><br>
-                                            <strong>Oval</strong>
-                                        </td>
-                                        <td align="center">
-                                            <img data-shp="square" src="<?php echo $this->Html->url("/images/sh-square.png?_=".time()); ?>" alt=""><br>
-                                            <strong>Square</strong>
-                                        </td>
-                                        <td align="center">
-                                            <img data-shp="round" src="<?php echo $this->Html->url("/images/sh-round.png?_=".time()); ?>" alt=""><br>
-                                            <strong>Round</strong>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center">
-                                            <img data-shp="rect" src="<?php echo $this->Html->url("/images/sh-rect.png?_=".time()); ?>" alt=""><br>
-                                            <strong>Rectangular</strong>
-                                        </td>
-                                        <td></td>
-                                        <td align="center">
-                                            <img data-shp="runner" src="<?php echo $this->Html->url("/images/sh-runner.png"); ?>" alt=""><br>
-                                            <strong>Runners</strong>
-                                        </td>
-                                    </tr>
-                                </table> 
-                            </div>
-                        </span>
-                        <a href="#"><i class="fa fa-plus-square"></i></a>
-                    </div>
+                            <a href="#"><i class="fa fa-plus-square"></i></a>
+                        </div>
                     </form>
-                    
+
                     <h5 class="pull-right" style="text-transform: uppercase; margin-top: 20px;">SKU: <?php
                         $sku_pre = md5($crug['name']);
                         $sku_pre = str_split($sku_pre, 3);
                         //echo $sku_pre[0] . ((int) ($crug['id']) + 487);
-                        echo $crug['id']."ITM".$crug2['id'];
+                        echo $crug['id'] . "ITM" . $crug2['id'];
                         //print_r($crug2);
                         ?></h5>
                     <h2 class="sph1"><?php echo $crug['name']; ?></h2>
@@ -168,23 +168,23 @@
                             <td>
                                 <p class="input_p">Carving:</p>
                             </td>
-      
+
                             <td>
-                                <p class="input_pp">(+$1.50 psf):</p>
+                                <p class="input_pp">(<?php echo $_global_carving_label; ?>):</p>
                             </td>
                             <td>
                                 <select class="input_select form-control sm" data-bind="value:carving ">
-                                    <option value="1">Yes</option>
+                                    <option value="<?php echo $_global_carving_price; ?>">Yes</option>
                                     <option value="0">No</option>
                                 </select>
                             </td>
                         </tr>
-                         <tr class="input_psf">
+                        <tr class="input_psf">
                             <td>
                                 <p class="input_p">Pile Depth:</p>
                             </td>
-                     
-                       
+
+
                             <td>
                                 <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="1/2">1/2"</p>
                                 <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="5/8">5/8"</p>
@@ -193,37 +193,37 @@
                         </tr>
                     </table>
 
-                    <?php /*<table class="table">
-                        <thead>
-                            <tr>
-                                <th>Size<br>
-                                    <a style="font-size:10px;" href="#">Custom Size Inquiry</a>
-                                </th>
-                                <th>Qty</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <!--<select name="approx_size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"><option value="12">2 x 3</option><option value="13">3 x 5</option><option value="14">4 x 6</option><option value="15">5 x 8</option><option value="23">8' Round</option><option value="29">8' Runner</option><option value="6">8' Square</option><option value="16">6 x 9</option><option value="22">6' Round</option><option value="28">6' Runner</option><option value="5">6' Square</option><option value="17">8 x 10</option><option value="19">10 x 14</option><option value="18">9 x 12</option><option value="20">12 x 15</option><option value="24">10' Round</option><option value="25">12' Round</option><option value="26">14' Round</option><option value="27">4' Runner</option><option value="30">10' Runner</option><option value="31">12' Runner</option><option value="3">14' Runner</option><option value="4">4' Square</option><option value="7">10' Square</option><option value="108">16' Runner</option><option value="21">4' Round</option><option value="198">5' Round</option><option value="8">12' Square</option><option value="9">14' Square</option><option value="97">Octagon</option><option value="100">Shapes</option><option value="11">Sample</option><option value="101">Oval</option><option value="105">12 x 18</option><option value="104">15 x 20</option><option value="207">Oversize</option></select>-->
-                                    <select data-bind="options: sizes, optionsText: 'label', optionsValue: 'label' , value:size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"></select>
-                                </td>
-                                <td>
-                                    <select id="odr-qty" class="form-control sm" data-bind="value:qty ">
-                                        <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
-                                            <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </td>
-                                <td>
-                                    <span style="color: #ff826e; font-size: 12pt;">
-                                        $<b data-bind="text:total"></b>
-                                    </span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table> */?>
+                    <?php /* <table class="table">
+                      <thead>
+                      <tr>
+                      <th>Size<br>
+                      <a style="font-size:10px;" href="#">Custom Size Inquiry</a>
+                      </th>
+                      <th>Qty</th>
+                      <th>Price</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                      <td>
+                      <!--<select name="approx_size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"><option value="12">2 x 3</option><option value="13">3 x 5</option><option value="14">4 x 6</option><option value="15">5 x 8</option><option value="23">8' Round</option><option value="29">8' Runner</option><option value="6">8' Square</option><option value="16">6 x 9</option><option value="22">6' Round</option><option value="28">6' Runner</option><option value="5">6' Square</option><option value="17">8 x 10</option><option value="19">10 x 14</option><option value="18">9 x 12</option><option value="20">12 x 15</option><option value="24">10' Round</option><option value="25">12' Round</option><option value="26">14' Round</option><option value="27">4' Runner</option><option value="30">10' Runner</option><option value="31">12' Runner</option><option value="3">14' Runner</option><option value="4">4' Square</option><option value="7">10' Square</option><option value="108">16' Runner</option><option value="21">4' Round</option><option value="198">5' Round</option><option value="8">12' Square</option><option value="9">14' Square</option><option value="97">Octagon</option><option value="100">Shapes</option><option value="11">Sample</option><option value="101">Oval</option><option value="105">12 x 18</option><option value="104">15 x 20</option><option value="207">Oversize</option></select>-->
+                      <select data-bind="options: sizes, optionsText: 'label', optionsValue: 'label' , value:size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"></select>
+                      </td>
+                      <td>
+                      <select id="odr-qty" class="form-control sm" data-bind="value:qty ">
+                      <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                      <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                      <?php } ?>
+                      </select>
+                      </td>
+                      <td>
+                      <span style="color: #ff826e; font-size: 12pt;">
+                      $<b data-bind="text:total"></b>
+                      </span>
+                      </td>
+                      </tr>
+                      </tbody>
+                      </table> */ ?>
                     <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
                     <button data-bind="click:add2cart" class="addtocart1">Checkout</button>
                 </div>
@@ -237,67 +237,7 @@
             });
         </script>
         <style type="text/css">
-            .sm-p-trig img {
-                cursor: pointer;
-                height: auto;
-            }
-            #big-img {
-                height: 475px;
-                background:none;
-                box-shadow:none;
-                border:none;
-            }
-            #rug-preview {
 
-                border-right:1px solid #ccc;
-            }
-            
-            .input_ft{
-               border: 1px solid #a8a8a8;
-                border-radius: 0;
-                float: left;
-                width: 90px; 
-            }
-            .input_label{
-               float: left;
-               margin:0 5px;
-               font-weight: normal;
-            }
-            .input_tr{
-                margin-bottom: 10px;
-                clear: both;
-                float: left;
-            }
-            .input_psf{
-                margin-bottom: 5px;
-                clear: both;
-                float: left;
-            }
-            .input_p{
-                float: left;
-                margin-right: 5px;
-                line-height: 26px;
-                margin-bottom: 0;
-                width: 75px;
-            }
-            .input_pp{
-                float: left;
-                margin-right: 5px;
-                line-height: 26px;
-                margin-bottom: 0;
-            }
-            .input_select{
-                float: left;
-                height: 26px;
-            }
-            .input_pile{
-                float: left;
-                margin-left: 10px;
-                margin-bottom: 0;
-            }
-            .input_pile:first-child{
-                margin-left: 0px;
-            }
         </style>
         <div class="calculate_price">
             <div class="col-sm-12">
@@ -330,17 +270,80 @@
 
 
                 <div class="popular_rug" id="ajax-pplr">
-    
+
                 </div>
                 <div class="top_rug" id="ajax-rcnt">
-    
+
                 </div>
-                
+
             </div>
         </div>
     </div>
 </div>
 <style type="text/css">
+    .sm-p-trig img {
+        cursor: pointer;
+        height: auto;
+    }
+    #big-img {
+        height: 475px;
+        background:none;
+        box-shadow:none;
+        border:none;
+    }
+    #rug-preview {
+
+        border-right:1px solid #ccc;
+    }
+
+    .input_ft{
+        border: 1px solid #a8a8a8;
+        border-radius: 0;
+        float: left;
+        width: 90px; 
+    }
+    .input_label{
+        float: left;
+        margin:0 5px;
+        font-weight: normal;
+    }
+    .input_tr{
+        margin-bottom: 10px;
+        clear: both;
+        float: left;
+    }
+    .input_psf{
+        margin-bottom: 5px;
+        clear: both;
+        float: left;
+    }
+    .input_p{
+        float: left;
+        margin-right: 5px;
+        line-height: 26px;
+        margin-bottom: 0;
+        width: 75px;
+    }
+    .input_pp{
+        float: left;
+        margin-right: 5px;
+        line-height: 26px;
+        margin-bottom: 0;
+    }
+    .input_select{
+        float: left;
+        height: 26px;
+    }
+    .input_pile{
+        float: left;
+        margin-left: 10px;
+        margin-bottom: 0;
+    }
+    .input_pile:first-child{
+        margin-left: 0px;
+    }
+
+
     .edit_color td{
         padding: 2px
     }
@@ -381,7 +384,7 @@
         color: #505050;
         float: left;
         font-size: 11px;
-/*        line-height: 28px;*/
+        /*        line-height: 28px;*/
         line-height: 23px;
     }
 
@@ -443,16 +446,16 @@ foreach ($sizes_cart as $s) {
     $exr[] = array('label' => $s['Size']['label'], 'size_in_ft' => $s['Size']['size_in_ft'], 'id' => $s['Size']['id']);
 } echo json_encode($exr);
 ?>);
-        
+
         me.size = ko.observable('4 x 6');
-        
+
         me.widthFt = ko.observable(0);
         me.widthIn = ko.observable(0);
         me.heightFt = ko.observable(0);
         me.heightIn = ko.observable(0);
         me.carving = ko.observable(0);
         me.pileDepth = ko.observable("1/2");
-                
+
         me.qty = ko.observable(1);
         me.total = ko.computed(function() {
             var size = 0;
@@ -499,52 +502,56 @@ foreach ($sizes_cart as $s) {
     }
 </script>    
 <script type="text/javascript">
-$(document).ready(function () {
-    $('.pagination a').click(paginate);
-});
+    $(document).ready(function() {
+        $('.pagination a').click(paginate);
+    });
 
-var paginate = function(event) {
-    event.preventDefault();
-    var href;
-    href = $(this).attr('href');
-    getdata($(this).attr('href'));
-}
-function getdata(urle){
-if (urle.match(/\/popularRugs*/i)) {
-    $('#ajax-pplr').html("<br><br><br><center>loading...</center><br><br><br>");
-}
-if (urle.match(/\/recentRugs*/i)) {
-    $('#ajax-rcnt').html("<br><br><br><center>loading...</center><br><br><br>");
-}
-
-
-
-$.ajax({
-      url: urle,
-      cache: false,
-      success: function(html){
-
+    var paginate = function(event) {
+        event.preventDefault();
+        var href;
+        href = $(this).attr('href');
+        getdata($(this).attr('href'));
+    }
+    function getdata(urle) {
         if (urle.match(/\/popularRugs*/i)) {
-            $('#ajax-pplr').html(html);
+            $('#ajax-pplr').html("<br><br><br><center>loading...</center><br><br><br>");
         }
         if (urle.match(/\/recentRugs*/i)) {
-            $('#ajax-rcnt').html(html);
+            $('#ajax-rcnt').html("<br><br><br><center>loading...</center><br><br><br>");
         }
-        $('.pagination a').click(paginate);
-        $('.addtocart').on("click",function(e){
-            var clrObj = new EditorVM($(this).data('price'),$(this).data('rid'),$(this).data('cstamp'),$(this).data('discount'));
-            var html = $('#clrbx-cart').html();
-            $.colorbox({html:html});
-            try{ ko.cleanNode($('#cboxContent')[0]); }catch(e){console.log(e);}
-            ko.applyBindings(clrObj,$('#cboxContent')[0]);
-            return false;
-        });
-      }
-    });
-}
 
-getdata('/Ajax/popularRugs');
-getdata('/Ajax/recentRugs');
+
+
+        $.ajax({
+            url: urle,
+            cache: false,
+            success: function(html) {
+
+                if (urle.match(/\/popularRugs*/i)) {
+                    $('#ajax-pplr').html(html);
+                }
+                if (urle.match(/\/recentRugs*/i)) {
+                    $('#ajax-rcnt').html(html);
+                }
+                $('.pagination a').click(paginate);
+                $('.addtocart').on("click", function(e) {
+                    var clrObj = new EditorVM($(this).data('price'), $(this).data('rid'), $(this).data('cstamp'), $(this).data('discount'));
+                    var html = $('#clrbx-cart').html();
+                    $.colorbox({html: html});
+                    try {
+                        ko.cleanNode($('#cboxContent')[0]);
+                    } catch (e) {
+                        console.log(e);
+                    }
+                    ko.applyBindings(clrObj, $('#cboxContent')[0]);
+                    return false;
+                });
+            }
+        });
+    }
+
+    getdata('/Ajax/popularRugs');
+    getdata('/Ajax/recentRugs');
 </script>
 <script id="clrbx-cart" type="text/html">
     <div>
@@ -569,10 +576,10 @@ getdata('/Ajax/recentRugs');
             <tr>
                 <td><b>Quantity:</b></td>
                 <td><select id="odr-qty" class="form-control sm" data-bind="value:qty ">
-                    <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
-                        <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
-                    <?php } ?>
-                </select>
+                        <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                            <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                        <?php } ?>
+                    </select>
                 </td>
             </tr>
             <tr>

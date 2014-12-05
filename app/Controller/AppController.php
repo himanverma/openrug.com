@@ -103,7 +103,7 @@ class AppController extends Controller {
             'Form', 
             //'Basic' 
             );
-        $this->Auth->allow('admin_add','bycolorswatchs');
+        $this->Auth->allow('admin_add','getglobals');
         if($this->request->param("prefix")){
             $this->layout = "admin";
         }
@@ -115,7 +115,7 @@ class AppController extends Controller {
         $this->set("patterns",  $this->_patterns);
         
         $this->set("_bycolorswt", $this->_bycolorswatchs());
-        
+        $this->_getglobals();
     }
     
     public function _setSettings(){
@@ -145,5 +145,12 @@ class AppController extends Controller {
         }
         array_unique($cstamp);
         return $cstamp;
+    }
+    private function _getglobals(){
+        $this->loadModel("GlobalConfigration");
+        $x = $this->GlobalConfigration->find('all');
+        foreach($x as $v){
+            $this->set("_global_".$v['GlobalConfigration']['key'], $v['GlobalConfigration']['value']);
+        }
     }
 }
