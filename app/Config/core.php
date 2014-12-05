@@ -161,7 +161,7 @@ Configure::write('Routing.prefixes', array('admin'));
  * Turn off all caching application-wide.
  *
  */
-	//Configure::write('Cache.disable', true);
+	Configure::write('Cache.disable', true);
 
 /**
  * Enable cache checking.
@@ -172,7 +172,7 @@ Configure::write('Routing.prefixes', array('admin'));
  * or in each action using $this->cacheAction = true.
  *
  */
-	//Configure::write('Cache.check', true);
+	Configure::write('Cache.check', true);
 
 /**
  * Enable cache view prefixes.
@@ -182,7 +182,7 @@ Configure::write('Routing.prefixes', array('admin'));
  * for instance. Each version can then have its own view cache namespace.
  * Note: The final cache file name will then be `prefix_cachefilename`.
  */
-	//Configure::write('Cache.viewPrefix', 'prefix');
+	Configure::write('Cache.viewPrefix', 'prefix');
 
 /**
  * Session configuration.
@@ -288,18 +288,18 @@ Configure::write('Routing.prefixes', array('admin'));
  * Default settings provided below
  *
  * File storage engine.
- *
- * 	 Cache::config('default', array(
- *		'engine' => 'File', //[required]
- *		'duration' => 3600, //[optional]
- *		'probability' => 100, //[optional]
- * 		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
- * 		'prefix' => 'cake_', //[optional]  prefix every cache file with this string
- * 		'lock' => false, //[optional]  use file locking
- * 		'serialize' => true, //[optional]
- * 		'mask' => 0664, //[optional]
- *	));
- *
+ */
+  	 Cache::config('default', array(
+ 		'engine' => 'File', //[required]
+ 		'duration' => 3600, //[optional]
+ 		'probability' => 100, //[optional]
+  		'path' => CACHE, //[optional] use system tmp directory - remember to use absolute path
+  		'prefix' => 'cake_', //[optional]  prefix every cache file with this string
+  		'lock' => false, //[optional]  use file locking
+  		'serialize' => true, //[optional]
+  		'mask' => 0664, //[optional]
+ 	));
+ /*
  * APC (http://pecl.php.net/package/APC)
  */
   	 Cache::config('default', array(

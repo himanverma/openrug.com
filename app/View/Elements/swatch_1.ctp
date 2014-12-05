@@ -19,6 +19,9 @@
             $code = rtrim($name, ".png");
             $code = explode("-", $code);
             $code = $code[1];
+            if(!in_array($code, $_bycolorswt)){
+                continue;
+            }
             if ($cnt == 1)
                 echo '<tr>';
             ?>

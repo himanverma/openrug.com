@@ -130,20 +130,38 @@
                         <?php } ?>
                     </div>
                     <table>
+                        <tr>
+                            <td>
+                                <p class="input_p">Quantity:</p>
+                            </td>
+                            <td>
+                                <select id="odr-qty" class="form-control sm" data-bind="value:qty ">
+                                    <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                                        <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
                         <tr class="input_tr">
                             <td>
                                 <p class="input_p">Width:</p>
                             </td>
-                            <td>
-                                <input class="input_ft"  type="text" /> <label class="input_label"> ft.</label> <input class="input_ft" type="text" /> <label class="input_label">in.</label>
-                            </td>
+                            <td><input class="input_ft form-control" data-bind="value:widthFt "  type="number" /></td>
+                            <td> ft. </td>
+                            <td><input class="input_ft  form-control" data-bind="value:widthIn " type="number" /></td>
+                            <td>in.</td>
                         </tr>
                         <tr class="input_tr">
                             <td>
                                 <p class="input_p">Height:</p>
                             </td>
-                            <td>
-                                <input class="input_ft" type="text" /><label class="input_label"> ft.</label> <input class="input_ft" type="text" /> <label class="input_label">in.</label>
+                            <td><input class="input_ft form-control" data-bind="value:heightFt " type="number" /></td>
+                            <td> ft. </td>
+                            <td><input class="input_ft  form-control" data-bind="value:widthIn " type="number" /></td>
+                            <td> in. </td>
                             </td>
                         </tr>
                         <tr class="input_psf">
@@ -155,7 +173,7 @@
                                 <p class="input_pp">(+$1.50 psf):</p>
                             </td>
                             <td>
-                                <select class="input_select">
+                                <select class="input_select form-control sm" data-bind="value:carving ">
                                     <option value="1">Yes</option>
                                     <option value="0">No</option>
                                 </select>
@@ -168,14 +186,14 @@
                      
                        
                             <td>
-                                <p class="input_pile"><input data-bind="pile" type="radio" name="pl_depth" value="1/2">1/2"</p>
-                                <p class="input_pile"><input type="radio" name="pl_depth" value="5/8">5/8"</p>
-                                <p class="input_pile"><input type="radio" name="pl_depth" value="3/4">3/4"</p>
+                                <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="1/2">1/2"</p>
+                                <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="5/8">5/8"</p>
+                                <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="3/4">3/4"</p>
                             </td>
                         </tr>
                     </table>
 
-                    <table class="table">
+                    <?php /*<table class="table">
                         <thead>
                             <tr>
                                 <th>Size<br>
@@ -205,7 +223,7 @@
                                 </td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> */?>
                     <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
                     <button data-bind="click:add2cart" class="addtocart1">Checkout</button>
                 </div>
@@ -238,7 +256,7 @@
                border: 1px solid #a8a8a8;
                 border-radius: 0;
                 float: left;
-                width: 40px; 
+                width: 90px; 
             }
             .input_label{
                float: left;
@@ -427,6 +445,14 @@ foreach ($sizes_cart as $s) {
 ?>);
         
         me.size = ko.observable('4 x 6');
+        
+        me.widthFt = ko.observable(0);
+        me.widthIn = ko.observable(0);
+        me.heightFt = ko.observable(0);
+        me.heightIn = ko.observable(0);
+        me.carving = ko.observable(0);
+        me.pileDepth = ko.observable("1/2");
+                
         me.qty = ko.observable(1);
         me.total = ko.computed(function() {
             var size = 0;

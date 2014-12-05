@@ -97,6 +97,10 @@ class PagesController extends AppController {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
+                if($page == "Home"){
+                    $this->helpers[] = 'Cache';
+                    $this->cacheAction = '10 minutes';
+                }
 
 		try {
 			$this->render(implode('/', $path));

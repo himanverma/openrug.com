@@ -103,7 +103,7 @@ class AppController extends Controller {
             'Form', 
             //'Basic' 
             );
-        $this->Auth->allow('admin_add');
+        $this->Auth->allow('admin_add','bycolorswatchs');
         if($this->request->param("prefix")){
             $this->layout = "admin";
         }
@@ -114,6 +114,8 @@ class AppController extends Controller {
         $this->set("sizes_cart", $this->Size->find('all'));
         $this->set("patterns",  $this->_patterns);
         
+        $this->set("_bycolorswt", $this->_bycolorswatchs());
+        
     }
     
     public function _setSettings(){
@@ -122,5 +124,26 @@ class AppController extends Controller {
         foreach($g_settings as $s){
             Configure::write('Settings.'.$s['Setting']['name'], $s['Setting']['value']);   
         }
+    }
+    
+    private function _bycolorswatchs(){
+        $this->loadModel('Genrug');
+        $swt = $this->Genrug->find('list',array(
+            'fields' => array(
+                'colorstamp'
+            )
+        ));
+        $cstamp = array();
+        foreach ($swt as $v){
+            $ex = explode("-", $v);
+            foreach($ex as $v2){
+                if(strlen($v2) <= 6 ){
+                    if($v2 != "")
+                        $cstamp[] = $v2;
+                }
+            }
+        }
+        array_unique($cstamp);
+        return $cstamp;
     }
 }
