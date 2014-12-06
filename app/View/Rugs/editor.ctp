@@ -130,7 +130,7 @@
                         <?php } ?>
                     </div>
                     <table>
-                        <tr>
+                        <tr class="input_tr">
                             <td>
                                 <p class="input_p">Quantity:</p>
                             </td>
@@ -160,7 +160,7 @@
                             </td>
                             <td><input class="input_ft form-control" data-bind="value:heightFt " type="number" /></td>
                             <td> ft. </td>
-                            <td><input class="input_ft  form-control" data-bind="value:widthIn " type="number" /></td>
+                            <td><input class="input_ft  form-control" data-bind="value:heightIn " type="number" /></td>
                             <td> in. </td>
                             </td>
                         </tr>
@@ -183,12 +183,13 @@
                             <td>
                                 <p class="input_p">Pile Depth:</p>
                             </td>
-
-
                             <td>
-                                <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="1/2">1/2"</p>
-                                <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="5/8">5/8"</p>
-                                <p class="input_pile"><input class="form-control" data-bind="checked:pileDepth " type="radio" name="pl_depth" value="3/4">3/4"</p>
+                                <?php 
+                                $p_depth = json_decode($_global_pile_depth);
+                                    foreach($p_depth as $p_d){
+                                ?>
+                                    <p class="input_pile"><input data-bind="checked:pileDepth " type="radio" name="pl_depth" value="<?php echo $p_d->val; ?>"> <?php echo $p_d->label; ?> </p>
+                                <?php } ?>
                             </td>
                         </tr>
                     </table>
@@ -225,7 +226,7 @@
                       </tbody>
                       </table> */ ?>
                     <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
-                    <button data-bind="click:add2cart" class="addtocart1">Checkout</button>
+                    <button data-bind="click:add2cartNMove" class="addtocart1">Checkout</button>
                 </div>
             </div>
         </div>
@@ -300,7 +301,7 @@
         border: 1px solid #a8a8a8;
         border-radius: 0;
         float: left;
-        width: 90px; 
+        width: 60px; 
     }
     .input_label{
         float: left;
@@ -455,6 +456,7 @@ foreach ($sizes_cart as $s) {
         me.heightIn = ko.observable(0);
         me.carving = ko.observable(0);
         me.pileDepth = ko.observable("1/2");
+        
 
         me.qty = ko.observable(1);
         me.total = ko.computed(function() {
@@ -478,6 +480,24 @@ foreach ($sizes_cart as $s) {
         }
         me.add2cart = function(d, e) {
 
+            $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
+            var send = true;
+            var data = {
+                rid: '<?php echo $r_id; ?>',
+                qty: me.qty(),
+                size: me.size(),
+                shp: '<?php echo $defaultShp; ?>',
+                clr: '<?php echo str_replace("#", "", $colorstamp); ?>'
+            };
+            if (send) {
+                var t = me;
+                $.post("http://rugbuilder.com/Cart/add", data, function(d) {
+                    t.notify("Info", "Product added to cart...", "#dsf-td5df");
+                });
+                flyToElement($('#big-img'), $(e.currentTarget));
+            }
+        }
+        me.add2cartNMove = function(){
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
             var send = true;
             var data = {

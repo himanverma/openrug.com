@@ -150,7 +150,13 @@ class AppController extends Controller {
         $this->loadModel("GlobalConfigration");
         $x = $this->GlobalConfigration->find('all');
         foreach($x as $v){
-            $this->set("_global_".$v['GlobalConfigration']['key'], $v['GlobalConfigration']['value']);
+            $val = null;
+            try{
+                $val = $v['GlobalConfigration']['value'];
+            } catch (Exception $ex) {
+                $val = $v['GlobalConfigration']['value'];
+            }
+            $this->set("_global_".$v['GlobalConfigration']['key'],$val );
         }
     }
 }
