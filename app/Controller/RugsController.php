@@ -84,7 +84,7 @@ class RugsController extends AppController {
     }
     private function genImgRound($rugpngs, $colors = array(), $location = "files/temp/") {
         if (is_file($location . "round.png")) {
-           // return $location;
+            return $location;
         }
         ini_set("max_execution_time", -1);
         $layers = array();

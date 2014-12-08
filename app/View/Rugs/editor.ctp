@@ -147,13 +147,25 @@
                         </tr>
                         <tr class="input_tr">
                             <td>
-                                <p class="input_p">Width:</p>
+                                <p class="input_p">
+                                    <?php 
+                                    if($defaultShp == "round"){ 
+                                        echo "Diameter";
+                                    }elseif($defaultShp == "square"){
+                                        echo "Side";
+                                    }else{
+                                        echo "Width";
+                                    }
+                                    ?>
+                                    :
+                                </p>
                             </td>
                             <td><input class="input_ft form-control" data-bind="value:widthFt "  type="number" /></td>
                             <td> ft. </td>
                             <td><input class="input_ft  form-control" data-bind="value:widthIn " type="number" /></td>
                             <td>in.</td>
                         </tr>
+                        <?php if($defaultShp != "round" && $defaultShp != "square"){ ?>
                         <tr class="input_tr">
                             <td>
                                 <p class="input_p">Height:</p>
@@ -164,6 +176,7 @@
                             <td> in. </td>
                             </td>
                         </tr>
+                        <?php } ?>
                         <tr class="input_psf">
                             <td>
                                 <p class="input_p">Carving:</p>
@@ -173,7 +186,7 @@
                                 <p class="input_pp">(<?php echo $_global_carving_label; ?>):</p>
                             </td>
                             <td>
-                                <select class="input_select form-control sm" data-bind="value:carving ">
+                                <select class="input_select" data-bind="value:carving ">
                                     <option value="<?php echo $_global_carving_price; ?>">Yes</option>
                                     <option value="0">No</option>
                                 </select>
@@ -191,6 +204,10 @@
                                     <p class="input_pile"><input data-bind="checked:pileDepth " type="radio" name="pl_depth" value="<?php echo $p_d->val; ?>"> <?php echo $p_d->label; ?> </p>
                                 <?php } ?>
                             </td>
+                        </tr>
+                        <tr class="input_psf">
+                            <td><b>Total Cost:</b></td>
+                            <td><b>$ <span data-bind="text:total"></span></b></td>
                         </tr>
                     </table>
 
@@ -440,7 +457,8 @@ $this->end();
     });
     var EditorVM = function() {
         var me = this;
-        me.price = ko.observable(<?php echo $price; ?>);
+        me.shape = ko.observable("<?php echo $defaultShp; ?>");
+        me.price = ko.observable(<?php echo $price/12; ?>);
         me.sizes = ko.observableArray(<?php
 $exr = array();
 foreach ($sizes_cart as $s) {
@@ -457,16 +475,28 @@ foreach ($sizes_cart as $s) {
         me.carving = ko.observable(0);
         me.pileDepth = ko.observable("1/2");
         
+        me.area = ko.computed(function(){
+            var w = parseFloat(this.widthFt() * 12 + this.widthIn());
+            var h = parseFloat(this.heightFt() * 12 + this.heightIn());
+            if(this.shape() == "rect" || this.shape() == "runner"){
+                return (w * h)/12;
+            }
+            if(this.shape() == "square" ){
+                return (w * w) / 12;
+            }
+            if(this.shape() == "round"){
+                var r  = w/2;
+                return (Math.PI * Math.pow(r,2)) / 12;
+            }
+            return (Math.PI * w/2 * h/2) / 12;
+        }, this);
+        
 
         me.qty = ko.observable(1);
+        
+        
         me.total = ko.computed(function() {
-            var size = 0;
-            var x = this.sizes();
-            for (i in x) {
-                if (x[i].label == this.size())
-                    size = x[i].size_in_ft;
-            }
-            return size * me.price() * this.qty() - (size * me.price() * this.qty()) * <?php echo $crug['discount']; ?> / 100;
+            return me.area() * me.price() * this.qty() - (me.area() * me.price() * this.qty()) * <?php echo $crug['discount']; ?> / 100;
         }, this);
         me.mUnits = ko.observable("cm");
         me.mUnits.subscribe(function(newVal) {
