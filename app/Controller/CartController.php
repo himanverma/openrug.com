@@ -70,11 +70,14 @@ class CartController extends AppController {
                 "conditions" => array(
                     "Inlineitem.order_id" => $order['Order']['id'],
                     "genrug_id" => $genrug['Genrug']["id"],
-                    "length" => $d["size"],
-                    "bredth" => 0, //$d["b"],
-                    "pile_size" => 0, //$d["s"],
+                    "length" => $d["length"],
+                    "bredth" => $d['breadth'], //$d["b"],
+                    "pile_size" => $d['pileSize'], //$d["s"],
                     "shape" => $d["shp"],
-                    "colors" => $d["clr"]
+                    "colors" => $d["clr"],
+                    "craving" => $d['craving'],
+                    "total" => $d['total'],
+                    "area" => $d['area']
                 )
             ));
             $itemData = array(
@@ -82,11 +85,14 @@ class CartController extends AppController {
                     "order_id" => $order['Order']['id'],
                     "genrug_id" => $genrug['Genrug']["id"],
                     "qty" => $d["qty"],
-                    "length" => $d["size"],
-                    "bredth" => 0, //$d["b"],
-                    "pile_size" => 0, //$d["s"],
+                    "length" => $d["length"],
+                    "bredth" => $d['breadth'], //$d["b"],
+                    "pile_size" => $d['pileSize'], //$d["s"],
                     "shape" => $d["shp"],
-                    "colors" => $d["clr"]
+                    "colors" => $d["clr"],
+                    "craving" => $d['craving'],
+                    "total" => $d['total'],
+                    "area" => $d['area']
                 )
             );
             if (empty($item)) {

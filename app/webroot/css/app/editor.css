@@ -1,0 +1,111 @@
+.sm-p-trig img {
+    cursor: pointer;
+    height: auto;
+}
+#big-img {
+    height: 475px;
+    background:none;
+    box-shadow:none;
+    border:none;
+}
+#rug-preview {
+
+    border-right:1px solid #ccc;
+}
+
+.input_ft{
+    border: 1px solid #a8a8a8;
+    border-radius: 0;
+    float: left;
+    width: 90px; 
+}
+.input_label{
+    float: left;
+    margin:0 5px;
+    font-weight: normal;
+}
+.input_tr{
+    margin-bottom: 10px;
+    clear: both;
+    float: left;
+}
+.input_psf{
+    margin-bottom: 5px;
+    clear: both;
+    float: left;
+}
+.input_p{
+    float: left;
+    margin-right: 5px;
+    line-height: 26px;
+    margin-bottom: 0;
+    width: 75px;
+}
+.input_pp{
+    float: left;
+    margin-right: 5px;
+    line-height: 26px;
+    margin-bottom: 0;
+}
+.input_select{
+    float: left;
+    height: 26px;
+}
+.input_pile{
+    float: left;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+.input_pile:first-child{
+    margin-left: 0px;
+}
+
+
+.edit_color td{
+    padding: 2px
+}
+.swatch-pick{
+    display: none;
+    z-index: 99999; padding: 4px; position: absolute; 
+    top: 30px; left: -20px; 
+    background: #ffffff; 
+    border-radius: 4px; 
+    box-shadow: 0 0 4px rgba(50,50,50,0.6);
+    border: 1px solid #ccc;
+}
+.swatch-picker {
+    height: 32px;
+    padding-bottom: 11px;
+}
+.edit_shape td{
+    padding: 5px;
+    border-radius: 7px;
+}
+.edit_shape td:hover{
+    box-shadow: 0 0 4px rgba(55,55,55,0.6);
+}
+.trig-clr:hover {
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(55,55,55,0.6);
+}
+.custom_sizes_box span {
+    float: none;
+}
+.col-xs-9.padding > a {
+    float: left;
+    margin: 0 6% 0 0;
+    width: auto;
+}
+
+.addtocart {
+    color: #505050;
+    float: left;
+    font-size: 11px;
+    /*        line-height: 28px;*/
+    line-height: 23px;
+}
+
+.add_cart2 span{
+    width:auto !important;
+    margin: 0 9% 0 0;
+}

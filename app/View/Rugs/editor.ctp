@@ -148,34 +148,34 @@
                         <tr class="input_tr">
                             <td>
                                 <p class="input_p">
-                                    <?php 
-                                    if($defaultShp == "round"){ 
+                                    <?php
+                                    if ($defaultShp == "round") {
                                         echo "Diameter";
-                                    }elseif($defaultShp == "square"){
+                                    } elseif ($defaultShp == "square") {
                                         echo "Side";
-                                    }else{
+                                    } else {
                                         echo "Width";
                                     }
                                     ?>
                                     :
                                 </p>
                             </td>
-                            <td><input class="input_ft form-control" data-bind="value:widthFt "  type="number" /></td>
+                            <td><input class="input_ft form-control" data-bind="value:widthFt " min="1"  type="number" /></td>
                             <td> ft. </td>
-                            <td><input class="input_ft  form-control" data-bind="value:widthIn " type="number" /></td>
+                            <td><input class="input_ft  form-control" data-bind="value:widthIn " min="0" type="number" /></td>
                             <td>in.</td>
                         </tr>
-                        <?php if($defaultShp != "round" && $defaultShp != "square"){ ?>
-                        <tr class="input_tr">
-                            <td>
-                                <p class="input_p">Height:</p>
-                            </td>
-                            <td><input class="input_ft form-control" data-bind="value:heightFt " type="number" /></td>
-                            <td> ft. </td>
-                            <td><input class="input_ft  form-control" data-bind="value:heightIn " type="number" /></td>
-                            <td> in. </td>
-                            </td>
-                        </tr>
+                        <?php if ($defaultShp != "round" && $defaultShp != "square") { ?>
+                            <tr class="input_tr">
+                                <td>
+                                    <p class="input_p">Height:</p>
+                                </td>
+                                <td><input class="input_ft form-control" data-bind="value:heightFt " min="1" type="number" /></td>
+                                <td> ft. </td>
+                                <td><input class="input_ft  form-control" data-bind="value:heightIn " min="0" type="number" /></td>
+                                <td> in. </td>
+                                </td>
+                            </tr>
                         <?php } ?>
                         <tr class="input_psf">
                             <td>
@@ -196,52 +196,20 @@
                             <td>
                                 <p class="input_p">Pile Depth:</p>
                             </td>
-                            <td>
-                                <?php 
+                            <td colspan="2">
+                                <?php
                                 $p_depth = json_decode($_global_pile_depth);
-                                    foreach($p_depth as $p_d){
-                                ?>
+                                foreach ($p_depth as $p_d) {
+                                    ?>
                                     <p class="input_pile"><input data-bind="checked:pileDepth " type="radio" name="pl_depth" value="<?php echo $p_d->val; ?>"> <?php echo $p_d->label; ?> </p>
                                 <?php } ?>
                             </td>
                         </tr>
-                        <tr class="input_psf">
-                            <td><b>Total Cost:</b></td>
-                            <td><b>$ <span data-bind="text:total"></span></b></td>
+                        <tr>
+                            <td colspan="3"><h1>Total Cost: $ <span data-bind="text:total"></span></h1></td>
                         </tr>
                     </table>
-
-                    <?php /* <table class="table">
-                      <thead>
-                      <tr>
-                      <th>Size<br>
-                      <a style="font-size:10px;" href="#">Custom Size Inquiry</a>
-                      </th>
-                      <th>Qty</th>
-                      <th>Price</th>
-                      </tr>
-                      </thead>
-                      <tbody>
-                      <tr>
-                      <td>
-                      <!--<select name="approx_size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"><option value="12">2 x 3</option><option value="13">3 x 5</option><option value="14">4 x 6</option><option value="15">5 x 8</option><option value="23">8' Round</option><option value="29">8' Runner</option><option value="6">8' Square</option><option value="16">6 x 9</option><option value="22">6' Round</option><option value="28">6' Runner</option><option value="5">6' Square</option><option value="17">8 x 10</option><option value="19">10 x 14</option><option value="18">9 x 12</option><option value="20">12 x 15</option><option value="24">10' Round</option><option value="25">12' Round</option><option value="26">14' Round</option><option value="27">4' Runner</option><option value="30">10' Runner</option><option value="31">12' Runner</option><option value="3">14' Runner</option><option value="4">4' Square</option><option value="7">10' Square</option><option value="108">16' Runner</option><option value="21">4' Round</option><option value="198">5' Round</option><option value="8">12' Square</option><option value="9">14' Square</option><option value="97">Octagon</option><option value="100">Shapes</option><option value="11">Sample</option><option value="101">Oval</option><option value="105">12 x 18</option><option value="104">15 x 20</option><option value="207">Oversize</option></select>-->
-                      <select data-bind="options: sizes, optionsText: 'label', optionsValue: 'label' , value:size" class="form-control sm" id="approx_size"  title="Size" placeholder="Select Size"></select>
-                      </td>
-                      <td>
-                      <select id="odr-qty" class="form-control sm" data-bind="value:qty ">
-                      <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
-                      <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
-                      <?php } ?>
-                      </select>
-                      </td>
-                      <td>
-                      <span style="color: #ff826e; font-size: 12pt;">
-                      $<b data-bind="text:total"></b>
-                      </span>
-                      </td>
-                      </tr>
-                      </tbody>
-                      </table> */ ?>
+                    
                     <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
                     <button data-bind="click:add2cartNMove" class="addtocart1">Checkout</button>
                 </div>
@@ -284,11 +252,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
                 <div class="popular_rug" id="ajax-pplr">
-
                 </div>
                 <div class="top_rug" id="ajax-rcnt">
 
@@ -298,119 +262,9 @@
         </div>
     </div>
 </div>
-<style type="text/css">
-    .sm-p-trig img {
-        cursor: pointer;
-        height: auto;
-    }
-    #big-img {
-        height: 475px;
-        background:none;
-        box-shadow:none;
-        border:none;
-    }
-    #rug-preview {
-
-        border-right:1px solid #ccc;
-    }
-
-    .input_ft{
-        border: 1px solid #a8a8a8;
-        border-radius: 0;
-        float: left;
-        width: 60px; 
-    }
-    .input_label{
-        float: left;
-        margin:0 5px;
-        font-weight: normal;
-    }
-    .input_tr{
-        margin-bottom: 10px;
-        clear: both;
-        float: left;
-    }
-    .input_psf{
-        margin-bottom: 5px;
-        clear: both;
-        float: left;
-    }
-    .input_p{
-        float: left;
-        margin-right: 5px;
-        line-height: 26px;
-        margin-bottom: 0;
-        width: 75px;
-    }
-    .input_pp{
-        float: left;
-        margin-right: 5px;
-        line-height: 26px;
-        margin-bottom: 0;
-    }
-    .input_select{
-        float: left;
-        height: 26px;
-    }
-    .input_pile{
-        float: left;
-        margin-left: 10px;
-        margin-bottom: 0;
-    }
-    .input_pile:first-child{
-        margin-left: 0px;
-    }
-
-
-    .edit_color td{
-        padding: 2px
-    }
-    .swatch-pick{
-        display: none;
-        z-index: 99999; padding: 4px; position: absolute; 
-        top: 30px; left: -20px; 
-        background: #ffffff; 
-        border-radius: 4px; 
-        box-shadow: 0 0 4px rgba(50,50,50,0.6);
-        border: 1px solid #ccc;
-    }
-    .swatch-picker {
-        height: 32px;
-        padding-bottom: 11px;
-    }
-    .edit_shape td{
-        padding: 5px;
-        border-radius: 7px;
-    }
-    .edit_shape td:hover{
-        box-shadow: 0 0 4px rgba(55,55,55,0.6);
-    }
-    .trig-clr:hover {
-        cursor: pointer;
-        box-shadow: 0 0 4px rgba(55,55,55,0.6);
-    }
-    .custom_sizes_box span {
-        float: none;
-    }
-    .col-xs-9.padding > a {
-        float: left;
-        margin: 0 6% 0 0;
-        width: auto;
-    }
-
-    .addtocart {
-        color: #505050;
-        float: left;
-        font-size: 11px;
-        /*        line-height: 28px;*/
-        line-height: 23px;
-    }
-
-    .add_cart2 span{
-        width:auto !important;
-        margin: 0 9% 0 0;
-    }
-</style>    
+<?php
+echo $this->Html->css(array('app/editor'));
+?>
 <?php
 $this->start("script");
 $this->end();
@@ -458,7 +312,7 @@ $this->end();
     var EditorVM = function() {
         var me = this;
         me.shape = ko.observable("<?php echo $defaultShp; ?>");
-        me.price = ko.observable(<?php echo $price/12; ?>);
+        me.price = ko.observable(<?php echo $price / 12; ?>);
         me.sizes = ko.observableArray(<?php
 $exr = array();
 foreach ($sizes_cart as $s) {
@@ -468,35 +322,41 @@ foreach ($sizes_cart as $s) {
 
         me.size = ko.observable('4 x 6');
 
-        me.widthFt = ko.observable(0);
+        me.widthFt = ko.observable(2);
         me.widthIn = ko.observable(0);
-        me.heightFt = ko.observable(0);
+        me.heightFt = ko.observable(2);
         me.heightIn = ko.observable(0);
         me.carving = ko.observable(0);
-        me.pileDepth = ko.observable("1/2");
-        
-        me.area = ko.computed(function(){
-            var w = parseFloat(this.widthFt() * 12 + this.widthIn());
-            var h = parseFloat(this.heightFt() * 12 + this.heightIn());
-            if(this.shape() == "rect" || this.shape() == "runner"){
-                return (w * h)/12;
+        me.pileDepth = ko.observable("+0.00");
+        me.pDepthCost = <?php echo $_global_pile_depth; ?>;
+        me.area = ko.computed(function() {
+            var w = parseFloat(this.widthFt()) * 12 + parseFloat(this.widthIn());
+            var h = parseFloat(this.heightFt()) * 12 + parseFloat(this.heightIn());
+            if (this.shape() == "rect" || this.shape() == "runner") {
+                return (w * h) / 12;
             }
-            if(this.shape() == "square" ){
+            if (this.shape() == "square") {
+                me.heightFt(0);
                 return (w * w) / 12;
             }
-            if(this.shape() == "round"){
-                var r  = w/2;
-                return (Math.PI * Math.pow(r,2)) / 12;
+            if (this.shape() == "round") {
+                me.heightFt(0);
+                var r = w / 2;
+                return (Math.PI * Math.pow(r, 2)) / 12;
             }
-            return (Math.PI * w/2 * h/2) / 12;
+            return (Math.PI * w / 2 * h / 2) / 12;
         }, this);
-        
+
 
         me.qty = ko.observable(1);
-        
-        
+
+
         me.total = ko.computed(function() {
-            return me.area() * me.price() * this.qty() - (me.area() * me.price() * this.qty()) * <?php echo $crug['discount']; ?> / 100;
+            var total = me.area() * me.price() * this.qty();
+            total = eval(total + me.pileDepth());
+            total = total + parseFloat(me.carving());
+            total = total - total * <?php echo $crug['discount']; ?> / 100
+            return total.toFixed(2);
         }, this);
         me.mUnits = ko.observable("cm");
         me.mUnits.subscribe(function(newVal) {
@@ -512,8 +372,20 @@ foreach ($sizes_cart as $s) {
 
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
             var send = true;
+            var pdepth = 0;
+            for(i in me.pDepthCost){
+                if(me.pDepthCost[i].val == me.pileDepth()){
+                    pdepth = me.pDepthCost[i].label;
+                }
+            }
             var data = {
                 rid: '<?php echo $r_id; ?>',
+                length: parseFloat(me.widthFt()) * 12 + parseFloat(me.widthIn()),
+                breadth: parseFloat(me.heightFt()) * 12 + parseFloat(me.heightIn()),
+                pileSize: pdepth,
+                craving: me.carving() != "0" ? "Yes" : "No",
+                area: me.area(),
+                total: me.total(),
                 qty: me.qty(),
                 size: me.size(),
                 shp: '<?php echo $defaultShp; ?>',
@@ -527,11 +399,23 @@ foreach ($sizes_cart as $s) {
                 flyToElement($('#big-img'), $(e.currentTarget));
             }
         }
-        me.add2cartNMove = function(){
+        me.add2cartNMove = function(d,e) {
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
+            var pdepth = 0;
+            for(i in me.pDepthCost){
+                if(me.pDepthCost[i].val == me.pileDepth()){
+                    pdepth = me.pDepthCost[i].label;
+                }
+            }
             var send = true;
             var data = {
                 rid: '<?php echo $r_id; ?>',
+                length: parseFloat(me.widthFt()) * 12 + parseFloat(me.widthIn()),
+                breadth: parseFloat(me.heightFt()) * 12 + parseFloat(me.heightIn()),
+                pileSize: pdepth,
+                craving: me.carving() != "0" ? "Yes" : "No",
+                area: me.area(),
+                total: me.total(),
                 qty: me.qty(),
                 size: me.size(),
                 shp: '<?php echo $defaultShp; ?>',

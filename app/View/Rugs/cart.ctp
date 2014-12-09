@@ -23,7 +23,16 @@
 
                             <p>
                                 Product id: <!-- ko text:Genrug.rug_id()+'ITM'+Genrug.id() --><!-- /ko --><br />
-                                Size: <!-- ko text:length() --><!-- /ko -->
+                                
+                                <!-- ko if: (shape() == 'rect' || shape() == 'runner') -->
+                                Size: <!-- ko text:parseFloat(length()/12).toFixed(2) --><!-- /ko -->' x <!-- ko text:parseFloat(bredth()/12) --><!-- /ko -->'<br />
+                                <!-- /ko -->
+                                <!-- ko if:(shape() != 'rect' || shape() != 'runner') -->
+                                Size: <!-- ko text:parseFloat(length()/12).toFixed(2) --><!-- /ko -->'<br />
+                                <!-- /ko -->
+                                
+                                Pile Depth: <!-- ko text:pile_size() --><!-- /ko --><br />
+                                Craving: <!-- ko text:craving() --><!-- /ko --><br />
                             </p>
 
                             <p>colours: </p>
@@ -42,7 +51,7 @@
                     </td>
 
                     <td>
-                        <strong><span data-bind="text:ko.computed(function(){ return '$' + cart.totalPerItem(Genrug.price(),qty(),length(),Genrug.Rug.discount())})"></span></strong>
+                        <strong><span data-bind="text:ko.computed(function(){ return '$' + cart.totalPerItem(Genrug.price(),qty(),area(),pile_size(),craving(),Genrug.Rug.discount())})"></span></strong>
                     </td>
 
                     <td>
@@ -198,6 +207,7 @@
                                         me.countries = ko.observableArray([]);
                                         me.orderId = ko.observable(0);
                                         me.items = ko.observableArray([]);
+                                        me.pDepthCost = <?php echo $_global_pile_depth; ?>;
                                         me.sizes = ko.observableArray(<?php
 $exr = array();
 foreach ($sizes as $s) {
@@ -206,19 +216,25 @@ foreach ($sizes as $s) {
 ?>);
                                         me.qtArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
                                         me.deliveryCharge = ko.observable(0.00);
-                                        me.totalPerItem = function(price, qty, size, discount) {
-                                            var x = me.sizes();
-                                            for (i in x) {
-                                                if (x[i].label == size)
-                                                    size = x[i].size_in_ft;
+                                        me.totalPerItem = function(price, qty, area, pileDepth, craving , discount) {
+                                            var total = (price/12) * qty * area;
+                                            var pdepth = "+0";
+                                            for(i in me.pDepthCost){
+                                                if(me.pDepthCost[i].label == pileDepth){
+                                                    pdepth = me.pDepthCost[i].val;
+                                                }
                                             }
-                                            return size * price * qty - (size * price * qty) * discount / 100;
+                                            total = eval(total+pdepth);
+                                            if(craving == "Yes")
+                                                total = total + parseFloat(<?php echo $_global_carving_price; ?>);
+                                            total = total - total * discount / 100;
+                                            return total.toFixed(2);
                                         };
                                         me.total = ko.computed(function() {
                                             var sum = 0.00;
                                             var items = ko.mapping.toJS(this.items);
                                             for (i in items) {
-                                                sum += me.totalPerItem(items[i].Genrug.price, items[i].qty, items[i].length, items[i].Genrug.Rug.discount);
+                                                sum += me.totalPerItem(items[i].Genrug.price, items[i].qty, items[i].area, items[i].pile_size, items[i].craving, items[i].Genrug.Rug.discount);
                                             }
                                             try {
                                                 gross_key.abort()
