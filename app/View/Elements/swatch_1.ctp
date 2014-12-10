@@ -31,7 +31,7 @@
                 </a>
             </td>
             <?php
-            if ($cnt == 40) {
+            if ($cnt == 20) {
                 echo '</tr>';
                 $cnt = 0;
             }

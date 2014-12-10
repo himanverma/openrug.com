@@ -234,7 +234,7 @@ foreach ($sizes as $s) {
                                             var sum = 0.00;
                                             var items = ko.mapping.toJS(this.items);
                                             for (i in items) {
-                                                sum += me.totalPerItem(items[i].Genrug.price, items[i].qty, items[i].area, items[i].pile_size, items[i].craving, items[i].Genrug.Rug.discount);
+                                                sum += parseFloat(me.totalPerItem(items[i].Genrug.price, items[i].qty, items[i].area, items[i].pile_size, items[i].craving, items[i].Genrug.Rug.discount));
                                             }
                                             try {
                                                 gross_key.abort()
@@ -298,7 +298,7 @@ foreach ($sizes as $s) {
                                             });
                                         }
                                         me.checkOut = function(d, e) {
-                                            window.location = "/rugs/billing";
+                                            window.location = "/users/checkout";
                                             /*$.post("/cart/paypaldirect",{orderId:me.orderId()},function(d){
                                              console.log(d);
                                              });*/

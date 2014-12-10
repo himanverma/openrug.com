@@ -22,15 +22,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <!--        <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php
-        echo $this->Html->charset() ."\n";
-        echo $this->Seo->title(Configure::read('Settings.site_name')." : ".$title_for_layout) ."\n";
-        echo $this->Html->meta('icon') ."\n";
-        echo $this->Seo->metaTags() ."\n";
-        echo $this->Seo->canonical() ."\n";
+        echo $this->Html->charset() . "\n";
+        echo $this->Seo->title(Configure::read('Settings.site_name') . " : " . $title_for_layout) . "\n";
+        echo $this->Html->meta('icon') . "\n";
+        echo $this->Seo->metaTags() . "\n";
+        echo $this->Seo->canonical() . "\n";
 
         // echo $this->Html->css('cake.generic');
 
-        echo $this->fetch('meta') ."\n";
+        echo $this->fetch('meta') . "\n";
         /*
           echo $this->Html->css(array(
           "bootstrap.min",
@@ -56,7 +56,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "/js/app/functions",
             "/js/app/custom.bindings",
             "/js/app/swt",
-            "/js/jquery.colorbox-min"
+            "/js/jquery.colorbox-min",
+            "/js/pnotify.custom.min"
         ));
         $this->Combinator->add_libs('css', array(
             "bootstrap.min",
@@ -65,7 +66,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             "font-awesome",
             "bootstrap-theme.min",
             "waiting",
-            "colorbox"
+            "colorbox",
+            "pnotify.custom.min"
                 //"/font-awesome/css/font-awesome.min",
                 //"theme",
         ));
@@ -85,8 +87,20 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     </head>
 
     <body role="document">
-        
         <?php 
+            $flash_ed = $this->Session->flash();
+            if($flash_ed != ""){
+        ?>
+        <script type="text/javascript">
+            $(function() {
+                new PNotify({
+                    title: 'Notice',
+                    text: '<?php echo $flash_ed; ?>'
+                });
+            });
+        </script>
+        <?php
+            }
         echo $this->element("page-header");
         ?>
         <div class="main_con"> 
@@ -107,7 +121,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                 $(".down_arrow").click(function() {
                     $(".footer_menu").toggle();
                 });
-                $( document ).ajaxComplete(function() {
+                $(document).ajaxComplete(function() {
                     $("[data-toggle=tooltip]").tooltip();
                 });
             });

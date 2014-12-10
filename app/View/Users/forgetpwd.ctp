@@ -2,13 +2,14 @@
     <div class="row">
         <!--sign in start-->
         <div class="sign_main_in_box">
-            <div class="col-lg-12" style="text-align: center !important;">
-                <?php echo $this->Session->flash(); ?>
-            </div>
+            
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <div class="sign_box_inn">
                     <div class="Sign_box_tittle"><h1>Forget Password</h1></div>
+                    <div class="col-lg-12" style="text-align: center !important;">
+                        <?php echo $this->Session->flash(); ?>
+                    </div>
                     <?php echo $this->Form->create('User'); ?>
                     <div class="col-lg-12">
                         <div class="sign_in_user_name">

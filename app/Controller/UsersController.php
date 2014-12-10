@@ -363,6 +363,13 @@ class UsersController extends AppController {
             
         }
         public function checkout(){
-            
+            $this->loadModel('Billingadd');
+            $a = $this->Billingadd->find("all",array(
+                'contain' => false,
+                'conditions' => array(
+                    'Billingadd.user_id' => $this->Auth->user('id')
+                )
+            ));
+            $this->set("savedadds", $a);
         }
 }
