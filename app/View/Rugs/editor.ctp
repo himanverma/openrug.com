@@ -14,16 +14,16 @@
 
                 <div class="col-sm-5 sm-p-trig">
                     <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt=""  height="60px;">
                     </div>
                     <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
                     </div>
                     <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
                     </div>
                     <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" width="100px;" height="60px;">
+                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
                     </div> 
                 </div>
             </div> 
@@ -206,7 +206,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="3"><h1>Total Cost: $ <span data-bind="text:total"></span></h1></td>
+                            <td colspan="3"><p><span style="margin-bottom: 20px;">Total Cost:</span> <span style="font-size:40px; margin-left: 40px;">$ <span data-bind="text:total"></span></span></p></td>
                         </tr>
                     </table>
                     

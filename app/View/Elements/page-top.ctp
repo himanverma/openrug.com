@@ -14,6 +14,7 @@
                    <li style="border-right:0px !important;"><a style="color: #fff;" href="<?php echo $this->Html->url('/users/add'); ?>">Sign Up</a></li>
                     <?php } else { ?>
                         <li><a style="color: #fff;" href="<?php echo $this->Html->url('/users/account'); ?>">My-Account</a></li>
+                        <li><a style="color: #fff;" href="<?php echo $this->Html->url('/users/logout'); ?>">Logout</a></li>
                     <?php } ?>
                 </ul>
             </nav>

@@ -39,9 +39,9 @@
                             <p data-bind="swatch:{'clrstamp':colors()}"></p>
 
                         </div>
-                        <p>Rug options...</p>
+                        <!--<p>Rug options...</p>
                         <p> 
-                            <input type="checkbox"> Include Scotchgard™ Rug Protector info <i class="fa fa-info"></i>  add +$17.45</p>
+                            <input type="checkbox"> Include Scotchgard™ Rug Protector info <i class="fa fa-info"></i>  add +$17.45</p>-->
 
                     </td>
 

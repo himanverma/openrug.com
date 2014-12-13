@@ -15,13 +15,29 @@
                     <div class="col-lg-6">
                         <h3>New Customer</h3>
                         <div class="form-group">
-                            <div class="col-sm-4"><input type="radio" class="form-control small" id="firstName" name="newcst" placeholder="First Name"></div>
-                            <div class="col-sm-8"><label for="exampleInputEmail1">Register Account</label></div>
+                            <div class="col-sm-4"><input type="radio" class="form-control small" id="cntrl1" name="newcst" placeholder="First Name"></div>
+                            <div class="col-sm-8"><label for="cntrl1">Register Account</label></div>
                         </div>
                         <div class="form-group">
-                            <div class="col-sm-4"><input type="radio" class="form-control small" id="firstName" name="newcst" placeholder="First Name"></div>
-                            <div class="col-sm-8"><label for="exampleInputEmail1">Guest Account</label></div>
+                            <div class="col-sm-4"><input type="radio" class="form-control small" id="cntrl2" name="newcst" placeholder="First Name"></div>
+                            <div class="col-sm-8"><label for="cntrl2">Guest Account</label></div>
                         </div>
+                    </div>
+                    <div class="col-lg-5 well" style="margin: 30px;">
+                        <form id="ajaxLogin">
+                            <div class="form-group">
+                                <div class="col-sm-4"><label for="data[User][username]">Username/E-mail:</label></div>
+                                <div class="col-sm-8"><input type="text" class="form-control small" id="data[User][username]" name="data[User][username]" placeholder="Username/E-mail"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4"><label for="data[User][password]">Password</label></div>
+                                <div class="col-sm-8"><input type="password" class="form-control small" id="data[User][password]" name="data[User][password]" placeholder="Username/E-mail"></div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-4"></div>
+                                <div class="col-sm-8"><br /><button type="submit" class="btn btn-primary">Login</button></div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
