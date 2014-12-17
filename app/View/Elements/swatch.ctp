@@ -62,15 +62,7 @@
         padding: 0.5px;
         font-size: 8px;
     }
-    .swatch-pick{
-        display: none;
-        z-index: 99999; padding: 4px; position: absolute; 
-        top: 30px; left: -150px; 
-        background: #ffffff; 
-        border-radius: 4px; 
-        box-shadow: 0 0 4px rgba(50,50,50,0.6);
-        border: 1px solid #ccc;
-    }
+    
     .swatch-picker {
         height: 32px;
         padding-bottom: 11px;
