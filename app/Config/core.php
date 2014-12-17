@@ -161,7 +161,7 @@ Configure::write('Routing.prefixes', array('admin'));
  * Turn off all caching application-wide.
  *
  */
-	Configure::write('Cache.disable', true);
+	Configure::write('Cache.disable', false);
 
 /**
  * Enable cache checking.
@@ -360,7 +360,7 @@ $engine = 'File';
 
 // In development mode, caches should expire quickly.
 $duration = '+999 days';
-if (Configure::read('debug') > 0) {
+if (Configure::read('debug') > 2) {
 	$duration = '+10 seconds';
 }
 //$duration = '+10 days';

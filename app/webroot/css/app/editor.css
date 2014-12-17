@@ -67,7 +67,7 @@
 .swatch-pick{
     display: none;
     z-index: 99999; padding: 4px; position: absolute; 
-    top: 30px; left: -100px; 
+    top: 118px !important; left: -100px; 
     background: #ffffff; 
     border-radius: 4px; 
     box-shadow: 0 0 4px rgba(50,50,50,0.6);
@@ -87,7 +87,7 @@
 }
 .trig-clr:hover {
     cursor: pointer;
-    box-shadow: 0 0 4px rgba(55,55,55,0.6);
+    margin-top: -4px;
 }
 .custom_sizes_box span {
     float: none;
