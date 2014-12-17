@@ -1,46 +1,60 @@
-<table cellspacing="0" cellpadding="2">
-    <?php 
-    $dir = new DirectoryIterator("swatch");
-    $cnt = 1;
-    $ar = array();
-    foreach ($dir as $fl){
-            if (!$fl->isDot()) {
-                if(!$fl->isDir()){
-                    $name = $fl->getFilename();
-                    $num = explode("-", $name);
-                    $ar[(int)$num[0]] = $name;
+<table>
+    <tr>
+        <td>
+            <table cellspacing="0" cellpadding="2">
+                <?php
+                $dir = new DirectoryIterator("swatch");
+                $cnt = 1;
+                $ar = array();
+                foreach ($dir as $fl) {
+                    if (!$fl->isDot()) {
+                        if (!$fl->isDir()) {
+                            $name = $fl->getFilename();
+                            $num = explode("-", $name);
+                            $ar[(int) $num[0]] = $name;
+                        }
+                    }
                 }
-            }
-    }
-    ksort($ar);
-    /*$tst = array();
-    for($i = 1; $i <= 600; $i++){
-        $name = $ar[$i];
-        $code = rtrim($name, ".png");
-        $code = explode("-", $code);
-        $code = $code[1];
-        $tst[$code] = array("file" => $ar[$i],"id"=>$i);
-    }
-    echo json_encode($tst);
-    exit;*/
-    for($i = 1; $i <= 600; $i++){
-        $name = $ar[$i];
-        $code = rtrim($name, ".png");
-        $code = explode("-", $code);
-        $code = $code[1];
-        if($cnt == 1)
-            echo '<tr>';
-    ?>
-    <td><img style="width:16px; height: 16px;" class="trig-clr" data-clr="#<?php echo $code; ?>" src="<?php echo $this->Html->url("/swatch/".$name); ?>" alt=""> </td>
-    <?php
-        if($cnt == 20 ){
-                echo '</tr>';         
-                $cnt = 0;
-           }
-        $cnt++;
-    }
-    ?>
-    
+                ksort($ar);
+                /* $tst = array();
+                  for($i = 1; $i <= 600; $i++){
+                  $name = $ar[$i];
+                  $code = rtrim($name, ".png");
+                  $code = explode("-", $code);
+                  $code = $code[1];
+                  $tst[$code] = array("file" => $ar[$i],"id"=>$i);
+                  }
+                  echo json_encode($tst);
+                  exit; */
+                for ($i = 1; $i <= 600; $i++) {
+                    $name = $ar[$i];
+                    $code = rtrim($name, ".png");
+                    $code = explode("-", $code);
+                    $code = $code[1];
+                    if ($cnt == 1)
+                        echo '<tr>';
+                    ?>
+                    <td><img style="width:16px; height: 16px;" class="trig-clr" data-clr="#<?php echo $code; ?>" src="<?php echo $this->Html->url("/swatch/" . $name); ?>" alt=""> </td>
+                    <?php
+                    if ($cnt == 20) {
+                        echo '</tr>';
+                        $cnt = 0;
+                    }
+                    $cnt++;
+                }
+                ?>
+
+            </table>
+        </td>
+        <td>
+            <p>Replacement</p><br />
+            <img align="right" src="" class="swt-over" style="height:70px; width: auto;" /><br />
+            <br />
+            
+            <p>Current</p><br />
+            <img align="right" src="" style="height:70px; width: auto;" class="swt-current" /><br />
+        </td>
+    </tr>
 </table>
 
 <style type="text/css">
@@ -67,7 +81,7 @@
     }
 </style>  
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('img').attr({'alt':'im'});
+    $(document).ready(function() {
+        $('img').attr({'alt': 'im'});
     });
 </script>

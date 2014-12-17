@@ -12,20 +12,6 @@
                 <div class="col-sm-2"></div>
                 <div class="col-sm-2"></div>
 
-                <div class="col-sm-5 sm-p-trig">
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt=""  height="60px;">
-                    </div>
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
-                    </div>
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
-                    </div>
-                    <div class="im col-xs-3">
-                        <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
-                    </div> 
-                </div>
             </div> 
         </form>
 
@@ -34,6 +20,20 @@
                 <div class="col-lg-8">
                     <div id="rug-preview">
                         <img align="center" class="well well-sm" style="height: auto; width: 90%;" id="big-img" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>"/>
+                    </div>
+                    <div class="col-sm-12 sm-p-trig">
+                        <div class="im col-xs-3">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . ".png"); ?>" onerror="$(this).parent().remove();" alt=""  height="60px;">
+                        </div>
+                        <div class="im col-xs-3">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "1.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
+                        </div>
+                        <div class="im col-xs-3">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "2.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
+                        </div>
+                        <div class="im col-xs-3">
+                            <img class="well well-sm" src="<?php echo $this->Html->url($ims . $defaultShp . "3.png"); ?>" onerror="$(this).parent().remove();" alt="" height="60px;">
+                        </div> 
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -100,14 +100,7 @@
                         ?></h5>
                     <h2 class="sph1"><?php echo $crug['name']; ?></h2>
                     <hr>
-                    <div>
-                        <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-                        <script type="text/javascript">stLight.options({publisher: "9fd7ddb9-da0d-4b7d-83fd-987ccdd7c64d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-                        <span class='st_facebook' displayText='Facebook'></span>
-                        <span class='st_twitter' displayText='Tweet'></span>
-                        <span class='st_pinterest' displayText='Pinterest'></span>
-                        <span class='st_googleplus' displayText='Google +'></span>
-                    </div>
+
                     <div class="confrigation">
                         <div class="row">
                             <div class="col-xs-6"><b>Pattern : </b></div>
@@ -209,7 +202,7 @@
                             <td colspan="3"><p><span style="margin-bottom: 20px;">Total Cost:</span> <span style="font-size:40px; margin-left: 40px;">$ <span data-bind="text:total"></span></span></p></td>
                         </tr>
                     </table>
-                    
+
                     <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
                     <button data-bind="click:add2cartNMove" class="addtocart1">Checkout</button>
                 </div>
@@ -222,9 +215,16 @@
                 });
             });
         </script>
-        <style type="text/css">
-
-        </style>
+        <div class="col-lg-12">
+            <div>
+                <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+                <script type="text/javascript">stLight.options({publisher: "9fd7ddb9-da0d-4b7d-83fd-987ccdd7c64d", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+                <span class='st_facebook' displayText='Facebook'></span>
+                <span class='st_twitter' displayText='Tweet'></span>
+                <span class='st_pinterest' displayText='Pinterest'></span>
+                <span class='st_googleplus' displayText='Google +'></span>
+            </div>
+        </div>
         <div class="calculate_price">
             <div class="col-sm-12">
                 <div class="candy_rug">
@@ -261,6 +261,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <?php
 echo $this->Html->css(array('app/editor'));
@@ -273,16 +274,24 @@ $this->end();
     $(document).ready(function() {
         $('.addtocart').tooltip();
         $('.swatch-picker').hover(function() {
+            var str = $(this).find('.swatch-pick').parent().find('input').val().toString();
+            str = str.replace("#", "");
+            $(this).find('.swatch-pick .swt-current').attr({"src": "/tom/" + str + ".png"});
+
             $(this).find('.swatch-pick').show();
             $(this).css({'box-shadow': '0 0 4px rgba(55,55,55,0.6)'});
         }, function() {
             $(this).find('.swatch-pick').hide();
             $(this).css({'box-shadow': 'none'});
         });
-
+        $('.trig-clr').off("mouseover").on("mouseover", function() {
+            var clr = $(this).data().clr;
+            clr = clr.replace("#", "");
+            $(this).parent().parent().parent().parent().parent().parent().find('.swt-over').attr({"src": "/tom/" + clr + ".png"});
+        });
         $('.trig-clr').off("click").on("click", function() {
             var clr = $(this).data().clr;
-            $(this).parent().parent().parent().parent().parent().parent().find('input').val(clr);
+            $(this).parents('.swatch-pick').parent().find('input').val(clr);
             $(this).parents('form').submit();
             return false;
         });
@@ -373,8 +382,8 @@ foreach ($sizes_cart as $s) {
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
             var send = true;
             var pdepth = 0;
-            for(i in me.pDepthCost){
-                if(me.pDepthCost[i].val == me.pileDepth()){
+            for (i in me.pDepthCost) {
+                if (me.pDepthCost[i].val == me.pileDepth()) {
                     pdepth = me.pDepthCost[i].label;
                 }
             }
@@ -399,11 +408,11 @@ foreach ($sizes_cart as $s) {
                 flyToElement($('#big-img'), $(e.currentTarget));
             }
         }
-        me.add2cartNMove = function(d,e) {
+        me.add2cartNMove = function(d, e) {
             $("#odr-l, #odr-b, #odr-s").css({'background': 'none'});
             var pdepth = 0;
-            for(i in me.pDepthCost){
-                if(me.pDepthCost[i].val == me.pileDepth()){
+            for (i in me.pDepthCost) {
+                if (me.pDepthCost[i].val == me.pileDepth()) {
                     pdepth = me.pDepthCost[i].label;
                 }
             }
