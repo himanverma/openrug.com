@@ -57,8 +57,8 @@
                                        <!-- <a href="#"><i class="fa fa-plus-square"></i></a> -->
                                 </div>
                                 <div class="edit_shape">
-                                    Edit Shape: 
-                                    <span class="swatch-picker">
+                                    <p class="head_edit">Edit Shape:</p> 
+                                    <!--<span class="swatch-picker">
                                         <img style="height:16px" src="<?php echo $this->Html->url("/images/sh-" . $defaultShp . ".png?_=" . time()); ?>" alt="">
                                         <div class="swatch-pick">
                                             <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
@@ -93,7 +93,14 @@
                                     </span>
                                     <a href="#"><i class="fa fa-plus-square"></i></a>
                                 </div>
-                            </form>
+                            </form>-->
+                                    <span class="shp-obj-shape active1"></span>
+                                    <span class="shp-obj-runner"></span>
+                                    <div class="shape_st">
+                                    <span class="shp-obj-square"></span>
+                                    <span class="shp-obj-circle"></span>
+                                    <span class="shp-obj-ovel"></span></div>
+                                    
 
                             <h5 class="pull-right" style="text-transform: uppercase; margin-top: 20px;">SKU: <?php
                                 $sku_pre = md5($crug['name']);
@@ -178,41 +185,78 @@
                                     <td>
                                         <p class="input_p">Carving:</p>
                                     </td>
-
-                                    <td>
-                                        <p class="input_pp">(<?php echo $_global_carving_label; ?>):</p>
-                                    </td>
-                                    <td>
-                                        <select class="input_select" data-bind="value:carving ">
+                                </tr>
+                                <tr class="cuver_1">
+                                    <td colspan="4">
+                                        <div class="new_one"><p class="nn_pp">(<?php echo $_global_carving_label; ?>):</p>
+                                            <select class="input_select" data-bind="value:carving ">
                                             <option value="<?php echo $_global_carving_price; ?>">Yes</option>
                                             <option value="0">No</option>
                                         </select>
+                                        </div>
                                     </td>
+                                    
                                 </tr>
                                 <tr class="input_psf">
-                                    <td>
+                                    <td colspan="4">
                                         <p class="input_p">Pile Depth:</p>
                                     </td>
-                                    <td colspan="2">
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <div class="new_one">
                                         <?php
                                         $p_depth = json_decode($_global_pile_depth);
                                         foreach ($p_depth as $p_d) {
                                             ?>
                                             <p class="input_pile"><input data-bind="checked:pileDepth " type="radio" name="pl_depth" value="<?php echo $p_d->val; ?>"> <?php echo $p_d->label; ?> </p>
                                         <?php } ?>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"><p><span style="margin-bottom: 20px;">Total Cost:</span> <span style="font-size:40px; margin-left: 40px;">$ <span data-bind="text:total"></span></span></p></td>
+                                    <td colspan="4"><p><span style="margin-bottom: 20px;">Total Cost:</span></p></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><span style="font-size:40px; margin-left:0px; color:#ff826e;">$ <span data-bind="text:total"></span></span><button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
+                                <button data-bind="click:add2cartNMove" class="addtocart1">Checkout</button></td>
                                 </tr>
                             </table>
-
-                            <button data-bind="click:add2cart" class="addtocart1">Add to Cart</button>
-                            <button data-bind="click:add2cartNMove" class="addtocart1">Checkout</button>
                         </div>
                     </div>
                 </div>
             </div>
+                
+                
+                <div class="descrip">
+                    <div role="tabpanel" class="bs-example bs-example-tabs">
+    <ul role="tablist" class="nav nav-tabs" id="myTab">
+      <li class="active" role="presentation"><a aria-expanded="true" aria-controls="home" data-toggle="tab" role="tab" id="home-tab" href="#home">Description</a></li>
+      <li role="presentation"><a aria-controls="profile" data-toggle="tab" id="profile-tab" role="tab" href="#profile">Reviews(0)</a></li>
+      <li role="presentation"><a aria-controls="profile" data-toggle="tab" id="profile-tab" role="tab" href="#profile">Customtab block</a></li>
+    </ul>   
+    <div class="tab-content" id="myTabContent">
+      <div aria-labelledby="home-tab" id="home" class="tab-pane fade in active" role="tabpanel">
+        <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+      </div>
+      <div aria-labelledby="profile-tab" id="profile" class="tab-pane fade" role="tabpanel">
+        <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
+      </div>
+      <div aria-labelledby="dropdown1-tab" id="dropdown1" class="tab-pane fade" role="tabpanel">
+        <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork. Williamsburg banh mi whatever gluten-free, carles pitchfork biodiesel fixie etsy retro mlkshk vice blog. Scenester cred you probably haven't heard of them, vinyl craft beer blog stumptown. Pitchfork sustainable tofu synth chambray yr.</p>
+      </div>
+      <div aria-labelledby="dropdown2-tab" id="dropdown2" class="tab-pane fade" role="tabpanel">
+        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+      </div>
+        <div aria-labelledby="dropdown3-tab" id="dropdown2" class="tab-pane fade" role="tabpanel">
+        <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater. Lomo wolf viral, mustache readymade thundercats keffiyeh craft beer marfa ethical. Wolf salvia freegan, sartorial keffiyeh echo park vegan.</p>
+      </div>
+    </div>
+  </div>
+                    
+                </div>
+                
+                
         </div>
         <script type="text/javascript">
             $(document).ready(function() {

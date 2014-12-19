@@ -1,3 +1,4 @@
+<div class="col-sm-8">
 <table>
     <tr>
         <td>
@@ -46,16 +47,19 @@
 
             </table>
         </td>
-        <td>
+    </tr>
+</table></div>
+<div class="col-sm-4">
+    
+    <div class="nn">
             <p>Replacement</p><br />
-            <img align="right" src="" class="swt-over" style="height:70px; width: auto;" /><br />
+            <img align="" src="" class="swt-over" style="height:70px; width: auto;" /><br />
             <br />
             
             <p>Current</p><br />
-            <img align="right" src="" style="height:70px; width: auto;" class="swt-current" /><br />
-        </td>
-    </tr>
-</table>
+            <img align="" src="" style="height:70px; width: auto;" class="swt-current" /><br />
+        </div>
+</div>
 
 <style type="text/css">
     .edit_color td{
