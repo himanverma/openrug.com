@@ -94,12 +94,16 @@
                                     <a href="#"><i class="fa fa-plus-square"></i></a>
                                 </div>
                             </form>-->
-                                    <span class="shp-obj-shape active1"></span>
-                                    <span class="shp-obj-runner"></span>
-                                    <div class="shape_st">
-                                    <span class="shp-obj-square"></span>
-                                    <span class="shp-obj-circle"></span>
-                                    <span class="shp-obj-ovel"></span></div>
+                                    <div id="shp-selector">
+                                        <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
+                                        <span data-shp="rect" class="shp-obj-shape active1"></span>
+                                        <span data-shp="runner" class="shp-obj-runner"></span>
+                                        <div class="shape_st">
+                                            <span data-shp="square" class="shp-obj-square"></span>
+                                            <span data-shp="circle" class="shp-obj-circle"></span>
+                                            <span data-shp="oval" class="shp-obj-ovel"></span>
+                                        </div>
+                                    </div>
                                     
 
                             <h5 class="pull-right" style="text-transform: uppercase; margin-top: 20px;">SKU: <?php
@@ -337,7 +341,8 @@ $this->end();
         $('.trig-clr').off("mouseover").on("mouseover", function() {
             var clr = $(this).data().clr;
             clr = clr.replace("#", "");
-            $(this).parent().parent().parent().parent().parent().parent().find('.swt-over').attr({"src": "/tom/" + clr + ".png"});
+            console.log($(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent());
+            $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('.swt-over').attr({"src": "/tom/" + clr + ".png"});
         });
         $('.trig-clr').off("click").on("click", function() {
             var clr = $(this).data().clr;
@@ -345,9 +350,12 @@ $this->end();
             $(this).parents('form').submit();
             return false;
         });
-        $('#shape-pick img').off("click").on("click", function() {
+        $('#shp-selector span').off("click").on("click", function() {
+            $('#shp-selector span').removeClass('active1');
+            $(this).addClass('active1');
             var shp = $(this).data().shp;
-            $(this).parent().parent().parent().parent().parent().find('input').val(shp);
+            //console.log($(this).parent().parent());
+            $(this).parent().parent().find('input').val(shp);
             $(this).closest('form').submit();
             return false;
         });
