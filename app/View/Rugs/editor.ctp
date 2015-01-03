@@ -375,7 +375,7 @@
                 }
             });
 
-            edt = new EditorVM(<?php echo $price; ?>,<?php echo $r_id; ?>, '<?php echo str_replace("#", "", $colorstamp); ?>', 0, "<?php echo $defaultShp; ?>");
+            edt = new EditorVM(<?php echo $price; ?>,<?php echo $r_id; ?>, '<?php echo str_replace("#", "", $colorstamp); ?>', <?php echo $crug['discount']; ?>, "<?php echo $defaultShp; ?>");
             ko.applyBindings(edt);
             edt.mUnits('ft');
         });
@@ -430,7 +430,7 @@
                 var total = me.area() * me.price() * this.qty();
                 total = eval(total + me.pileDepth());
                 total = total + parseFloat(me.carving());
-                total = total - total * <?php echo $crug['discount']; ?> / 100
+                total = total - total * me.discount() / 100
                 return total.toFixed(2);
             }, this);
             me.mUnits = ko.observable("cm");
@@ -556,7 +556,7 @@
                     }
                     $('.pagination a').click(paginate);
                     $('.addtocart').on("click", function(e) {
-                        var clrObj = new EditorVM($(this).data('price'), $(this).data('rid'), $(this).data('cstamp'), $(this).data('discount'));
+                        var clrObj = new EditorVM($(this).data('price'), $(this).data('rid'), $(this).data('cstamp'), $(this).data('discount'),'square');
                         var html = $('#clrbx-cart').html();
                         $.colorbox({html: html});
                         try {
@@ -652,8 +652,8 @@
 
 
                 <tr>
-                    <td></td>
                     <td><button class="btn btn-default" data-bind="click:add2cart">Add to Cart</button></td>
+                    <td><button class="btn btn-default" data-bind="click:add2cartNMove">Checkout</button></td>
                 </tr>
             </table>
         </div>
