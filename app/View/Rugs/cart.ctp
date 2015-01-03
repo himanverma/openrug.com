@@ -23,14 +23,14 @@
 
                             <p>
                                 Product id: <!-- ko text:Genrug.rug_id()+'ITM'+Genrug.id() --><!-- /ko --><br />
-                                
+
                                 <!-- ko if: (shape() == 'rect' || shape() == 'runner') -->
                                 Size: <!-- ko text:parseFloat(length()/12).toFixed(2) --><!-- /ko -->' x <!-- ko text:parseFloat(bredth()/12) --><!-- /ko -->'<br />
                                 <!-- /ko -->
                                 <!-- ko if:(shape() != 'rect' || shape() != 'runner') -->
                                 Size: <!-- ko text:parseFloat(length()/12).toFixed(2) --><!-- /ko -->'<br />
                                 <!-- /ko -->
-                                
+
                                 Pile Depth: <!-- ko text:pile_size() --><!-- /ko --><br />
                                 Craving: <!-- ko text:craving() --><!-- /ko --><br />
                             </p>
@@ -67,7 +67,7 @@
                         <strong>Delivery&nbsp;country</strong>
                     </td>
                     <td colspan="2">
-                        <select style="width:222px;" data-bind="options: countries, optionsValue: 'code', optionsText: 'name'">
+                        <select style="width:222px;" data-bind="options: countries, optionsValue: 'code', optionsText: 'name', value: country ">
                         </select>
                     </td>
                 </tr>
@@ -205,6 +205,7 @@
                                     var CartVM = function() {
                                         var me = this;
                                         me.countries = ko.observableArray([]);
+                                        me.country = ko.observable('US');
                                         me.orderId = ko.observable(0);
                                         me.items = ko.observableArray([]);
                                         me.pDepthCost = <?php echo $_global_pile_depth; ?>;
@@ -216,16 +217,16 @@ foreach ($sizes as $s) {
 ?>);
                                         me.qtArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
                                         me.deliveryCharge = ko.observable(0.00);
-                                        me.totalPerItem = function(price, qty, area, pileDepth, craving , discount) {
-                                            var total = (price/12) * qty * area;
+                                        me.totalPerItem = function(price, qty, area, pileDepth, craving, discount) {
+                                            var total = (price / 12) * qty * area;
                                             var pdepth = "+0";
-                                            for(i in me.pDepthCost){
-                                                if(me.pDepthCost[i].label == pileDepth){
+                                            for (i in me.pDepthCost) {
+                                                if (me.pDepthCost[i].label == pileDepth) {
                                                     pdepth = me.pDepthCost[i].val;
                                                 }
                                             }
-                                            total = eval(total+pdepth);
-                                            if(craving == "Yes")
+                                            total = eval(total + pdepth);
+                                            if (craving == "Yes")
                                                 total = total + parseFloat(<?php echo $_global_carving_price; ?>);
                                             total = total - total * discount / 100;
                                             return total.toFixed(2);
@@ -309,6 +310,9 @@ foreach ($sizes as $s) {
                                     var cart = new CartVM();
                                     $(document).ready(function() {
                                         ko.applyBindings(cart);
+                                        setTimeout(function(){
+                                            cart.country("US");
+                                        },1000); 
                                     });
 
 
