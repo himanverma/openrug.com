@@ -2619,7 +2619,7 @@ input[type=checkbox]:checked ~ #menu{
 .swatch-pick{ 
     background: #fff !important; 
     box-shadow: none !important;
-    top: 27px !important; 
+/*    top: 27px !important; */
     border-radius: 0px !important; 
 }
 .pagination .current a {
@@ -2798,7 +2798,7 @@ i.name{
     z-index: 999;
     left: -177px !important;
     border: 1px solid #000;
-    top: 141px !important;
+    top: 129px !important;
 }
 .nn{
     width: 100% !important;
@@ -2844,11 +2844,15 @@ i.name{
     margin: 10px;
 }
 .shp-obj-shape{
-    background: none repeat scroll 0 0 #ff0000;
+    border: 1px solid #000;
     float: left;
     height: 50px;
     width: 90px;
     margin: 10px;
+}
+#shp-selector span:hover{
+    background: #1b98b6;
+    cursor: pointer;
 }
 .shape_st{
     width: 100% !important;

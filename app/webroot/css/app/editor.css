@@ -65,7 +65,7 @@
     padding: 2px
 }
 .swatch-pick{
-    display: none;
+    display: none !important;
     z-index: 99999; padding: 4px; position: absolute; 
     top: 118px !important; left: -100px; 
     background: #ffffff; 

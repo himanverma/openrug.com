@@ -47,7 +47,7 @@
                                     <?php for ($i = 0; $i < $colorCount; $i++) { ?>    
                                         <span class="swatch-picker">
                                             <img style="height: 52px; margin: 3px; width: auto;" src="tst" onerror="this.src = '/tom/<?php echo $defaultClr[$i]['swt']; ?>.png'" alt="">
-                                            <div class="swatch-pick">
+                                            <div class="swatch-pick" style="display:none">
                                                 <?php echo $this->element("swatch"); ?>
                                             </div>
                                             <input type="hidden" name="clr_sb[]" value="<?php echo $defaultClr[$i]['clr']; ?>" />
@@ -96,7 +96,7 @@
                             </form>-->
                                     <div id="shp-selector">
                                         <input type="hidden" name="shp_sb" value="<?php echo $defaultShp; ?>" />
-                                        <span data-shp="rect" class="shp-obj-shape active1"></span>
+                                        <span data-shp="rect" class="shp-obj-shape"></span>
                                         <span data-shp="runner" class="shp-obj-runner"></span>
                                         <div class="shape_st">
                                             <span data-shp="square" class="shp-obj-square"></span>
@@ -318,7 +318,7 @@
 
 </div>
 <?php
-echo $this->Html->css(array('app/editor?_='.time()));
+//echo $this->Html->css(array('app/editor.css?_='.time()));
 ?>
 <?php
 $this->start("script");
@@ -326,6 +326,9 @@ $this->end();
 ?>
 <script type="text/javascript">
     $(document).ready(function() {
+        
+        $('#shp-selector span[data-shp=<?php echo $defaultShp; ?>]').addClass('active1');
+        
         $('.addtocart').tooltip();
         $('.swatch-picker').hover(function() {
             var str = $(this).find('.swatch-pick').parent().find('input').val().toString();
@@ -341,7 +344,7 @@ $this->end();
         $('.trig-clr').off("mouseover").on("mouseover", function() {
             var clr = $(this).data().clr;
             clr = clr.replace("#", "");
-            console.log($(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent());
+            
             $(this).parent().parent().parent().parent().parent().parent().parent().parent().parent().parent().find('.swt-over').attr({"src": "/tom/" + clr + ".png"});
         });
         $('.trig-clr').off("click").on("click", function() {
