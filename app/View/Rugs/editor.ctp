@@ -438,7 +438,7 @@
                 console.log(newVal);
             }, this);
             me.notify = function(type, msg, focus) {
-                alert(type + ": " + msg);
+                //alert(type + ": " + msg);
                 if (focus != null)
                     $(focus).css({'background': 'pink'});
                 return false;
