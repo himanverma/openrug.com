@@ -575,86 +575,88 @@
         getdata('/Ajax/recentRugs');
     </script>
     <script id="clrbx-cart" type="text/html">
-        <div>
-            <h2>Add to cart</h2><hr />
-            <table>
-                <tr>
-                    <td><b>Quantity:</b></td>
-                    <td><select id="odr-qty" class="form-control sm" data-bind="value:qty ">
-                            <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
-                                <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
-                            <?php } ?>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><b>Shape:</b></td>
-                    <td>
-                        <select data-bind="value:shape" class="form-control sm">
-                            <option value="round">ROUND</option>
-                            <option value="oval">OVAL</option>
-                            <option value="rect">RECTANGULAR</option>
-                            <option value="square">SQUARE</option>
-                            <option value="runner">RUNNER</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- ko if: shape() == "round" -->
-                        <b>Diameter:</b>
-                        <!-- /ko -->
-                        <!-- ko if: shape() == "square" -->
-                        <b>Side:</b>
-                        <!-- /ko -->
-                        <!-- ko if: (shape() != "round" && shape() != "square") -->
-                        <b>Width:</b>
-                        <!-- /ko -->
-                    </td>
-                    <td>
-                        <input data-bind="value:widthFt " />ft <input data-bind="value:widthIn " />in
-                    </td>
-                </tr>
-                <!-- ko if: (shape() != "round" && shape() != "square") -->
-                <tr>
-                    <td>
-                        <b>Height:</b>
-                    </td>
-                    <td>
-                        <input data-bind="value:heightFt " />ft <input data-bind="value:heightIn " />in
-                    </td>
-                </tr>
-                <!-- /ko -->
-                <tr>
-                    <td>
-                        <p class="nn_pp">(<?php echo $_global_carving_label; ?>):</p></td>
-                    <td>
-                        <select class="input_select" data-bind="value:carving ">
-                            <option value="<?php echo $_global_carving_price; ?>">Yes</option>
-                            <option value="0">No</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-
-                    </td>
-                    <td>
-                        <?php
-                        $p_depth = json_decode($_global_pile_depth);
-                        foreach ($p_depth as $p_d) {
-                            ?>
-                            <p class="input_pile"><input data-bind="checked:pileDepth " type="radio" name="pl_depth" value="<?php echo $p_d->val; ?>"> <?php echo $p_d->label; ?> </p>
-                        <?php } ?>
-                    </td>
-                </tr>
-
-
-
-                <tr>
-                    <td><button class="btn btn-default" data-bind="click:add2cart">Add to Cart</button></td>
-                    <td><button class="btn btn-default" data-bind="click:add2cartNMove">Checkout</button></td>
-                </tr>
-            </table>
+    <div class="addtocart-mdl">
+        
+        <div class="col-sm-12">
+            
         </div>
-    </script>
+        <h2>Add to cart</h2>
+        
+            <p>
+                <label><b>Quantity:</b></label>
+                <span><select id="odr-qty"  data-bind="value:qty ">
+                        <?php for ($ic = 1; $ic <= 10; $ic++) { ?>
+                            <option value="<?php echo $ic; ?>"><?php echo $ic; ?></option>
+                        <?php } ?>
+                    </select>
+                </span>
+            </p>
+            <p>
+                <label><b>Shape:</b></label>
+                <span>
+                    <select data-bind="value:shape" >
+                        <option value="round">ROUND</option>
+                        <option value="oval">OVAL</option>
+                        <option value="rect">RECTANGULAR</option>
+                        <option value="square">SQUARE</option>
+                        <option value="runner">RUNNER</option>
+                    </select>
+            </span>
+            </p>
+            <div class="add_card_adia">
+                <span>
+                    <!-- ko if: shape() == "round" -->
+                    <b>Diameter:</b>
+                    <!-- /ko -->
+                    <!-- ko if: shape() == "square" -->
+                    <b>Side:</b>
+                    <!-- /ko -->
+                    <!-- ko if: (shape() != "round" && shape() != "square") -->
+                    <b>Width:</b>
+                    <!-- /ko -->
+                </span>
+                <article>
+                    <input data-bind="value:widthFt " />ft <input data-bind="value:widthIn " />in
+                </article>
+            </div>
+            <!-- ko if: (shape() != "round" && shape() != "square") -->
+             <div class="add_card_adia">
+                <span>
+                    <b>Height:</b>
+                </span>
+                <article>
+                    <input data-bind="value:heightFt " />ft <input data-bind="value:heightIn " />in
+                 </article>
+           </div>
+            <!-- /ko -->
+          <div class="add_card_adia">
+               <span>
+                    <p class="nn_pp">(<?php echo $_global_carving_label; ?>):</p></td>
+                </span>
+               <article>
+                    <select data-bind="value:carving ">
+                        <option value="<?php echo $_global_carving_price; ?>">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                 </article>
+           </div>
+           <div class="add_view_radio">
+                    <?php
+                    $p_depth = json_decode($_global_pile_depth);
+                    foreach ($p_depth as $p_d) {
+                        ?>
+                        <p class="input_pile"><input data-bind="checked:pileDepth " type="radio" name="pl_depth" value="<?php echo $p_d->val; ?>"> <?php echo $p_d->label; ?> </p>
+                    <?php } ?>
+              </div>
+
+
+           <div class="add_view_button">
+                  <span><button class="btn btn-default" data-bind="click:add2cart">Add to Cart</button></span>
+                  <span><button class="btn btn-default" data-bind="click:add2cartNMove">Checkout</button></span>
+           </div>
+        
+    </div>
+</script>
+<?php
+echo $this->Html->css(array('app/addto-cart-mdl'));
+?>

@@ -1,0 +1,122 @@
+  
+.addtocart-mdl {
+    float: left;
+    margin: 0;
+    padding: 4%;
+    width: 350px;
+}
+.addtocart-mdl h2 {
+    background: none repeat scroll 0 0 #fd836b;
+    color: #fff;
+    float: left;
+    font-size: 14px;
+    margin: 0 0 5%;
+    padding: 2%;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+
+
+.addtocart-mdl > p {
+    float: left;
+    width: 100%;margin:0 0 4%; padding:0px;
+}
+
+.addtocart-mdl > p label{
+    color: #404040;
+    float: left;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+.addtocart-mdl > p span{
+    float: left;
+    width: 100%;margin:0px; padding:0px;
+}
+.addtocart-mdl .add_card_adia{
+    float: left;
+    width: 100%;
+    margin: 0 0 2%;
+}
+
+.addtocart-mdl > p span select{
+    float: left;
+    width: 100%;margin:0px; padding:0px; height: 31px;
+}
+
+.addtocart-mdl .add_card_adia span{
+    color: #404040;
+    float: left;
+    font-family: arial;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+
+.addtocart-mdl .add_card_adia article{
+    float: left;
+    width: 100%;
+    margin: 0 0%;
+}
+
+
+
+
+.addtocart-mdl .add_card_adia article input {
+    margin: 0 2% 0 0;width: 43%;
+}
+
+.addtocart-mdl .add_card_adia article input:last-child{
+    margin: 0 2%;
+}
+
+
+.addtocart-mdl .add_card_adia article select{
+    float: left;
+    width: 100%;margin:0px; padding:0px; height: 31px;
+}
+.add_view_radio {
+    float: left;
+    width: 100%;  margin: 2% 0;
+}
+
+#cboxMiddleRight{background: none !important;}
+#cboxTopCenter{background: none !important;}
+#cboxMiddleLeft{background: none !important;}
+#cboxBottomCenter{background: none !important;}
+
+#cboxTopLeft{background: none !important;}
+#cboxTopRight{background: none !important;}
+#cboxBottomLeft{background: none !important;}
+#cboxBottomRight{background: none !important;}
+
+
+#cboxContent {
+    background: none repeat scroll 0 0 #fff;
+    border: 7px solid #fe846c !important;
+    overflow: hidden;
+}
+
+
+.add_view_button span button{
+    box-shadow: 0px 1px 0px 0px rgb(247, 197, 192) inset; background: 
+        linear-gradient(to bottom, rgb(252, 141, 131) 5%, rgb(228, 104, 93) 100%)
+        repeat scroll 0% 0% rgb(252, 141, 131); 
+    border-radius: 6px; border: 1px solid rgb(216, 53, 38);
+    display: inline-block; cursor: pointer; color: rgb(255, 255, 255);
+    font-family: arial; font-size: 15px; 
+    padding: 6px 24px; text-decoration: none; 
+    text-shadow: none !important;
+
+
+}
